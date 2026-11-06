@@ -2,315 +2,425 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import MuradLogo from "@/components/ui/MuradLogo";
 import {
   Search,
-  ShoppingCart,
+  User,
   Heart,
-  ChevronDown,
+  ShoppingBag,
   Menu,
   X,
-  Truck,
-  MessageCircle,
   Phone,
+  ChevronDown,
+  Layers,
+  ArrowRight,
+  Sparkles,
 } from "lucide-react";
 
-const sanitaryBrands = [
-  { name: "Porta", href: "/category/sanitary/porta" },
-  { name: "Faisal Sanitary", href: "/category/sanitary/faisal-sanitary" },
-  { name: "Dell Ceramics", href: "/category/sanitary/dell-ceramics" },
-  { name: "Imported China", href: "/category/sanitary/imported-china" },
+interface CategoryMenuItem {
+  name: string;
+  count: number;
+  slug: string;
+}
+
+const shopByCategoriesList: CategoryMenuItem[] = [
+  { name: "Chinese Kitchen Sinks", count: 18, slug: "sanitary" },
+  { name: "Chinese Marble Basins", count: 24, slug: "sanitary" },
+  { name: "Bathroom Vanities", count: 15, slug: "sanitary" },
+  { name: "Porta Sanitary & Commodes", count: 32, slug: "sanitary" },
+  { name: "Faisal Sanitary Fittings", count: 45, slug: "sanitary" },
+  { name: "Shower Sets & Mixers", count: 28, slug: "sanitary" },
+  { name: "Popular PPR-C & uPVC Pipes", count: 64, slug: "sanitary" },
+  { name: "DuraFlow & DuraMax Fittings", count: 50, slug: "sanitary" },
+  { name: "GM & New Age Cables", count: 36, slug: "electric" },
+  { name: "Electric Switches & Sockets", count: 42, slug: "electric" },
+  { name: "Dura Water Tanks", count: 12, slug: "sanitary" },
+  { name: "Cement, Bricks & Sand", count: 10, slug: "building-material" },
 ];
 
 export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [sanitaryDropdownOpen, setSanitaryDropdownOpen] = useState(false);
+  const [topBarVisible, setTopBarVisible] = useState(true);
+  const [searchCategory, setSearchCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const [categoryDropdownOpen, setCategoryDropdownOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [cartDrawerOpen, setCartDrawerOpen] = useState(false);
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchQuery.trim()) {
-      // Future search route handling
-      console.log("Searching for:", searchQuery);
+    const target = document.getElementById("best-sellers");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <header className="w-full bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
-      {/* 1. TOP BAR */}
-      <div className="bg-slate-900 text-slate-200 text-xs sm:text-sm py-2 px-4 transition-colors">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-          {/* Left: Delivery notice */}
-          <div className="flex items-center gap-2 font-medium">
-            <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+    <header className="w-full relative font-sans">
+      {/* ========================================================
+          BAR 1: Dismissible Top Royal Blue Announcement Bar
+          bg-[#185DB5] text-white text-xs sm:text-sm py-2 px-4
+      ======================================================== */}
+      {topBarVisible && (
+        <div className="bg-[#185DB5] text-white text-xs sm:text-sm py-2 px-4 relative flex items-center justify-between z-40 transition-all">
+          <div className="max-w-7xl mx-auto flex-1 flex items-center justify-center text-center font-medium pr-6 sm:pr-0">
+            <span>
+              Fast delivery in Lahore - Call / WhatsApp :{" "}
+              <a
+                href="https://wa.me/923217165000"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold underline underline-offset-2 hover:text-white/90"
+              >
+                0321-7165000
+              </a>{" "}
+              | Opposite Lake City, Adda Plot, Raiwind Road
             </span>
-            <Truck className="w-4 h-4 text-emerald-400" />
-            <span>Fast Delivery in Lahore</span>
-            <span className="hidden md:inline text-slate-400">| Wholesale & Retail</span>
           </div>
-
-          {/* Right: WhatsApp Building Material Rates CTA */}
-          <div className="flex items-center gap-3">
-            <a
-              href="https://wa.me/923086235608"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold shadow-sm transition-transform active:scale-95"
-            >
-              <MessageCircle className="w-3.5 h-3.5 fill-current" />
-              <span>Building Material Rates</span>
-            </a>
-            <a
-              href="tel:+923086235608"
-              className="hidden lg:flex items-center gap-1 text-slate-300 hover:text-white transition-colors"
-            >
-              <Phone className="w-3.5 h-3.5" />
-              <span>+92 308 6235608</span>
-            </a>
-          </div>
+          <button
+            type="button"
+            onClick={() => setTopBarVisible(false)}
+            className="text-white/80 hover:text-white text-xs font-semibold px-2 py-0.5 rounded cursor-pointer shrink-0 transition"
+            aria-label="Close Announcement Bar"
+          >
+            ✕ close
+          </button>
         </div>
-      </div>
+      )}
 
-      {/* 2. MAIN HEADER */}
-      <div className="max-w-7xl mx-auto px-4 py-3 sm:py-4">
-        <div className="flex items-center justify-between gap-4">
-          {/* Brand Logo */}
-          <Link href="/" className="flex flex-col group shrink-0">
-            <span className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 group-hover:text-blue-700 transition-colors">
-              M Murad Sons
-            </span>
-            <span className="text-[10px] sm:text-xs font-medium uppercase tracking-wider text-slate-500">
-              Sanitary &amp; Electric Store
-            </span>
-          </Link>
+      {/* ========================================================
+          BAR 2: Main White Header (Logo, Pill Search, 3 Icons)
+          bg-white py-4 px-4 sm:px-8 border-b border-[#E5E5E5]
+      ======================================================== */}
+      <div className="bg-white py-3 sm:py-4 px-4 sm:px-8 border-b border-[#E5E5E5]">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+          {/* Left: Custom Monogram Logo */}
+          <div className="shrink-0">
+            <MuradLogo />
+          </div>
 
-          {/* Center Search Bar */}
+          {/* Center: Exact NASGAS Pill Search Bar Container */}
           <form
             onSubmit={handleSearchSubmit}
-            className="hidden md:flex flex-1 max-w-2xl mx-4 relative items-center"
+            className="hidden md:flex flex-1 max-w-2xl mx-4 items-center border-2 border-[#E5E5E5] focus-within:border-[#185DB5] rounded-full overflow-hidden transition-all bg-white shadow-xs"
           >
+            {/* Category Select Dropdown inside search */}
+            <div className="relative pl-3 pr-2 py-1.5 flex items-center shrink-0 border-r border-[#E5E5E5] bg-gray-50/70">
+              <select
+                value={searchCategory}
+                onChange={(e) => setSearchCategory(e.target.value)}
+                className="bg-transparent text-xs font-semibold text-[#222222] pr-6 py-1 focus:outline-none cursor-pointer appearance-none"
+              >
+                <option value="all">All Categories</option>
+                <option value="porta">Porta Sanitary</option>
+                <option value="faisal">Faisal Fittings</option>
+                <option value="sinks">Chinese Kitchen Sinks</option>
+                <option value="basins">Chinese Marble Basins</option>
+                <option value="vanities">Bathroom Vanities</option>
+                <option value="pipes">Popular Pipes</option>
+                <option value="duraflow">DuraFlow Fittings</option>
+                <option value="cables">GM Cables</option>
+                <option value="tanks">Dura Water Tanks</option>
+                <option value="building">Building Material</option>
+              </select>
+              <ChevronDown className="w-3.5 h-3.5 text-gray-500 pointer-events-none absolute right-2" />
+            </div>
+
+            {/* Input Field */}
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search sanitary, electric, bathroom vanity, taps, switches..."
-              className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg pl-4 pr-11 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+              placeholder="Search for products, brands, rates..."
+              className="flex-1 px-4 py-2 text-sm text-[#222222] placeholder:text-gray-400 focus:outline-none bg-transparent"
             />
+
+            {/* NASGAS Pill Royal Blue Button reading 'search' */}
             <button
               type="submit"
-              aria-label="Search products"
-              className="absolute right-1 top-1 bottom-1 px-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md flex items-center justify-center transition-colors"
+              className="bg-[#185DB5] hover:bg-[#13498F] text-white font-medium px-6 py-2 rounded-full m-1 text-sm tracking-wide transition shadow-xs cursor-pointer"
             >
-              <Search className="w-4 h-4" />
+              search
             </button>
           </form>
 
-          {/* Right: Wishlist & Cart Actions */}
+          {/* Right: 3 Outline Icons (Account, Wishlist, Bag with Cart preview) */}
           <div className="flex items-center gap-3 sm:gap-5 shrink-0">
-            {/* Wishlist */}
-            <Link
-              href="/wishlist"
-              className="flex items-center gap-1.5 text-gray-700 hover:text-blue-600 transition-colors relative p-1.5"
-              title="Wishlist"
+            {/* User Account */}
+            <a
+              href="tel:03217165000"
+              className="hidden lg:flex flex-col items-center justify-center text-[#222222] hover:text-[#185DB5] transition p-1"
+              title="Customer Support / Account"
             >
-              <div className="relative">
-                <Heart className="w-6 h-6 stroke-[1.75]" />
-                <span className="absolute -top-1 -right-2 bg-rose-500 text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">
-                  0
-                </span>
-              </div>
-              <span className="hidden lg:inline text-xs font-medium">Wishlist</span>
-            </Link>
+              <User className="w-6 h-6 stroke-[1.5]" />
+              <span className="text-[10px] font-medium text-gray-500 mt-0.5">Support</span>
+            </a>
 
-            {/* Cart */}
-            <Link
-              href="/cart"
-              className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors relative p-1.5"
+            {/* Wishlist */}
+            <div
+              className="relative p-1 text-[#222222] hover:text-[#185DB5] transition cursor-pointer"
+              title="Wishlist"
+              onClick={() => alert("Wishlist is saved locally.")}
+            >
+              <Heart className="w-6 h-6 stroke-[1.5]" />
+              <span className="absolute -top-1 -right-1 bg-[#185DB5] text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">
+                0
+              </span>
+            </div>
+
+            {/* Shopping Bag / Cart */}
+            <button
+              type="button"
+              onClick={() => setCartDrawerOpen(true)}
+              className="flex items-center gap-2 p-1 text-[#222222] hover:text-[#185DB5] transition cursor-pointer group"
               title="Shopping Cart"
             >
               <div className="relative">
-                <ShoppingCart className="w-6 h-6 stroke-[1.75]" />
-                <span className="absolute -top-1 -right-2 bg-blue-600 text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">
+                <ShoppingBag className="w-6 h-6 stroke-[1.5]" />
+                <span className="absolute -top-1 -right-1 bg-[#185DB5] text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">
                   0
                 </span>
               </div>
-              <div className="hidden lg:flex flex-col text-left">
-                <span className="text-[10px] text-gray-500 uppercase leading-none">Cart</span>
-                <span className="text-xs font-bold text-gray-900">PKR 0.00</span>
+              <div className="hidden sm:flex flex-col text-left">
+                <span className="text-[11px] font-bold text-[#111111] group-hover:text-[#185DB5] leading-tight">
+                  0 / Rs.0.00
+                </span>
+                <span className="text-[9px] uppercase tracking-wider text-gray-400 font-medium">
+                  My Cart
+                </span>
               </div>
-            </Link>
+            </button>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Hamburger Menu Toggle */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-gray-700 hover:text-blue-600 hover:bg-gray-100 rounded-lg transition-colors"
-              aria-label="Toggle navigation menu"
+              className="md:hidden p-2 text-[#222222] hover:text-[#185DB5] rounded-md transition"
+              aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Search Bar (visible on small screens) */}
-        <form onSubmit={handleSearchSubmit} className="mt-3 md:hidden relative flex items-center">
+        {/* Mobile Search Bar (visible on small viewports) */}
+        <form
+          onSubmit={handleSearchSubmit}
+          className="mt-3 md:hidden flex items-center border border-[#E5E5E5] focus-within:border-[#185DB5] rounded-full overflow-hidden bg-white shadow-xs"
+        >
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search products..."
-            className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg pl-4 pr-11 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+            placeholder="Search products & rates..."
+            className="flex-1 px-4 py-2 text-xs text-[#222222] focus:outline-none"
           />
           <button
             type="submit"
-            aria-label="Search"
-            className="absolute right-1 top-1 bottom-1 px-3 bg-blue-600 text-white rounded-md flex items-center justify-center"
+            className="bg-[#185DB5] text-white text-xs font-semibold px-4 py-2 rounded-full m-1"
           >
-            <Search className="w-4 h-4" />
+            search
           </button>
         </form>
       </div>
 
-      {/* 3. BOTTOM NAVIGATION MENU */}
-      <nav className="bg-slate-100 border-t border-gray-200 hidden md:block">
-        <div className="max-w-7xl mx-auto px-4 flex items-center gap-8 text-sm font-semibold text-gray-800">
-          <Link
-            href="/"
-            className="py-3 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition-colors"
-          >
-            Home
-          </Link>
-
-          {/* Sanitary with Dropdown */}
+      {/* ========================================================
+          BAR 3: Sticky Dark Charcoal Navigation Bar
+          bg-[#222222] text-white sticky top-0 z-50 shadow-md
+      ======================================================== */}
+      <nav className="bg-[#222222] text-white sticky top-0 z-50 shadow-md border-b border-black/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between relative">
+          {/* Left: Full-Height Royal Blue '≡ SHOP BY CATEGORY' button */}
           <div
-            className="relative group py-3 cursor-pointer"
-            onMouseEnter={() => setSanitaryDropdownOpen(true)}
-            onMouseLeave={() => setSanitaryDropdownOpen(false)}
+            className="relative"
+            onMouseEnter={() => setCategoryDropdownOpen(true)}
+            onMouseLeave={() => setCategoryDropdownOpen(false)}
           >
-            <div className="flex items-center gap-1 hover:text-blue-600 border-b-2 border-transparent group-hover:border-blue-600 transition-colors">
-              <Link href="/category/sanitary">Sanitary</Link>
-              <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
-            </div>
-
-            {/* Dropdown Menu */}
-            <div
-              className={`absolute left-0 top-full w-56 bg-white border border-gray-200 rounded-b-lg shadow-lg py-2 z-50 transition-all duration-150 ${
-                sanitaryDropdownOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-1"
-              }`}
-            >
-              <div className="px-3 py-1.5 text-[11px] font-bold text-gray-400 uppercase tracking-wider border-b border-gray-100">
-                Top Sanitary Brands
-              </div>
-              {sanitaryBrands.map((brand) => (
-                <Link
-                  key={brand.name}
-                  href={brand.href}
-                  className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors"
-                >
-                  {brand.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Electric */}
-          <Link
-            href="/category/electric"
-            className="py-3 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition-colors"
-          >
-            Electric
-          </Link>
-
-          {/* Additional Quick Categories */}
-          <Link
-            href="/category/pipes-fittings"
-            className="py-3 hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition-colors"
-          >
-            Pipes &amp; Fittings
-          </Link>
-
-          <Link
-            href="/deals"
-            className="py-3 text-rose-600 hover:text-rose-700 border-b-2 border-transparent hover:border-rose-600 transition-colors font-bold ml-auto"
-          >
-            Special Offers
-          </Link>
-        </div>
-      </nav>
-
-      {/* MOBILE COLLAPSIBLE MENU */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200 px-4 py-4 space-y-3">
-          <Link
-            href="/"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-base font-medium text-gray-800 hover:text-blue-600 border-b border-gray-100"
-          >
-            Home
-          </Link>
-
-          {/* Sanitary Collapsible */}
-          <div>
             <button
               type="button"
-              onClick={() => setSanitaryDropdownOpen(!sanitaryDropdownOpen)}
-              className="w-full flex items-center justify-between py-2 text-base font-medium text-gray-800 hover:text-blue-600 border-b border-gray-100"
+              onClick={() => setCategoryDropdownOpen(!categoryDropdownOpen)}
+              className="bg-[#185DB5] hover:bg-[#13498F] text-white font-bold px-6 py-3.5 flex items-center gap-3 uppercase text-xs sm:text-sm tracking-wide transition-colors cursor-pointer"
             >
-              <span>Sanitary</span>
+              <Menu className="w-4 h-4 stroke-[2.5]" />
+              <span>≡ SHOP BY CATEGORY</span>
               <ChevronDown
-                className={`w-4 h-4 transition-transform ${sanitaryDropdownOpen ? "rotate-180" : ""}`}
+                className={`w-3.5 h-3.5 ml-1 transition-transform duration-200 ${
+                  categoryDropdownOpen ? "rotate-180" : ""
+                }`}
               />
             </button>
-            {sanitaryDropdownOpen && (
-              <div className="pl-4 py-1 space-y-1 bg-gray-50 rounded-md mt-1">
-                {sanitaryBrands.map((brand) => (
-                  <Link
-                    key={brand.name}
-                    href={brand.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block py-1.5 text-sm text-gray-600 hover:text-blue-600"
-                  >
-                    {brand.name}
-                  </Link>
-                ))}
+
+            {/* Mega Dropdown Menu for Shop By Category */}
+            {categoryDropdownOpen && (
+              <div className="absolute left-0 top-full w-80 bg-white text-[#222222] border border-[#E5E5E5] rounded-b-xl shadow-2xl py-2 z-50">
+                <div className="px-4 py-2 bg-gray-50 border-b border-[#E5E5E5] flex items-center justify-between">
+                  <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider">
+                    All Store Departments
+                  </span>
+                  <span className="text-[10px] font-semibold text-[#185DB5] bg-blue-50 px-2 py-0.5 rounded">
+                    12 Categories
+                  </span>
+                </div>
+                <div className="max-h-[70vh] overflow-y-auto divide-y divide-gray-100">
+                  {shopByCategoriesList.map((cat, idx) => (
+                    <Link
+                      key={idx}
+                      href={`/category/${cat.slug}`}
+                      onClick={() => setCategoryDropdownOpen(false)}
+                      className="px-4 py-2.5 flex items-center justify-between text-xs font-semibold hover:bg-blue-50 hover:text-[#185DB5] transition group"
+                    >
+                      <span className="text-[#333333] group-hover:text-[#185DB5]">{cat.name}</span>
+                      <span className="text-[11px] font-bold bg-gray-100 group-hover:bg-[#185DB5] group-hover:text-white px-2 py-0.5 rounded-full text-gray-600 transition">
+                        {cat.count}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
               </div>
             )}
           </div>
 
-          {/* Electric */}
-          <Link
-            href="/category/electric"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-base font-medium text-gray-800 hover:text-blue-600 border-b border-gray-100"
-          >
-            Electric
-          </Link>
-
-          {/* Pipes & Fittings */}
-          <Link
-            href="/category/pipes-fittings"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-base font-medium text-gray-800 hover:text-blue-600 border-b border-gray-100"
-          >
-            Pipes &amp; Fittings
-          </Link>
-
-          {/* WhatsApp Direct CTA Mobile */}
-          <div className="pt-2">
-            <a
-              href="https://wa.me/923086235608"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-emerald-600 text-white font-semibold text-sm"
-            >
-              <MessageCircle className="w-4 h-4" />
-              <span>WhatsApp Rates: 0308 6235608</span>
+          {/* Center: Exact NASGAS Navigation Links */}
+          <div className="hidden lg:flex items-center gap-7 text-xs font-bold uppercase tracking-wider text-white">
+            <Link href="/" className="hover:text-blue-400 py-3.5 transition">
+              HOME
+            </Link>
+            <Link href="/category/sanitary" className="hover:text-blue-400 py-3.5 transition">
+              CHINESE IMPORTED
+            </Link>
+            <Link href="/category/sanitary" className="hover:text-blue-400 py-3.5 transition">
+              SANITARY &amp; SINKS
+            </Link>
+            <Link href="/category/electric" className="hover:text-blue-400 py-3.5 transition">
+              PIPES &amp; ELECTRIC
+            </Link>
+            <a href="#best-sellers" className="hover:text-blue-400 py-3.5 transition text-amber-300">
+              LIVE RATE LIST
             </a>
+            <Link href="/category/building-material" className="hover:text-blue-400 py-3.5 transition">
+              BUILDING MATERIAL
+            </Link>
+            <a href="#footer-contact" className="hover:text-blue-400 py-3.5 transition">
+              CONTACT US
+            </a>
+          </div>
+
+          {/* Right: Phone Icon + Bold Underlined White Contact */}
+          <div className="flex items-center gap-2">
+            <Phone className="w-4 h-4 text-[#185DB5] fill-[#185DB5]" />
+            <a
+              href="tel:03217165000"
+              className="text-white text-xs sm:text-sm font-bold tracking-wider underline underline-offset-4 hover:text-blue-400 transition"
+            >
+              0321-7165000
+            </a>
+          </div>
+        </div>
+
+        {/* Mobile Dropdown Navigation */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden bg-[#1a1a1a] border-t border-gray-800 px-4 py-4 space-y-3 text-sm font-bold uppercase">
+            <Link
+              href="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-white hover:text-blue-400 border-b border-gray-800"
+            >
+              HOME
+            </Link>
+            <Link
+              href="/category/sanitary"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-white hover:text-blue-400 border-b border-gray-800"
+            >
+              CHINESE IMPORTED
+            </Link>
+            <Link
+              href="/category/sanitary"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-white hover:text-blue-400 border-b border-gray-800"
+            >
+              SANITARY &amp; SINKS
+            </Link>
+            <Link
+              href="/category/electric"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-white hover:text-blue-400 border-b border-gray-800"
+            >
+              PIPES &amp; ELECTRIC
+            </Link>
+            <a
+              href="#best-sellers"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-amber-400 hover:text-amber-300 border-b border-gray-800"
+            >
+              LIVE RATE LIST
+            </a>
+            <Link
+              href="/category/building-material"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-white hover:text-blue-400 border-b border-gray-800"
+            >
+              BUILDING MATERIAL
+            </Link>
+            <a
+              href="#footer-contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-white hover:text-blue-400"
+            >
+              CONTACT US
+            </a>
+          </div>
+        )}
+      </nav>
+
+      {/* Slide-out Cart Drawer Modal */}
+      {cartDrawerOpen && (
+        <div className="fixed inset-0 z-50 flex justify-end bg-black/50 backdrop-blur-xs transition-opacity">
+          <div className="w-full max-w-md bg-white h-full shadow-2xl flex flex-col justify-between p-6">
+            <div>
+              <div className="flex items-center justify-between border-b border-gray-200 pb-4">
+                <div className="flex items-center gap-2">
+                  <ShoppingBag className="w-5 h-5 text-[#185DB5]" />
+                  <h3 className="font-bold text-lg text-[#111111]">Your Shopping Cart</h3>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setCartDrawerOpen(false)}
+                  className="p-1 text-gray-500 hover:text-[#111111] rounded-md"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="py-12 text-center text-gray-500">
+                <ShoppingBag className="w-12 h-12 text-gray-300 mx-auto mb-3" />
+                <p className="font-semibold text-sm text-[#222222]">Your cart is currently empty</p>
+                <p className="text-xs text-gray-400 mt-1 max-w-xs mx-auto">
+                  Browse our authentic sanitary, pipe &amp; electric catalog or ask for custom builder estimates.
+                </p>
+              </div>
+            </div>
+
+            <div className="border-t border-gray-200 pt-4 space-y-3">
+              <a
+                href="https://wa.me/923217165000?text=Assalam-o-Alaikum%20M.%20Murad%20Sons!%20I%20want%20to%20place%20an%20order."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 rounded-full bg-[#185DB5] hover:bg-[#13498F] text-white font-bold text-sm flex items-center justify-center gap-2 transition"
+              >
+                <span>Direct WhatsApp Order: 0321-7165000</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+              <button
+                type="button"
+                onClick={() => setCartDrawerOpen(false)}
+                className="w-full py-2.5 rounded-full bg-gray-100 hover:bg-gray-200 text-[#222222] font-semibold text-xs transition"
+              >
+                Continue Browsing
+              </button>
+            </div>
           </div>
         </div>
       )}
     </header>
   );
 }
-
