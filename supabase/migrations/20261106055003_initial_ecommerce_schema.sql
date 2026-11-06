@@ -66,3 +66,4 @@ VALUES
   ('New Age Cables', 'new-age-cables'),
   ('Bestway Cement', 'bestway-cement')
 ON CONFLICT (slug) DO NOTHING;
+
