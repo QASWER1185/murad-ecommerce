@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { brands, categories, products, money, whatsapp, type Category, type Product } from './reference-catalog';
 import { referenceAssets } from './reference-assets';
 import styles from './ReferenceStorefront.module.css';
@@ -41,6 +42,7 @@ function Modal({ title, onClose, children }: { title: string; onClose: () => voi
 }
 
 export default function ReferenceStorefront() {
+  const router = useRouter();
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState<Category | null>(null);
   const [brand, setBrand] = useState<string | null>(null);
@@ -74,6 +76,10 @@ export default function ReferenceStorefront() {
   }, [menu]);
 
   const selectCategory = (value: Category | null) => {
+    if (value === 'sanitary') {
+      router.push('/category/sanitary');
+      return;
+    }
     setCategory(value); setBrand(null); setQuery(''); setTab('Best Sellers'); setMenu(false);
     productRail.current?.scrollTo({ left: 0 });
     document.getElementById('featured-products')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
