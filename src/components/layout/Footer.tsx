@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
 import MuradLogo from "@/components/ui/MuradLogo";
 import {
@@ -6,188 +8,123 @@ import {
   Phone,
   Mail,
   Clock,
-  MessageCircle,
-  ArrowRight,
   ShieldCheck,
   Truck,
-  Sparkles,
+  Award,
+  CreditCard,
+  CheckCircle,
 } from "lucide-react";
 
 export default function Footer() {
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (newsletterEmail.trim()) {
+      setSubscribed(true);
+      setNewsletterEmail("");
+      setTimeout(() => setSubscribed(false), 4000);
+    }
+  };
   return (
-    <footer id="footer-contact" className="w-full font-sans">
+    <footer id="footer-contact" className="w-full font-sans border-t-4 border-[#C59B27]">
       {/* ========================================================
-          FULL ROYAL BLUE FOOTER BACKGROUND (#185DB5)
+          ROYAL BLUE FOOTER: bg-[#185DB5] text-white pt-12 pb-8
       ======================================================== */}
-      <div className="bg-[#185DB5] text-white pt-16 pb-14 px-4 sm:px-8 border-b border-blue-600/50">
+      <div className="bg-[#185DB5] text-white pt-12 pb-10 px-4 sm:px-8">
         <div className="max-w-7xl mx-auto">
-          {/* Top of Footer (Centered): White MuradLogo + Large Bold White Heading */}
-          <div className="flex flex-col items-center justify-center text-center pb-12 border-b border-white/20 mb-12">
-            <MuradLogo variant="white" className="mb-4" />
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight max-w-3xl">
-              #1 Sanitary, Electric &amp; Building Material Store In Lahore
-            </h2>
-            <p className="text-white/80 text-xs sm:text-sm mt-2 max-w-xl">
-              Authorized wholesale supplier for Porta, Faisal Sanitary, Popular Pipes, GM Cables, Dura Tanks &amp; Construction Supplies.
-            </p>
+          {/* Top Branding Section */}
+          <div className="flex flex-col sm:flex-row items-center justify-between pb-10 border-b border-blue-400/30 gap-6">
+            <div className="flex items-center gap-4">
+              <MuradLogo variant="white" />
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-6 text-xs font-semibold text-blue-100">
+              <div className="flex items-center gap-2">
+                <Truck className="w-4 h-4 text-[#C59B27]" />
+                <span>Fast On-Site Lahore Delivery</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-[#C59B27]" />
+                <span>100% Genuine Authorized Brands</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Award className="w-4 h-4 text-[#C59B27]" />
+                <span>Transparent Wholesale Builder Rates</span>
+              </div>
+            </div>
           </div>
 
-          {/* 4 COLUMNS INSIDE #185DB5 FOOTER */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-xs sm:text-sm">
-            {/* Column 1: Get in touch */}
-            <div className="space-y-4">
-              <h3 className="text-base sm:text-lg font-black uppercase tracking-wider text-white border-b border-white/20 pb-2">
-                Get in touch
-              </h3>
-              <p className="text-white/90 leading-relaxed">
-                M. Murad Sons is a trusted sanitary, electric, kitchen, and building material store providing genuine brands at wholesale rates.
+          {/* 5 Columns Section */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 pt-10 text-xs sm:text-sm">
+            {/* Column 1: Our Store */}
+            <div className="space-y-3">
+              <h4 className="text-sm font-black uppercase tracking-wider text-[#E6D3A3] border-b border-blue-400/30 pb-2">
+                Our Store
+              </h4>
+              <p className="text-blue-100 text-xs leading-relaxed">
+                M. Murad Sons is Lahore&apos;s leading supplier of luxury Chinese waterfall sinks, Porta commodes, Faisal fittings, Popular pipes, Dura tanks, and GM copper cables.
               </p>
-
-              <div className="space-y-2.5 text-white/95 pt-1">
-                <div className="flex items-start gap-2.5">
-                  <MapPin className="w-4 h-4 text-white shrink-0 mt-0.5" />
-                  <span>Opposite Lake City, Adda Plot, Al Kabir Town, Raiwind Road, Lahore</span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <Mail className="w-4 h-4 text-white shrink-0" />
-                  <a href="mailto:info@mmuradsons.com" className="hover:underline">
-                    info@mmuradsons.com
-                  </a>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <Phone className="w-4 h-4 text-white shrink-0" />
-                  <a href="tel:03217165000" className="font-bold underline hover:text-white/80">
-                    0321-7165000
-                  </a>
-                  <span>|</span>
-                  <a href="tel:03086235608" className="font-bold underline hover:text-white/80">
-                    0308-6235608
-                  </a>
-                </div>
-                <div className="flex items-center gap-2.5 text-white/80 text-xs">
-                  <Clock className="w-3.5 h-3.5 text-white shrink-0" />
-                  <span>Mon – Sun, 8:00 AM – 8:00 PM</span>
-                </div>
-              </div>
-
-              {/* White Circular Social Media Icons */}
-              <div className="flex items-center gap-2.5 pt-2">
-                <a
-                  href="https://wa.me/923217165000"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-white text-[#185DB5] flex items-center justify-center font-bold text-xs hover:bg-slate-100 transition shadow-sm"
-                  title="WhatsApp"
-                >
-                  WA
-                </a>
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-white text-[#185DB5] flex items-center justify-center font-bold text-xs hover:bg-slate-100 transition shadow-sm"
-                  title="Facebook"
-                >
-                  FB
-                </a>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-white text-[#185DB5] flex items-center justify-center font-bold text-xs hover:bg-slate-100 transition shadow-sm"
-                  title="Instagram"
-                >
-                  IG
-                </a>
-                <a
-                  href="https://tiktok.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-white text-[#185DB5] flex items-center justify-center font-bold text-xs hover:bg-slate-100 transition shadow-sm"
-                  title="TikTok"
-                >
-                  TT
-                </a>
-                <a
-                  href="https://youtube.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-white text-[#185DB5] flex items-center justify-center font-bold text-xs hover:bg-slate-100 transition shadow-sm"
-                  title="YouTube"
-                >
-                  YT
-                </a>
+              <div className="pt-2 text-xs text-blue-200 space-y-1">
+                <p>Wholesale &amp; Retail supply</p>
+                <p>Contractor &amp; Project estimations</p>
               </div>
             </div>
 
             {/* Column 2: Categories */}
             <div className="space-y-3">
-              <h3 className="text-base sm:text-lg font-black uppercase tracking-wider text-white border-b border-white/20 pb-2">
+              <h4 className="text-sm font-black uppercase tracking-wider text-[#E6D3A3] border-b border-blue-400/30 pb-2">
                 Categories
-              </h3>
-              <ul className="space-y-2 text-white/90">
+              </h4>
+              <ul className="space-y-2 text-xs text-blue-100">
                 <li>
-                  <Link href="/category/sanitary" className="hover:underline">
-                    Chinese Kitchen Sinks
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/category/sanitary" className="hover:underline">
-                    Chinese Marble Basins
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/category/sanitary" className="hover:underline">
-                    Bathroom Vanities
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/category/sanitary" className="hover:underline">
+                  <Link href="/category/sanitary" className="hover:text-white transition">
                     Porta Sanitary &amp; Commodes
                   </Link>
                 </li>
                 <li>
-                  <Link href="/category/sanitary" className="hover:underline">
+                  <Link href="/category/sanitary" className="hover:text-white transition">
                     Faisal Sanitary Fittings
                   </Link>
                 </li>
                 <li>
-                  <Link href="/category/sanitary" className="hover:underline">
-                    Popular PPR-C &amp; uPVC Pipes
+                  <Link href="/category/sanitary" className="hover:text-white transition">
+                    Chinese Waterfall Sinks
                   </Link>
                 </li>
                 <li>
-                  <Link href="/category/sanitary" className="hover:underline">
-                    DuraFlow &amp; DuraMax Fittings
+                  <Link href="/category/sanitary" className="hover:text-white transition">
+                    Marble Art Basins &amp; Vanities
                   </Link>
                 </li>
                 <li>
-                  <Link href="/category/electric" className="hover:underline">
-                    GM Cables &amp; Electric
+                  <Link href="/category/sanitary" className="hover:text-white transition">
+                    Popular &amp; DuraFlow Pipes
                   </Link>
                 </li>
                 <li>
-                  <Link href="/category/sanitary" className="hover:underline">
-                    Dura Water Tanks
+                  <Link href="/category/electric" className="hover:text-white transition">
+                    GM &amp; New Age Pure Copper Cables
                   </Link>
                 </li>
                 <li>
-                  <Link href="/category/building-material" className="hover:underline">
-                    Bestway Cement &amp; Bricks
+                  <Link href="/category/building-material" className="hover:text-white transition">
+                    Bestway Cement &amp; Construction Material
                   </Link>
                 </li>
               </ul>
             </div>
 
-            {/* Column 3: Support */}
+            {/* Column 3: Customer Service */}
             <div className="space-y-3">
-              <h3 className="text-base sm:text-lg font-black uppercase tracking-wider text-white border-b border-white/20 pb-2">
-                Support
-              </h3>
-              <ul className="space-y-2 text-white/90">
+              <h4 className="text-sm font-black uppercase tracking-wider text-[#E6D3A3] border-b border-blue-400/30 pb-2">
+                Customer Service
+              </h4>
+              <ul className="space-y-2 text-xs text-blue-100">
                 <li>
-                  <a href="#best-sellers" className="hover:underline">
-                    Online Rate Sheet
+                  <a href="#best-sellers" className="hover:text-white transition">
+                    Online Rate List
                   </a>
                 </li>
                 <li>
@@ -195,87 +132,119 @@ export default function Footer() {
                     href="https://wa.me/923217165000"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:underline font-semibold"
+                    className="hover:text-white transition font-bold text-amber-300"
                   >
-                    WhatsApp Estimate (0321-7165000)
+                    WhatsApp Rate Quotation
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://wa.me/923086235608"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:underline font-semibold"
-                  >
-                    Bulk / Contractor Inquiry
+                  <a href="#brands" className="hover:text-white transition">
+                    Brand Warranty &amp; Authenticity
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://maps.google.com/?q=Al+Kabir+Town+Raiwind+Road+Lahore"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:underline"
-                  >
-                    Store Location Map
+                  <a href="#footer-contact" className="hover:text-white transition">
+                    Delivery &amp; Site Dispatch Policy
                   </a>
                 </li>
                 <li>
-                  <Link href="/category/sanitary" className="hover:underline">
-                    Porta Brand Catalog
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/category/electric" className="hover:underline">
-                    GM Cables Certified Rates
-                  </Link>
+                  <a href="#footer-contact" className="hover:text-white transition">
+                    Contractor Discounts
+                  </a>
                 </li>
               </ul>
             </div>
 
-            {/* Column 4: Useful links */}
+            {/* Column 4: Contact Us */}
             <div className="space-y-3">
-              <h3 className="text-base sm:text-lg font-black uppercase tracking-wider text-white border-b border-white/20 pb-2">
-                Useful links
-              </h3>
-              <ul className="space-y-2 text-white/90">
-                <li>
-                  <a href="#best-sellers" className="hover:underline">
-                    Orders &amp; Inquiries
+              <h4 className="text-sm font-black uppercase tracking-wider text-[#E6D3A3] border-b border-blue-400/30 pb-2">
+                Contact Us
+              </h4>
+              <div className="space-y-2.5 text-xs text-blue-100">
+                <div className="flex items-start gap-2">
+                  <MapPin className="w-4 h-4 text-[#C59B27] shrink-0 mt-0.5" />
+                  <span>
+                    Opposite Lake City, Adda Plot, Al Kabir Town, Raiwind Road, Lahore
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-[#C59B27] shrink-0" />
+                  <div className="flex flex-col">
+                    <a href="tel:03217165000" className="font-bold hover:underline">
+                      0321-7165000
+                    </a>
+                    <a href="tel:03086235608" className="hover:underline text-blue-200">
+                      0308-6235608
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-[#C59B27] shrink-0" />
+                  <a href="mailto:info@mmuradsons.com" className="hover:underline">
+                    info@mmuradsons.com
                   </a>
-                </li>
-                <li>
-                  <a href="#footer-contact" className="hover:underline">
-                    Return &amp; Exchange Policy
-                  </a>
-                </li>
-                <li>
-                  <a href="#footer-contact" className="hover:underline">
-                    Terms of Service
-                  </a>
-                </li>
-                <li>
-                  <a href="#footer-contact" className="hover:underline">
-                    Shipping Policy (Lahore On-Site Delivery)
-                  </a>
-                </li>
-                <li>
-                  <a href="tel:03217165000" className="hover:underline font-semibold">
-                    Contact Us Direct
-                  </a>
-                </li>
-              </ul>
+                </div>
+                <div className="flex items-center gap-2 text-blue-200">
+                  <Clock className="w-3.5 h-3.5 text-[#C59B27] shrink-0" />
+                  <span>Mon – Sun: 8:00 AM – 8:00 PM</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Column 5: Email Newsletter */}
+            <div className="space-y-3">
+              <h4 className="text-sm font-black uppercase tracking-wider text-[#E6D3A3] border-b border-blue-400/30 pb-2">
+                Email Newsletter
+              </h4>
+              <p className="text-xs text-blue-100">
+                Subscribe for weekly discount rates on pipes, sanitary, and daily construction material updates.
+              </p>
+              <form
+                onSubmit={handleNewsletterSubmit}
+                className="space-y-2 pt-1"
+              >
+                <input
+                  type="email"
+                  required
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  className="w-full bg-white text-slate-900 rounded-md px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-[#C59B27]"
+                />
+                <button
+                  type="submit"
+                  className="w-full bg-[#C59B27] hover:bg-[#b08920] text-slate-950 font-black py-2 rounded-md text-xs tracking-wider uppercase transition shadow-sm cursor-pointer"
+                >
+                  Sign Up
+                </button>
+              </form>
+              {subscribed && (
+                <p className="text-[11px] font-bold text-emerald-300 pt-1">
+                  ✓ Thank you for subscribing!
+                </p>
+              )}
+            </div>
+          </div>
+
+          {/* Bottom Trust & Payment Badges */}
+          <div className="mt-12 pt-6 border-t border-blue-400/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-blue-200">
+            <p>© 2026 M. MURAD SONS. All rights reserved. Lahore, Pakistan.</p>
+            <div className="flex items-center gap-4 text-xs font-semibold">
+              <span className="flex items-center gap-1">
+                <CheckCircle className="w-3.5 h-3.5 text-emerald-300" />
+                <span>Cash on Delivery</span>
+              </span>
+              <span className="flex items-center gap-1">
+                <CheckCircle className="w-3.5 h-3.5 text-emerald-300" />
+                <span>Direct Bank Transfer</span>
+              </span>
+              <span className="flex items-center gap-1">
+                <CheckCircle className="w-3.5 h-3.5 text-emerald-300" />
+                <span>On-Site Site Verification</span>
+              </span>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* ========================================================
-          BOTTOM WHITE BAR: Copyright © 2026 M. MURAD SONS
-          bg-white text-[#222222] py-4 px-6 text-center text-sm
-      ======================================================== */}
-      <div className="bg-white text-[#222222] py-4 px-6 text-center text-xs sm:text-sm font-semibold border-t border-gray-200">
-        <p>Copyright © 2026 M. MURAD SONS all rights reserved.</p>
       </div>
     </footer>
   );
