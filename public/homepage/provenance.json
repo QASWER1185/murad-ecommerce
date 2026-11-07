@@ -1,0 +1,374 @@
+{
+  "source_sha256": "01d232365894868a872b5e7aa74e05c30c1554762d1e3d04c2b298245bbe86b2",
+  "source_dimensions": [
+    1199,
+    1312
+  ],
+  "reference_coordinate_dimensions": [
+    1199,
+    1312
+  ],
+  "crops": {
+    "logo-header": [
+      40,
+      39,
+      281,
+      56
+    ],
+    "logo-footer": [
+      40,
+      1182,
+      175,
+      89
+    ],
+    "logo-header-mark": [
+      40,
+      39,
+      73,
+      56
+    ],
+    "logo-footer-mark": [
+      96,
+      1182,
+      60,
+      47
+    ],
+    "hero": [
+      0,
+      141,
+      1199,
+      266
+    ],
+    "hero-mobile": [
+      474,
+      141,
+      725,
+      266
+    ],
+    "category-sanitary": [
+      38,
+      421,
+      120,
+      82
+    ],
+    "category-kitchen": [
+      170,
+      421,
+      118,
+      82
+    ],
+    "category-hobs": [
+      300,
+      421,
+      115,
+      82
+    ],
+    "category-hoods": [
+      427,
+      421,
+      111,
+      82
+    ],
+    "category-geysers": [
+      550,
+      421,
+      116,
+      82
+    ],
+    "category-pipes": [
+      678,
+      421,
+      108,
+      82
+    ],
+    "category-tanks": [
+      798,
+      421,
+      107,
+      82
+    ],
+    "category-electric": [
+      917,
+      421,
+      111,
+      82
+    ],
+    "category-building": [
+      1040,
+      421,
+      121,
+      82
+    ],
+    "brand-faisal": [
+      37,
+      590,
+      138,
+      58
+    ],
+    "brand-porta-ceramics": [
+      185,
+      590,
+      136,
+      58
+    ],
+    "brand-porta-sanitary": [
+      331,
+      590,
+      133,
+      58
+    ],
+    "brand-dell": [
+      474,
+      590,
+      129,
+      58
+    ],
+    "brand-popular": [
+      613,
+      590,
+      130,
+      58
+    ],
+    "brand-duramax": [
+      753,
+      590,
+      131,
+      58
+    ],
+    "brand-duraflow": [
+      894,
+      590,
+      132,
+      58
+    ],
+    "brand-imported": [
+      1036,
+      590,
+      129,
+      58
+    ],
+    "badge-bestseller": [
+      43,
+      708,
+      58,
+      22
+    ],
+    "product-commode": [
+      54,
+      710,
+      167,
+      104
+    ],
+    "product-basin": [
+      240,
+      710,
+      166,
+      104
+    ],
+    "product-mixer": [
+      425,
+      710,
+      165,
+      104
+    ],
+    "product-shower": [
+      608,
+      710,
+      166,
+      104
+    ],
+    "product-sink": [
+      793,
+      710,
+      166,
+      104
+    ],
+    "product-hob": [
+      979,
+      710,
+      165,
+      104
+    ],
+    "banner-pipes": [
+      16,
+      959,
+      576,
+      135
+    ],
+    "banner-building": [
+      607,
+      959,
+      576,
+      135
+    ],
+    "social-icons": [
+      878,
+      1198,
+      111,
+      24
+    ],
+    "icon-pin-top": [
+      39,
+      7,
+      15,
+      19
+    ],
+    "icon-check": [
+      429,
+      10,
+      15,
+      13
+    ],
+    "icon-phone": [
+      936,
+      6,
+      20,
+      21
+    ],
+    "icon-whatsapp-top": [
+      1076,
+      6,
+      21,
+      22
+    ],
+    "icon-search": [
+      809,
+      58,
+      24,
+      24
+    ],
+    "icon-account": [
+      909,
+      58,
+      21,
+      25
+    ],
+    "icon-heart-header": [
+      1027,
+      58,
+      22,
+      25
+    ],
+    "icon-cart-header": [
+      1121,
+      58,
+      20,
+      26
+    ],
+    "icon-chevron-down": [
+      978,
+      72,
+      10,
+      9
+    ],
+    "icon-chevron-white": [
+      362,
+      118,
+      10,
+      10
+    ],
+    "icon-list": [
+      50,
+      115,
+      19,
+      16
+    ],
+    "icon-menu-chevron": [
+      166,
+      119,
+      10,
+      8
+    ],
+    "icon-view-brands": [
+      1159,
+      567,
+      9,
+      12
+    ],
+    "icon-chevron-right": [
+      282,
+      346,
+      11,
+      14
+    ],
+    "icon-cart-button": [
+      73,
+      909,
+      16,
+      16
+    ],
+    "icon-heart-product": [
+      190,
+      908,
+      20,
+      19
+    ],
+    "icon-star": [
+      59,
+      878,
+      14,
+      15
+    ],
+    "icon-previous": [
+      24,
+      798,
+      12,
+      17
+    ],
+    "icon-next": [
+      1164,
+      798,
+      12,
+      17
+    ],
+    "icon-whatsapp-banner": [
+      653,
+      1044,
+      26,
+      28
+    ],
+    "icon-delivery": [
+      58,
+      1114,
+      34,
+      29
+    ],
+    "icon-shield": [
+      292,
+      1114,
+      30,
+      29
+    ],
+    "icon-payment": [
+      524,
+      1114,
+      33,
+      29
+    ],
+    "icon-returns": [
+      751,
+      1114,
+      31,
+      29
+    ],
+    "icon-support": [
+      973,
+      1114,
+      31,
+      29
+    ],
+    "icon-pin-footer": [
+      643,
+      1197,
+      21,
+      24
+    ],
+    "icon-whatsapp-footer": [
+      643,
+      1244,
+      23,
+      24
+    ]
+  },
+  "note": "All visuals extracted from the approved reference; no replacement images or generated artwork."
+}

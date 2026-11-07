@@ -1,4 +1,5 @@
-﻿import BentoStorefront from "@/components/store/BentoStorefront";
+import ReferenceStorefront from '@/components/home/ReferenceStorefront';
+
 export default function HomePage() {
-  return <BentoStorefront />;
+  return <ReferenceStorefront />;
 }

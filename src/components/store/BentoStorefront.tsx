@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React, { useState, useMemo } from "react";
 import { Search, ShoppingCart, PhoneCall, Sparkles, ChevronLeft, ChevronRight, Plus, Check, X, Trash2, Send, ShieldCheck } from "lucide-react";
 
@@ -207,7 +207,7 @@ export default function BentoStorefront() {
                 <div className="text-center py-16 text-slate-400">
                   <ShoppingCart className="w-12 h-12 mx-auto mb-2 opacity-40" />
                   <p className="text-sm font-bold">Your cart is empty</p>
-                  <p className="text-xs">Click "Add" on any product to build an estimate.</p>
+                  <p className="text-xs">Click &quot;Add&quot; on any product to build an estimate.</p>
                 </div>
               ) : (
                 cart.map(c => (
