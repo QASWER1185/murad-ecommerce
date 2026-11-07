@@ -1,4 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "git": { "deploymentEnabled": { "development/seo-commerce": false } }
+  "git": {
+    "deploymentEnabled": {
+      "development/seo-commerce": false,
+      "development/admin-dashboard": false
+    }
+  }
 }

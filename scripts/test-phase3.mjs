@@ -1,0 +1,63 @@
+import { spawn } from "node:child_process";
+import { mkdirSync } from "node:fs";
+import { randomBytes } from "node:crypto";
+import { startFixture } from "./phase3/local-fixture.mjs";
+const fixture = await startFixture();
+let app;
+let logs = "";
+try {
+  console.log(
+    `Phase 3 PostgreSQL: ${fixture.assertions} authorization, atomic-save and shared-throttling assertions passed.`,
+  );
+  const env = {
+    ...process.env,
+    ADMIN_ENABLED: "true",
+    ADMIN_ENVIRONMENT: "local",
+    ADMIN_SITE_ORIGIN: "http://127.0.0.1:3100",
+    ADMIN_SUPABASE_URL: fixture.url,
+    ADMIN_SUPABASE_PUBLISHABLE_KEY: "local-test-publishable-key",
+    ADMIN_RATE_LIMIT_SECRET: randomBytes(32).toString("hex"),
+    NEXT_PUBLIC_SUPABASE_URL: fixture.url,
+    NEXT_PUBLIC_SUPABASE_ANON_KEY: "local-test-publishable-key",
+    NEXT_TELEMETRY_DISABLED: "1",
+  };
+  app = spawn(
+    process.execPath,
+    [
+      "node_modules/next/dist/bin/next",
+      "start",
+      "--hostname",
+      "127.0.0.1",
+      "--port",
+      "3100",
+    ],
+    { env, stdio: ["ignore", "pipe", "pipe"] },
+  );
+  for (const stream of [app.stdout, app.stderr])
+    stream.on("data", (data) => {
+      logs = (logs + data).slice(-30000);
+    });
+  let ready = false;
+  for (let i = 0; i < 100; i++) {
+    if (app.exitCode !== null) throw new Error(logs);
+    try {
+      const r = await fetch("http://127.0.0.1:3100/admin/login");
+      if (r.ok) {
+        ready = true;
+        break;
+      }
+    } catch {}
+    await new Promise((r) => setTimeout(r, 300));
+  }
+  if (!ready)
+    throw new Error("Local admin application did not become ready: " + logs);
+  mkdirSync("docs/phase3/screenshots", { recursive: true });
+  const { runBrowserTests } = await import("../tests/phase3/browser.mjs");
+  await runBrowserTests(fixture);
+} catch (e) {
+  console.error(logs);
+  throw e;
+} finally {
+  app?.kill("SIGTERM");
+  await fixture.close();
+}

@@ -7,19 +7,24 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test:phase3:unit": "tsc -p tsconfig.phase3.json && node --test work/phase3-tests/tests/phase3/policy.test.js",
+    "test:phase3:e2e": "node scripts/test-phase3.mjs",
     "test:phase2:policy": "tsc -p tsconfig.phase2.json && node --test work/phase2-tests/tests/phase2/publication.test.js",
     "test:phase2:db": "node scripts/test-phase2.mjs",
     "test:phase2:compat": "node scripts/test-phase2.mjs --with-pr2-columns",
     "test:phase2": "npm run test:phase2:policy && npm run test:phase2:db && npm run test:phase2:compat"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.12.7",
     "@supabase/supabase-js": "^2.119.0",
     "lucide-react": "^1.69.0",
     "next": "16.4.5",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@playwright/test": "^1.65.0",
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

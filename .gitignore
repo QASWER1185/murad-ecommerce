@@ -13,6 +13,7 @@
 # testing
 /coverage
 /work/phase2-tests/
+/work/phase3-tests/
 
 # next.js
 /.next/
