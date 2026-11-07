@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "module": "commonjs", "moduleResolution": "node", "noEmit": false, "outDir": "./work/phase2-tests", "incremental": false, "isolatedModules": false },
+  "include": ["src/lib/catalog/publication.ts", "src/lib/seo/catalog-policy.ts", "tests/phase2/publication.test.ts"],
+  "exclude": ["node_modules"]
+}
