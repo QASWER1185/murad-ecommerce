@@ -23,7 +23,7 @@ export const brands = [
   { id: 'Imported', label: 'Imported Collection', asset: 'brand-imported' },
 ];
 export const products: Product[] = [
-  { id: 'porta-fancy-commode', name: 'Porta Fancy Commode', brand: 'Faisal Sanitary', price: 15000, category: 'sanitary', asset: 'product-commode', rating: '4.8', reviews: 36, bestseller: true },
+  { id: 'porta-fancy-commode', name: 'Porta Fancy Commode', brand: 'Porta Sanitary', price: 15000, category: 'sanitary', asset: 'product-commode', rating: '4.8', reviews: 36, bestseller: true },
   { id: 'faisal-sanitary-basin', name: 'Faisal Sanitary Wash Basin', brand: 'Faisal Sanitary', price: 8000, category: 'sanitary', asset: 'product-basin', rating: '4.7', reviews: 28 },
   { id: 'basin-mixer', name: 'Basin Mixer', brand: 'Imported', price: 7500, category: 'sanitary', asset: 'product-mixer', rating: '4.9', reviews: 42, imported: true },
   { id: 'rain-shower', name: 'Shower Set (Rain Shower)', brand: 'Imported', price: 18500, category: 'sanitary', asset: 'product-shower', rating: '4.8', reviews: 19, imported: true },

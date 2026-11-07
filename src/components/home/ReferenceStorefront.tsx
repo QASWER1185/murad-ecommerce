@@ -22,8 +22,7 @@ function Icon({ name, className = '' }: { name: string; className?: string }) {
 }
 function Logo({ footer = false }: { footer?: boolean }) {
   return <Link href="/" className={`${styles.logo} ${footer ? styles.footerLogo : ''}`} aria-label="M Murad Sons home">
-    <Asset name={footer ? 'logo-footer-mark' : 'logo-header-mark'} className={styles.logoMark} />
-    <span><strong>M MURAD SONS</strong><small>BUILDING MATERIAL STORE</small></span>
+    <Asset name={footer ? 'logo-footer' : 'logo-header'} className={styles.logoArtwork} label="M Murad Sons — Building Material Store" />
   </Link>;
 }
 function Modal({ title, onClose, children }: { title: string; onClose: () => void; children: ReactNode }) {
@@ -121,14 +120,14 @@ export default function ReferenceStorefront() {
           <button type="submit" aria-label="Search"><Icon name="search" /></button>
         </form>
         <div className={styles.headerActions}>
-          <button type="button" className={styles.account} onClick={() => setPanel('account')}><Icon name="account" /><span>Sign<br />Account <Icon name="chevron-down" /></span></button>
-          <button type="button" onClick={() => setPanel('wishlist')} aria-label={`Wishlist, ${wishlist.length} saved products`}><Icon name="heart-header" /><span>Wishlist</span></button>
+          <button type="button" className={styles.account} aria-label="Sign Account" onClick={() => setPanel('account')}><Icon name="account" /><span>Sign<br />Account <Icon name="chevron-down" /></span></button>
+          <button type="button" className={styles.headerWishlist} onClick={() => setPanel('wishlist')} aria-label={`Wishlist, ${wishlist.length} saved products`}><Icon name="heart-header" /><span>Wishlist</span></button>
           <button type="button" className={styles.cartAction} onClick={() => setPanel('cart')} aria-label={`Cart, ${count} items`}><Icon name="cart-header" /><span>Cart</span><b>{count}</b></button>
         </div>
       </div>
       <nav className={styles.navbar} aria-label="Product categories"><div className={styles.navInner}>
         <div className={styles.categoryMenu} ref={menuRef}>
-          <button type="button" className={styles.allCategories} aria-expanded={menu} aria-controls="category-menu" onClick={() => setMenu(!menu)}><Icon name="list" />All Categories<Icon name="chevron-down" /></button>
+          <button type="button" className={styles.allCategories} aria-expanded={menu} aria-controls="category-menu" onClick={() => setMenu(!menu)}><Icon name="list" />All Categories<Icon name="menu-chevron" /></button>
           {menu && <div id="category-menu" className={styles.dropdown}><button type="button" onClick={() => selectCategory(null)}>All Categories</button>{categories.map(item => <button type="button" key={item.id} onClick={() => selectCategory(item.id)}>{item.label}</button>)}</div>}
         </div>
         <div className={styles.navLinks}>{nav.map(item => <button type="button" key={item.label} onClick={() => selectCategory(item.category)}>{item.label}{item.dropdown && <Icon name="chevron-white" />}</button>)}</div>
@@ -149,7 +148,7 @@ export default function ReferenceStorefront() {
           <Asset name={item.asset} className={styles.categoryImage} /><span>{item.lines[0]}<br />{item.lines[1]}</span>
         </button>)}</section>
         <section id="brands" className={styles.brands} aria-labelledby="brand-title">
-          <div className={styles.sectionHeading}><h2 id="brand-title">Shop by Top Brands</h2><span className={styles.goldRule} /><button type="button" onClick={() => { selectCategory(null); document.getElementById('brands')?.scrollIntoView({ behavior: 'smooth' }); }}>View All Brands <Icon name="chevron-right" /></button></div>
+          <div className={styles.sectionHeading}><h2 id="brand-title">Shop by Top Brands</h2><span className={styles.goldRule} /><button type="button" onClick={() => { selectCategory(null); document.getElementById('brands')?.scrollIntoView({ behavior: 'smooth' }); }}>View All Brands <Icon name="view-brands" /></button></div>
           <div className={styles.brandGrid}>{brands.map(item => <button type="button" key={item.asset} aria-label={`Shop ${item.label}`} onClick={() => { setBrand(item.id); setCategory(null); setQuery(''); setTab('Best Sellers'); productRail.current?.scrollTo({ left: 0 }); document.getElementById('featured-products')?.scrollIntoView({ behavior: 'smooth' }); }}><Asset name={item.asset} className={styles.brandImage} />{!referenceAssets.includes(item.asset) && <span>{item.label}</span>}</button>)}</div>
         </section>
         <section id="featured-products" className={styles.featured} aria-labelledby="products-title">
@@ -159,7 +158,7 @@ export default function ReferenceStorefront() {
             <button type="button" className={`${styles.railArrow} ${styles.previous}`} aria-label="Previous products" onClick={() => productRail.current?.scrollBy({ left: -productRail.current.clientWidth, behavior: 'smooth' })}><Icon name="previous" /></button>
             <div className={styles.productRail} ref={productRail}>
               {visible.map(product => <article key={product.id} className={styles.productCard}>
-                <div className={styles.productImage}>{product.asset && <Asset name={product.asset} className={styles.productPhoto} label={product.name} />}{product.bestseller && <span className={styles.bestseller}>Bestseller</span>}</div>
+                <div className={styles.productImage}>{product.asset && <Asset name={product.asset} className={styles.productPhoto} label={product.name} />}{product.bestseller && <span className={styles.bestseller}><Asset name="badge-bestseller" className={styles.badgeArtwork} /><span className="sr-only">Bestseller</span></span>}</div>
                 <div className={styles.productInfo}><h3>{product.name}</h3><p>{product.brand}</p><strong className={styles.price}>{product.inquiry ? 'Today’s Rate' : <>PKR <b>{money(product.price)}</b></>}</strong>
                   <div className={styles.rating}>{product.rating && <><Icon name="star" /><span>{product.rating} ({product.reviews})</span></>}</div>
                   <div className={styles.productActions}>{product.inquiry ? <a href={whatsapp(`Rate inquiry for ${product.name}`)} target="_blank" rel="noopener noreferrer" className={styles.addToCart}>Request Rate</a> : <button type="button" className={styles.addToCart} onClick={() => add(product)}><Icon name="cart-button" />Add to Cart</button>}

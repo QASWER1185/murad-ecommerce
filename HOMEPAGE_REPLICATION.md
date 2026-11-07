@@ -1,33 +1,44 @@
-# Homepage reference replication — incomplete draft
+# Approved homepage replication
 
-Branch: `homepage/reference-replication`.
+Implemented on `homepage/reference-replication` using `public/homepage-approved-reference.png`, added by the repository owner. The supplied reference is 1199 × 1312 pixels.
 
-The responsive layout and storefront interactions are implemented. This is **not a completed pixel-perfect replication**: the embedded reference is visible in the task, but its original image bytes are not accessible in the execution workspace. The repository has no reference artwork and all six Supabase product `image_url` fields are null. No replacement photos, generated artwork, emoji, or substitute icons have been added.
+## Implementation
 
-## Required to finish
+- Replaced the previous fixed-height Bento homepage with the approved header, category navigation, bathroom hero, nine category tiles, eight brand cards, six visible product cards, two promotional banners, service benefits, and footer.
+- Extracted 61 assets from the supplied reference. Store logos, product photographs, category photographs, brand marks, icons, the hero, banners, skyline, and gold footer wave use this reference. No stock photography, generated replacement artwork, or emoji were introduced.
+- Kept searchable inventory, category/brand/collection filtering, product scrolling, wishlist controls, cart quantities/removal/totals, and WhatsApp ordering. Existing Supabase client, category queries, schema, and migrations are unchanged.
+- Restored normal document scrolling. Mobile layouts keep the same content and artwork, with category/brand grids, a horizontal product rail, stacked banners, and a stacked footer.
+- Scoped homepage styling in a CSS module. Limited the existing Tailwind loader to the global stylesheet so it does not discard CSS-module exports. Bundled the local Roboto font with its OFL license; footer text uses Arial to match the reference's glyph widths.
 
-Supply the original complete reference as an accessible PNG/JPG file. Hero imagery, category and product photos, brand logos, the store emblem, icons, promotional banners, and footer artwork currently have empty reserved areas. Brand names and banner copy are rendered as text while their approved artwork is pending.
+## Asset provenance and reproduction
 
-`python scripts/extract-homepage-assets.py /path/to/reference.png` extracts individual artwork crops and records their source hash and bounds. It requires Pillow. Crop bounds are prepared from the displayed 1200 × 1312 design and must be reviewed against the original file. The script writes `public/homepage/*.png` and the asset manifest; it does not generate or replace imagery. Marketing banners preserve their approved baked-in text, while product information, search, filtering, and cart controls remain live HTML.
+`public/homepage/provenance.json` records the reference SHA-256, original dimensions, and crop bounds. The original uploaded reference remains unchanged.
 
-After extraction, review all crops, rebuild, take new desktop/mobile screenshots, and correct any visible differences. A numerical pixel comparison has not been possible without the original file. Do not treat the current screenshots as final design approval.
+To reproduce the extracted assets, with Pillow installed:
 
-## Implemented
+```sh
+python scripts/extract-homepage-assets.py public/homepage-approved-reference.png
+npm run build
+npm run lint
+```
 
-- Reference section order, navy/gold palette, typography, header/navigation, nine category cards, eight brand cards, six visible product cards, two banners, benefits, and footer.
-- Normal document scrolling and responsive layouts at desktop, tablet, and narrow mobile widths.
-- Existing searchable catalog and WhatsApp ordering, plus working category/collection filters, product carousel, wishlist, cart quantity controls, removal, and totals.
-- Supabase client, schema, migrations, and existing category-page queries remain unchanged.
-- The global Tailwind loader is limited to `globals.css` so CSS module exports work correctly.
-- Two pre-existing JSX quote lint errors in the previous storefront were corrected; the dependency lockfile now includes the already-declared Supabase dependency.
+The extraction script removes adjacent label fragments and the flat background from icon crops. Footer text/logo areas are reconstructed from their text-free edge pixels so the original skyline and wave can sit behind live HTML links. The full store logo and marketing banners retain the reference's own lettering.
 
 ## Verification
 
-- `npm run build`: passed.
-- `npm run lint`: passed, zero errors; eight existing unused-variable warnings in unchanged legacy components.
-- Chromium browser checks passed: product order, search/empty results, filters, carousel, wishlist, cart quantities/totals, WhatsApp order URL contents, dialog Escape, footer reachability, and live Supabase sanitary-category rendering.
-- No browser runtime errors. No horizontal document overflow at 320, 390, 768, or 1200 CSS pixels.
-- Desktop and mobile draft screenshots captured in the local `work/` directory. At 1200 pixels wide, the document is 1312 pixels tall; header ends at y=141, hero at y=407, banners occupy y=959–1094, benefits end at y=1162, and footer ends at y=1312.
-- Local Supabase browser verification used `NODE_USE_ENV_PROXY=1` for this managed environment's outbound proxy. No production configuration was changed.
+- Production build: passed.
+- ESLint: passed with zero errors and eight existing unused-variable warnings in legacy components.
+- Chromium checks: passed for product order, asset availability, search/empty results, category/collection filters, carousel scrolling, wishlist, cart additions/quantities/totals, WhatsApp order URL contents, dialog Escape, responsive header/footer reachability, and the live Supabase sanitary category page.
+- No browser runtime errors. No horizontal document overflow at 320, 390, 768, 1024, 1199, or 1440 CSS pixels.
+- Captured desktop and mobile production screenshots and a side-by-side comparison with the original reference. Reviewed successive captures and corrected visible crop, sizing, font, alignment, and icon/background differences.
+- At the reference viewport, document height is 1312 pixels. The header ends at y=141, hero at y=407, promotional banners occupy y=959–1094, benefits end at y=1162, and footer ends at y=1312. The hero crop is pixel-identical to the supplied reference at this size.
 
-No deployment was performed. Changes remain on a local branch; nothing has been pushed or published.
+Local live-Supabase verification used `NODE_USE_ENV_PROXY=1` for this managed environment's outbound proxy; production configuration was not changed.
+
+## Remaining differences and source limitations
+
+This is a close recreation of the approved layout, not a claim that the entire page is a bit-for-bit screenshot. Live HTML text, borders, shadows, some one-pixel alignments, and antialiasing differ slightly from the flattened reference. Original editable font/design files and higher-resolution product photos were not supplied, so extracted artwork retains the supplied image's native resolution.
+
+Only one approved hero slide was supplied. Its arrows/dots remain part of the approved banner artwork; additional slides were not invented. Existing catalog items beyond the six reference products remain searchable/orderable; missing photos for those extra items were not replaced with unrelated images.
+
+No deployment or merge into `main` was performed.

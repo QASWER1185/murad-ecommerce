@@ -1,4 +1,5 @@
-.storefront { --navy: #002647; --ink: #071526; --gold: #e5bf68; color: var(--ink); background: #fdfdfe; min-height: 100vh; font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+@font-face { font-family: 'Roboto'; font-style: normal; font-weight: 100 900; font-display: swap; src: url('/fonts/roboto-latin.woff2') format('woff2'); }
+.storefront { --navy: #002647; --ink: #071526; --gold: #e5bf68; color: var(--ink); background: #fcfcfe; min-height: 100vh; font-family: 'Roboto', Arial, Helvetica, sans-serif; font-size: 12px; }
 .storefront button, .storefront a, .storefront input { -webkit-tap-highlight-color: transparent; }
 .storefront button { cursor: pointer; }
 .storefront a { color: inherit; text-decoration: none; }
@@ -8,34 +9,43 @@
 .skipLink { position: fixed; left: 12px; top: -60px; padding: 10px 18px; background: white; z-index: 100; }
 .skipLink:focus { top: 8px; }
 .topbar { background: #032748; color: white; height: 33px; }
-.topbarInner { max-width: 1120px; margin: auto; height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: 11px; }
+.topbarInner { max-width: 1119px; margin: auto; height: 100%; display: grid; grid-template-columns: 390px 1fr 140px 84px; align-items: center; gap: 0; font-size: 11.5px; }
 .topbarInner a, .assurances, .assurances span { display: flex; align-items: center; }
 .address { gap: 5px; white-space: nowrap; }
 .address .icon { width: 13px; height: 16px; }
-.assurances { gap: 28px; margin-left: auto; }
+.assurances { gap: 28px; margin-left: 0; }
 .assurances span { gap: 4px; white-space: nowrap; }
 .assurances .icon { width: 12px; height: 12px; }
-.phone { margin-left: auto; gap: 7px; font-weight: 700; font-size: 12px; white-space: nowrap; }
+.phone { margin-left: 0; gap: 7px; font-weight: 700; font-size: 12px; white-space: nowrap; }
+.phone .icon { width: 19px; height: 19px; }
+.whatsapp .icon { width: 20px; height: 20px; }
 .whatsapp { gap: 7px; font-weight: 700; }
-.mainHeader { max-width: 1120px; height: 71px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 38px; }
+.mainHeader { max-width: 1119px; height: 71px; margin: auto; position: relative; }
+.mainHeader > .logo { position: absolute; top: 6px; left: 0; }
 .logo { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.logoArtwork { width: 281px; height: 56px; }
 .logoMark { width: 70px; height: 54px; }
 .logo strong { display: block; font-size: 25px; line-height: 29px; font-weight: 800; letter-spacing: .1px; }
 .logo small { display: block; font-size: 10px; line-height: 13px; font-weight: 700; letter-spacing: 2.3px; }
-.search { display: flex; height: 34px; border: 1px solid #a9afb4; border-radius: 7px; overflow: hidden; flex: 1; margin-left: 34px; box-shadow: inset 0 0 2px #ddd; }
-.search input { width: 0; min-width: 0; flex: 1; font-size: 10.5px; padding: 0 13px; background: #f9fafb; color: #102131; border: 0; }
+.search { position: absolute; left: 353px; top: 20px; width: 450px; display: flex; height: 34px; border: 1px solid #a9afb4; border-radius: 7px; overflow: hidden; flex: 1; margin-left: 0; box-shadow: inset 0 0 2px #ddd; }
+.search input { width: 0; min-width: 0; flex: 1; font-size: 11px; padding: 0 13px; background: #f9fafb; color: #102131; border: 0; }
 .search input::placeholder { opacity: 1; color: #102131; }
 .search button { width: 44px; display: grid; place-items: center; background: var(--navy); border: 0; }
 .search .icon { width: 20px; height: 20px; }
-.headerActions { margin-left: 28px; display: flex; align-items: center; gap: 27px; }
+.headerActions { position: absolute; left: 868px; top: 25px; width: 254px; display: flex; align-items: center; gap: 0; }
 .headerActions button { border: 0; background: transparent; display: flex; align-items: center; gap: 3px; font-size: 11px; white-space: nowrap; text-align: left; position: relative; padding: 0; }
-.headerActions button > .icon { width: 25px; height: 28px; }
-.account span { font-weight: 600; font-size: 11px; line-height: 14px; }
+.headerActions button > .icon { width: 22px; height: 26px; }
+.headerActions .account { width: 80px; margin-right: 39px; gap: 5px; }
+.headerActions .headerWishlist { width: 70px; margin-right: 24px; align-items: flex-end; }
+.headerWishlist > span:not(.icon) { margin-left: -5px; transform: translateY(3px); }
+.account span { font-weight: 600; font-size: 12px; line-height: 14px; }
 .account span .icon { width: 9px; height: 8px; }
-.headerActions .cartAction { gap: 1px; align-items: end; }
-.cartAction b { position: absolute; top: -8px; right: -6px; background: #d3af55; font-size: 8px; width: 16px; height: 17px; display: grid; place-items: center; border-radius: 50%; font-weight: 400; }
-.navbar { height: 37px; background: #032b50; color: white; }
-.navInner { max-width: 1120px; height: 100%; margin: auto; display: flex; gap: 50px; }
+.headerActions .cartAction { width: 41px; gap: 0; align-items: end; }
+.cartAction > .icon { width: 20px !important; }
+.cartAction > span:not(.icon) { transform: translateY(3px); }
+.cartAction b { position: absolute; top: -9px; right: -6px; background: #d3af55; font-size: 8px; width: 16px; height: 17px; display: grid; place-items: center; border-radius: 50%; font-weight: 400; }
+.navbar { height: 37px; background: #032b54; color: white; }
+.navInner { max-width: 1119px; height: 100%; margin: auto; display: flex; gap: 50px; }
 .categoryMenu { position: relative; flex-shrink: 0; z-index: 5; }
 .allCategories { height: 37px; width: 149px; border: 0; border-radius: 3px; display: flex; align-items: center; justify-content: center; gap: 7px; color: #142033; background: linear-gradient(110deg, #ebc971, #dcb65b); font-size: 13px; font-weight: 700; }
 .allCategories .icon:first-child { width: 17px; height: 15px; }
@@ -44,7 +54,7 @@
 .dropdown button { display: block; width: 100%; padding: 10px; text-align: left; border: 0; background: white; }
 .dropdown button:hover { background: #f4f4f4; }
 .navLinks { flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
-.navLinks button { border: 0; padding: 0; background: transparent; color: white; white-space: nowrap; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 5px; }
+.navLinks button { border: 0; padding: 0; background: transparent; color: white; white-space: nowrap; font-size: 13px; font-weight: 500; display: flex; align-items: center; gap: 5px; }
 .navLinks .icon { width: 9px; height: 8px; }
 .hero { height: 266px; background: #092b40; position: relative; overflow: hidden; }
 .heroArt { position: absolute; inset: 0; }
@@ -58,43 +68,45 @@
 .heroCopyExtracted { clip-path: inset(50%); width: 1px; height: 1px; overflow: hidden; }
 .heroCopyExtracted .goldButton { display: none; }
 .heroImageLink { position: absolute; left: 8.4%; top: 73.5%; width: 17.4%; height: 13%; background: transparent; border: 0; border-radius: 16px; }
-.content { max-width: 1128px; margin: auto; }
-.categories { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 12px; padding-top: 14px; margin-bottom: 17px; }
+.content { max-width: 1127px; margin: auto; }
+.categories { display: grid; grid-template-columns: 120fr 118fr 115fr 111fr 116fr 108fr 107fr 111fr 121fr; gap: 12px; padding: 14px 2px 0; margin-bottom: 17px; }
 .categoryCard { height: 121px; min-width: 0; border: 0; border-radius: 14px; overflow: hidden; background: #f2f3f4; display: flex; align-items: center; flex-direction: column; padding: 0 0 9px; }
 .categoryImage { width: 100%; height: 82px; }
-.categoryCard > span:last-child { font-weight: 700; font-size: 11.5px; line-height: 14px; margin-top: 3px; }
+.categoryCard > span:last-child { font-weight: 700; font-size: 12px; line-height: 14px; margin-top: 3px; }
 .sectionHeading { display: flex; align-items: center; gap: 15px; min-height: 24px; }
-.sectionHeading h2 { font-size: 20px; line-height: 24px; font-weight: 700; white-space: nowrap; margin: 0; letter-spacing: -.4px; }
-.goldRule { height: 1px; background: #ccad62; flex: 1; align-self: flex-end; margin-bottom: 6px; }
+.sectionHeading h2 { font-size: 20px; line-height: 24px; font-weight: 700; white-space: nowrap; margin: 0; letter-spacing: -.3px; transform: translateY(-1px); }
+.goldRule { height: 1px; background: #ccad62; flex: 1; align-self: flex-end; margin-bottom: 8px; }
 .sectionHeading > button { border: 0; background: transparent; padding: 0; font-size: 11px; font-weight: 600; white-space: nowrap; display: flex; align-items: center; gap: 5px; }
 .sectionHeading > button .icon { width: 7px; height: 9px; }
-.brandGrid { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 9px; margin-top: 6px; }
+.brandGrid { display: grid; grid-template-columns: 140fr 138fr 135fr 131fr 132fr 133fr 134fr 131fr; gap: 8px; margin-top: 6px; }
 .brandGrid button { height: 60px; padding: 0; border: 1px solid #f0f1f2; box-shadow: 0 2px 4px #00000013; border-radius: 5px; background: #fcfcfd; overflow: hidden; position: relative; }
 .brandImage { position: absolute; inset: 0; }
 .brandGrid button > span:last-child:not(.brandImage) { font-size: 13px; font-weight: 700; }
-.brands { margin-bottom: 22px; }
+.brands { margin-bottom: 22px; margin-right: -3px; }
 .featured { scroll-margin-top: 20px; margin-bottom: 18px; }
-.featured .sectionHeading { height: 28px; }
-.tabs { display: flex; align-items: center; background: #fafbfc; border-radius: 9px; box-shadow: 0 2px 4px #00000010; }
-.tabs button { border: 0; background: transparent; font-size: 10px; font-weight: 700; border-radius: 10px; height: 25px; min-width: 90px; padding: 0 15px; white-space: nowrap; }
+.featured .sectionHeading { height: 28px; align-items: flex-start; }
+.featured .goldRule { margin-bottom: 12px; }
+.tabs { display: grid; grid-template-columns: 94px 104px 90px 82px; align-items: center; background: #fafbfc; border-radius: 9px; box-shadow: 0 2px 4px #00000010; }
+.tabs button { border: 0; background: transparent; font-size: 11px; font-weight: 600; border-radius: 10px; height: 25px; min-width: 0; padding: 0 15px; white-space: nowrap; }
 .tabs .activeTab { background: #002747; color: white; box-shadow: 0 2px 3px #00000015; }
 .productsWrapper { position: relative; margin-top: 10px; }
-.productRail { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 70px) / 6); padding: 0 14px; gap: 14px; overflow-x: auto; scrollbar-width: none; scroll-snap-type: x mandatory; scroll-padding-inline: 14px; }
+.productRail { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 50px) / 6); padding: 0 14px; gap: 10px; overflow-x: auto; scrollbar-width: none; scroll-snap-type: x mandatory; scroll-padding-inline: 14px; }
 .productRail::-webkit-scrollbar { display: none; }
 .productCard { min-width: 0; height: 232px; background: #fcfcfd; border: 1px solid #eceef0; box-shadow: 0 2px 3px #00000013; border-radius: 7px; padding: 0 3px 8px; scroll-snap-align: start; }
 .productImage { height: 104px; background: #ededed; border-radius: 6px; position: relative; }
 .productPhoto { width: 100%; height: 100%; border-radius: inherit; }
-.bestseller { position: absolute; top: -1px; left: -9px; font-size: 9px; line-height: 19px; border-radius: 5px; background: #d5b059; padding: 0 6px; color: #121b23; font-weight: 700; }
-.productInfo { padding: 7px 4px 0; }
-.productInfo h3 { margin: 0; font-size: 10.5px; line-height: 14px; font-weight: 700; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-.productInfo > p { font-size: 11px; color: #454a4d; line-height: 14px; margin: 2px 0 7px; }
+.badgeArtwork { width: 58px; height: 22px; }
+.bestseller { position: absolute; top: -2px; left: -11px; font-size: 9px; line-height: 19px; border-radius: 5px; background: transparent; padding: 0; color: #121b23; font-weight: 700; }
+.productInfo { padding: 8px 6px 0; }
+.productInfo h3 { margin: 0; font-size: 11px; line-height: 14px; font-weight: 700; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.productInfo > p { font-size: 10px; color: #454a4d; line-height: 14px; margin: 2px 0 6px; }
 .price { display: block; font-size: 12px; line-height: 17px; font-weight: 600; }
-.price b { font-weight: 800; font-size: 14px; }
-.rating { display: flex; gap: 3px; align-items: center; height: 19px; margin: 2px 0 4px; font-size: 10px; color: #7c6330; }
+.price b { font-weight: 700; font-size: 14px; }
+.rating { display: flex; gap: 3px; align-items: center; height: 19px; margin: 2px 0 7px; font-size: 11px; color: #73572a; }
 .rating .icon { width: 12px; height: 13px; }
 .productActions { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-.addToCart { background: #002747; color: white !important; border: 0; border-radius: 4px; height: 28px; padding: 0 12px; display: inline-flex; align-items: center; justify-content: center; gap: 5px; font-size: 10px; font-weight: 600; white-space: nowrap; }
-.addToCart .icon { width: 14px; height: 15px; }
+.addToCart { background: #002747; color: white !important; border: 0; border-radius: 4px; height: 28px; padding: 0 14px; display: inline-flex; align-items: center; justify-content: center; gap: 5px; font-size: 11px; font-weight: 500; white-space: nowrap; }
+.addToCart .icon { width: 16px; height: 16px; }
 .wishlistButton { border: 0; background: transparent; padding: 3px; border-radius: 4px; }
 .wishlistButton .icon { width: 20px; height: 20px; }
 .saved { background: #ebd69f; }
@@ -105,7 +117,7 @@
 .filterSummary { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 10px; padding: 7px 12px; border-radius: 4px; background: #f2f3f4; }
 .filterSummary button, .emptyResults button { border: 0; background: transparent; text-decoration: underline; }
 .emptyResults { min-height: 232px; padding: 60px 30px; text-align: center; }
-.banners { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; max-width: 1168px; margin: 0 auto; }
+.banners { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; max-width: 1167px; margin: 0 auto; }
 .banners > button, .banners > a { display: block; min-width: 0; width: 100%; border: 0; padding: 0; text-align: left; border-radius: 11px; overflow: hidden; height: 135px; position: relative; color: white; }
 .pipesBanner { background: #063053; }
 .materialsBanner { background: #30485b; }
@@ -116,24 +128,31 @@
 .bannerCopy .goldButton { border-radius: 8px; min-height: 27px; font-size: 11px; padding: 4px 14px; margin-top: 3px; }
 .materialsBanner .goldButton { line-height: 14px; }
 .materialsBanner .goldButton .icon:first-child { height: 21px; width: 21px; }
-.benefits { max-width: 1080px; margin: auto; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 15px; }
+.benefits { max-width: 1083px; margin: auto; height: 68px; display: grid; grid-template-columns: 234px 232px 226px 224px 1fr; align-items: center; gap: 0; }
 .benefits > div { display: flex; align-items: center; gap: 12px; }
 .benefits .icon { height: 28px; width: 30px; }
+.benefits > div:nth-child(1) .icon { width: 31px; }
+.benefits > div:nth-child(2) .icon { width: 27px; }
+.benefits > div:nth-child(4) .icon { width: 28px; }
+.benefits > div:nth-child(5) .icon { width: 25px; }
 .benefits strong { display: block; font-size: 11px; line-height: 15px; }
-.benefits small { display: block; font-size: 11px; line-height: 14px; }
-.footer { background: #001d32; color: white; height: 150px; position: relative; overflow: hidden; }
+.benefits small { display: block; font-size: 11px; line-height: 14px; white-space: nowrap; }
+.footer { font-family: Arial, Helvetica, sans-serif; background: #001d32; color: white; height: 150px; position: relative; overflow: hidden; }
 .footerDecoration { position: absolute; bottom: 0; right: 0; width: 100%; height: 150px; }
-.footerInner { display: grid; grid-template-columns: 218px 146px 168px 212px 1fr; gap: 24px; max-width: 1120px; margin: auto; padding: 14px 0 16px; position: relative; }
-.footerLogo { flex-direction: column; gap: 4px; align-self: start; align-items: center; padding-top: 7px; margin-right: 40px; }
+.footerInner { display: grid; grid-template-columns: 218px 146px 168px 211px 1fr; gap: 24px; max-width: 1119px; margin: auto; padding: 14px 0 16px; position: relative; }
+.footerLogo { width: 175px; justify-self: start; flex-direction: column; align-self: start; padding-top: 6px; margin-right: 0; }
+.footerLogo .logoArtwork { width: 175px; height: 89px; }
 .footerLogo .logoMark { height: 43px; width: 60px; }
 .footerLogo strong { font-size: 22px; line-height: 26px; }
 .footerLogo small { font-size: 8px; letter-spacing: 1.7px; line-height: 11px; }
-.footerInner h2 { font-size: 12px; font-weight: 700; line-height: 17px; margin: 0 0 5px; }
-.footerInner > div > a, .footerInner > div > button { display: block; border: 0; padding: 0; background: transparent; font-size: 11px; line-height: 16px; text-align: left; color: white; }
-.footerInner .location a { display: flex; align-items: flex-start; gap: 11px; margin-bottom: 14px; }
-.location .icon { height: 20px; width: 18px; }
+.footerInner h2 { font-size: 12px; font-weight: 700; line-height: 17px; margin: 0 0 6px; }
+.footerInner > div > a, .footerInner > div > button { display: block; border: 0; padding: 0; background: transparent; font-size: 11px; line-height: 16.5px; text-align: left; color: white; }
+.footerInner .location a { display: flex; align-items: flex-start; gap: 7px; margin-bottom: 14px; }
+.location .icon { height: 24px; width: 21px; }
+.location a:last-child { gap: 5px; }
+.location a:last-child .icon { width: 23px; }
 .location strong { font-size: 13px; }
-.socialIcons { width: 109px; height: 24px; }
+.socialIcons { width: 111px; height: 24px; transform: translate(-1px, -1px); }
 .dialog { position: fixed; inset: 0 0 0 auto; width: min(440px, 100%); max-width: 100%; height: 100dvh; max-height: 100dvh; margin: 0 0 0 auto; padding: 24px; border: 0; color: var(--ink); background: white; box-shadow: -6px 0 30px #0003; }
 .dialog::backdrop { background: #00172d99; }
 .dialogHeader { display: flex; justify-content: space-between; align-items: center; gap: 10px; border-bottom: 1px solid #ddd; padding-bottom: 16px; }
@@ -153,20 +172,24 @@
 }
 @media (max-width: 1150px) {
   .topbarInner, .mainHeader, .navInner, .footerInner { margin-left: 24px; margin-right: 24px; }
-  .topbarInner { gap: 14px; }
+  .topbarInner { display: flex; justify-content: space-between; gap: 14px; }
   .assurances { gap: 12px; }
   .assurances span:last-child { display: none; }
-  .mainHeader { gap: 20px; }
-  .search { margin-left: 0; }
+  .mainHeader { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .mainHeader > .logo { position: static; }
+  .headerActions { position: static; width: auto; }
+  .headerActions .account, .headerActions .headerWishlist, .headerActions .cartAction { width: auto; margin-right: 0; }
+  .search { position: static; width: auto; margin-left: 0; }
   .headerActions { gap: 15px; margin-left: 0; }
   .logo strong { font-size: 23px; }
   .logo small { font-size: 9px; letter-spacing: 1.8px; }
+  .logoArtwork { width: 260px; height: 52px; }
   .logoMark { width: 60px; }
   .navInner { gap: 25px; }
   .navLinks { gap: 15px; overflow-x: auto; scrollbar-width: none; }
   .content { margin-left: 30px; margin-right: 30px; }
   .banners { margin-left: 16px; margin-right: 16px; }
-  .benefits { margin-left: 30px; margin-right: 30px; gap: 12px; }
+  .benefits { display: flex; justify-content: space-between; margin-left: 30px; margin-right: 30px; gap: 12px; }
   .benefits > div { gap: 7px; }
   .benefits strong, .benefits small { font-size: 10px; }
   .footerInner { grid-template-columns: 1.15fr .8fr 1fr 1.2fr .6fr; gap: 20px; }
@@ -189,14 +212,14 @@
   .heroImageLink { display: none; }
   .heroCopyExtracted .goldButton { display: inline-flex; }
   .heroCopy h1 { font-size: 32px; line-height: 34px; }
-  .categories { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+  .categories { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; padding-left: 0; padding-right: 0; }
   .categoryCard { height: 121px; }
   .categoryImage { max-width: 125px; }
   .brandGrid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .featured .sectionHeading { height: auto; flex-wrap: wrap; }
-  .tabs { margin-left: auto; }
+  .tabs { display: flex; margin-left: auto; }
   .tabs button { min-width: 75px; padding: 0 10px; }
-  .productRail { grid-auto-columns: calc((100% - 28px) / 3); }
+  .productRail { grid-auto-columns: calc((100% - 20px) / 3); }
   .banners > button, .banners > a { height: auto; aspect-ratio: 576 / 135; min-height: 135px; }
   .bannerCopy { padding: 14px 18px; }
   .bannerCopy > strong { font-size: 20px; line-height: 22px; }
@@ -207,6 +230,7 @@
   .footerInner { grid-template-columns: 1fr 1fr 1.2fr; padding: 22px 0; gap: 24px; }
   .footerLogo { align-items: flex-start; grid-row: span 2; }
   .footerLogo .logoMark { margin-left: 45px; }
+  .footerLogo .logoArtwork { width: 175px; height: 89px; }
   .social { grid-column: 3; }
 }
 @media (max-width: 560px) {
@@ -218,12 +242,13 @@
   .whatsapp { display: none !important; }
   .mainHeader { margin: 0 15px; gap: 14px 8px; }
   .logo { gap: 6px; }
+  .logoArtwork { width: 190px; height: 38px; }
   .logoMark { width: 45px; height: 40px; }
   .logo strong { font-size: 18px; line-height: 22px; }
   .logo small { font-size: 6.5px; letter-spacing: 1.4px; line-height: 9px; }
   .headerActions { gap: 13px; }
   .headerActions button > .icon { width: 21px; height: 25px; }
-  .headerActions button span { display: none; }
+  .headerActions button > span:not(.asset) { display: none; }
   .cartAction b { right: -4px; }
   .navInner { margin-left: 15px; margin-right: 0; gap: 16px; }
   .allCategories { width: 132px; font-size: 12px; }
@@ -245,6 +270,7 @@
   .sectionHeading h2 { font-size: 17px; line-height: 22px; }
   .sectionHeading > button { font-size: 9px; }
   .goldRule { margin-bottom: 4px; }
+  .brands { margin-right: 0; }
   .brandGrid { gap: 7px; }
   .brandGrid button { height: 44px; }
   .brandGrid button > span:last-child:not(.brandImage) { font-size: 9px; }
@@ -275,7 +301,8 @@
   .benefits .icon { width: 24px; height: 26px; }
   .benefits strong, .benefits small { font-size: 9px; line-height: 13px; }
   .footerInner { margin: 0 24px; grid-template-columns: 1fr 1fr; gap: 22px 18px; padding-bottom: 35px; }
-  .footerLogo { grid-column: span 2; grid-row: auto; align-items: center; padding: 0; }
+  .footerLogo { width: 100%; justify-self: stretch; grid-column: span 2; grid-row: auto; align-items: center; padding: 0; }
+  .footerLogo .logoArtwork { width: 175px; height: 89px; }
   .footerLogo .logoMark { width: 55px; height: 43px; margin: 0; }
   .footerLogo strong { font-size: 22px; line-height: 26px; }
   .footerLogo small { font-size: 8px; letter-spacing: 1.7px; line-height: 11px; }
