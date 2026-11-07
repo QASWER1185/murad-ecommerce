@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "verifiedDatabaseProducts": 3,
+  "brandPages": [
+    [
+      "porta",
+      1
+    ],
+    [
+      "faisal-sanitary",
+      1
+    ],
+    [
+      "dell-ceramics",
+      0
+    ],
+    [
+      "imported-china",
+      1
+    ]
+  ],
+  "responsive": [
+    {
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440
+    }
+  ],
+  "errors": []
+}
