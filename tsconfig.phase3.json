@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmit": false,
+    "outDir": "./work/phase3-tests",
+    "incremental": false,
+    "isolatedModules": false
+  },
+  "include": [
+    "src/lib/admin/config.ts",
+    "src/lib/admin/validation.ts",
+    "src/lib/admin/security.ts",
+    "tests/phase3/policy.test.ts"
+  ],
+  "exclude": ["node_modules"]
+}
