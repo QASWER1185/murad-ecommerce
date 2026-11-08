@@ -10,12 +10,19 @@ existing Supabase and Vercel accounts, **at no additional cost**. No repeat appr
 is needed for routine work within that scope. This supersedes the earlier need
 for the owner to supply already-created staging identifiers.
 
-**Current blocker: provider access, not missing creation authorization.** A fresh
-check found the Supabase and Vercel integrations not installed/connected, no
-provider token bindings or CLI login profiles, and no ready outbound identities.
-Both integrations have been requested. GitHub access is verified. No provisioning,
-provider metadata request, migration or hosted test is possible yet. Existing
-Production/Main identifiers remain deny-targets. No production fallback was used.
+**Current blockers: Supabase free-project quota and Vercel access.** Supabase is
+now connected. Live metadata confirms organization **M Murad Sons**
+(`wtvasruaawpaacyyywog`), Free plan, and the existing production project's
+membership. A live cost quote returned **$0/month**. One authorized creation
+attempt failed: the provider says member **QASWER1185 has reached the 2 active
+free-project limit** across organizations where they are administrator/owner.
+The follow-up project list contains no new staging project. A cost quote alone
+was not proof of spare capacity.
+
+No existing project was paused/deleted/upgraded, no paid plan was purchased and
+no customer data, production credentials or private media were read. Only minimal
+production identity metadata was read, as authorized. Vercel remains not
+installed/connected; no staging deployment or test can run yet. GitHub works.
 
 See [current access evidence](evidence/provider-access.json). The owner explicitly
 says: “If project provisioning or authorization is unavailable, document the
@@ -25,7 +32,8 @@ merges, indexing and Phase 9/10 remain outside the approved scope.
 ## Evidence and status definitions
 
 - **PASS** — executed with evidence, explicitly identifying local versus hosted scope.
-- **FAIL** — executed and failed. There is no failed hosted test: none was attempted.
+- **FAIL** — executed and failed. No hosted application test was attempted. One provider provisioning operation
+  failed with a quota error; it is labeled FAIL separately.
 - **BLOCKED** — a prerequisite prevents execution. All real staging checks are blocked.
 - **NOT RUN** — intentionally unattempted/excluded, with a reason.
 
@@ -33,8 +41,9 @@ The [machine-readable execution status](evidence/execution-status.json) and
 [check ledger](evidence/check-ledger.json) record **zero real staging tests** and
 **zero requests to the proposed hosted targets**. Local PASS rows are repository
 review/hash checks and rejection of the declared production candidate, never real
-Auth, Storage, database or hosting acceptance. Source-control requests are not
-staging operations. No new hosted screenshot, Lighthouse result, provider limit,
+Auth, Storage, database or hosting acceptance. The six live Supabase management calls (five metadata reads and one failed
+creation) are reported separately; zero requests reached a staging application,
+DB/Auth/Storage endpoint. Source-control requests are not staging operations. No new hosted screenshot, Lighthouse result, provider limit,
 backup, RPO or RTO is claimed.
 
 ## Independent work completed
@@ -103,11 +112,14 @@ No new screenshots were taken: application geometry and assets are untouched;
 - New tests: `tests/phase8b/scope.test.mjs`.
 - New reports: the 14 Markdown files in this directory (this README plus the 13
   linked above).
+- Current update: live Supabase connection/metadata/cost/quota evidence, one
+  failed creation attempt and blocked reports; no product/runtime feature added.
 - New aggregate evidence: `evidence/execution-status.json`, `check-ledger.json`,
   `readiness.json`, `production-candidate-rejection.json`, `migrations.json`,
   `local-checks.json`, `provider-access.json`.
 
-**Next step:** authorize Supabase and Vercel in the existing owner accounts, then
+**Next step:** make an eligible Supabase free-project slot available through an
+owner-reviewed process and authorize Vercel in the existing owner account. Then
 resume approved creation after verifying no extra cost and production isolation.
 See [the staging prerequisites](staging-environment.md). Do not proceed to inventory onboarding or launch merely because the
 blocked-work Draft PR exists.

@@ -1,12 +1,12 @@
 # Staging environment and exact missing prerequisites
 
-**BLOCKED — no verified real staging identity.** No provider/API/DB/hostname was
-queried. The following production identifiers are owner-declared, not independently
-verified, and exist only in the offline rejection policy:
+**BLOCKED — no verified real staging identity.** Supabase management metadata was read, as permitted; no production DB/Auth/Storage
+endpoint was queried. Production project ref and organization membership are now
+provider-confirmed. API/app origins below remain owner-declared deny-targets:
 
 | Item | Declared value | Status |
 | --- | --- | --- |
-| Production Supabase ref | `ddgjspvdgjpbysylntji` | PASS: declaration recorded; rejected as staging |
+| Production Supabase ref | `ddgjspvdgjpbysylntji` | PASS: provider identity metadata confirmed; rejected as staging |
 | Production Supabase origin | `https://ddgjspvdgjpbysylntji.supabase.co` | PASS: declaration recorded; rejected as staging |
 | Production hostname | `https://murad-ecommerce.vercel.app` | PASS: declaration recorded; rejected as staging |
 | Hosting provider | Vercel | PASS: declaration recorded, not account inspected |
@@ -31,13 +31,23 @@ account/team, staging-only secrets, migration, synthetic identities, deployment
 and tests. No need to supply an already-created staging project or repeat routine
 approvals. No additional charges are authorized.
 
-**BLOCKED — provider access:** fresh integration discovery reports both Supabase
-and Vercel not installed/connected; no corresponding authenticated CLI/profile or
-runtime provider binding is present. GitHub PR #10 access works. Integration
-connection has been requested. No provider metadata or customer data was fetched.
-See [provider-access evidence](evidence/provider-access.json).
+**PASS — Supabase connected:** organization `wtvasruaawpaacyyywog` / M Murad
+Sons is the existing production organization and is on Free. New project quote:
+**$0/month**. One `create_project` attempt for `murad-ecommerce-staging` in
+`ap-south-1` was **FAIL — provider rejected**, because member QASWER1185 has reached
+the **2 active free-project** limit. A follow-up project list shows no staging
+project. No paid cost was accepted or existing project changed.
 
-After provider authorization, inspect only minimal account/project/quota metadata
+**BLOCKED — quota:** an eligible free-project slot must be made available by the
+owner through a reviewed process. Do not infer which other projects are safe to
+pause/delete; the member-wide limit can include projects outside this visible list.
+The quoted $0 is not an assurance of spare quota. Do not create a new personal
+account/organization to evade the limit or alter production.
+
+**BLOCKED — Vercel access:** fresh discovery still reports not installed/connected.
+GitHub works. See [provider evidence](evidence/provider-access.json).
+
+After quota resolution and Vercel authorization, inspect only minimal account/project/quota metadata
 and confirm the existing owner organization/team and $0 incremental cost before
 creating either project. If a free-project slot/plan, private staging protection,
 backup/restore capacity or usage would require new charges, pause the affected
