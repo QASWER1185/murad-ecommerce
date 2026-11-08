@@ -1,0 +1,32 @@
+{
+  "synthetic": true,
+  "hostingCertification": false,
+  "results": [
+    {
+      "probe": "xlsx",
+      "rows": 10000,
+      "columns": 40,
+      "inputBytes": 986905,
+      "elapsedMs": 1592.1713,
+      "baselineRssBytes": 63639552,
+      "processMaxRssBytes": 403378176,
+      "rssBytes": 403378176
+    },
+    {
+      "probe": "image",
+      "width": 6000,
+      "height": 4000,
+      "inputBytes": 7784507,
+      "concurrentAccepted": 2,
+      "thirdRejected": true,
+      "variantBytes": [
+        374884,
+        374884
+      ],
+      "elapsedMs": 573.774865,
+      "baselineRssBytes": 58421248,
+      "processMaxRssBytes": 123449344,
+      "rssBytes": 94212096
+    }
+  ]
+}

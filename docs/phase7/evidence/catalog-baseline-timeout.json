@@ -1,0 +1,11 @@
+{
+  "synthetic": true,
+  "localNetworklessFixture": true,
+  "reason": "Unbounded 2000-product baseline stopped for query-plan repair; no production query touched",
+  "samples": [
+    {
+      "cancelled": true,
+      "elapsedSeconds": 20.622114
+    }
+  ]
+}

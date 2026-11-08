@@ -18,7 +18,12 @@
     "test:phase5:unit": "tsc -p tsconfig.phase5.json && node --test work/phase5-tests/tests/phase5/unit.test.js",
     "test:phase5:e2e": "node scripts/test-phase5.mjs",
     "test:phase6:unit": "tsc -p tsconfig.phase6.json && node --test work/phase6-tests/tests/phase6/unit.test.js",
-    "test:phase6:e2e": "node scripts/test-phase6.mjs"
+    "test:phase6:e2e": "node scripts/test-phase6.mjs",
+    "test:phase7:unit": "tsc -p tsconfig.phase7.json && node --test work/phase7-tests/tests/phase7/unit.test.js",
+    "test:phase7:db": "node scripts/phase7/rehearse.mjs",
+    "test:phase7:e2e": "node scripts/test-phase7.mjs",
+    "check:staging": "node scripts/phase7/check-config.mjs",
+    "test:phase7:capacity": "node scripts/phase7/catalog-capacity.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",
@@ -37,9 +42,13 @@
   "overrides": {
     "exceljs": {
       "uuid": "11.1.1"
+    },
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "11.0.1"
     }
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
     "@playwright/test": "^1.65.0",
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",

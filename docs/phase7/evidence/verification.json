@@ -1,0 +1,29 @@
+{
+  "scope": "isolated-local-only",
+  "timestampUTC": "2026-11-08T12:04:51.843Z",
+  "reportTimezone": "Asia/Karachi",
+  "branch": "development/staging-readiness",
+  "base": "9df548718d4beac223b052290f70e91dc7c59039",
+  "sourceFilesExcludingDocsSha256": "11c4332d0a91067391de2a8f99186516bb5a93515870c482e8011647ccba833a",
+  "fullBuild": true,
+  "typeScript": true,
+  "lintErrors": 0,
+  "preExistingLintWarnings": 8,
+  "dependencyVulnerabilities": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "regressionTasks": 10,
+  "phase7Units": 7,
+  "phase7DatabaseAssertions": 51,
+  "phase7BrowserGroups": 10,
+  "screenshots": 10,
+  "realSupabaseStagingTested": false,
+  "externalGoogleDeliveryTested": false,
+  "deployed": false,
+  "merged": false
+}

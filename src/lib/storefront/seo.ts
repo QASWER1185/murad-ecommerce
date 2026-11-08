@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { storefrontConfig } from "./config";
 import { catalogMetadata } from "@/lib/seo/catalog-policy";
-import { canEmitOffer } from "@/lib/catalog/publication";
+import { productStructuredData } from "../seo/structured";
 import type { Catalog, Product } from "./types";
 export function context(searchOrFilter = false) {
   const config = storefrontConfig();
@@ -23,44 +23,10 @@ export function metadata(catalog: Catalog, filtered = false): Metadata {
 export function jsonLd(value: unknown) {
   return JSON.stringify(value).replace(/</g, "\\u003c");
 }
-export function productSchema(product: Product, catalog: Catalog) {
+export function productSchema(product: Product, catalog: Catalog, filtered = false) {
   const config = storefrontConfig();
-  if (
-    !config ||
-    !catalog.route ||
-    !canEmitOffer(product, catalog.route, context())
-  )
-    return null;
-  return {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: product.name,
-    description: product.description,
-    sku: product.sku,
-    ...(product.model ? { model: product.model } : {}),
-    ...(product.brand
-      ? { brand: { "@type": "Brand", name: product.brand.name } }
-      : {}),
-    ...(catalog.mediaEnabled && product.gallery.length
-      ? {
-          image: product.gallery.map(
-            (i) =>
-              new URL(`/media/catalog/${i.media_id}/1280`, config.origin).href,
-          ),
-        }
-      : {}),
-    offers: {
-      "@type": "Offer",
-      price: product.price,
-      priceCurrency: product.currency,
-      url: new URL(`/product/${product.slug}`, config.origin).href,
-      ...(product.availability !== "unknown"
-        ? {
-            availability: `https://schema.org/${product.availability === "in_stock" ? "InStock" : "OutOfStock"}`,
-          }
-        : {}),
-    },
-  };
+  if (!config || !catalog.route) return null;
+  return productStructuredData(product, catalog.route, context(filtered), config.origin, catalog.mediaEnabled);
 }
 
 export function businessSchema(catalog: Catalog) {

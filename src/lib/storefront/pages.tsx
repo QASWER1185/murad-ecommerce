@@ -26,7 +26,7 @@ async function Content({ kind, props }: { kind: string; props: PageProps }) {
   if (kind !== "search" && !catalog.entity) notFound();
   if (query.page > catalog.pages) notFound();
   return kind === "product" ? (
-    <ProductPage catalog={catalog} />
+    <ProductPage catalog={catalog} filtered={filteredQuery(values)} />
   ) : (
     <CatalogPage
       key={JSON.stringify(query)}

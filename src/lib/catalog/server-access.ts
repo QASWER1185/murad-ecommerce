@@ -1,15 +1,15 @@
 import 'server-only';
+import { catalogSessionAccess, MfaRequired } from '../admin/assurance';
 import type { SupabaseClient } from '@supabase/supabase-js';
-import { canManage, canPreview, isCleanSlug, type CatalogKind, type CatalogRole, type PublicProduct, type PublicRoute } from './publication';
+import { canManage, isCleanSlug, type CatalogKind, type CatalogRole, type PublicProduct, type PublicRoute } from './publication';
 
 // Phase 3 supplies a request-scoped authenticated SSR client. Never cache this
 // check, trust user_metadata roles, or instantiate a browser service-role client.
 export async function requireCatalogActor(client: SupabaseClient, permission: 'preview' | 'manage') {
-  const { data: { user }, error } = await client.auth.getUser();
-  if (error || !user) throw new Error('Authentication required');
-  const role = await client.rpc('current_catalog_role');
-  if (role.error || !canPreview(role.data) || (permission === 'manage' && !canManage(role.data))) throw new Error('Catalog permission denied');
-  return { userId: user.id, role: role.data as CatalogRole };
+  const access = await catalogSessionAccess(client);
+  if (access.needsMfa) throw new MfaRequired("MFA verification required");
+  if (permission === 'manage' && !canManage(access.role)) throw new Error('Catalog permission denied');
+  return { userId: access.user.id, role: access.role as CatalogRole };
 }
 export async function getAuthorizedProductPreview(client: SupabaseClient, productId: string) {
   await requireCatalogActor(client, 'preview');

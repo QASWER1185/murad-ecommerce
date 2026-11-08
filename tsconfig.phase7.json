@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "module": "commonjs", "moduleResolution": "node", "noEmit": false, "outDir": "./work/phase7-tests", "incremental": false, "isolatedModules": false },
+  "include": ["src/lib/worker/contracts.ts", "src/lib/seo/structured.ts", "tests/phase7/unit.test.ts"],
+  "exclude": ["node_modules"]
+}

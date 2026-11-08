@@ -1,0 +1,24 @@
+{
+  "simulatedAuthAndStorage": true,
+  "realLocalPostgres": true,
+  "foundationAssertions": 27,
+  "hardeningAssertions": 51,
+  "recovery": {
+    "databaseCounts": {
+      "media": 8,
+      "roles": 2,
+      "drafts": 8,
+      "orders": 1,
+      "outbox": 272,
+      "products": 25,
+      "orders_digest": "36a9d26967453b8ad591526ef19d1d6d",
+      "products_digest": "a44f5deeba61e8ed581d4c1eb6e8ce94",
+      "storage_metadata": 28
+    },
+    "dumpBytes": 927502,
+    "binaryObjects": 28,
+    "binaryBytes": 66978,
+    "elapsedMs": 1286,
+    "restoredAnonymousRawProductsDenied": true
+  }
+}

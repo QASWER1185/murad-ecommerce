@@ -3,7 +3,7 @@
   --deep: #031d30;
   --gold: #d7b45d;
   --ink: #172b3d;
-  --muted: #73818e;
+  --muted: #586875;
   --line: #e5eaf0;
   --surface: #f4f6f9;
   background: var(--surface);
@@ -203,7 +203,7 @@
   display: flex;
   align-items: center;
   gap: 9px;
-  color: #6b7b89;
+  color: #586875;
   font-size: 12px;
 }
 .admin-topbar > span > svg {
@@ -263,7 +263,7 @@
   font-size: 9px !important;
   font-weight: 700;
   letter-spacing: 1.8px;
-  color: #9e864c;
+  color: #77612e;
   margin-bottom: 9px !important;
 }
 .admin-page-heading h1 {
@@ -431,7 +431,7 @@
 }
 .admin-stat p {
   font-size: 11px;
-  color: #687a89;
+  color: #586875;
   margin-bottom: 12px;
 }
 .admin-stat > strong {
@@ -444,7 +444,7 @@
 }
 .admin-stat small {
   font-size: 9px;
-  color: #8c99a4;
+  color: #586875;
 }
 .admin-overview-grid {
   display: grid;
@@ -524,7 +524,7 @@
 }
 .admin-product-identity small {
   display: block;
-  color: #94a0ab;
+  color: #586875;
   font-size: 9px;
   margin-top: 3px;
 }
@@ -540,7 +540,7 @@
 }
 .status-draft {
   background: #f0f2f6;
-  color: #768593;
+  color: #586875;
 }
 .status-ready_for_review {
   background: #fbf5e6;
@@ -588,7 +588,7 @@
 }
 .admin-publishing-guide li > strong {
   font-size: 10px;
-  color: #b59c61;
+  color: #77612e;
   width: 27px;
   height: 27px;
   display: flex;
@@ -610,7 +610,7 @@
   border-top: 1px solid var(--line);
   padding-top: 15px;
   font-size: 9px;
-  color: #91a0ac;
+  color: #586875;
   line-height: 1.7;
 }
 .admin-footer {
@@ -620,7 +620,7 @@
   gap: 15px;
   margin: 0 38px;
   padding: 20px 0;
-  color: #9aa6b1;
+  color: #586875;
   font-size: 9px;
 }
 .admin-filters {

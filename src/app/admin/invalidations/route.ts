@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { revalidatePath, revalidateTag } from "next/cache";
+import { invalidateStorefront } from "@/lib/worker/server";
 import { jsonMutation, checked, requestError } from "@/lib/admin/request";
 import { privateHeaders } from "@/lib/admin/security";
 export async function POST(request: NextRequest) {
@@ -19,10 +19,7 @@ export async function POST(request: NextRequest) {
     for (const event of events) {
       let error: string | null = null;
       try {
-        revalidateTag("catalog", { expire: 0 });
-        revalidatePath("/", "layout");
-        for (const path of ["/sitemap.xml", "/robots.txt"])
-          revalidatePath(path);
+        invalidateStorefront();
       } catch {
         error = "Framework invalidation failed";
         failed++;

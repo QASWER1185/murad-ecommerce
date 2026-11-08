@@ -124,7 +124,7 @@
 .hero p:first-of-type { font-size:10px; letter-spacing:0; color:white; font-weight:600; }
 .hero h1 { font-size:28px; line-height:30px; margin:0 0 5px; letter-spacing:.3px; }
 .hero p { font-size:13px; line-height:17px; }
-.heroPhoto { min-height:194px; background-image:url('/sanitary/hero-art.png'); background-size:100% 100%; }
+.heroPhoto { min-height:194px; background-image:image-set(url('/sanitary/hero-art.webp') type('image/webp'),url('/sanitary/hero-art.png') type('image/png')); background-size:100% 100%; }
 .showerSymbol { position:absolute; left:40px; top:22px; width:59px; height:64px; background:url('/sanitary/shower-symbol.png') center/contain no-repeat; }
 .hero .gold { padding:4px 26px; font-size:10px; margin:6px 0 0 -72px; border-radius:3px; }
 .heroBadges { display:flex; align-items:center; gap:12px; margin:10px 0 0; padding:0; list-style:none; font-size:9px; white-space:nowrap; }
