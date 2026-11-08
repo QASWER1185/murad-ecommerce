@@ -33,11 +33,11 @@ export async function browserTests(f, s) {
       );
     });
     await p.screenshot({
-      path: `docs/phase5/screenshots/${name}.png`,
+      path: `work/phase5-review/${name}.png`,
       fullPage: true,
     });
   };
-  mkdirSync("docs/phase5/screenshots", { recursive: true });
+  mkdirSync("work/phase5-review", { recursive: true });
   try {
     await test("anonymous pages SSR published content without private sentinel data", async () => {
       for (const path of [

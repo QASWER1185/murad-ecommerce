@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmit": false,
+    "outDir": "./work/phase6-tests",
+    "incremental": false,
+    "isolatedModules": false
+  },
+  "include": [
+    "src/lib/orders/contracts.ts",
+    "src/lib/orders/security.ts",
+    "src/lib/analytics/**/*.ts",
+    "src/lib/monitoring/**/*.ts",
+    "tests/phase6/unit.test.ts"
+  ],
+  "exclude": ["node_modules"]
+}

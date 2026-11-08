@@ -8,11 +8,13 @@ import {
   Image as ImageIcon,
   Upload,
   Settings,
+  ClipboardList,
   ExternalLink,
   ChevronRight,
 } from "lucide-react";
 const links = [
   { href: "/admin", label: "Overview", icon: LayoutDashboard },
+  { href: "/admin/orders", label: "Order requests", icon: ClipboardList },
   { href: "/admin/products", label: "Products", icon: Package },
   { href: "/admin/catalog", label: "Brands & categories", icon: Shapes },
   { href: "/admin/media", label: "Media & banners", icon: ImageIcon },

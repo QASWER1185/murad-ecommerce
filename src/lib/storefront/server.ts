@@ -1,3 +1,4 @@
+import { orderConfig } from "@/lib/orders/security";
 import "server-only";
 import { cache } from "react";
 import { connection } from "next/server";
@@ -42,6 +43,14 @@ export const getCatalog = cache(
     });
     if (result.error)
       throw new Error("The published catalog is temporarily unavailable.");
-    return { ...result.data, mediaEnabled: storefrontConfig()!.mediaEnabled };
+    let ordersEnabled = false;
+    try {
+      ordersEnabled = !!orderConfig();
+    } catch {}
+    return {
+      ...result.data,
+      mediaEnabled: storefrontConfig()!.mediaEnabled,
+      ordersEnabled,
+    };
   },
 );

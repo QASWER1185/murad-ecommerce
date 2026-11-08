@@ -1,7 +1,7 @@
 // TEST ONLY: loopback Auth/PostgREST HTTP contracts backed by isolated real
 // PostgreSQL/RLS. This is not GoTrue/JWT/Storage end-to-end certification.
 import { createServer } from "node:http";
-import { spawnSync } from "node:child_process";
+import { spawnSync,spawn } from "node:child_process";
 import { readFileSync, readdirSync } from "node:fs";
 import { randomUUID, createHmac } from "node:crypto";
 import assert from "node:assert/strict";
@@ -421,7 +421,7 @@ export async function startFixture() {
         if (endpoint.startsWith("rpc/")) {
           const fn = endpoint.slice(4);
           if (
-            !/^(current_catalog_role|catalog_admin_preview|consume_admin_login_attempt|save_product_draft|save_product_image_alt|submit_catalog_review|review_catalog_entity|publish_catalog_entity|return_catalog_to_draft|archive_catalog_entity|rename_catalog_slug|register_catalog_media|edit_catalog_gallery|catalog_public_media|verify_catalog_media|save_catalog_taxonomy|save_catalog_banner|set_catalog_banner_active|attach_catalog_asset|save_catalog_settings|save_catalog_asset_alt|begin_catalog_import|stage_catalog_import_source|configure_catalog_import|catalog_import_source_batch|stage_catalog_import_preview|start_catalog_import|process_catalog_import_batch|retry_catalog_import|catalog_import_workspace|restore_product_revision|catalog_storefront|catalog_public_generation|catalog_cart|claim_catalog_invalidations|finish_catalog_invalidation|set_catalog_product_featured)$/.test(
+            !/^(current_catalog_role|catalog_admin_preview|consume_admin_login_attempt|save_product_draft|save_product_image_alt|submit_catalog_review|review_catalog_entity|publish_catalog_entity|return_catalog_to_draft|archive_catalog_entity|rename_catalog_slug|register_catalog_media|edit_catalog_gallery|catalog_public_media|verify_catalog_media|save_catalog_taxonomy|save_catalog_banner|set_catalog_banner_active|attach_catalog_asset|save_catalog_settings|save_catalog_asset_alt|begin_catalog_import|stage_catalog_import_source|configure_catalog_import|catalog_import_source_batch|stage_catalog_import_preview|start_catalog_import|process_catalog_import_batch|retry_catalog_import|catalog_import_workspace|restore_product_revision|catalog_storefront|catalog_public_generation|catalog_cart|claim_catalog_invalidations|finish_catalog_invalidation|set_catalog_product_featured|catalog_order_preview|order_request_gateway|admin_order_requests|admin_order_request|update_order_request_status)$/.test(
               fn,
             )
           )
@@ -448,6 +448,9 @@ export async function startFixture() {
             "brands",
             "product_images",
             "product_revisions",
+            "order_requests",
+            "order_request_items",
+            "order_request_events",
             "catalog_routes_public",
             "catalog_redirects_public",
             "catalog_products_public",
@@ -561,6 +564,7 @@ export async function startFixture() {
     return {
       url: `http://127.0.0.1:${server.address().port}`,
       sql,
+      asyncSql: query => new Promise((resolve,reject)=>{const child=spawn('docker',[...docker,'exec','-i',container,'psql','-U','postgres','-qAt','-v','ON_ERROR_STOP=1'],{env,stdio:['pipe','pipe','pipe']});let output='',errors='';child.stdout.on('data',b=>{output+=b});child.stderr.on('data',b=>{errors+=b});child.once('error',reject);child.once('close',code=>code===0?resolve(output.trim()):reject(Error(errors)));child.stdin.end(query);}),
       as,
       literal,
       assertions,

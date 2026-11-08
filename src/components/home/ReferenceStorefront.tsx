@@ -10,7 +10,7 @@ import styles from './ReferenceStorefront.module.css';
 import type { Catalog } from '@/lib/storefront/types';
 import { Media } from '@/components/catalog/Media';
 import { Freshness } from '@/components/catalog/Freshness';
-import { CartButton,WishlistButton } from '@/components/catalog/Shopping';
+import { CartButton,WishlistButton,QuotationAction } from '@/components/catalog/Shopping';
 import { useShopping } from '@/components/sanitary/shop-state';
 
 type Panel = 'cart' | 'wishlist' | 'account' | null;
@@ -161,10 +161,10 @@ export default function ReferenceStorefront({ catalog }: { catalog: Catalog }) {
             <button type="button" className={`${styles.railArrow} ${styles.previous}`} aria-label="Previous products" onClick={() => productRail.current?.scrollBy({ left: -productRail.current.clientWidth, behavior: 'smooth' })}><Icon name="previous" /></button>
             <div className={styles.productRail} ref={productRail}>
               {visible.map(product => <article key={product.id} className={styles.productCard}>
-                <Link prefetch={false} href={`/product/${product.slug}`} className={styles.productImage}><Media image={catalog.products.find(item=>item.id===product.id)?.gallery[0]} enabled={catalog.mediaEnabled} className={styles.productPhoto}/></Link>
-                <div className={styles.productInfo}><h3><Link prefetch={false} href={`/product/${product.slug}`}>{product.name}</Link></h3><p>{product.brand}</p><strong className={styles.price}>{product.inquiry ? 'Request current rate' : <>{product.currency||"PKR"} <b>{money(product.price)}</b></>}</strong>
+                <Link prefetch={false} href={`/product/${product.slug}`} data-product-id={product.id} className={styles.productImage}><Media image={catalog.products.find(item=>item.id===product.id)?.gallery[0]} enabled={catalog.mediaEnabled} className={styles.productPhoto}/></Link>
+                <div className={styles.productInfo}><h3><Link prefetch={false} href={`/product/${product.slug}`} data-product-id={product.id}>{product.name}</Link></h3><p>{product.brand}</p><strong className={styles.price}>{product.inquiry ? 'Request current rate' : <>{product.currency||"PKR"} <b>{money(product.price)}</b></>}</strong>
                   <div className={styles.rating} aria-hidden="true" />
-                  <div className={styles.productActions}>{product.inquiry ? <a href={whatsapp(`Rate inquiry for ${product.name}`)} target="_blank" rel="noopener noreferrer" className={styles.addToCart}>Request Rate</a> : <button type="button" className={styles.addToCart} onClick={() => add(product)}><Icon name="cart-button" />Add to Cart</button>}
+                  <div className={styles.productActions}>{product.inquiry ? <QuotationAction product={catalog.products.find(item=>item.id===product.id)!} enabled={catalog.ordersEnabled} className={styles.addToCart} main={catalog.settings?.main_whatsapp} /> : <button type="button" className={styles.addToCart} onClick={() => add(product)}><Icon name="cart-button" />Add to Cart</button>}
                     <button type="button" className={`${styles.wishlistButton} ${wishlist.includes(product.id) ? styles.saved : ''}`} aria-label={`${wishlist.includes(product.id) ? 'Remove' : 'Save'} ${product.name} ${wishlist.includes(product.id) ? 'from' : 'to'} wishlist`} aria-pressed={wishlist.includes(product.id)} onClick={() => toggleWishlist(product)}><Icon name="heart-product" /></button>
                   </div>
                 </div>

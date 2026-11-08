@@ -1,3 +1,4 @@
+import { ProductView, SearchEvent } from "@/components/analytics/Analytics";
 import { Gallery } from "./Gallery";
 import Link from "next/link";
 import type { Catalog, Product, Query, Taxonomy } from "@/lib/storefront/types";
@@ -46,13 +47,18 @@ export function ProductCard({
         prefetch={false}
         className={styles.productImage}
         href={`/product/${product.slug}`}
+        data-product-id={product.id}
       >
         <Media image={product.gallery[0]} enabled={catalog.mediaEnabled} />
       </Link>
       <div className={styles.cardBody}>
         <p>{product.brand?.name}</p>
         <h3>
-          <Link prefetch={false} href={`/product/${product.slug}`}>
+          <Link
+            prefetch={false}
+            href={`/product/${product.slug}`}
+            data-product-id={product.id}
+          >
             {product.name}
           </Link>
         </h3>
@@ -60,6 +66,7 @@ export function ProductCard({
         <Price product={product} />
         <Stock product={product} />
         <ProductActions
+          requestsEnabled={catalog.ordersEnabled}
           product={product}
           main={catalog.settings?.main_whatsapp}
         />
@@ -283,6 +290,9 @@ export function CatalogPage({
   const items = [{ name: title, path }];
   return (
     <div className={styles.shop}>
+      {kind === "search" && (
+        <SearchEvent count={catalog.total} length={query.q.length} />
+      )}
       <Header catalog={catalog} query={query.q} />
       <main className={styles.main}>
         <Breadcrumbs items={items} />
@@ -493,6 +503,7 @@ export function ProductPage({ catalog }: { catalog: Catalog }) {
   const schema = productSchema(product, catalog);
   return (
     <div className={styles.shop}>
+      <ProductView id={product.id} />
       <Header catalog={catalog} />
       <main className={styles.main}>
         <Breadcrumbs
@@ -524,6 +535,7 @@ export function ProductPage({ catalog }: { catalog: Catalog }) {
             <Stock product={product} />
             {product.finish && <p>Finish: {product.finish}</p>}
             <ProductActions
+              requestsEnabled={catalog.ordersEnabled}
               product={product}
               main={catalog.settings?.main_whatsapp}
             />

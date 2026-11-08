@@ -17,6 +17,15 @@ if (
   !["127.0.0.1", "localhost", "[::1]"].includes(origin.hostname)
 )
   throw Error("HTTPS required outside local testing");
+// This cookie utility remains a short-lived local/staging diagnostic, not a
+// production scheduler identity. Production scheduling needs a reviewed worker.
+if (
+  !["127.0.0.1", "localhost", "[::1]"].includes(origin.hostname) &&
+  process.env.CATALOG_WORKER_ENVIRONMENT !== "staging"
+)
+  throw Error(
+    "Browser-session workers are restricted to local or explicitly authorized staging diagnostics.",
+  );
 const values = JSON.parse(
   readFileSync(process.env.CATALOG_WORKER_COOKIE_FILE || "", "utf8"),
 );
