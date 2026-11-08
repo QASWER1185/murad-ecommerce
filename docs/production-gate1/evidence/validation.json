@@ -1,0 +1,16 @@
+{
+  "timestampUTC": "2026-11-08T18:37:19.598810+00:00",
+  "scope": "local documentation validation only",
+  "status": "PASS",
+  "reports": 9,
+  "metadataTransactionsReadOnly": 3,
+  "migrationHistoryMatches": 2,
+  "reviewedMigrationsAbsent": 10,
+  "localLinksResolve": true,
+  "jsonValid": true,
+  "rawCredentialsOrConsentLinksExcluded": true,
+  "onlyDocumentationChanged": true,
+  "applicationBuildAndTests": "NOT RUN: documentation-only, no application/migration/logic changes",
+  "githubPublication": "BLOCKED: branch deployment exclusion absent; documentation-only scope disallows silently adding config; Vercel inspection 403",
+  "productionOrERPModifications": false
+}

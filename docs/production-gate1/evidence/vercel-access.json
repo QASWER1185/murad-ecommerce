@@ -1,0 +1,14 @@
+{
+  "status": "BLOCKED",
+  "operation": "GET /v10/projects",
+  "projectId": "prj_OXReC9drbCnKpRDc1KdPrLyMvbFU",
+  "teamId": "team_aLiRohDtAAZqq656cMy1Hwzz",
+  "httpStatus": 403,
+  "code": "forbidden",
+  "scope": "kelidexpipes-5464s-projects",
+  "reason": "Connection lacks owning-team authorization",
+  "identityVerifiedThisPhase": false,
+  "followedAlternateTeam": false,
+  "environmentVariablesRequested": false,
+  "consentFlowCreated": false
+}

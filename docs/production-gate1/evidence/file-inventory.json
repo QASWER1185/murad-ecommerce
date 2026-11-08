@@ -1,0 +1,26 @@
+{
+  "base": "f4deb663ac4b3d372d22be6d39f5f034334a7005",
+  "files": [
+    "docs/production-gate1/README.md",
+    "docs/production-gate1/backup-readiness.md",
+    "docs/production-gate1/erp-isolation.md",
+    "docs/production-gate1/evidence/database-inventory.json",
+    "docs/production-gate1/evidence/database-structure-and-access.json",
+    "docs/production-gate1/evidence/file-inventory.json",
+    "docs/production-gate1/evidence/identity.json",
+    "docs/production-gate1/evidence/inspection-log.json",
+    "docs/production-gate1/evidence/installed-migrations.json",
+    "docs/production-gate1/evidence/metadata-queries.md",
+    "docs/production-gate1/evidence/migration-comparison.json",
+    "docs/production-gate1/evidence/organization-plan.json",
+    "docs/production-gate1/evidence/services-and-roles.json",
+    "docs/production-gate1/evidence/validation.json",
+    "docs/production-gate1/evidence/vercel-access.json",
+    "docs/production-gate1/gate2-recommendation.md",
+    "docs/production-gate1/migration-drift.md",
+    "docs/production-gate1/release-blockers.md",
+    "docs/production-gate1/security-gaps.md",
+    "docs/production-gate1/supabase-inventory.md",
+    "docs/production-gate1/vercel-inventory.md"
+  ]
+}

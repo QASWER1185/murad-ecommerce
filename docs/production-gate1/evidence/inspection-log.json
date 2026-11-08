@@ -1,0 +1,30 @@
+{
+  "timestampUTC": "2026-11-08T18:30:59.068Z",
+  "timezone": "Asia/Karachi",
+  "sourceCommit": "f4deb663ac4b3d372d22be6d39f5f034334a7005",
+  "authorizedSupabaseRef": "ddgjspvdgjpbysylntji",
+  "authorizedSupabaseName": "murad-ecommerce",
+  "sqlTransactions": 3,
+  "sqlReadOnlyObserved": [
+    "on",
+    "on",
+    "on"
+  ],
+  "sqlStatementTimeoutSeconds": 5,
+  "sqlLockTimeoutSeconds": 1,
+  "readCustomerOrProductRows": false,
+  "readAuthUsersOrSessions": false,
+  "readStorageObjectsOrBinaries": false,
+  "readSecrets": false,
+  "erpAccessed": false,
+  "productionModified": false,
+  "migrationsApplied": false,
+  "backupsCreated": false,
+  "deploymentsCreated": false,
+  "gate2Authorized": false,
+  "limitations": [
+    "Vercel exact team/project scoped identity denied HTTP 403",
+    "Auth settings and actual provider backup inventory not exposed by current metadata tools",
+    "ERP isolation cannot be established without out-of-scope access or owner evidence"
+  ]
+}
