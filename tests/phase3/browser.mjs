@@ -190,7 +190,27 @@ export async function runBrowserTests(fixture) {
     await check(
       "manual creation supports Draft with no image, price or stock claim",
       async () => {
+        // Phase 5 public visibility requires a separately reviewed parent.
+        // Create only an isolated synthetic category; never publish sample rows.
+        const category = JSON.parse(
+          fixture.sql(
+            fixture.as(
+              "admin",
+              `SELECT to_jsonb(public.save_catalog_taxonomy('category',NULL,NULL,'{"name":"Local browser category","slug":"local-browser-category","description":"Synthetic local parent for workflow regression."}'));`,
+            ),
+          ),
+        );
+        const categoryVersion = fixture.sql(
+          `SELECT version FROM public.categories WHERE id='${category}';`,
+        );
+        fixture.sql(
+          fixture.as(
+            "admin",
+            `SELECT public.submit_catalog_review('category','${category}',${categoryVersion});SELECT public.review_catalog_entity('category','${category}',${categoryVersion},'{"identity":true,"content":true}');SELECT public.publish_catalog_entity('category','${category}',${categoryVersion},false);`,
+          ),
+        );
         await page.goto("/admin/products/new");
+        await page.locator("select[name=category_id]").selectOption(category);
         await page
           .getByLabel("Product title")
           .fill("Local browser test product");
@@ -235,6 +255,7 @@ export async function runBrowserTests(fixture) {
         const edit = {
           ...rawDraft,
           name: "Local browser test product",
+          category_id: fixture.sql(`SELECT category_id FROM public.products WHERE id='${id}';`),
           slug: "local-browser-test-product",
           sku: "LOCAL-BROWSER-1",
           description: "Local test-only content approved in explicit review.",

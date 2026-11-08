@@ -286,6 +286,8 @@ export async function startFixture() {
     );
     const sessions = new Map();
     const storedObjects = new Map();
+    const publicRequests = [];
+    let responseHook = null;
     const refreshes = new Map();
     let refreshCount = 0;
     function issue(role, expired = false) {
@@ -415,10 +417,11 @@ export async function startFixture() {
         if (!url.pathname.startsWith("/rest/v1/"))
           return send(404, { message: "Not found" });
         const endpoint = url.pathname.slice("/rest/v1/".length);
+        publicRequests.push({ endpoint, role: role || "anon" });
         if (endpoint.startsWith("rpc/")) {
           const fn = endpoint.slice(4);
           if (
-            !/^(current_catalog_role|catalog_admin_preview|consume_admin_login_attempt|save_product_draft|save_product_image_alt|submit_catalog_review|review_catalog_entity|publish_catalog_entity|return_catalog_to_draft|archive_catalog_entity|rename_catalog_slug|register_catalog_media|edit_catalog_gallery|catalog_public_media|verify_catalog_media|save_catalog_taxonomy|save_catalog_banner|set_catalog_banner_active|attach_catalog_asset|save_catalog_settings|save_catalog_asset_alt|begin_catalog_import|stage_catalog_import_source|configure_catalog_import|catalog_import_source_batch|stage_catalog_import_preview|start_catalog_import|process_catalog_import_batch|retry_catalog_import|catalog_import_workspace|restore_product_revision)$/.test(
+            !/^(current_catalog_role|catalog_admin_preview|consume_admin_login_attempt|save_product_draft|save_product_image_alt|submit_catalog_review|review_catalog_entity|publish_catalog_entity|return_catalog_to_draft|archive_catalog_entity|rename_catalog_slug|register_catalog_media|edit_catalog_gallery|catalog_public_media|verify_catalog_media|save_catalog_taxonomy|save_catalog_banner|set_catalog_banner_active|attach_catalog_asset|save_catalog_settings|save_catalog_asset_alt|begin_catalog_import|stage_catalog_import_source|configure_catalog_import|catalog_import_source_batch|stage_catalog_import_preview|start_catalog_import|process_catalog_import_batch|retry_catalog_import|catalog_import_workspace|restore_product_revision|catalog_storefront|catalog_public_generation|catalog_cart|claim_catalog_invalidations|finish_catalog_invalidation|set_catalog_product_featured)$/.test(
               fn,
             )
           )
@@ -426,7 +429,7 @@ export async function startFixture() {
           const args = Object.entries(body)
             .map(([k, v]) => {
               if (!/^[a-z_]+$/.test(k)) throw new Error("Invalid argument");
-              return `${k}=>${literal(v)}`;
+              return `${k}=>${k === "p_ids" && Array.isArray(v) ? `ARRAY[${v.map(literal).join(",")}]::uuid[]` : literal(v)}`;
             })
             .join(",");
           const result = sql(
@@ -435,6 +438,7 @@ export async function startFixture() {
               `SELECT coalesce(to_jsonb(public.${fn}(${args}))::text,'null');`,
             ),
           );
+          if(responseHook) await responseHook(fn,JSON.parse(result || "null"));
           return send(200, JSON.parse(result || "null"));
         }
         if (
@@ -445,6 +449,12 @@ export async function startFixture() {
             "product_images",
             "product_revisions",
             "catalog_routes_public",
+            "catalog_redirects_public",
+            "catalog_products_public",
+            "catalog_categories_public",
+            "catalog_brands_public",
+            "catalog_images_public",
+            "catalog_assets_public",
             "import_jobs",
             "import_rows",
             "catalog_media",
@@ -556,6 +566,8 @@ export async function startFixture() {
       assertions,
       issue,
       storedObjects,
+      publicRequests,
+      setResponseHook: hook => { responseHook = hook; },
       get refreshCount() {
         return refreshCount;
       },

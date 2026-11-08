@@ -1,3 +1,6 @@
+import { cookies } from 'next/headers';
+import { csrfCookie } from '@/lib/admin/security';
+import { InvalidationProcessor } from '@/components/admin/InvalidationProcessor';
 import { adminPageSession } from "@/lib/admin/data";
 import { CsrfField } from "@/components/admin/shared";
 import { Navigation } from "@/components/admin/Navigation";
@@ -60,6 +63,7 @@ export default async function ProtectedLayout({
             </div>
           ) : null}
           {children}
+          {actor.role === "admin" && <InvalidationProcessor csrf={(await cookies()).get(csrfCookie)?.value || ""}/> }
         </main>
         <footer className="admin-footer">
           <span>M Murad Sons · Catalog workspace</span>

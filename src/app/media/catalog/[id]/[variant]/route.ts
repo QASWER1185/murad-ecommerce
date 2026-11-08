@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { connection } from "next/server";
-import { readAdminConfig } from "@/lib/admin/config";
+import { storefrontConfig } from "@/lib/storefront/config";
 import { idSchema } from "@/lib/admin/validation";
 const headers = {
   "Cache-Control": "no-store, max-age=0",
@@ -16,8 +16,8 @@ export async function GET(
   { params }: { params: Promise<{ id: string; variant: string }> },
 ) {
   await connection();
-  const config = readAdminConfig();
-  if (!config) return new NextResponse(null, { status: 404, headers });
+  const config = storefrontConfig();
+  if (!config?.mediaEnabled) return new NextResponse(null, { status: 404, headers });
   const { id, variant } = await params;
   if (
     !idSchema.safeParse(id).success ||

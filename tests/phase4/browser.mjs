@@ -301,7 +301,7 @@ export async function runBrowserTests(f) {
         ),
         "1",
       );
-      await capture(page, "docs/phase4/screenshots/gallery-desktop.png");
+      await capture(page, "work/phase4-review/gallery-desktop.png");
     });
     await test("10 MiB originals survive the proxy and multipart size boundary", async () => {
       const input = {
@@ -411,7 +411,7 @@ export async function runBrowserTests(f) {
       await expect(page.getByLabel("Asset alt text")).toHaveValue(
         "Local logo description",
       );
-      await capture(page, "docs/phase4/screenshots/brand-desktop.png");
+      await capture(page, "work/phase4-review/brand-desktop.png");
     });
     await test("published derivatives are readable, originals stay private and withdrawal closes all delivery paths", async () => {
       await page.goto(`/admin/products/${product}`);
@@ -554,7 +554,7 @@ export async function runBrowserTests(f) {
         .getByLabel(/I explicitly approve the displayed bulk price changes/)
         .check();
       await page.getByLabel(/Skip invalid rows/).check();
-      await capture(page, "docs/phase4/screenshots/import-preview-desktop.png");
+      await capture(page, "work/phase4-review/import-preview-desktop.png");
       const mobile = await browser.newContext({
         baseURL: base,
         viewport: { width: 390, height: 844 },
@@ -569,7 +569,7 @@ export async function runBrowserTests(f) {
           () => document.documentElement.scrollWidth <= innerWidth,
         ),
       );
-      await capture(p, "docs/phase4/screenshots/import-preview-mobile.png");
+      await capture(p, "work/phase4-review/import-preview-mobile.png");
       await mobile.close();
       await page
         .getByRole("button", { name: "Apply approved Draft changes" })
@@ -713,7 +713,7 @@ export async function runBrowserTests(f) {
         (await admin.request.get(`/media/catalog/${media}/640`)).status(),
         404,
       );
-      await capture(page, "docs/phase4/screenshots/banner-desktop.png");
+      await capture(page, "work/phase4-review/banner-desktop.png");
       await page.goto("/admin/settings");
       await page.getByLabel(/I verified these business details/).check();
       await page
@@ -796,7 +796,7 @@ export async function runBrowserTests(f) {
           () => document.documentElement.scrollWidth <= innerWidth,
         ),
       );
-      await capture(m, "docs/phase4/screenshots/gallery-mobile.png");
+      await capture(m, "work/phase4-review/gallery-mobile.png");
       await m.goto("/admin/imports");
       await expect(m.getByRole("heading", { name: "Bulk product import", exact: true })).toBeVisible();
       await expect(m.getByRole("heading", { name: "Import history", exact: true })).toBeVisible();
@@ -805,7 +805,7 @@ export async function runBrowserTests(f) {
           () => document.documentElement.scrollWidth <= innerWidth,
         ),
       );
-      await capture(m, "docs/phase4/screenshots/import-history-mobile.png");
+      await capture(m, "work/phase4-review/import-history-mobile.png");
       await m.goto("/admin/settings");
       await expect(m.getByRole("heading", { name: "Store settings", exact: true })).toBeVisible();
       await expect(m.getByLabel("Main WhatsApp", { exact: true })).toHaveValue("+923217165000");
@@ -814,7 +814,7 @@ export async function runBrowserTests(f) {
           () => document.documentElement.scrollWidth <= innerWidth,
         ),
       );
-      await capture(m, "docs/phase4/screenshots/settings-mobile.png");
+      await capture(m, "work/phase4-review/settings-mobile.png");
       await mobile.close();
       const response = await admin.request.get(
         `/admin/media/file/${firstMedia}/640`,

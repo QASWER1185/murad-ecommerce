@@ -4,7 +4,8 @@
     "deploymentEnabled": {
       "development/seo-commerce": false,
       "development/admin-dashboard": false,
-      "development/product-import-media": false
+      "development/product-import-media": false,
+      "development/storefront-integration": false
     }
   }
 }

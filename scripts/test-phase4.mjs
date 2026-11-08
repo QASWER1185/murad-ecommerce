@@ -17,6 +17,12 @@ try {
   const env = {
     ...process.env,
     ADMIN_ENABLED: "true",
+    CATALOG_ENABLED: "true",
+    CATALOG_ENVIRONMENT: "local",
+    CATALOG_SITE_ORIGIN: "http://127.0.0.1:3100",
+    CATALOG_SUPABASE_URL: fixture.url,
+    CATALOG_SUPABASE_PUBLISHABLE_KEY: "local-test-publishable-key",
+    CATALOG_MEDIA_ENABLED: "true",
     ADMIN_ENVIRONMENT: "local",
     ADMIN_SITE_ORIGIN: "http://127.0.0.1:3100",
     ADMIN_SUPABASE_URL: fixture.url,
@@ -55,7 +61,7 @@ try {
     await new Promise((r) => setTimeout(r, 300));
   }
   if (!ready) throw new Error("Local application did not start: " + logs);
-  mkdirSync("docs/phase4/screenshots", { recursive: true });
+  mkdirSync("work/phase4-review", { recursive: true });
   const { runBrowserTests } = await import("../tests/phase4/browser.mjs");
   await runBrowserTests(fixture);
 } catch (error) {
