@@ -2,21 +2,22 @@
 
 **Overall: BLOCKED — not executed on real staging.**
 
-The owner supplied only Production/Main, single-tenant identifiers. No separate
-authorized staging project, HTTPS hostname or operator access is available to this
-execution environment. No production fallback is permitted.
+The owner now authorizes creating isolated staging in existing accounts at no
+additional cost. Supabase/Vercel integrations and runtime operator access remain
+unavailable; no staging project or HTTPS hostname has been created or verified.
+No production fallback is permitted.
 
 | Check | Status | Evidence / reason |
 | --- | --- | --- |
-| Verified staging PostgreSQL version, extensions and migration history | BLOCKED | Upstream staging-isolation/access gate unmet; no hosted request attempted |
-| Existing schema/grants/policies inspected | BLOCKED | Upstream staging-isolation/access gate unmet; no hosted request attempted |
-| Verified staging backup before mutation | BLOCKED | Upstream staging-isolation/access gate unmet; no hosted request attempted |
-| Restore into a separate isolated target | BLOCKED | Upstream staging-isolation/access gate unmet; no hosted request attempted |
-| Safe legacy-seed decision for fresh versus populated database | BLOCKED | Upstream staging-isolation/access gate unmet; no hosted request attempted |
-| Guarded ordered migrations with session acknowledgement | BLOCKED | Upstream staging-isolation/access gate unmet; no hosted request attempted |
-| Structures/indexes/foreign keys validated | BLOCKED | Upstream staging-isolation/access gate unmet; no hosted request attempted |
-| Real anonymous/ordinary/Editor/Admin RLS tests | BLOCKED | Upstream staging-isolation/access gate unmet; no hosted request attempted |
-| Existing IDs/sample Draft and verification state retained | BLOCKED | Upstream staging-isolation/access gate unmet; no hosted request attempted |
+| Verified staging PostgreSQL version, extensions and migration history | BLOCKED | Provider provisioning access unavailable; no isolated target or hosted request |
+| Existing schema/grants/policies inspected | BLOCKED | Provider provisioning access unavailable; no isolated target or hosted request |
+| Verified staging backup before mutation | BLOCKED | Provider provisioning access unavailable; no isolated target or hosted request |
+| Restore into a separate isolated target | BLOCKED | Provider provisioning access unavailable; no isolated target or hosted request |
+| Safe legacy-seed decision for fresh versus populated database | BLOCKED | Provider provisioning access unavailable; no isolated target or hosted request |
+| Guarded ordered migrations with session acknowledgement | BLOCKED | Provider provisioning access unavailable; no isolated target or hosted request |
+| Structures/indexes/foreign keys validated | BLOCKED | Provider provisioning access unavailable; no isolated target or hosted request |
+| Real anonymous/ordinary/Editor/Admin RLS tests | BLOCKED | Provider provisioning access unavailable; no isolated target or hosted request |
+| Existing IDs/sample Draft and verification state retained | BLOCKED | Provider provisioning access unavailable; no isolated target or hosted request |
 
 **NOT RUN:** No database connection, schema inspection, backup, restore, seed or
 DDL/RLS change was attempted. All 12 source files are unchanged. Legacy seed must

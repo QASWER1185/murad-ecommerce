@@ -15,7 +15,7 @@ verified, and exist only in the offline rejection policy:
 | Separate staging HTTPS origin/project/environment | Not supplied | BLOCKED |
 | Ownership, aliases, DB pooler target, no-customer-data isolation | Unverified | BLOCKED |
 | Staging operator access | Not bound to this execution runtime | BLOCKED |
-| Exact spending/load limits | Only “free/standard defaults” supplied | BLOCKED for provisioning/load testing |
+| Exact spending/load limits | $0 additional charges; detailed workload limits unverified | BLOCKED for load testing |
 
 The owner states secrets exist in production Vercel environment variables and
 Supabase Secret Manager. This does not grant staging access here. A presence-only
@@ -23,13 +23,33 @@ runtime check found no configured staging target/operator/budget variables. It d
 not inspect provider secret stores or claim they are empty. No secret is required
 in chat, PRs or logs.
 
-## Required before hosted work can resume
+## Latest creation authorization and access check
 
-1. Identify or separately approve provisioning a **nonproduction Supabase project**,
-   with project ref/API URL, owning organization and explicit isolated scope.
-   Provisioning permission and paid limits must precede creation; do not infer
-   permission from the production account or a nominal free tier.
-2. Identify a separate Vercel staging project or protected Preview environment,
+**PASS — authorization received:** the owner authorizes autonomous creation of
+`murad-ecommerce-staging` in the existing Supabase organization and Vercel
+account/team, staging-only secrets, migration, synthetic identities, deployment
+and tests. No need to supply an already-created staging project or repeat routine
+approvals. No additional charges are authorized.
+
+**BLOCKED — provider access:** fresh integration discovery reports both Supabase
+and Vercel not installed/connected; no corresponding authenticated CLI/profile or
+runtime provider binding is present. GitHub PR #10 access works. Integration
+connection has been requested. No provider metadata or customer data was fetched.
+See [provider-access evidence](evidence/provider-access.json).
+
+After provider authorization, inspect only minimal account/project/quota metadata
+and confirm the existing owner organization/team and $0 incremental cost before
+creating either project. If a free-project slot/plan, private staging protection,
+backup/restore capacity or usage would require new charges, pause the affected
+operation for explicit approval. Do not create duplicate personal accounts.
+
+## Remaining prerequisites and authorized next operations
+
+1. Once account access works, create the authorized **nonproduction Supabase
+   project** `murad-ecommerce-staging` after verifying the existing owner organization
+   and no extra charge. Record its new project ref/API URL; do not copy production
+   database records, credentials or media.
+2. Create the authorized separate Vercel `murad-ecommerce-staging` project with a protected staging/Preview environment,
    project ID, branch/environment scope and distinct HTTPS origin. Confirm ownership,
    aliases/deployment protection and staging-only environment-variable bindings.
    No production Main build or hostname may be reused.
@@ -40,8 +60,9 @@ in chat, PRs or logs.
    Settings/secret mechanisms accessible to the execution runtime. Supply no
    passwords, JWT signing secrets, private keys or session tokens in conversation.
    External production secret stores are not an alternative.
-5. Specify a numeric spending cap/currency and bounded request count, concurrency,
-   duration and synthetic-record cap. Clarify image/workbook volume, cleanup limits
+5. The approved additional spending cap is **zero**. After verifying provider
+   quotas, establish bounded non-billable request count, concurrency, duration
+   and synthetic-record limits before load tests. Clarify image/workbook volume, cleanup limits
    and which provider plan/capacity applies. A 2,000+ record test requires an
    approved cap permitting it; no high-concurrency test is currently approved.
 6. Identify authorized staging backup destination, a **separate restore target**,

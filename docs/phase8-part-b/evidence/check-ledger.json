@@ -25,553 +25,553 @@
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Verify a separate staging project and HTTPS target",
-    "reason": "Only Production/Main identifiers were supplied; no distinct staging identity/ownership/access scope"
+    "reason": "Staging creation is authorized, but Supabase/Vercel integrations and runtime operator access are unavailable; isolation cannot yet be verified"
   },
   {
     "id": "HOSTED-001",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Verified staging PostgreSQL version, extensions and migration history",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-002",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Existing schema/grants/policies inspected",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-003",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Verified staging backup before mutation",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-004",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Restore into a separate isolated target",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-005",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Safe legacy-seed decision for fresh versus populated database",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-006",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Guarded ordered migrations with session acknowledgement",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-007",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Structures/indexes/foreign keys validated",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-008",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Real anonymous/ordinary/Editor/Admin RLS tests",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-009",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Existing IDs/sample Draft and verification state retained",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-010",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Trusted operator provisions synthetic staging identities",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-011",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Admin login/logout and real JWT validation",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-012",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Session refresh, expiry and revocation",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-013",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Admin/Editor separation and ordinary/anonymous denial",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-014",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Login limits, CSRF and Origin rejection",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-015",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "TOTP enrollment and identity-checked recovery rehearsal",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-016",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "MFA enabled only after enrollment/recovery",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-017",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "AAL2 enforcement at app/RPC/RLS/private Storage boundaries",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-018",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "JPEG/PNG/WebP/AVIF actual content/size/dimension checks",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-019",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Private immutable originals and responsive variants",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-020",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Gallery order/primary/alt/replacement/history recovery",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-021",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Unauthorized/private/historical access denial",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-022",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Withdrawal through HTTP/Storage/CDN/browser caches",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-023",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "CSV/XLSX templates, upload, mapping and preview",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-024",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Duplicate/missing taxonomy/blank preservation and price approval",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-025",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Part A unheaded populated/formula cell regression",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-026",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Bounded batches/interruption/retry/version conflict/history",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-027",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Private import-source access",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-028",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Hosted workbook/image RSS, body limits and duration",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-029",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Product add/edit/Draft/review/publish/return-to-Draft/withdraw through real Admin",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-030",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "SKU/model/taxonomy/specification/SEO/price-stock verification and revision history",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-031",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Permanent slugs, redirects and anonymous Draft 404",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-032",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Homepage and approved Sanitary desktop/mobile layouts",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-033",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Imported products, kitchen sinks/faucets, hobs/ranges, hoods and geysers",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-034",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Pipes/fittings, tanks, electrical and quotation-only building materials",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-035",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Eight brand page templates and product details",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-036",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Search/sorting/pagination/related products",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-037",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Optional verified prices and unknown availability",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-038",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Cart and wishlist revalidation",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-039",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Draft product 404 and explicit review/publication separation",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-040",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Withdrawal from collections/related/cart/public media",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-041",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Synthetic guest submission and server-calculated snapshots",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-042",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Current availability/version revalidation",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-043",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Duplicate/concurrent intent prevention",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-044",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Reference generation and owner-bound receipt recovery",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-045",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Quotation-only and mixed requests without invented prices",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-046",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Admin-only status/history and customer privacy",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-047",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Rate limits and unauthorized request rejection",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-048",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Order-gateway signing and key rotation",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-049",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Dedicated narrow machine identity and private key custody",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-050",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "No human-cookie or browser service-role dependency",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-051",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Signature age, domain binding and nonce replay rejection",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-052",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Concurrent claims/ack leases and crash recovery",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-053",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Retry/backoff and invalidation acknowledgement",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-054",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Withdrawal remains effective when worker is delayed/offline",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-055",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Approved cadence/budget staging-only scheduler",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-056",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Missed-run/backlog/failed-run monitoring",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-057",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Homepage/Sanitary/brand/product mobile LCP and CLS",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-058",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "INP or clearly qualified measurable lab interactions",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-059",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Approved-layout mobile usability",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-060",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Real database latency and connection-pool capacity",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-061",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Approved 2000+ synthetic catalog and pagination",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-062",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Bounded concurrent searches and requests",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-063",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Actual image/XLSX memory and function duration",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-064",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Actual gateway body limits and hosting concurrency",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-065",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "SSR/H1/category/brand/product metadata and canonical",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-066",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "BreadcrumbList/Product/Offer/Store JSON-LD using actual eligible data",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-067",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Internal links and actual HTTP 404/308",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-068",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Pagination and search/filter noindex",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-069",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Private Draft exclusion and responsive image metadata",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-070",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Staging robots/noindex and sitemap eligibility",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-071",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Keyboard/modal focus/Escape and mobile layouts",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-072",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Approved contrast findings rechecked without unauthorized palette changes",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-073",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Staging DB backup and independently restored schema/data",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-074",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Separate private Storage original/derivative/import binary backup",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-075",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Product revision and order-history recovery",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-076",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "RLS/role/permission restoration",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-077",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Worker queue recovery and credential rotation",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "HOSTED-078",
     "scope": "real staging",
     "status": "BLOCKED",
     "check": "Measured recovery duration and observed data-loss window",
-    "reason": "Upstream staging-isolation/access gate unmet; no hosted request attempted"
+    "reason": "Provider provisioning access unavailable; no isolated target or hosted request"
   },
   {
     "id": "EXCLUDED-82",

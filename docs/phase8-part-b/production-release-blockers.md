@@ -5,8 +5,8 @@ have run. No production deployment, migration, merge or indexing is authorized.
 
 | Gate | Status | Required evidence / owner decision |
 | --- | --- | --- |
-| Isolated staging and access | BLOCKED | Distinct project/HTTPS scope, ownership, permissions, no customer data; see environment report |
-| Resource budget | BLOCKED | Numeric spend/load/record limits, provider capacity, separate restore target |
+| Isolated staging and access | BLOCKED | Creation now authorized; connect Supabase/Vercel in existing accounts, then create/verify distinct targets and no customer data |
+| Resource budget | BLOCKED | $0 extra charges approved; verify free capacity and bounded non-billable workload/restore capacity |
 | Auth/MFA/session security | BLOCKED | Real GoTrue/JWT/refresh/revocation/recovery and AAL2 at app/RPC/RLS/Storage |
 | Migrations and compatibility | BLOCKED | Backup, separate restore, reviewed seed history, full guarded staging migration/RLS rehearsal |
 | Media/privacy/withdrawal | BLOCKED | Actual Storage/CDN/browser cache withdrawal, private originals and import source denial |

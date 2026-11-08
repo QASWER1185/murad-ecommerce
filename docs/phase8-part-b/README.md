@@ -4,13 +4,23 @@
 ON REAL STAGING.** Part B preparation is reviewable; the requested real validation
 has not been completed. Reports use Asia/Karachi; evidence timestamps are UTC.
 
-The owner confirmed the supplied Supabase project and Vercel hostname are
-**Production / Main, single tenant**. No separate staging project, HTTPS hostname,
-staging operator access or numeric resource budget has been identified. The Part B
-instruction says: “If these conditions cannot be verified, STOP hosted operations
-and report the missing requirements.” We stopped only those operations. We did not
-contact the supplied production endpoints, provision resources, deploy, migrate,
-merge PRs, enable indexing or start Phase 9/10.
+The latest owner instruction authorizes autonomous creation, configuration,
+deployment and testing of separate `murad-ecommerce-staging` projects inside the
+existing Supabase and Vercel accounts, **at no additional cost**. No repeat approval
+is needed for routine work within that scope. This supersedes the earlier need
+for the owner to supply already-created staging identifiers.
+
+**Current blocker: provider access, not missing creation authorization.** A fresh
+check found the Supabase and Vercel integrations not installed/connected, no
+provider token bindings or CLI login profiles, and no ready outbound identities.
+Both integrations have been requested. GitHub access is verified. No provisioning,
+provider metadata request, migration or hosted test is possible yet. Existing
+Production/Main identifiers remain deny-targets. No production fallback was used.
+
+See [current access evidence](evidence/provider-access.json). The owner explicitly
+says: “If project provisioning or authorization is unavailable, document the
+blocker and stop the affected work.” Production, paid usage, provider 2FA bypass,
+merges, indexing and Phase 9/10 remain outside the approved scope.
 
 ## Evidence and status definitions
 
@@ -95,8 +105,9 @@ No new screenshots were taken: application geometry and assets are untouched;
   linked above).
 - New aggregate evidence: `evidence/execution-status.json`, `check-ledger.json`,
   `readiness.json`, `production-candidate-rejection.json`, `migrations.json`,
-  `local-checks.json`.
+  `local-checks.json`, `provider-access.json`.
 
-**Next step:** satisfy [the staging prerequisites](staging-environment.md) and resume
-Part B. Do not proceed to inventory onboarding or launch merely because the
+**Next step:** authorize Supabase and Vercel in the existing owner accounts, then
+resume approved creation after verifying no extra cost and production isolation.
+See [the staging prerequisites](staging-environment.md). Do not proceed to inventory onboarding or launch merely because the
 blocked-work Draft PR exists.

@@ -1,0 +1,60 @@
+{
+  "timestampUTC": "2026-11-08T16:17:55.713Z",
+  "reportTimezone": "Asia/Karachi",
+  "scope": "Fresh capability discovery and local presence checks only; no provider API, database, or production endpoint request",
+  "authorization": {
+    "createIsolatedStaging": true,
+    "useExistingOwnerAccounts": true,
+    "requestedProjectName": "murad-ecommerce-staging",
+    "additionalChargesAuthorized": false,
+    "productionChangesAuthorized": false,
+    "provider2FABypassAuthorized": false,
+    "mainMergeAuthorized": false,
+    "googleIndexingAuthorized": false
+  },
+  "github": {
+    "status": "PASS",
+    "evidence": "PR #10 metadata read successfully; branch source ff7f1df1ea204ebdc89c44a581b64a4d03d66b67 matches origin",
+    "draft": true,
+    "merged": false
+  },
+  "supabase": {
+    "status": "BLOCKED",
+    "integrationFound": true,
+    "installed": false,
+    "connectionConfirmed": false,
+    "cliInstalled": false,
+    "accessTokenVariablePresent": false,
+    "standardLoginProfilePresent": false,
+    "stagingProjectCreated": false,
+    "projectRef": null
+  },
+  "vercel": {
+    "status": "BLOCKED",
+    "integrationFound": true,
+    "installed": false,
+    "connectionConfirmed": false,
+    "cliInstalled": false,
+    "tokenVariablePresent": false,
+    "standardLoginProfilePresent": false,
+    "stagingProjectCreated": false,
+    "httpsStagingOrigin": null
+  },
+  "runtime": {
+    "observationsCurrent": true,
+    "networkPolicy": "enforced/unrestricted",
+    "configuredSecrets": 0,
+    "configuredRuntimeVariables": 0,
+    "outboundIdentities": 0,
+    "desktop": "enabled/state unknown; no browser-control tool offered"
+  },
+  "providerPlanQuotaAndOrganizationMetadata": {
+    "status": "BLOCKED",
+    "reason": "No provider account authorization; no quota or cost inferred from plan names"
+  },
+  "providerSecretsInspected": false,
+  "productionDataRead": false,
+  "providerRequestsAttempted": 0,
+  "realStagingTestsExecuted": 0,
+  "nextAction": "Install/connect Supabase and Vercel integrations with existing owner accounts through provider authorization. Use secure environment bindings if needed; never paste credentials."
+}

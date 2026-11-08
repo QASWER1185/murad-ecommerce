@@ -2,20 +2,21 @@
 
 **Overall: BLOCKED — not executed on real staging.**
 
-The owner supplied only Production/Main, single-tenant identifiers. No separate
-authorized staging project, HTTPS hostname or operator access is available to this
-execution environment. No production fallback is permitted.
+The owner now authorizes creating isolated staging in existing accounts at no
+additional cost. Supabase/Vercel integrations and runtime operator access remain
+unavailable; no staging project or HTTPS hostname has been created or verified.
+No production fallback is permitted.
 
 | Check | Status | Evidence / reason |
 | --- | --- | --- |
-| Dedicated narrow machine identity and private key custody | BLOCKED | Upstream staging-isolation/access gate unmet; no hosted request attempted |
-| No human-cookie or browser service-role dependency | BLOCKED | Upstream staging-isolation/access gate unmet; no hosted request attempted |
-| Signature age, domain binding and nonce replay rejection | BLOCKED | Upstream staging-isolation/access gate unmet; no hosted request attempted |
-| Concurrent claims/ack leases and crash recovery | BLOCKED | Upstream staging-isolation/access gate unmet; no hosted request attempted |
-| Retry/backoff and invalidation acknowledgement | BLOCKED | Upstream staging-isolation/access gate unmet; no hosted request attempted |
-| Withdrawal remains effective when worker is delayed/offline | BLOCKED | Upstream staging-isolation/access gate unmet; no hosted request attempted |
-| Approved cadence/budget staging-only scheduler | BLOCKED | Upstream staging-isolation/access gate unmet; no hosted request attempted |
-| Missed-run/backlog/failed-run monitoring | BLOCKED | Upstream staging-isolation/access gate unmet; no hosted request attempted |
+| Dedicated narrow machine identity and private key custody | BLOCKED | Provider provisioning access unavailable; no isolated target or hosted request |
+| No human-cookie or browser service-role dependency | BLOCKED | Provider provisioning access unavailable; no isolated target or hosted request |
+| Signature age, domain binding and nonce replay rejection | BLOCKED | Provider provisioning access unavailable; no isolated target or hosted request |
+| Concurrent claims/ack leases and crash recovery | BLOCKED | Provider provisioning access unavailable; no isolated target or hosted request |
+| Retry/backoff and invalidation acknowledgement | BLOCKED | Provider provisioning access unavailable; no isolated target or hosted request |
+| Withdrawal remains effective when worker is delayed/offline | BLOCKED | Provider provisioning access unavailable; no isolated target or hosted request |
+| Approved cadence/budget staging-only scheduler | BLOCKED | Provider provisioning access unavailable; no isolated target or hosted request |
+| Missed-run/backlog/failed-run monitoring | BLOCKED | Provider provisioning access unavailable; no isolated target or hosted request |
 
 **NOT RUN:** No machine/order key was provisioned, cron installed or test alert
 sent. The existing disabled schedule example remains a plan, not an operational
