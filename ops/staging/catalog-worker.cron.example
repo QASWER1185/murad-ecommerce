@@ -1,0 +1,9 @@
+# DISABLED EXAMPLE. Not installed; owner must authorize scheduler + secrets.
+# Operator installs on staging runner, with mode-0600 secret env file, node >=22,
+# network access only to the isolated staging APP origin, and exit/heartbeat alert.
+# Each invocation claims <=25 events, five concurrent acknowledgements maximum.
+# Scheduler runs independently of Admin browser sessions. Overlap is lease safe.
+# * * * * * cd /srv/murad-staging && /usr/bin/node --env-file=/run/secrets/murad-worker.env scripts/phase7/run-catalog-worker.mjs
+# Alert: nonzero exit, no successful invocation >3 minutes, oldest pending >300s,
+# retrying >=1 (attempts >=5), or pending >250 for 5 minutes. Never log env files.
+# This sample does not authorize execution against any hosted application.

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { randomBytes } from "node:crypto";
 import { readAdminConfig } from "./lib/admin/config";
 import { adminClient } from "./lib/admin/supabase-server";
+import { catalogSessionAccess } from "./lib/admin/assurance";
 import { csrfCookie, privateHeaders, validOrigin } from "./lib/admin/security";
 
 import { admitCatalogPath } from "./lib/storefront/admission";
@@ -89,6 +90,11 @@ export async function proxy(request: NextRequest) {
       status: 403,
       headers: privateHeaders,
     });
+  // Admit protected HTML pages before streaming begins. Their layouts and every
+  // operation still independently recheck Auth/role/AAL; API/file handlers keep
+  // their own JSON/binary rejection contracts.
+  const protectedPage = request.method === "GET" && /^\/admin(?:\/(?:products(?:\/.*)?|catalog(?:\/.*)?|orders(?:\/[a-f0-9-]{36})?|imports(?:\/[a-f0-9-]{36})?|settings|media))?\/?$/.test(request.nextUrl.pathname);
+  let destination: string | null = config && protectedPage ? "/admin/login" : null;
   const pending: {
     name: string;
     value: string;
@@ -127,6 +133,12 @@ export async function proxy(request: NextRequest) {
     });
     try {
       await client.auth.getUser();
+      if (protectedPage) {
+        try {
+          const access = await catalogSessionAccess(client);
+          destination = access.needsMfa ? "/admin/mfa" : null;
+        } catch { destination = "/admin/login?notice=access"; }
+      }
     } catch {
       return new NextResponse("Authentication service unavailable", {
         status: 503,
@@ -134,7 +146,9 @@ export async function proxy(request: NextRequest) {
       });
     }
   }
-  const response = NextResponse.next({ request: { headers: request.headers } });
+  const response = destination
+    ? NextResponse.redirect(new URL(destination, config!.origin), 307)
+    : NextResponse.next({ request: { headers: request.headers } });
   for (const { name, value, options } of pending)
     response.cookies.set(name, value, options);
   for (const [key, value] of Object.entries(privateHeaders))

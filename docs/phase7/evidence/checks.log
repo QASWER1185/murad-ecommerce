@@ -1,0 +1,185 @@
+File: work/phase7-build.log
+
+> murad-ecommerce@0.1.0 build
+> next build
+
+▲ Next.js 16.4.5 (Turbopack)
+- Environments: .env.local
+✓ Running next.config.ts took 16ms
+- Cache Components enabled
+- Partial Prefetching enabled
+- Experiments (use with caution):
+  · proxyClientMaxBodySize: "12mb"
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 510ms
+  Running TypeScript ...
+  Finished TypeScript in 2.0s ...
+  Collecting page data using 2 workers ...
+  Generating static pages using 2 workers (0/43) ...
+  Generating static pages using 2 workers (10/43) 
+  Generating static pages using 2 workers (21/43) 
+  Generating static pages using 2 workers (32/43) 
+✓ Generating static pages using 2 workers (43/43) in 485ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ◐ /
+├ ◐ /_not-found
+├ ◐ /admin
+├ ƒ /admin/actions/[action]
+├ ◐ /admin/catalog
+├   /admin/catalog/[kind]/[id]
+│ └ ◐ /admin/catalog/[kind]/[id]
+├ ◐ /admin/imports
+├   /admin/imports/[id]
+│ └ ◐ /admin/imports/[id]
+├ ƒ /admin/imports/[id]/report
+├ ƒ /admin/imports/api
+├ ƒ /admin/imports/template
+├ ƒ /admin/invalidations
+├ ◐ /admin/login
+├ ƒ /admin/manage/[action]
+├ ◐ /admin/media
+├ ƒ /admin/media/api
+├ ƒ /admin/media/file/[id]/[variant]
+├ ◐ /admin/mfa
+├ ƒ /admin/mfa/verify
+├ ◐ /admin/orders
+├   /admin/orders/[id]
+│ └ ◐ /admin/orders/[id]
+├ ƒ /admin/orders/query
+├ ƒ /admin/orders/status
+├ ◐ /admin/products
+├   /admin/products/[id]
+│ └ ◐ /admin/products/[id]
+├   /admin/products/[id]/preview
+│ └ ◐ /admin/products/[id]/preview
+├   /admin/products/[id]/revisions/[revision]
+│ └ ◐ /admin/products/[id]/revisions/[revision]
+├ ◐ /admin/products/new
+├ ◐ /admin/settings
+├ ƒ /api/catalog/cart
+├ ƒ /api/catalog/generation
+├ ƒ /api/internal/catalog-invalidations
+├ ƒ /api/order-requests
+├ ƒ /api/order-requests/preview
+├ ƒ /api/order-requests/receipt
+├ ƒ /api/order-requests/session
+├   /brand/[slug]
+│ └ ◐ /brand/[slug]
+├ ◐ /brands
+├ ◐ /categories
+├   /category/[slug]
+│ └ ◐ /category/[slug]
+├ ƒ /media/catalog/[id]/[variant]
+├ ◐ /privacy
+├   /product/[slug]
+│ └ ◐ /product/[slug]
+├ ƒ /robots.txt
+├ ◐ /search
+└ ƒ /sitemap.xml
+
+
+ƒ Proxy (Middleware)
+
+◐  (Partial Prerender)  prerendered as static HTML with dynamic server-streamed content
+ƒ  (Dynamic)            server-rendered on demand
+
+
+
+File: work/phase7-lint.log
+
+> murad-ecommerce@0.1.0 lint
+> eslint
+
+
+/workspace/murad-ecommerce/scripts/phase7/optimize-reference-heroes.mjs
+  14:89  warning  'output' is defined but never used  @typescript-eslint/no-unused-vars
+
+/workspace/murad-ecommerce/src/components/home/DesignOption1Storefront.tsx
+   4:8  warning  'Link' is defined but never used        @typescript-eslint/no-unused-vars
+  17:3  warning  'Headphones' is defined but never used  @typescript-eslint/no-unused-vars
+
+/workspace/murad-ecommerce/src/components/home/NasgasStorefront.tsx
+   4:8  warning  'Link' is defined but never used   @typescript-eslint/no-unused-vars
+  24:3  warning  'Flame' is defined but never used  @typescript-eslint/no-unused-vars
+
+/workspace/murad-ecommerce/src/components/layout/Footer.tsx
+  14:3  warning  'CreditCard' is defined but never used  @typescript-eslint/no-unused-vars
+
+/workspace/murad-ecommerce/src/components/products/AddToCartButton.tsx
+  13:3  warning  'productId' is defined but never used    @typescript-eslint/no-unused-vars
+  14:3  warning  'productName' is defined but never used  @typescript-eslint/no-unused-vars
+  15:3  warning  'price' is defined but never used        @typescript-eslint/no-unused-vars
+
+✖ 9 problems (0 errors, 9 warnings)
+
+
+
+File: work/phase7-typescript.log
+
+
+File: work/phase7-db.log
+
+> murad-ecommerce@0.1.0 test:phase7:db
+> node scripts/phase7/rehearse.mjs
+
+Phase 7 database security: 51 assertions passed (real local PostgreSQL/RLS; synthetic Auth contract).
+{"event":"local_recovery_passed","databaseCounts":{"media":8,"roles":2,"drafts":8,"orders":1,"outbox":272,"products":25,"orders_digest":"36a9d26967453b8ad591526ef19d1d6d","products_digest":"a44f5deeba61e8ed581d4c1eb6e8ce94","storage_metadata":28},"dumpBytes":927502,"binaryObjects":28,"binaryBytes":66978,"elapsedMs":1286,"restoredAnonymousRawProductsDenied":true}
+
+
+File: work/phase7-unit.log
+
+> murad-ecommerce@0.1.0 test:phase7:unit
+> tsc -p tsconfig.phase7.json && node --test work/phase7-tests/tests/phase7/unit.test.js
+
+✔ worker configuration fails closed for production, remote local services and privileged credentials (2.509919ms)
+✔ machine signature binds exact bytes, domain, origin, action and fresh bounded claim (1.238956ms)
+✔ queue alerts have explicit backlog age and retry thresholds (1.035088ms)
+✔ structured data shares eligibility, supports missing price without fabricating offers (0.809839ms)
+✔ offers require real projected positive prices; unknown availability omitted and quotations have no offer (0.336847ms)
+✔ merchant readiness never invents identifiers, shipping/returns policies or feed approval (5.83138ms)
+✔ staging preflight is offline, rejects production identity and never prints secrets (266.158362ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 394.971129
+
+
+File: work/phase7-e2e.log
+
+> murad-ecommerce@0.1.0 test:phase7:e2e
+> node scripts/test-phase7.mjs
+
+✓ desktop homepage and Sanitary screenshots preserve approved geometry
+✓ crawlable content, canonical URLs, headings, breadcrumbs, noindex and truthful schemas
+✓ machine endpoint denies unauthenticated, forged, expired and browser-origin requests
+✓ dedicated worker claims and acknowledges without a human session; replay fails closed
+✓ mobile layouts, both WhatsApp contacts and responsive public image delivery
+✓ same-fixture screenshot comparison against Phase 6 committed references
+✓ keyboard opens the cart, keeps focus inside its dialog and returns focus on Escape
+✓ AAL1 trusted Admin is blocked before challenge, including authorized previews
+✓ verified TOTP step-up, incorrect code, secure cookies and role revocation
+✓ withdrawal removes public product and derivative with no shared optimizer escape
+Phase 7 browser: 10 security/SEO/visual groups passed. Axe results recorded separately; no invented accessibility pass claim.
+Phase 7 browser performance: twelve cold mobile lab samples recorded.
+Phase 7 logs: machine credentials absent; fixed operational event codes only.
+
+
+File: work/phase7-catalog-capacity.log
+
+> murad-ecommerce@0.1.0 test:phase7:capacity
+> node scripts/phase7/catalog-capacity.mjs
+
+Capacity category-first: 806.2, 935.0, 888.8 ms
+Capacity category-page-100: 598.3, 599.9, 635.4 ms
+Capacity search: 444.7, 392.6, 514.8 ms
+Capacity brand: 753.5, 788.3, 863.1 ms
+Capacity price-sort: 945.6, 805.5, 773.3 ms
+Capacity product-related: 794.1, 755.1, 1088.2 ms
+Phase 7 database capacity: 2,000 synthetic reviewed products, six paginated/detail query scenarios measured.

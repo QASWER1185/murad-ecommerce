@@ -16,6 +16,9 @@ export function generateMetadata() {
           openGraph: {
             url: config.origin,
             title: "M Murad Sons Building Material Store",
+            description: "Sanitary, kitchen and building materials at Adda Plot, Al Kabir Town, Raiwind Road, Lahore.",
+            type: "website",
+            locale: "en_PK",
           },
         }
       : {}),
@@ -26,6 +29,8 @@ async function Content() {
   const schema = businessSchema(catalog);
   return (
     <>
+      <link rel="preload" as="image" type="image/webp" href="/homepage/hero-mobile.webp" media="(max-width: 900px)" fetchPriority="high" />
+      <link rel="preload" as="image" type="image/webp" href="/homepage/hero.webp" media="(min-width: 901px)" fetchPriority="high" />
       <ReferenceStorefront catalog={catalog} />
       {schema && (
         <script

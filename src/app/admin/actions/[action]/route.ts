@@ -1,3 +1,4 @@
+import { catalogSessionAccess } from "@/lib/admin/assurance";
 import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { createHmac, randomBytes } from "node:crypto";
@@ -117,8 +118,9 @@ export async function POST(
             401,
           )
         : ok("/admin/login?notice=login");
+    let needsMfa = false;
     try {
-      await requireCatalogActor(client, "preview");
+      needsMfa = (await catalogSessionAccess(client)).needsMfa;
     } catch {
       await client.auth.signOut({ scope: "local" });
       return request.headers.get("accept")?.includes("application/json")
@@ -129,7 +131,7 @@ export async function POST(
         : ok("/admin/login?notice=login");
     }
     rotateCsrf();
-    return ok("/admin");
+    return ok(needsMfa ? "/admin/mfa" : "/admin");
   }
   if (action === "logout") {
     const result = await client.auth.signOut({ scope: "local" });

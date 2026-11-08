@@ -1,0 +1,3445 @@
+{
+  "mode": "local-lab",
+  "cpuThrottle": 4,
+  "latencyMs": 150,
+  "downloadBytesPerSecond": 200000,
+  "viewport": "390x844",
+  "coldBrowserCache": true,
+  "fieldINP": false,
+  "notes": "Observed lab interaction durations are not field INP or a Lighthouse score. Local DB/HTTP contracts differ from hosted Supabase.",
+  "measurements": [
+    {
+      "path": "/",
+      "run": 1,
+      "readyMs": 6317.717342000004,
+      "vitals": {
+        "lcp": 3848,
+        "cls": 0.000006425568076776214,
+        "interactions": [
+          16,
+          16,
+          16,
+          32,
+          32,
+          48,
+          48,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16
+        ]
+      },
+      "resources": [
+        {
+          "name": "/_next/static/chunks/3nlv-cxr7_ia_.css",
+          "transferSize": 11988,
+          "encodedBodySize": 11688,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/37_r-pcca94gr.css",
+          "transferSize": 9555,
+          "encodedBodySize": 9255,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/1pcw6gskne7pf.js",
+          "transferSize": 2330,
+          "encodedBodySize": 2030,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/3z8yk-yyn_4m-.js",
+          "transferSize": 9053,
+          "encodedBodySize": 8753,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/41c3808a7as1l.js",
+          "transferSize": 72002,
+          "encodedBodySize": 71702,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/turbopack-077hmtqrhcoji.js",
+          "transferSize": 4654,
+          "encodedBodySize": 4354,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/2fngx3qms2ljk.js",
+          "transferSize": 5860,
+          "encodedBodySize": 5560,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/3ncb72-8v_w-5.js",
+          "transferSize": 874,
+          "encodedBodySize": 574,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/1wg4rdrutax1u.js",
+          "transferSize": 45701,
+          "encodedBodySize": 45401,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/1elud1o77e445.js",
+          "transferSize": 3600,
+          "encodedBodySize": 3300,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/1x2ip2w8jr3pu.js",
+          "transferSize": 14742,
+          "encodedBodySize": 14442,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/homepage/hero-mobile.webp",
+          "transferSize": 183120,
+          "encodedBodySize": 182820,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/homepage/icon-pin-top.png",
+          "transferSize": 837,
+          "encodedBodySize": 537,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-phone.png",
+          "transferSize": 1194,
+          "encodedBodySize": 894,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/logo-header.png",
+          "transferSize": 24788,
+          "encodedBodySize": 24488,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-search.png",
+          "transferSize": 1088,
+          "encodedBodySize": 788,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-account.png",
+          "transferSize": 1450,
+          "encodedBodySize": 1150,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-heart-header.png",
+          "transferSize": 1428,
+          "encodedBodySize": 1128,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-cart-header.png",
+          "transferSize": 1406,
+          "encodedBodySize": 1106,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-list.png",
+          "transferSize": 1061,
+          "encodedBodySize": 761,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-menu-chevron.png",
+          "transferSize": 590,
+          "encodedBodySize": 290,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-chevron-white.png",
+          "transferSize": 519,
+          "encodedBodySize": 219,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-chevron-right.png",
+          "transferSize": 690,
+          "encodedBodySize": 390,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-sanitary.png",
+          "transferSize": 9069,
+          "encodedBodySize": 8769,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-kitchen.png",
+          "transferSize": 10458,
+          "encodedBodySize": 10158,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-hobs.png",
+          "transferSize": 12410,
+          "encodedBodySize": 12110,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-hoods.png",
+          "transferSize": 9717,
+          "encodedBodySize": 9417,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-geysers.png",
+          "transferSize": 9563,
+          "encodedBodySize": 9263,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-pipes.png",
+          "transferSize": 13162,
+          "encodedBodySize": 12862,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-tanks.png",
+          "transferSize": 11418,
+          "encodedBodySize": 11118,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-electric.png",
+          "transferSize": 7762,
+          "encodedBodySize": 7462,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-building.png",
+          "transferSize": 13282,
+          "encodedBodySize": 12982,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-view-brands.png",
+          "transferSize": 562,
+          "encodedBodySize": 262,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-faisal.png",
+          "transferSize": 10271,
+          "encodedBodySize": 9971,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-porta-ceramics.png",
+          "transferSize": 9483,
+          "encodedBodySize": 9183,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-porta-sanitary.png",
+          "transferSize": 9778,
+          "encodedBodySize": 9478,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-dell.png",
+          "transferSize": 7965,
+          "encodedBodySize": 7665,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-popular.png",
+          "transferSize": 10319,
+          "encodedBodySize": 10019,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-duramax.png",
+          "transferSize": 9907,
+          "encodedBodySize": 9607,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-duraflow.png",
+          "transferSize": 9878,
+          "encodedBodySize": 9578,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-imported.png",
+          "transferSize": 9728,
+          "encodedBodySize": 9428,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-previous.png",
+          "transferSize": 663,
+          "encodedBodySize": 363,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-heart-product.png",
+          "transferSize": 1001,
+          "encodedBodySize": 701,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-cart-button.png",
+          "transferSize": 879,
+          "encodedBodySize": 579,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-next.png",
+          "transferSize": 649,
+          "encodedBodySize": 349,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/banner-pipes.png",
+          "transferSize": 103553,
+          "encodedBodySize": 103253,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/banner-building.png",
+          "transferSize": 124670,
+          "encodedBodySize": 124370,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-delivery.png",
+          "transferSize": 1914,
+          "encodedBodySize": 1614,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-shield.png",
+          "transferSize": 1628,
+          "encodedBodySize": 1328,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-payment.png",
+          "transferSize": 1629,
+          "encodedBodySize": 1329,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-returns.png",
+          "transferSize": 1354,
+          "encodedBodySize": 1054,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-support.png",
+          "transferSize": 1396,
+          "encodedBodySize": 1096,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/footer-decoration.png",
+          "transferSize": 89880,
+          "encodedBodySize": 89580,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/logo-footer.png",
+          "transferSize": 23280,
+          "encodedBodySize": 22980,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-pin-footer.png",
+          "transferSize": 988,
+          "encodedBodySize": 688,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-whatsapp-footer.png",
+          "transferSize": 1136,
+          "encodedBodySize": 836,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/social-icons.png",
+          "transferSize": 5625,
+          "encodedBodySize": 5325,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/fonts/roboto-latin.woff2",
+          "transferSize": 43436,
+          "encodedBodySize": 43136,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/media/catalog/c5e4467f-af6f-40a7-b3c6-97833bebf995/320",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/b64d1e2c-b553-460c-9d6d-f1521def7099/320",
+          "transferSize": 1106,
+          "encodedBodySize": 806,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/ee78b6bf-1fff-4f29-ad33-4ddb5d3cef0e/320",
+          "transferSize": 1096,
+          "encodedBodySize": 796,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/3faa4c24-338c-40a4-9d09-277284f33645/320",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/b205e2ad-7fc6-4dca-adfb-90a798d7ca43/320",
+          "transferSize": 1106,
+          "encodedBodySize": 806,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/a653638b-902f-43c5-b500-13e1a7de8cd5/320",
+          "transferSize": 1096,
+          "encodedBodySize": 796,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/api/catalog/generation",
+          "transferSize": 320,
+          "encodedBodySize": 20,
+          "initiatorType": "fetch"
+        },
+        {
+          "name": "/favicon.ico",
+          "transferSize": 15386,
+          "encodedBodySize": 15086,
+          "initiatorType": "other"
+        }
+      ],
+      "navigation": [
+        {
+          "ttfbMs": 44.099999997764826,
+          "domContentLoadedMs": 753.6999999992549,
+          "loadMs": 5544.199999999255
+        }
+      ],
+      "jsTransferBytes": 156486
+    },
+    {
+      "path": "/",
+      "run": 2,
+      "readyMs": 6350.300445000001,
+      "vitals": {
+        "lcp": 3684,
+        "cls": 0.000006425568076776214,
+        "interactions": [
+          24,
+          24,
+          24,
+          32,
+          32,
+          24,
+          24,
+          24,
+          24,
+          24,
+          24,
+          16,
+          16
+        ]
+      },
+      "resources": [
+        {
+          "name": "/_next/static/chunks/3nlv-cxr7_ia_.css",
+          "transferSize": 11988,
+          "encodedBodySize": 11688,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/37_r-pcca94gr.css",
+          "transferSize": 9555,
+          "encodedBodySize": 9255,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/1pcw6gskne7pf.js",
+          "transferSize": 2330,
+          "encodedBodySize": 2030,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/3z8yk-yyn_4m-.js",
+          "transferSize": 9053,
+          "encodedBodySize": 8753,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/1wg4rdrutax1u.js",
+          "transferSize": 45701,
+          "encodedBodySize": 45401,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/41c3808a7as1l.js",
+          "transferSize": 72002,
+          "encodedBodySize": 71702,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/3ncb72-8v_w-5.js",
+          "transferSize": 874,
+          "encodedBodySize": 574,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/turbopack-077hmtqrhcoji.js",
+          "transferSize": 4654,
+          "encodedBodySize": 4354,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/2fngx3qms2ljk.js",
+          "transferSize": 5860,
+          "encodedBodySize": 5560,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/1elud1o77e445.js",
+          "transferSize": 3600,
+          "encodedBodySize": 3300,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/1x2ip2w8jr3pu.js",
+          "transferSize": 14742,
+          "encodedBodySize": 14442,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/homepage/hero-mobile.webp",
+          "transferSize": 183120,
+          "encodedBodySize": 182820,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/homepage/icon-pin-top.png",
+          "transferSize": 837,
+          "encodedBodySize": 537,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-phone.png",
+          "transferSize": 1194,
+          "encodedBodySize": 894,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/logo-header.png",
+          "transferSize": 24788,
+          "encodedBodySize": 24488,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-heart-header.png",
+          "transferSize": 1428,
+          "encodedBodySize": 1128,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-account.png",
+          "transferSize": 1450,
+          "encodedBodySize": 1150,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-search.png",
+          "transferSize": 1088,
+          "encodedBodySize": 788,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-cart-header.png",
+          "transferSize": 1406,
+          "encodedBodySize": 1106,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-list.png",
+          "transferSize": 1061,
+          "encodedBodySize": 761,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-menu-chevron.png",
+          "transferSize": 590,
+          "encodedBodySize": 290,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-chevron-white.png",
+          "transferSize": 519,
+          "encodedBodySize": 219,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-chevron-right.png",
+          "transferSize": 690,
+          "encodedBodySize": 390,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-sanitary.png",
+          "transferSize": 9069,
+          "encodedBodySize": 8769,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-kitchen.png",
+          "transferSize": 10458,
+          "encodedBodySize": 10158,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-hobs.png",
+          "transferSize": 12410,
+          "encodedBodySize": 12110,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-hoods.png",
+          "transferSize": 9717,
+          "encodedBodySize": 9417,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-geysers.png",
+          "transferSize": 9563,
+          "encodedBodySize": 9263,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-tanks.png",
+          "transferSize": 11418,
+          "encodedBodySize": 11118,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-pipes.png",
+          "transferSize": 13162,
+          "encodedBodySize": 12862,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-electric.png",
+          "transferSize": 7762,
+          "encodedBodySize": 7462,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-building.png",
+          "transferSize": 13282,
+          "encodedBodySize": 12982,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-view-brands.png",
+          "transferSize": 562,
+          "encodedBodySize": 262,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-faisal.png",
+          "transferSize": 10271,
+          "encodedBodySize": 9971,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-porta-ceramics.png",
+          "transferSize": 9483,
+          "encodedBodySize": 9183,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-porta-sanitary.png",
+          "transferSize": 9778,
+          "encodedBodySize": 9478,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-dell.png",
+          "transferSize": 7965,
+          "encodedBodySize": 7665,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-popular.png",
+          "transferSize": 10319,
+          "encodedBodySize": 10019,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-duramax.png",
+          "transferSize": 9907,
+          "encodedBodySize": 9607,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-duraflow.png",
+          "transferSize": 9878,
+          "encodedBodySize": 9578,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-imported.png",
+          "transferSize": 9728,
+          "encodedBodySize": 9428,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-previous.png",
+          "transferSize": 663,
+          "encodedBodySize": 363,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-heart-product.png",
+          "transferSize": 1001,
+          "encodedBodySize": 701,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-cart-button.png",
+          "transferSize": 879,
+          "encodedBodySize": 579,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-next.png",
+          "transferSize": 649,
+          "encodedBodySize": 349,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/banner-pipes.png",
+          "transferSize": 103553,
+          "encodedBodySize": 103253,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/banner-building.png",
+          "transferSize": 124670,
+          "encodedBodySize": 124370,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-delivery.png",
+          "transferSize": 1914,
+          "encodedBodySize": 1614,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-shield.png",
+          "transferSize": 1628,
+          "encodedBodySize": 1328,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-payment.png",
+          "transferSize": 1629,
+          "encodedBodySize": 1329,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-returns.png",
+          "transferSize": 1354,
+          "encodedBodySize": 1054,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-support.png",
+          "transferSize": 1396,
+          "encodedBodySize": 1096,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/footer-decoration.png",
+          "transferSize": 89880,
+          "encodedBodySize": 89580,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/logo-footer.png",
+          "transferSize": 23280,
+          "encodedBodySize": 22980,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-pin-footer.png",
+          "transferSize": 988,
+          "encodedBodySize": 688,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-whatsapp-footer.png",
+          "transferSize": 1136,
+          "encodedBodySize": 836,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/social-icons.png",
+          "transferSize": 5625,
+          "encodedBodySize": 5325,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/fonts/roboto-latin.woff2",
+          "transferSize": 43436,
+          "encodedBodySize": 43136,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/media/catalog/c5e4467f-af6f-40a7-b3c6-97833bebf995/320",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/b64d1e2c-b553-460c-9d6d-f1521def7099/320",
+          "transferSize": 1106,
+          "encodedBodySize": 806,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/ee78b6bf-1fff-4f29-ad33-4ddb5d3cef0e/320",
+          "transferSize": 1096,
+          "encodedBodySize": 796,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/3faa4c24-338c-40a4-9d09-277284f33645/320",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/b205e2ad-7fc6-4dca-adfb-90a798d7ca43/320",
+          "transferSize": 1106,
+          "encodedBodySize": 806,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/a653638b-902f-43c5-b500-13e1a7de8cd5/320",
+          "transferSize": 1096,
+          "encodedBodySize": 796,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/api/catalog/generation",
+          "transferSize": 320,
+          "encodedBodySize": 20,
+          "initiatorType": "fetch"
+        },
+        {
+          "name": "/favicon.ico",
+          "transferSize": 15386,
+          "encodedBodySize": 15086,
+          "initiatorType": "other"
+        }
+      ],
+      "navigation": [
+        {
+          "ttfbMs": 18,
+          "domContentLoadedMs": 675.5,
+          "loadMs": 5578.699999999255
+        }
+      ],
+      "jsTransferBytes": 156486
+    },
+    {
+      "path": "/",
+      "run": 3,
+      "readyMs": 6722.171191999994,
+      "vitals": {
+        "lcp": 3656,
+        "cls": 0.000006425568076776214,
+        "interactions": [
+          40,
+          40,
+          40,
+          32,
+          32,
+          24,
+          24,
+          16,
+          16,
+          16,
+          32,
+          32,
+          16,
+          16
+        ]
+      },
+      "resources": [
+        {
+          "name": "/_next/static/chunks/3nlv-cxr7_ia_.css",
+          "transferSize": 11988,
+          "encodedBodySize": 11688,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/37_r-pcca94gr.css",
+          "transferSize": 9555,
+          "encodedBodySize": 9255,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/1pcw6gskne7pf.js",
+          "transferSize": 2330,
+          "encodedBodySize": 2030,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/3z8yk-yyn_4m-.js",
+          "transferSize": 9053,
+          "encodedBodySize": 8753,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/turbopack-077hmtqrhcoji.js",
+          "transferSize": 4654,
+          "encodedBodySize": 4354,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/1wg4rdrutax1u.js",
+          "transferSize": 45701,
+          "encodedBodySize": 45401,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/41c3808a7as1l.js",
+          "transferSize": 72002,
+          "encodedBodySize": 71702,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/2fngx3qms2ljk.js",
+          "transferSize": 5860,
+          "encodedBodySize": 5560,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/3ncb72-8v_w-5.js",
+          "transferSize": 874,
+          "encodedBodySize": 574,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/1elud1o77e445.js",
+          "transferSize": 3600,
+          "encodedBodySize": 3300,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/1x2ip2w8jr3pu.js",
+          "transferSize": 14742,
+          "encodedBodySize": 14442,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/homepage/hero-mobile.webp",
+          "transferSize": 183120,
+          "encodedBodySize": 182820,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/homepage/icon-pin-top.png",
+          "transferSize": 837,
+          "encodedBodySize": 537,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/logo-header.png",
+          "transferSize": 24788,
+          "encodedBodySize": 24488,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-phone.png",
+          "transferSize": 1194,
+          "encodedBodySize": 894,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-search.png",
+          "transferSize": 1088,
+          "encodedBodySize": 788,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-heart-header.png",
+          "transferSize": 1428,
+          "encodedBodySize": 1128,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-account.png",
+          "transferSize": 1450,
+          "encodedBodySize": 1150,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-cart-header.png",
+          "transferSize": 1406,
+          "encodedBodySize": 1106,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-list.png",
+          "transferSize": 1061,
+          "encodedBodySize": 761,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-menu-chevron.png",
+          "transferSize": 590,
+          "encodedBodySize": 290,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-chevron-white.png",
+          "transferSize": 519,
+          "encodedBodySize": 219,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-chevron-right.png",
+          "transferSize": 690,
+          "encodedBodySize": 390,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-kitchen.png",
+          "transferSize": 10458,
+          "encodedBodySize": 10158,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-sanitary.png",
+          "transferSize": 9069,
+          "encodedBodySize": 8769,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-hoods.png",
+          "transferSize": 9717,
+          "encodedBodySize": 9417,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-pipes.png",
+          "transferSize": 13162,
+          "encodedBodySize": 12862,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-geysers.png",
+          "transferSize": 9563,
+          "encodedBodySize": 9263,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-hobs.png",
+          "transferSize": 12410,
+          "encodedBodySize": 12110,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-tanks.png",
+          "transferSize": 11418,
+          "encodedBodySize": 11118,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-electric.png",
+          "transferSize": 7762,
+          "encodedBodySize": 7462,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/category-building.png",
+          "transferSize": 13282,
+          "encodedBodySize": 12982,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-view-brands.png",
+          "transferSize": 562,
+          "encodedBodySize": 262,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-faisal.png",
+          "transferSize": 10271,
+          "encodedBodySize": 9971,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-porta-ceramics.png",
+          "transferSize": 9483,
+          "encodedBodySize": 9183,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-porta-sanitary.png",
+          "transferSize": 9778,
+          "encodedBodySize": 9478,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-dell.png",
+          "transferSize": 7965,
+          "encodedBodySize": 7665,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-popular.png",
+          "transferSize": 10319,
+          "encodedBodySize": 10019,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-duramax.png",
+          "transferSize": 9907,
+          "encodedBodySize": 9607,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-duraflow.png",
+          "transferSize": 9878,
+          "encodedBodySize": 9578,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/brand-imported.png",
+          "transferSize": 9728,
+          "encodedBodySize": 9428,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-previous.png",
+          "transferSize": 663,
+          "encodedBodySize": 363,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-heart-product.png",
+          "transferSize": 1001,
+          "encodedBodySize": 701,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-cart-button.png",
+          "transferSize": 879,
+          "encodedBodySize": 579,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-next.png",
+          "transferSize": 649,
+          "encodedBodySize": 349,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/banner-pipes.png",
+          "transferSize": 103553,
+          "encodedBodySize": 103253,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/banner-building.png",
+          "transferSize": 124670,
+          "encodedBodySize": 124370,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-delivery.png",
+          "transferSize": 1914,
+          "encodedBodySize": 1614,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-shield.png",
+          "transferSize": 1628,
+          "encodedBodySize": 1328,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-returns.png",
+          "transferSize": 1354,
+          "encodedBodySize": 1054,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-payment.png",
+          "transferSize": 1629,
+          "encodedBodySize": 1329,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-support.png",
+          "transferSize": 1396,
+          "encodedBodySize": 1096,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/footer-decoration.png",
+          "transferSize": 89880,
+          "encodedBodySize": 89580,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-pin-footer.png",
+          "transferSize": 988,
+          "encodedBodySize": 688,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/logo-footer.png",
+          "transferSize": 23280,
+          "encodedBodySize": 22980,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-whatsapp-footer.png",
+          "transferSize": 1136,
+          "encodedBodySize": 836,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/social-icons.png",
+          "transferSize": 5625,
+          "encodedBodySize": 5325,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/fonts/roboto-latin.woff2",
+          "transferSize": 43436,
+          "encodedBodySize": 43136,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/media/catalog/c5e4467f-af6f-40a7-b3c6-97833bebf995/320",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/b64d1e2c-b553-460c-9d6d-f1521def7099/320",
+          "transferSize": 1106,
+          "encodedBodySize": 806,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/ee78b6bf-1fff-4f29-ad33-4ddb5d3cef0e/320",
+          "transferSize": 1096,
+          "encodedBodySize": 796,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/3faa4c24-338c-40a4-9d09-277284f33645/320",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/b205e2ad-7fc6-4dca-adfb-90a798d7ca43/320",
+          "transferSize": 1106,
+          "encodedBodySize": 806,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/a653638b-902f-43c5-b500-13e1a7de8cd5/320",
+          "transferSize": 1096,
+          "encodedBodySize": 796,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/api/catalog/generation",
+          "transferSize": 320,
+          "encodedBodySize": 20,
+          "initiatorType": "fetch"
+        },
+        {
+          "name": "/favicon.ico",
+          "transferSize": 15386,
+          "encodedBodySize": 15086,
+          "initiatorType": "other"
+        }
+      ],
+      "navigation": [
+        {
+          "ttfbMs": 6.699999999254942,
+          "domContentLoadedMs": 672.6000000014901,
+          "loadMs": 5556.70000000298
+        }
+      ],
+      "jsTransferBytes": 156486
+    },
+    {
+      "path": "/category/sanitary",
+      "run": 1,
+      "readyMs": 4231.126073000007,
+      "vitals": {
+        "lcp": 3380,
+        "cls": 0.0000833693920155225,
+        "interactions": [
+          16,
+          16,
+          16
+        ]
+      },
+      "resources": [
+        {
+          "name": "/_next/static/chunks/3nlv-cxr7_ia_.css",
+          "transferSize": 11988,
+          "encodedBodySize": 11688,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/37_r-pcca94gr.css",
+          "transferSize": 9555,
+          "encodedBodySize": 9255,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/2abhfw2mxuda2.css",
+          "transferSize": 870,
+          "encodedBodySize": 570,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/1pcw6gskne7pf.js",
+          "transferSize": 2330,
+          "encodedBodySize": 2030,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/3z8yk-yyn_4m-.js",
+          "transferSize": 9053,
+          "encodedBodySize": 8753,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/1wg4rdrutax1u.js",
+          "transferSize": 45701,
+          "encodedBodySize": 45401,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/41c3808a7as1l.js",
+          "transferSize": 72002,
+          "encodedBodySize": 71702,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/turbopack-077hmtqrhcoji.js",
+          "transferSize": 4654,
+          "encodedBodySize": 4354,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/2fngx3qms2ljk.js",
+          "transferSize": 5860,
+          "encodedBodySize": 5560,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/3ncb72-8v_w-5.js",
+          "transferSize": 874,
+          "encodedBodySize": 574,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/31kb-bocpw65n.js",
+          "transferSize": 9292,
+          "encodedBodySize": 8992,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/sanitary/logo-header.png",
+          "transferSize": 17990,
+          "encodedBodySize": 17690,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/whatsapp-symbol.png",
+          "transferSize": 2117,
+          "encodedBodySize": 1817,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/shower-symbol.png",
+          "transferSize": 4535,
+          "encodedBodySize": 4235,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/genuine-symbol.png",
+          "transferSize": 1099,
+          "encodedBodySize": 799,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/hero-art.webp",
+          "transferSize": 109100,
+          "encodedBodySize": 108800,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-porta.png",
+          "transferSize": 5695,
+          "encodedBodySize": 5395,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-faisal.png",
+          "transferSize": 7163,
+          "encodedBodySize": 6863,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-dell.png",
+          "transferSize": 4209,
+          "encodedBodySize": 3909,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-imported.png",
+          "transferSize": 8101,
+          "encodedBodySize": 7801,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/fonts/roboto-latin.woff2",
+          "transferSize": 43436,
+          "encodedBodySize": 43136,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/wishlist-symbol.png",
+          "transferSize": 1132,
+          "encodedBodySize": 832,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/cart-symbol.png",
+          "transferSize": 1046,
+          "encodedBodySize": 746,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/promotion-art.png",
+          "transferSize": 91264,
+          "encodedBodySize": 90964,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-card-porta.png",
+          "transferSize": 7382,
+          "encodedBodySize": 7082,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-card-faisal.png",
+          "transferSize": 9188,
+          "encodedBodySize": 8888,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-card-dell.png",
+          "transferSize": 7656,
+          "encodedBodySize": 7356,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-card-imported.png",
+          "transferSize": 9858,
+          "encodedBodySize": 9558,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-delivery.png",
+          "transferSize": 1914,
+          "encodedBodySize": 1614,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-shield.png",
+          "transferSize": 1628,
+          "encodedBodySize": 1328,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-payment.png",
+          "transferSize": 1629,
+          "encodedBodySize": 1329,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-returns.png",
+          "transferSize": 1354,
+          "encodedBodySize": 1054,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-support.png",
+          "transferSize": 1396,
+          "encodedBodySize": 1096,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/footer-skyline.png",
+          "transferSize": 14609,
+          "encodedBodySize": 14309,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/logo-footer.png",
+          "transferSize": 16818,
+          "encodedBodySize": 16518,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/social-icons.png",
+          "transferSize": 5625,
+          "encodedBodySize": 5325,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/media/catalog/c5e4467f-af6f-40a7-b3c6-97833bebf995/320",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/b64d1e2c-b553-460c-9d6d-f1521def7099/320",
+          "transferSize": 1106,
+          "encodedBodySize": 806,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/ee78b6bf-1fff-4f29-ad33-4ddb5d3cef0e/320",
+          "transferSize": 1096,
+          "encodedBodySize": 796,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/3faa4c24-338c-40a4-9d09-277284f33645/320",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/api/catalog/generation",
+          "transferSize": 320,
+          "encodedBodySize": 20,
+          "initiatorType": "fetch"
+        },
+        {
+          "name": "/favicon.ico",
+          "transferSize": 15386,
+          "encodedBodySize": 15086,
+          "initiatorType": "other"
+        }
+      ],
+      "navigation": [
+        {
+          "ttfbMs": 331.80000000074506,
+          "domContentLoadedMs": 832.3999999985099,
+          "loadMs": 3465.5
+        }
+      ],
+      "jsTransferBytes": 147436
+    },
+    {
+      "path": "/category/sanitary",
+      "run": 2,
+      "readyMs": 4181.326172000001,
+      "vitals": {
+        "lcp": 3344,
+        "cls": 0.0000833693920155225,
+        "interactions": [
+          24,
+          24,
+          24,
+          16,
+          16,
+          16,
+          16
+        ]
+      },
+      "resources": [
+        {
+          "name": "/_next/static/chunks/3nlv-cxr7_ia_.css",
+          "transferSize": 11988,
+          "encodedBodySize": 11688,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/37_r-pcca94gr.css",
+          "transferSize": 9555,
+          "encodedBodySize": 9255,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/2abhfw2mxuda2.css",
+          "transferSize": 870,
+          "encodedBodySize": 570,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/1pcw6gskne7pf.js",
+          "transferSize": 2330,
+          "encodedBodySize": 2030,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/3z8yk-yyn_4m-.js",
+          "transferSize": 9053,
+          "encodedBodySize": 8753,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/1wg4rdrutax1u.js",
+          "transferSize": 45701,
+          "encodedBodySize": 45401,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/41c3808a7as1l.js",
+          "transferSize": 72002,
+          "encodedBodySize": 71702,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/turbopack-077hmtqrhcoji.js",
+          "transferSize": 4654,
+          "encodedBodySize": 4354,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/2fngx3qms2ljk.js",
+          "transferSize": 5860,
+          "encodedBodySize": 5560,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/3ncb72-8v_w-5.js",
+          "transferSize": 874,
+          "encodedBodySize": 574,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/31kb-bocpw65n.js",
+          "transferSize": 9292,
+          "encodedBodySize": 8992,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/sanitary/logo-header.png",
+          "transferSize": 17990,
+          "encodedBodySize": 17690,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/whatsapp-symbol.png",
+          "transferSize": 2117,
+          "encodedBodySize": 1817,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/shower-symbol.png",
+          "transferSize": 4535,
+          "encodedBodySize": 4235,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/genuine-symbol.png",
+          "transferSize": 1099,
+          "encodedBodySize": 799,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/hero-art.webp",
+          "transferSize": 109100,
+          "encodedBodySize": 108800,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-porta.png",
+          "transferSize": 5695,
+          "encodedBodySize": 5395,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-faisal.png",
+          "transferSize": 7163,
+          "encodedBodySize": 6863,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-dell.png",
+          "transferSize": 4209,
+          "encodedBodySize": 3909,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-imported.png",
+          "transferSize": 8101,
+          "encodedBodySize": 7801,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/fonts/roboto-latin.woff2",
+          "transferSize": 43436,
+          "encodedBodySize": 43136,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/wishlist-symbol.png",
+          "transferSize": 1132,
+          "encodedBodySize": 832,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/cart-symbol.png",
+          "transferSize": 1046,
+          "encodedBodySize": 746,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/promotion-art.png",
+          "transferSize": 91264,
+          "encodedBodySize": 90964,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-card-porta.png",
+          "transferSize": 7382,
+          "encodedBodySize": 7082,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-card-faisal.png",
+          "transferSize": 9188,
+          "encodedBodySize": 8888,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-card-dell.png",
+          "transferSize": 7656,
+          "encodedBodySize": 7356,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-card-imported.png",
+          "transferSize": 9858,
+          "encodedBodySize": 9558,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-delivery.png",
+          "transferSize": 1914,
+          "encodedBodySize": 1614,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-shield.png",
+          "transferSize": 1628,
+          "encodedBodySize": 1328,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-payment.png",
+          "transferSize": 1629,
+          "encodedBodySize": 1329,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-returns.png",
+          "transferSize": 1354,
+          "encodedBodySize": 1054,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-support.png",
+          "transferSize": 1396,
+          "encodedBodySize": 1096,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/footer-skyline.png",
+          "transferSize": 14609,
+          "encodedBodySize": 14309,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/social-icons.png",
+          "transferSize": 5625,
+          "encodedBodySize": 5325,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/logo-footer.png",
+          "transferSize": 16818,
+          "encodedBodySize": 16518,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/media/catalog/c5e4467f-af6f-40a7-b3c6-97833bebf995/320",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/b64d1e2c-b553-460c-9d6d-f1521def7099/320",
+          "transferSize": 1106,
+          "encodedBodySize": 806,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/3faa4c24-338c-40a4-9d09-277284f33645/320",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/ee78b6bf-1fff-4f29-ad33-4ddb5d3cef0e/320",
+          "transferSize": 1096,
+          "encodedBodySize": 796,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/api/catalog/generation",
+          "transferSize": 320,
+          "encodedBodySize": 20,
+          "initiatorType": "fetch"
+        },
+        {
+          "name": "/favicon.ico",
+          "transferSize": 15386,
+          "encodedBodySize": 15086,
+          "initiatorType": "other"
+        }
+      ],
+      "navigation": [
+        {
+          "ttfbMs": 249.20000000298023,
+          "domContentLoadedMs": 765.5,
+          "loadMs": 3404.900000002235
+        }
+      ],
+      "jsTransferBytes": 147436
+    },
+    {
+      "path": "/category/sanitary",
+      "run": 3,
+      "readyMs": 4237.932262000002,
+      "vitals": {
+        "lcp": 3360,
+        "cls": 0.0000833693920155225,
+        "interactions": [
+          24,
+          24,
+          24,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16
+        ]
+      },
+      "resources": [
+        {
+          "name": "/_next/static/chunks/3nlv-cxr7_ia_.css",
+          "transferSize": 11988,
+          "encodedBodySize": 11688,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/37_r-pcca94gr.css",
+          "transferSize": 9555,
+          "encodedBodySize": 9255,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/2abhfw2mxuda2.css",
+          "transferSize": 870,
+          "encodedBodySize": 570,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/1pcw6gskne7pf.js",
+          "transferSize": 2330,
+          "encodedBodySize": 2030,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/3z8yk-yyn_4m-.js",
+          "transferSize": 9053,
+          "encodedBodySize": 8753,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/3ncb72-8v_w-5.js",
+          "transferSize": 874,
+          "encodedBodySize": 574,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/turbopack-077hmtqrhcoji.js",
+          "transferSize": 4654,
+          "encodedBodySize": 4354,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/2fngx3qms2ljk.js",
+          "transferSize": 5860,
+          "encodedBodySize": 5560,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/1wg4rdrutax1u.js",
+          "transferSize": 45701,
+          "encodedBodySize": 45401,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/41c3808a7as1l.js",
+          "transferSize": 72002,
+          "encodedBodySize": 71702,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/31kb-bocpw65n.js",
+          "transferSize": 9292,
+          "encodedBodySize": 8992,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/sanitary/logo-header.png",
+          "transferSize": 17990,
+          "encodedBodySize": 17690,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/whatsapp-symbol.png",
+          "transferSize": 2117,
+          "encodedBodySize": 1817,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/shower-symbol.png",
+          "transferSize": 4535,
+          "encodedBodySize": 4235,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/genuine-symbol.png",
+          "transferSize": 1099,
+          "encodedBodySize": 799,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/hero-art.webp",
+          "transferSize": 109100,
+          "encodedBodySize": 108800,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-porta.png",
+          "transferSize": 5695,
+          "encodedBodySize": 5395,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-faisal.png",
+          "transferSize": 7163,
+          "encodedBodySize": 6863,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-imported.png",
+          "transferSize": 8101,
+          "encodedBodySize": 7801,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-dell.png",
+          "transferSize": 4209,
+          "encodedBodySize": 3909,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/fonts/roboto-latin.woff2",
+          "transferSize": 43436,
+          "encodedBodySize": 43136,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/wishlist-symbol.png",
+          "transferSize": 1132,
+          "encodedBodySize": 832,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/cart-symbol.png",
+          "transferSize": 1046,
+          "encodedBodySize": 746,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/promotion-art.png",
+          "transferSize": 91264,
+          "encodedBodySize": 90964,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-card-porta.png",
+          "transferSize": 7382,
+          "encodedBodySize": 7082,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-card-faisal.png",
+          "transferSize": 9188,
+          "encodedBodySize": 8888,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-card-dell.png",
+          "transferSize": 7656,
+          "encodedBodySize": 7356,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/brand-card-imported.png",
+          "transferSize": 9858,
+          "encodedBodySize": 9558,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-delivery.png",
+          "transferSize": 1914,
+          "encodedBodySize": 1614,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-shield.png",
+          "transferSize": 1628,
+          "encodedBodySize": 1328,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-payment.png",
+          "transferSize": 1629,
+          "encodedBodySize": 1329,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-returns.png",
+          "transferSize": 1354,
+          "encodedBodySize": 1054,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-support.png",
+          "transferSize": 1396,
+          "encodedBodySize": 1096,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/footer-skyline.png",
+          "transferSize": 14609,
+          "encodedBodySize": 14309,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/logo-footer.png",
+          "transferSize": 16818,
+          "encodedBodySize": 16518,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/social-icons.png",
+          "transferSize": 5625,
+          "encodedBodySize": 5325,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/media/catalog/c5e4467f-af6f-40a7-b3c6-97833bebf995/320",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/b64d1e2c-b553-460c-9d6d-f1521def7099/320",
+          "transferSize": 1106,
+          "encodedBodySize": 806,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/3faa4c24-338c-40a4-9d09-277284f33645/320",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/ee78b6bf-1fff-4f29-ad33-4ddb5d3cef0e/320",
+          "transferSize": 1096,
+          "encodedBodySize": 796,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/api/catalog/generation",
+          "transferSize": 320,
+          "encodedBodySize": 20,
+          "initiatorType": "fetch"
+        },
+        {
+          "name": "/favicon.ico",
+          "transferSize": 15386,
+          "encodedBodySize": 15086,
+          "initiatorType": "other"
+        }
+      ],
+      "navigation": [
+        {
+          "ttfbMs": 266.0999999977648,
+          "domContentLoadedMs": 837.8000000007451,
+          "loadMs": 3463.699999999255
+        }
+      ],
+      "jsTransferBytes": 147436
+    },
+    {
+      "path": "/brand/porta",
+      "run": 1,
+      "readyMs": 3100.716889000003,
+      "vitals": {
+        "lcp": 1544,
+        "cls": 0.0000833693920155225,
+        "interactions": [
+          24,
+          24,
+          24,
+          16,
+          16,
+          16,
+          16
+        ]
+      },
+      "resources": [
+        {
+          "name": "/_next/static/chunks/3nlv-cxr7_ia_.css",
+          "transferSize": 11988,
+          "encodedBodySize": 11688,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/37_r-pcca94gr.css",
+          "transferSize": 9555,
+          "encodedBodySize": 9255,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/2abhfw2mxuda2.css",
+          "transferSize": 870,
+          "encodedBodySize": 570,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/1pcw6gskne7pf.js",
+          "transferSize": 2330,
+          "encodedBodySize": 2030,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/3z8yk-yyn_4m-.js",
+          "transferSize": 9053,
+          "encodedBodySize": 8753,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/41c3808a7as1l.js",
+          "transferSize": 72002,
+          "encodedBodySize": 71702,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/turbopack-077hmtqrhcoji.js",
+          "transferSize": 4654,
+          "encodedBodySize": 4354,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/1wg4rdrutax1u.js",
+          "transferSize": 45701,
+          "encodedBodySize": 45401,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/3ncb72-8v_w-5.js",
+          "transferSize": 874,
+          "encodedBodySize": 574,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/2fngx3qms2ljk.js",
+          "transferSize": 5860,
+          "encodedBodySize": 5560,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/31kb-bocpw65n.js",
+          "transferSize": 9292,
+          "encodedBodySize": 8992,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/sanitary/logo-header.png",
+          "transferSize": 17990,
+          "encodedBodySize": 17690,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/whatsapp-symbol.png",
+          "transferSize": 2117,
+          "encodedBodySize": 1817,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/shower-symbol.png",
+          "transferSize": 4535,
+          "encodedBodySize": 4235,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/genuine-symbol.png",
+          "transferSize": 1099,
+          "encodedBodySize": 799,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/fonts/roboto-latin.woff2",
+          "transferSize": 43436,
+          "encodedBodySize": 43136,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/wishlist-symbol.png",
+          "transferSize": 1132,
+          "encodedBodySize": 832,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/cart-symbol.png",
+          "transferSize": 1046,
+          "encodedBodySize": 746,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-delivery.png",
+          "transferSize": 1914,
+          "encodedBodySize": 1614,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-shield.png",
+          "transferSize": 1628,
+          "encodedBodySize": 1328,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-returns.png",
+          "transferSize": 1354,
+          "encodedBodySize": 1054,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-payment.png",
+          "transferSize": 1629,
+          "encodedBodySize": 1329,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-support.png",
+          "transferSize": 1396,
+          "encodedBodySize": 1096,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/footer-skyline.png",
+          "transferSize": 14609,
+          "encodedBodySize": 14309,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/logo-footer.png",
+          "transferSize": 16818,
+          "encodedBodySize": 16518,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/social-icons.png",
+          "transferSize": 5625,
+          "encodedBodySize": 5325,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/media/catalog/ee78b6bf-1fff-4f29-ad33-4ddb5d3cef0e/320",
+          "transferSize": 1096,
+          "encodedBodySize": 796,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/c5e4467f-af6f-40a7-b3c6-97833bebf995/320",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/b205e2ad-7fc6-4dca-adfb-90a798d7ca43/320",
+          "transferSize": 1106,
+          "encodedBodySize": 806,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/favicon.ico",
+          "transferSize": 15386,
+          "encodedBodySize": 15086,
+          "initiatorType": "other"
+        },
+        {
+          "name": "/api/catalog/generation",
+          "transferSize": 320,
+          "encodedBodySize": 20,
+          "initiatorType": "fetch"
+        }
+      ],
+      "navigation": [
+        {
+          "ttfbMs": 306.5,
+          "domContentLoadedMs": 786.1999999992549,
+          "loadMs": 2068.199999999255
+        }
+      ],
+      "jsTransferBytes": 147436
+    },
+    {
+      "path": "/brand/porta",
+      "run": 2,
+      "readyMs": 3166.0887769999827,
+      "vitals": {
+        "lcp": 1592,
+        "cls": 0.0000833693920155225,
+        "interactions": [
+          16,
+          16,
+          16
+        ]
+      },
+      "resources": [
+        {
+          "name": "/_next/static/chunks/3nlv-cxr7_ia_.css",
+          "transferSize": 11988,
+          "encodedBodySize": 11688,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/37_r-pcca94gr.css",
+          "transferSize": 9555,
+          "encodedBodySize": 9255,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/2abhfw2mxuda2.css",
+          "transferSize": 870,
+          "encodedBodySize": 570,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/1pcw6gskne7pf.js",
+          "transferSize": 2330,
+          "encodedBodySize": 2030,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/3z8yk-yyn_4m-.js",
+          "transferSize": 9053,
+          "encodedBodySize": 8753,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/1wg4rdrutax1u.js",
+          "transferSize": 45701,
+          "encodedBodySize": 45401,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/41c3808a7as1l.js",
+          "transferSize": 72002,
+          "encodedBodySize": 71702,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/turbopack-077hmtqrhcoji.js",
+          "transferSize": 4654,
+          "encodedBodySize": 4354,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/2fngx3qms2ljk.js",
+          "transferSize": 5860,
+          "encodedBodySize": 5560,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/3ncb72-8v_w-5.js",
+          "transferSize": 874,
+          "encodedBodySize": 574,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/31kb-bocpw65n.js",
+          "transferSize": 9292,
+          "encodedBodySize": 8992,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/sanitary/logo-header.png",
+          "transferSize": 17990,
+          "encodedBodySize": 17690,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/whatsapp-symbol.png",
+          "transferSize": 2117,
+          "encodedBodySize": 1817,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/shower-symbol.png",
+          "transferSize": 4535,
+          "encodedBodySize": 4235,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/genuine-symbol.png",
+          "transferSize": 1099,
+          "encodedBodySize": 799,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/fonts/roboto-latin.woff2",
+          "transferSize": 43436,
+          "encodedBodySize": 43136,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/wishlist-symbol.png",
+          "transferSize": 1132,
+          "encodedBodySize": 832,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/cart-symbol.png",
+          "transferSize": 1046,
+          "encodedBodySize": 746,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-delivery.png",
+          "transferSize": 1914,
+          "encodedBodySize": 1614,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-shield.png",
+          "transferSize": 1628,
+          "encodedBodySize": 1328,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-payment.png",
+          "transferSize": 1629,
+          "encodedBodySize": 1329,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-returns.png",
+          "transferSize": 1354,
+          "encodedBodySize": 1054,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-support.png",
+          "transferSize": 1396,
+          "encodedBodySize": 1096,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/footer-skyline.png",
+          "transferSize": 14609,
+          "encodedBodySize": 14309,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/logo-footer.png",
+          "transferSize": 16818,
+          "encodedBodySize": 16518,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/social-icons.png",
+          "transferSize": 5625,
+          "encodedBodySize": 5325,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/media/catalog/c5e4467f-af6f-40a7-b3c6-97833bebf995/320",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/ee78b6bf-1fff-4f29-ad33-4ddb5d3cef0e/320",
+          "transferSize": 1096,
+          "encodedBodySize": 796,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/b205e2ad-7fc6-4dca-adfb-90a798d7ca43/320",
+          "transferSize": 1106,
+          "encodedBodySize": 806,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/favicon.ico",
+          "transferSize": 15386,
+          "encodedBodySize": 15086,
+          "initiatorType": "other"
+        },
+        {
+          "name": "/api/catalog/generation",
+          "transferSize": 320,
+          "encodedBodySize": 20,
+          "initiatorType": "fetch"
+        }
+      ],
+      "navigation": [
+        {
+          "ttfbMs": 300.5,
+          "domContentLoadedMs": 796.5999999977648,
+          "loadMs": 2089.300000000745
+        }
+      ],
+      "jsTransferBytes": 147436
+    },
+    {
+      "path": "/brand/porta",
+      "run": 3,
+      "readyMs": 3044.268332000007,
+      "vitals": {
+        "lcp": 1584,
+        "cls": 0.0000833693920155225,
+        "interactions": [
+          16,
+          16,
+          16
+        ]
+      },
+      "resources": [
+        {
+          "name": "/_next/static/chunks/3nlv-cxr7_ia_.css",
+          "transferSize": 11988,
+          "encodedBodySize": 11688,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/2abhfw2mxuda2.css",
+          "transferSize": 870,
+          "encodedBodySize": 570,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/1pcw6gskne7pf.js",
+          "transferSize": 2330,
+          "encodedBodySize": 2030,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/37_r-pcca94gr.css",
+          "transferSize": 9555,
+          "encodedBodySize": 9255,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/3z8yk-yyn_4m-.js",
+          "transferSize": 9053,
+          "encodedBodySize": 8753,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/41c3808a7as1l.js",
+          "transferSize": 72002,
+          "encodedBodySize": 71702,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/turbopack-077hmtqrhcoji.js",
+          "transferSize": 4654,
+          "encodedBodySize": 4354,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/3ncb72-8v_w-5.js",
+          "transferSize": 874,
+          "encodedBodySize": 574,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/2fngx3qms2ljk.js",
+          "transferSize": 5860,
+          "encodedBodySize": 5560,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/1wg4rdrutax1u.js",
+          "transferSize": 45701,
+          "encodedBodySize": 45401,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/31kb-bocpw65n.js",
+          "transferSize": 9292,
+          "encodedBodySize": 8992,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/sanitary/logo-header.png",
+          "transferSize": 17990,
+          "encodedBodySize": 17690,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/whatsapp-symbol.png",
+          "transferSize": 2117,
+          "encodedBodySize": 1817,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/shower-symbol.png",
+          "transferSize": 4535,
+          "encodedBodySize": 4235,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/genuine-symbol.png",
+          "transferSize": 1099,
+          "encodedBodySize": 799,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/fonts/roboto-latin.woff2",
+          "transferSize": 43436,
+          "encodedBodySize": 43136,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/wishlist-symbol.png",
+          "transferSize": 1132,
+          "encodedBodySize": 832,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/cart-symbol.png",
+          "transferSize": 1046,
+          "encodedBodySize": 746,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-delivery.png",
+          "transferSize": 1914,
+          "encodedBodySize": 1614,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-shield.png",
+          "transferSize": 1628,
+          "encodedBodySize": 1328,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-payment.png",
+          "transferSize": 1629,
+          "encodedBodySize": 1329,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-returns.png",
+          "transferSize": 1354,
+          "encodedBodySize": 1054,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-support.png",
+          "transferSize": 1396,
+          "encodedBodySize": 1096,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/footer-skyline.png",
+          "transferSize": 14609,
+          "encodedBodySize": 14309,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/logo-footer.png",
+          "transferSize": 16818,
+          "encodedBodySize": 16518,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/social-icons.png",
+          "transferSize": 5625,
+          "encodedBodySize": 5325,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/media/catalog/ee78b6bf-1fff-4f29-ad33-4ddb5d3cef0e/320",
+          "transferSize": 1096,
+          "encodedBodySize": 796,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/b205e2ad-7fc6-4dca-adfb-90a798d7ca43/320",
+          "transferSize": 1106,
+          "encodedBodySize": 806,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/c5e4467f-af6f-40a7-b3c6-97833bebf995/320",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/favicon.ico",
+          "transferSize": 15386,
+          "encodedBodySize": 15086,
+          "initiatorType": "other"
+        },
+        {
+          "name": "/api/catalog/generation",
+          "transferSize": 320,
+          "encodedBodySize": 20,
+          "initiatorType": "fetch"
+        }
+      ],
+      "navigation": [
+        {
+          "ttfbMs": 224.59999999776483,
+          "domContentLoadedMs": 759.1999999992549,
+          "loadMs": 2082
+        }
+      ],
+      "jsTransferBytes": 147436
+    },
+    {
+      "path": "/product/local-fixture-1",
+      "run": 1,
+      "readyMs": 3630.7218940000166,
+      "vitals": {
+        "lcp": 1156,
+        "cls": 0.00018437329740387566,
+        "interactions": [
+          24,
+          24,
+          24,
+          16,
+          16
+        ]
+      },
+      "resources": [
+        {
+          "name": "/_next/static/chunks/3nlv-cxr7_ia_.css",
+          "transferSize": 11988,
+          "encodedBodySize": 11688,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/2abhfw2mxuda2.css",
+          "transferSize": 870,
+          "encodedBodySize": 570,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/37_r-pcca94gr.css",
+          "transferSize": 9555,
+          "encodedBodySize": 9255,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/1pcw6gskne7pf.js",
+          "transferSize": 2330,
+          "encodedBodySize": 2030,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/3z8yk-yyn_4m-.js",
+          "transferSize": 9053,
+          "encodedBodySize": 8753,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/41c3808a7as1l.js",
+          "transferSize": 72002,
+          "encodedBodySize": 71702,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/1wg4rdrutax1u.js",
+          "transferSize": 45701,
+          "encodedBodySize": 45401,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/3ncb72-8v_w-5.js",
+          "transferSize": 874,
+          "encodedBodySize": 574,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/turbopack-077hmtqrhcoji.js",
+          "transferSize": 4654,
+          "encodedBodySize": 4354,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/2fngx3qms2ljk.js",
+          "transferSize": 5860,
+          "encodedBodySize": 5560,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/31kb-bocpw65n.js",
+          "transferSize": 9292,
+          "encodedBodySize": 8992,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/media/catalog/c5e4467f-af6f-40a7-b3c6-97833bebf995/640",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/sanitary/logo-header.png",
+          "transferSize": 17990,
+          "encodedBodySize": 17690,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/whatsapp-symbol.png",
+          "transferSize": 2117,
+          "encodedBodySize": 1817,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/wishlist-symbol.png",
+          "transferSize": 1132,
+          "encodedBodySize": 832,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/cart-symbol.png",
+          "transferSize": 1046,
+          "encodedBodySize": 746,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-delivery.png",
+          "transferSize": 1914,
+          "encodedBodySize": 1614,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-shield.png",
+          "transferSize": 1628,
+          "encodedBodySize": 1328,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-payment.png",
+          "transferSize": 1629,
+          "encodedBodySize": 1329,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-returns.png",
+          "transferSize": 1354,
+          "encodedBodySize": 1054,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-support.png",
+          "transferSize": 1396,
+          "encodedBodySize": 1096,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/footer-skyline.png",
+          "transferSize": 14609,
+          "encodedBodySize": 14309,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/logo-footer.png",
+          "transferSize": 16818,
+          "encodedBodySize": 16518,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/social-icons.png",
+          "transferSize": 5625,
+          "encodedBodySize": 5325,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/fonts/roboto-latin.woff2",
+          "transferSize": 43436,
+          "encodedBodySize": 43136,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/media/catalog/c5e4467f-af6f-40a7-b3c6-97833bebf995/320",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/bcc8309c-09f3-4302-8ad3-c208d42f9460/320",
+          "transferSize": 1096,
+          "encodedBodySize": 796,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/b64d1e2c-b553-460c-9d6d-f1521def7099/320",
+          "transferSize": 1106,
+          "encodedBodySize": 806,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/3faa4c24-338c-40a4-9d09-277284f33645/320",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/ee78b6bf-1fff-4f29-ad33-4ddb5d3cef0e/320",
+          "transferSize": 1096,
+          "encodedBodySize": 796,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/b205e2ad-7fc6-4dca-adfb-90a798d7ca43/320",
+          "transferSize": 1106,
+          "encodedBodySize": 806,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/favicon.ico",
+          "transferSize": 15386,
+          "encodedBodySize": 15086,
+          "initiatorType": "other"
+        },
+        {
+          "name": "/api/catalog/generation",
+          "transferSize": 320,
+          "encodedBodySize": 20,
+          "initiatorType": "fetch"
+        }
+      ],
+      "navigation": [
+        {
+          "ttfbMs": 260.6000000014901,
+          "domContentLoadedMs": 824.1999999992549,
+          "loadMs": 2093.800000000745
+        }
+      ],
+      "jsTransferBytes": 147436
+    },
+    {
+      "path": "/product/local-fixture-1",
+      "run": 2,
+      "readyMs": 3620.726449000009,
+      "vitals": {
+        "lcp": 1152,
+        "cls": 0.00018437329740387566,
+        "interactions": [
+          16,
+          16,
+          16
+        ]
+      },
+      "resources": [
+        {
+          "name": "/_next/static/chunks/3nlv-cxr7_ia_.css",
+          "transferSize": 11988,
+          "encodedBodySize": 11688,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/2abhfw2mxuda2.css",
+          "transferSize": 870,
+          "encodedBodySize": 570,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/37_r-pcca94gr.css",
+          "transferSize": 9555,
+          "encodedBodySize": 9255,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/1pcw6gskne7pf.js",
+          "transferSize": 2330,
+          "encodedBodySize": 2030,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/3z8yk-yyn_4m-.js",
+          "transferSize": 9053,
+          "encodedBodySize": 8753,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/3ncb72-8v_w-5.js",
+          "transferSize": 874,
+          "encodedBodySize": 574,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/turbopack-077hmtqrhcoji.js",
+          "transferSize": 4654,
+          "encodedBodySize": 4354,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/2fngx3qms2ljk.js",
+          "transferSize": 5860,
+          "encodedBodySize": 5560,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/1wg4rdrutax1u.js",
+          "transferSize": 45701,
+          "encodedBodySize": 45401,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/41c3808a7as1l.js",
+          "transferSize": 72002,
+          "encodedBodySize": 71702,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/31kb-bocpw65n.js",
+          "transferSize": 9292,
+          "encodedBodySize": 8992,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/media/catalog/c5e4467f-af6f-40a7-b3c6-97833bebf995/640",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/sanitary/logo-header.png",
+          "transferSize": 17990,
+          "encodedBodySize": 17690,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/whatsapp-symbol.png",
+          "transferSize": 2117,
+          "encodedBodySize": 1817,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/wishlist-symbol.png",
+          "transferSize": 1132,
+          "encodedBodySize": 832,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/cart-symbol.png",
+          "transferSize": 1046,
+          "encodedBodySize": 746,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-delivery.png",
+          "transferSize": 1914,
+          "encodedBodySize": 1614,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-shield.png",
+          "transferSize": 1628,
+          "encodedBodySize": 1328,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-payment.png",
+          "transferSize": 1629,
+          "encodedBodySize": 1329,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-returns.png",
+          "transferSize": 1354,
+          "encodedBodySize": 1054,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-support.png",
+          "transferSize": 1396,
+          "encodedBodySize": 1096,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/footer-skyline.png",
+          "transferSize": 14609,
+          "encodedBodySize": 14309,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/logo-footer.png",
+          "transferSize": 16818,
+          "encodedBodySize": 16518,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/social-icons.png",
+          "transferSize": 5625,
+          "encodedBodySize": 5325,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/fonts/roboto-latin.woff2",
+          "transferSize": 43436,
+          "encodedBodySize": 43136,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/media/catalog/c5e4467f-af6f-40a7-b3c6-97833bebf995/320",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/bcc8309c-09f3-4302-8ad3-c208d42f9460/320",
+          "transferSize": 1096,
+          "encodedBodySize": 796,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/ee78b6bf-1fff-4f29-ad33-4ddb5d3cef0e/320",
+          "transferSize": 1096,
+          "encodedBodySize": 796,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/b64d1e2c-b553-460c-9d6d-f1521def7099/320",
+          "transferSize": 1106,
+          "encodedBodySize": 806,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/3faa4c24-338c-40a4-9d09-277284f33645/320",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/b205e2ad-7fc6-4dca-adfb-90a798d7ca43/320",
+          "transferSize": 1106,
+          "encodedBodySize": 806,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/favicon.ico",
+          "transferSize": 15386,
+          "encodedBodySize": 15086,
+          "initiatorType": "other"
+        },
+        {
+          "name": "/api/catalog/generation",
+          "transferSize": 320,
+          "encodedBodySize": 20,
+          "initiatorType": "fetch"
+        }
+      ],
+      "navigation": [
+        {
+          "ttfbMs": 269.80000000074506,
+          "domContentLoadedMs": 795.1999999992549,
+          "loadMs": 2036.300000000745
+        }
+      ],
+      "jsTransferBytes": 147436
+    },
+    {
+      "path": "/product/local-fixture-1",
+      "run": 3,
+      "readyMs": 3521.145423000009,
+      "vitals": {
+        "lcp": 1120,
+        "cls": 0.00018437329740387566,
+        "interactions": [
+          16,
+          16,
+          16,
+          16,
+          16
+        ]
+      },
+      "resources": [
+        {
+          "name": "/_next/static/chunks/3nlv-cxr7_ia_.css",
+          "transferSize": 11988,
+          "encodedBodySize": 11688,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/37_r-pcca94gr.css",
+          "transferSize": 9555,
+          "encodedBodySize": 9255,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/2abhfw2mxuda2.css",
+          "transferSize": 870,
+          "encodedBodySize": 570,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/1pcw6gskne7pf.js",
+          "transferSize": 2330,
+          "encodedBodySize": 2030,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/_next/static/chunks/3z8yk-yyn_4m-.js",
+          "transferSize": 9053,
+          "encodedBodySize": 8753,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/41c3808a7as1l.js",
+          "transferSize": 72002,
+          "encodedBodySize": 71702,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/turbopack-077hmtqrhcoji.js",
+          "transferSize": 4654,
+          "encodedBodySize": 4354,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/1wg4rdrutax1u.js",
+          "transferSize": 45701,
+          "encodedBodySize": 45401,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/3ncb72-8v_w-5.js",
+          "transferSize": 874,
+          "encodedBodySize": 574,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/2fngx3qms2ljk.js",
+          "transferSize": 5860,
+          "encodedBodySize": 5560,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/_next/static/chunks/31kb-bocpw65n.js",
+          "transferSize": 9292,
+          "encodedBodySize": 8992,
+          "initiatorType": "script"
+        },
+        {
+          "name": "/media/catalog/c5e4467f-af6f-40a7-b3c6-97833bebf995/640",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "link"
+        },
+        {
+          "name": "/sanitary/logo-header.png",
+          "transferSize": 17990,
+          "encodedBodySize": 17690,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/whatsapp-symbol.png",
+          "transferSize": 2117,
+          "encodedBodySize": 1817,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/wishlist-symbol.png",
+          "transferSize": 1132,
+          "encodedBodySize": 832,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/cart-symbol.png",
+          "transferSize": 1046,
+          "encodedBodySize": 746,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-delivery.png",
+          "transferSize": 1914,
+          "encodedBodySize": 1614,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-shield.png",
+          "transferSize": 1628,
+          "encodedBodySize": 1328,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-payment.png",
+          "transferSize": 1629,
+          "encodedBodySize": 1329,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-returns.png",
+          "transferSize": 1354,
+          "encodedBodySize": 1054,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/icon-support.png",
+          "transferSize": 1396,
+          "encodedBodySize": 1096,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/footer-skyline.png",
+          "transferSize": 14609,
+          "encodedBodySize": 14309,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/sanitary/logo-footer.png",
+          "transferSize": 16818,
+          "encodedBodySize": 16518,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/homepage/social-icons.png",
+          "transferSize": 5625,
+          "encodedBodySize": 5325,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/fonts/roboto-latin.woff2",
+          "transferSize": 43436,
+          "encodedBodySize": 43136,
+          "initiatorType": "css"
+        },
+        {
+          "name": "/media/catalog/c5e4467f-af6f-40a7-b3c6-97833bebf995/320",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/bcc8309c-09f3-4302-8ad3-c208d42f9460/320",
+          "transferSize": 1096,
+          "encodedBodySize": 796,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/ee78b6bf-1fff-4f29-ad33-4ddb5d3cef0e/320",
+          "transferSize": 1096,
+          "encodedBodySize": 796,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/b64d1e2c-b553-460c-9d6d-f1521def7099/320",
+          "transferSize": 1106,
+          "encodedBodySize": 806,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/3faa4c24-338c-40a4-9d09-277284f33645/320",
+          "transferSize": 1098,
+          "encodedBodySize": 798,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/media/catalog/b205e2ad-7fc6-4dca-adfb-90a798d7ca43/320",
+          "transferSize": 1106,
+          "encodedBodySize": 806,
+          "initiatorType": "img"
+        },
+        {
+          "name": "/favicon.ico",
+          "transferSize": 15386,
+          "encodedBodySize": 15086,
+          "initiatorType": "other"
+        },
+        {
+          "name": "/api/catalog/generation",
+          "transferSize": 320,
+          "encodedBodySize": 20,
+          "initiatorType": "fetch"
+        }
+      ],
+      "navigation": [
+        {
+          "ttfbMs": 240.60000000149012,
+          "domContentLoadedMs": 766.6999999992549,
+          "loadMs": 2011.3999999985099
+        }
+      ],
+      "jsTransferBytes": 147436
+    }
+  ]
+}

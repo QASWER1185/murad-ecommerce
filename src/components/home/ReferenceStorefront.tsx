@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { brands, categories, money, whatsapp, type Category, type Product } from './reference-catalog';
+import { brands, categories, money, type Category, type Product } from './reference-catalog';
 import { referenceAssets } from './reference-assets';
 import styles from './ReferenceStorefront.module.css';
 
@@ -21,7 +21,7 @@ function Asset({ name, className = '', label }: { name: string; className?: stri
   const available = referenceAssets.includes(name);
   return <span role={label ? 'img' : undefined} aria-label={label} aria-hidden={label ? undefined : true}
     className={`${styles.asset} ${className}`} data-reference-asset={name} data-available={available}
-    style={available ? { backgroundImage: `url('/homepage/${name}.png')` } : undefined} />;
+    style={available ? { backgroundImage: ['hero', 'hero-mobile'].includes(name) ? `image-set(url('/homepage/${name}.webp') type('image/webp'), url('/homepage/${name}.png') type('image/png'))` : `url('/homepage/${name}.png')` } : undefined} />;
 }
 function Icon({ name, className = '' }: { name: string; className?: string }) {
   return <Asset name={`icon-${name}`} className={`${styles.icon} ${className}`} />;
@@ -47,6 +47,11 @@ function Modal({ title, onClose, children }: { title: string; onClose: () => voi
 }
 
 export default function ReferenceStorefront({ catalog }: { catalog: Catalog }) {
+  // Keep the approved geometry while routing contacts through verified settings.
+  const whatsapp = (text?: string, main = false) => {
+    const number = main ? (catalog.settings?.main_whatsapp || '+923217165000') : (catalog.settings?.secondary_whatsapp || '+923086235608');
+    return `https://wa.me/${number.replace(/\D/g, '')}${text ? `?text=${encodeURIComponent(text)}` : ''}`;
+  };
   const products: Product[] = catalog.products.map(product => ({ id:product.id,slug:product.slug,name:product.name,brand:product.brand?.name||'',category:(product.category?.slug||'sanitary') as Category,price:product.price??0,currency:product.currency,publishedAt:product.published_at,inquiry:product.sales_mode==='quotation'||product.price===null||product.availability==='out_of_stock',imported:product.brand?.slug==='imported-china' }));
   const shopping=useShopping();
   const router=useRouter();
@@ -113,7 +118,7 @@ export default function ReferenceStorefront({ catalog }: { catalog: Catalog }) {
         <a className={styles.address} href="#footer-contact"><Icon name="pin-top" />Adda Plot, Al Kabir Town, Raiwind Road, Lahore</a>
         <div className={styles.assurances}>{['Genuine Brands', 'Quality Products', 'Nationwide Delivery'].map(text => <span key={text}><Icon name="check" />{text}</span>)}</div>
         <a href="tel:03086235608" className={styles.phone}><Icon name="phone" />0308-6235608</a>
-        <a href={whatsapp()} target="_blank" rel="noopener noreferrer" className={styles.whatsapp}><Icon name="whatsapp-top" />WhatsApp</a>
+        <a href={whatsapp(undefined, true)} aria-label="Main WhatsApp contact" target="_blank" rel="noopener noreferrer" className={styles.whatsapp}><Icon name="whatsapp-top" />WhatsApp</a>
       </div></div>
       <div className={styles.mainHeader}>
         <Logo />

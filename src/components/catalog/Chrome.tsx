@@ -19,7 +19,6 @@ export function ContactButtons({ catalog }: { catalog: Catalog }) {
             href={enquiry(undefined, number)}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`${contact.label} WhatsApp ${number}`}
           >
             <small>WhatsApp ({contact.label})</small>
             <b>

@@ -1,0 +1,80 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "title": "M Murad Sons | Building Material Store in Lahore",
+    "canonical": "http://127.0.0.1:3100",
+    "robots": [
+      "noindex, follow"
+    ],
+    "schemas": [
+      "Store"
+    ],
+    "h1": "Modern Bathroom\nSolutions"
+  },
+  {
+    "path": "/category/sanitary",
+    "status": 200,
+    "title": "Sanitary & Bathroom local collection",
+    "canonical": "http://127.0.0.1:3100/category/sanitary",
+    "robots": [
+      "noindex, follow"
+    ],
+    "schemas": [
+      "BreadcrumbList"
+    ],
+    "h1": "Sanitary & Bathroom\nCollection"
+  },
+  {
+    "path": "/brand/porta",
+    "status": 200,
+    "title": "Porta local collection",
+    "canonical": "http://127.0.0.1:3100/brand/porta",
+    "robots": [
+      "noindex, follow"
+    ],
+    "schemas": [
+      "BreadcrumbList"
+    ],
+    "h1": "Porta"
+  },
+  {
+    "path": "/product/local-fixture-1",
+    "status": 200,
+    "title": "Local fixture 1 integration title",
+    "canonical": "http://127.0.0.1:3100/product/local-fixture-1",
+    "robots": [
+      "noindex, follow"
+    ],
+    "schemas": [
+      "BreadcrumbList"
+    ],
+    "h1": "Local fixture 01"
+  },
+  {
+    "path": "/category/sanitary?sort=price-low",
+    "status": 200,
+    "title": "Sanitary & Bathroom local collection",
+    "canonical": "http://127.0.0.1:3100/category/sanitary",
+    "robots": [
+      "noindex, follow"
+    ],
+    "schemas": [
+      "BreadcrumbList"
+    ],
+    "h1": "Sanitary & Bathroom\nCollection"
+  },
+  {
+    "path": "/search?q=local",
+    "status": 200,
+    "title": "Search products | M Murad Sons Lahore",
+    "canonical": null,
+    "robots": [
+      "noindex, follow"
+    ],
+    "schemas": [
+      "BreadcrumbList"
+    ],
+    "h1": "Search products"
+  }
+]

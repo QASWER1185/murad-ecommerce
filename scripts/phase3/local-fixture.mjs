@@ -57,8 +57,8 @@ export async function startFixture() {
       query,
     );
   }
-  const as = (role, query) =>
-    `SET ROLE ${role ? "authenticated" : "anon"}; SET request.jwt.claim.sub=${literal(fixtureUsers[role] || "")}; ${query}`;
+  const as = (role, query, aal = "aal1") =>
+    `SET ROLE ${role ? "authenticated" : "anon"}; SET request.jwt.claim.sub=${literal(fixtureUsers[role] || "")}; SET request.jwt.claims=${literal({aal})}; ${query}`;
   let server;
   try {
     run([
@@ -290,13 +290,14 @@ export async function startFixture() {
     let responseHook = null;
     const refreshes = new Map();
     let refreshCount = 0;
-    function issue(role, expired = false) {
+    function issue(role, expired = false, aal = "aal1") {
       const user = {
         id: fixtureUsers[role],
         aud: "authenticated",
         role: "authenticated",
         email: `${role}@murad.test`,
         email_confirmed_at: "2026-01-01T00:00:00Z",
+        factors: [{ id: "00000000-0000-0000-0000-000000000007", factor_type: "totp", status: "verified", friendly_name: "Synthetic local authenticator" }],
         app_metadata: { provider: "email", providers: ["email"] },
         user_metadata: { role: "admin" },
         created_at: "2026-01-01T00:00:00Z",
@@ -308,6 +309,7 @@ export async function startFixture() {
       const body = Buffer.from(
         JSON.stringify({
           sub: user.id,
+          aal,
           role: "authenticated",
           aud: "authenticated",
           exp: expired ? now - 100 : now + 3600,
@@ -317,7 +319,7 @@ export async function startFixture() {
       ).toString("base64url");
       const token = `${head}.${body}.${createHmac("sha256", "test-only-not-a-real-supabase-secret").update(`${head}.${body}`).digest("base64url")}`;
       const refresh = randomUUID();
-      sessions.set(token, { role, user });
+      sessions.set(token, { role, user, aal });
       refreshes.set(refresh, role);
       return {
         access_token: token,
@@ -334,6 +336,7 @@ export async function startFixture() {
       const bearer = (req.headers.authorization || "").replace(/^Bearer /, "");
       const session = sessions.get(bearer);
       const role = session?.role;
+      const asRequest = (role, query) => as(role, query, session?.aal || "aal1");
       const send = (status, data) => {
         res.statusCode = status;
         res.end(JSON.stringify(data));
@@ -358,7 +361,7 @@ export async function startFixture() {
           const key = `${bucket}/${name}`;
           if (req.method === "POST") {
             const inserted = sql(
-              as(
+              asRequest(
                 role,
                 `INSERT INTO storage.objects(bucket_id,name) VALUES(${literal(bucket)},${literal(name)}) RETURNING id;`,
               ),
@@ -371,7 +374,7 @@ export async function startFixture() {
           }
           if (req.method === "GET") {
             const permitted = sql(
-              as(
+              asRequest(
                 role,
                 `SELECT count(*) FROM storage.objects WHERE bucket_id=${literal(bucket)} AND name=${literal(name)};`,
               ),
@@ -404,6 +407,10 @@ export async function startFixture() {
             });
           return send(200, issue(r));
         }
+        if (/^\/auth\/v1\/factors\/[^/]+\/challenge$/.test(url.pathname))
+          return session ? send(200, { id: "local-challenge", expires_at: Math.floor(Date.now()/1000)+60 }) : send(401, { msg: "Denied" });
+        if (/^\/auth\/v1\/factors\/[^/]+\/verify$/.test(url.pathname))
+          return session && body.code === "123456" && body.challenge_id === "local-challenge" ? send(200, issue(role,false,"aal2")) : send(403, { msg: "Invalid code" });
         if (url.pathname === "/auth/v1/user")
           return session
             ? send(200, session.user)
@@ -421,7 +428,7 @@ export async function startFixture() {
         if (endpoint.startsWith("rpc/")) {
           const fn = endpoint.slice(4);
           if (
-            !/^(current_catalog_role|catalog_admin_preview|consume_admin_login_attempt|save_product_draft|save_product_image_alt|submit_catalog_review|review_catalog_entity|publish_catalog_entity|return_catalog_to_draft|archive_catalog_entity|rename_catalog_slug|register_catalog_media|edit_catalog_gallery|catalog_public_media|verify_catalog_media|save_catalog_taxonomy|save_catalog_banner|set_catalog_banner_active|attach_catalog_asset|save_catalog_settings|save_catalog_asset_alt|begin_catalog_import|stage_catalog_import_source|configure_catalog_import|catalog_import_source_batch|stage_catalog_import_preview|start_catalog_import|process_catalog_import_batch|retry_catalog_import|catalog_import_workspace|restore_product_revision|catalog_storefront|catalog_public_generation|catalog_cart|claim_catalog_invalidations|finish_catalog_invalidation|set_catalog_product_featured|catalog_order_preview|order_request_gateway|admin_order_requests|admin_order_request|update_order_request_status)$/.test(
+            !/^(catalog_session_access|catalog_worker_gateway|current_catalog_role|catalog_admin_preview|consume_admin_login_attempt|save_product_draft|save_product_image_alt|submit_catalog_review|review_catalog_entity|publish_catalog_entity|return_catalog_to_draft|archive_catalog_entity|rename_catalog_slug|register_catalog_media|edit_catalog_gallery|catalog_public_media|verify_catalog_media|save_catalog_taxonomy|save_catalog_banner|set_catalog_banner_active|attach_catalog_asset|save_catalog_settings|save_catalog_asset_alt|begin_catalog_import|stage_catalog_import_source|configure_catalog_import|catalog_import_source_batch|stage_catalog_import_preview|start_catalog_import|process_catalog_import_batch|retry_catalog_import|catalog_import_workspace|restore_product_revision|catalog_storefront|catalog_public_generation|catalog_cart|claim_catalog_invalidations|finish_catalog_invalidation|set_catalog_product_featured|catalog_order_preview|order_request_gateway|admin_order_requests|admin_order_request|update_order_request_status)$/.test(
               fn,
             )
           )
@@ -433,7 +440,7 @@ export async function startFixture() {
             })
             .join(",");
           const result = sql(
-            as(
+            asRequest(
               role,
               `SELECT coalesce(to_jsonb(public.${fn}(${args}))::text,'null');`,
             ),
@@ -525,7 +532,7 @@ export async function startFixture() {
         );
         if (!Number.isSafeInteger(offset) || !Number.isSafeInteger(limit))
           throw new Error("Invalid range");
-        const count = sql(as(role, `SELECT count(*) FROM ${from}${where};`));
+        const count = sql(asRequest(role, `SELECT count(*) FROM ${from}${where};`));
         res.setHeader(
           "Content-Range",
           `${offset}-${Math.max(offset, offset + limit - 1)}/${count}`,
@@ -535,7 +542,7 @@ export async function startFixture() {
           return res.end();
         }
         const result = sql(
-          as(
+          asRequest(
             role,
             `SELECT coalesce(jsonb_agg(row),'[]'::jsonb) FROM (SELECT ${selection} FROM ${from}${where}${order ? " ORDER BY " + order : ""} LIMIT ${limit} OFFSET ${offset}) row;`,
           ),
@@ -568,6 +575,25 @@ export async function startFixture() {
       as,
       literal,
       assertions,
+      rehearseRecovery: () => {
+        const started = Date.now();
+        const fingerprint = `SELECT jsonb_build_object('products',(SELECT count(*) FROM public.products),'drafts',(SELECT count(*) FROM public.products WHERE publication_status='draft'),'roles',(SELECT count(*) FROM app_private.user_roles),'media',(SELECT count(*) FROM public.catalog_media),'storage_metadata',(SELECT count(*) FROM storage.objects),'orders',(SELECT count(*) FROM public.order_requests),'products_digest',(SELECT md5(coalesce(jsonb_agg(to_jsonb(p) ORDER BY id)::text,'[]')) FROM public.products p),'orders_digest',(SELECT md5(coalesce(jsonb_agg(to_jsonb(o) ORDER BY id)::text,'[]')) FROM public.order_requests o),'outbox',(SELECT count(*) FROM app_private.invalidation_events))::text;`;
+        const before = sql(fingerprint);
+        const dump = run(['exec',container,'pg_dump','-U','postgres','--no-owner','postgres']);
+        const db = 'phase7_restore';
+        run(['exec',container,'createdb','-U','postgres',db]);
+        run(['exec','-i',container,'psql','-U','postgres','-d',db,'-q','-v','ON_ERROR_STOP=1'],dump);
+        const after = run(['exec','-i',container,'psql','-U','postgres','-d',db,'-qAt','-v','ON_ERROR_STOP=1'],fingerprint);
+        assert.equal(before,after,'Restored synthetic database counts differ');
+        assert.throws(()=>run(['exec','-i',container,'psql','-U','postgres','-d',db,'-qAt','-v','ON_ERROR_STOP=1'],as(null,'SELECT count(*) FROM public.products;')),/permission denied/,'Restored raw-table boundary');
+        // Fixture binaries live in a mock Storage map, outside PostgreSQL. An
+        // independent byte-for-byte archive/restore proves DB dumps alone do not
+        // back up binaries. Real Storage restore still requires staging approval.
+        const archive = [...storedObjects].map(([key,v])=>({key,type:v.type,bytes:v.bytes.toString('base64')}));
+        const restored = new Map(archive.map(v=>[v.key,{type:v.type,bytes:Buffer.from(v.bytes,'base64')}]));
+        for(const [key,v] of storedObjects) { assert(restored.get(key).bytes.equals(v.bytes));assert.equal(restored.get(key).type,v.type); }
+        return { databaseCounts: JSON.parse(before), dumpBytes: Buffer.byteLength(dump), binaryObjects: archive.length, binaryBytes: [...storedObjects.values()].reduce((n,v)=>n+v.bytes.length,0), elapsedMs: Date.now()-started, restoredAnonymousRawProductsDenied:true };
+      },
       issue,
       storedObjects,
       publicRequests,

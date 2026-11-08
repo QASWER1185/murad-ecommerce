@@ -1,4 +1,5 @@
 import "server-only";
+import { MfaRequired } from "./assurance";
 import { redirect, notFound } from "next/navigation";
 import { connection } from "next/server";
 import { requestAdminClient } from "./supabase-server";
@@ -65,7 +66,8 @@ export async function adminPageSession() {
   let actor;
   try {
     actor = await requireCatalogActor(client, "preview");
-  } catch {
+  } catch (error) {
+    if (error instanceof MfaRequired) redirect("/admin/mfa");
     redirect("/admin/login?notice=access");
   }
   return { client, actor, email: user.data.user.email || "Store team" };

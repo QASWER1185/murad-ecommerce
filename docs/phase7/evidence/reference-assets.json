@@ -1,0 +1,29 @@
+[
+  {
+    "source": "public/homepage/hero.png",
+    "target": "public/homepage/hero.webp",
+    "originalBytes": 390929,
+    "optimizedBytes": 295774,
+    "pixelsIdentical": true,
+    "sourceSha256": "5c824675222afca053a58d156f03e04e3ab8e8b6102447d392abb4941246958f",
+    "outputSha256": "2aad53fecb2698024906f79bf3880800537643754b0a62c43c10d9cc9b8c6d92"
+  },
+  {
+    "source": "public/homepage/hero-mobile.png",
+    "target": "public/homepage/hero-mobile.webp",
+    "originalBytes": 249538,
+    "optimizedBytes": 182820,
+    "pixelsIdentical": true,
+    "sourceSha256": "16b3237ee7ce944c6e4e26750d5ffa25641e88d5f7250e7f9dbed7250d388e0d",
+    "outputSha256": "4b476b9fc5ca7db34c82e88033525a462fa13188f05915fdf24a1168698948d3"
+  },
+  {
+    "source": "public/sanitary/hero-art.png",
+    "target": "public/sanitary/hero-art.webp",
+    "originalBytes": 150153,
+    "optimizedBytes": 108800,
+    "pixelsIdentical": true,
+    "sourceSha256": "df2fe9dadce7655b38158f9157ecc3bbdab1aa7f6b86d0ebcd9c996435b99b81",
+    "outputSha256": "ba3192d34c0af0a122786c5420ffdaccd0a5034b45527f0b820d604b26fa9a71"
+  }
+]

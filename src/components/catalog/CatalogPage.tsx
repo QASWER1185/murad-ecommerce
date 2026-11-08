@@ -472,7 +472,7 @@ export function CatalogPage({
                     prefetch={false}
                     href={`/brand/${brand.slug}`}
                     key={brand.slug}
-                    aria-label={`View ${brand.name} products`}
+                    aria-label={`View Brand Products → — ${brand.name}`}
                   >
                     <span
                       className={styles.exploreLogo}
@@ -498,9 +498,9 @@ export function CatalogPage({
     </div>
   );
 }
-export function ProductPage({ catalog }: { catalog: Catalog }) {
+export function ProductPage({ catalog, filtered = false }: { catalog: Catalog; filtered?: boolean }) {
   const product = catalog.entity as Product;
-  const schema = productSchema(product, catalog);
+  const schema = productSchema(product, catalog, filtered);
   return (
     <div className={styles.shop}>
       <ProductView id={product.id} />

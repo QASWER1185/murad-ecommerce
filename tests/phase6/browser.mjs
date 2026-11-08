@@ -81,11 +81,11 @@ export async function orderBrowserTests(f, s, o) {
       );
     });
     await p.screenshot({
-      path: `docs/phase6/screenshots/${name}.png`,
+      path: `work/phase6-review/screenshots/${name}.png`,
       fullPage: true,
     });
   };
-  mkdirSync("docs/phase6/screenshots", { recursive: true });
+  mkdirSync("work/phase6-review/screenshots", { recursive: true });
   try {
     await test("existing homepage/Sanitary presentation remains intact before opening request controls", async () => {
       await page.goto("/");
@@ -200,7 +200,7 @@ export async function orderBrowserTests(f, s, o) {
         .click();
       assert((await events()).some((e) => e[1] === "add_to_cart"));
       await page
-        .getByRole("button", { name: "Cart, 1 items", exact: true })
+        .getByRole("button", { name: /Cart.*1.*items/, exact: true })
         .click();
       await expect(page.getByRole("dialog")).toContainText("Local fixture 01");
       await page
@@ -223,7 +223,7 @@ export async function orderBrowserTests(f, s, o) {
     });
     await test("shared cart creates a persisted guest request with server prices and a recoverable reference", async () => {
       await page
-        .getByRole("button", { name: "Cart, 1 items", exact: true })
+        .getByRole("button", { name: /Cart.*1.*items/, exact: true })
         .click();
       await expect(page.getByRole("dialog")).toContainText("Local fixture 01");
       await page.getByLabel("Quantity for Local fixture 01").fill("2");
@@ -677,7 +677,7 @@ export async function orderBrowserTests(f, s, o) {
         .first()
         .click();
       await p
-        .getByRole("button", { name: "Cart, 1 items", exact: true })
+        .getByRole("button", { name: /Cart.*1.*items/, exact: true })
         .click();
       await p
         .getByRole("button", { name: "Review & save a request", exact: true })
@@ -693,7 +693,7 @@ export async function orderBrowserTests(f, s, o) {
         el.scrollTop = 0;
       });
       await p.screenshot({
-        path: "docs/phase6/screenshots/cart-request-mobile.png",
+        path: "work/phase6-review/screenshots/cart-request-mobile.png",
         fullPage: false,
       });
       await p
@@ -703,7 +703,7 @@ export async function orderBrowserTests(f, s, o) {
         p.getByRole("button", { name: "Submit request", exact: true }),
       ).toBeVisible();
       await p.screenshot({
-        path: "docs/phase6/screenshots/cart-request-mobile-submit.png",
+        path: "work/phase6-review/screenshots/cart-request-mobile-submit.png",
         fullPage: false,
       });
       await mobile.close();

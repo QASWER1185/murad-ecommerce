@@ -1,0 +1,66 @@
+[
+  {
+    "name": "home-desktop",
+    "baseline": {
+      "width": 1200,
+      "height": 1312
+    },
+    "current": {
+      "width": 1200,
+      "height": 1312
+    },
+    "sameDimensions": true,
+    "changedPixelsPercent": 0,
+    "thresholdPerChannel": 20,
+    "exactChangedPixelsPercent": 0,
+    "maximumChannelDifference": 0
+  },
+  {
+    "name": "home-mobile",
+    "baseline": {
+      "width": 390,
+      "height": 2070
+    },
+    "current": {
+      "width": 390,
+      "height": 2070
+    },
+    "sameDimensions": true,
+    "changedPixelsPercent": 0,
+    "thresholdPerChannel": 20,
+    "exactChangedPixelsPercent": 0,
+    "maximumChannelDifference": 0
+  },
+  {
+    "name": "sanitary-desktop",
+    "baseline": {
+      "width": 1200,
+      "height": 1824
+    },
+    "current": {
+      "width": 1200,
+      "height": 1824
+    },
+    "sameDimensions": true,
+    "changedPixelsPercent": 0,
+    "thresholdPerChannel": 20,
+    "exactChangedPixelsPercent": 0.00004568713450292398,
+    "maximumChannelDifference": 1
+  },
+  {
+    "name": "sanitary-mobile",
+    "baseline": {
+      "width": 390,
+      "height": 4370
+    },
+    "current": {
+      "width": 390,
+      "height": 4370
+    },
+    "sameDimensions": true,
+    "changedPixelsPercent": 0,
+    "thresholdPerChannel": 20,
+    "exactChangedPixelsPercent": 0,
+    "maximumChannelDifference": 0
+  }
+]

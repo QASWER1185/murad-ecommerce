@@ -1,0 +1,52 @@
+[
+  {
+    "task": "test:phase2",
+    "exitCode": 0,
+    "elapsedMs": 18163
+  },
+  {
+    "task": "test:phase3:unit",
+    "exitCode": 0,
+    "elapsedMs": 928
+  },
+  {
+    "task": "test:phase4:unit",
+    "exitCode": 0,
+    "elapsedMs": 1292
+  },
+  {
+    "task": "test:phase5:unit",
+    "exitCode": 0,
+    "elapsedMs": 779
+  },
+  {
+    "task": "test:phase6:unit",
+    "exitCode": 0,
+    "elapsedMs": 970
+  },
+  {
+    "task": "test:phase7:unit",
+    "exitCode": 0,
+    "elapsedMs": 880
+  },
+  {
+    "task": "test:phase3:e2e",
+    "exitCode": 0,
+    "elapsedMs": 36687
+  },
+  {
+    "task": "test:phase4:e2e",
+    "exitCode": 0,
+    "elapsedMs": 106421
+  },
+  {
+    "task": "test:phase5:e2e",
+    "exitCode": 0,
+    "elapsedMs": 119508
+  },
+  {
+    "task": "test:phase6:e2e",
+    "exitCode": 0,
+    "elapsedMs": 98498
+  }
+]

@@ -17,6 +17,7 @@ const eslintConfig = defineConfig([
     "work/phase4-tests/**",
     "work/phase5-tests/**",
     "work/phase6-tests/**",
+    "work/phase7-tests/**",
   ]),
 ]);
 

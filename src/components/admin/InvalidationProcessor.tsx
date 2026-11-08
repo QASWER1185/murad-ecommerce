@@ -52,7 +52,7 @@ export function InvalidationProcessor({ csrf }: { csrf: string }) {
   }, [csrf]);
   return (
     <p
-      style={{ fontSize: 11, color: "#64748b", margin: "12px 0" }}
+      style={{ fontSize: 11, color: "#586875", margin: "12px 0" }}
       role="status"
     >
       {status}

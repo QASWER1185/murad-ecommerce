@@ -6,7 +6,8 @@
       "development/admin-dashboard": false,
       "development/product-import-media": false,
       "development/storefront-integration": false,
-      "development/orders-analytics": false
+      "development/orders-analytics": false,
+      "development/staging-readiness": false
     }
   }
 }

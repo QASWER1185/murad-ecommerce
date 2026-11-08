@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, useId, type ReactNode } from "react";
 import { track } from "@/lib/analytics/events";
 import type { Product } from "@/lib/storefront/types";
 import { canOrder, enquiry, money } from "@/lib/storefront/query";
@@ -66,6 +66,7 @@ export function CartButton({
   className?: string;
   icon?: ReactNode;
 }) {
+  const titleId = useId();
   const shopping = useShopping();
   const [open, setOpen] = useState(false),
     [items, setItems] = useState<Product[]>([]),
@@ -140,12 +141,12 @@ export function CartButton({
           setItems([]);
           setOpen(true);
         }}
-        aria-label={`Cart, ${count} items`}
+        aria-label={compact ? `Cart ${count} items` : `Cart (${count}), ${count} items`}
       >
         {compact ? (
           <>
             {icon}
-            <span>Cart</span>
+            <span>Cart</span>{" "}
             <b>{count}</b>
           </>
         ) : (
@@ -153,12 +154,13 @@ export function CartButton({
         )}
       </button>
       <dialog
+        aria-labelledby={titleId}
         className={styles.dialog}
         ref={dialog}
         onCancel={() => setOpen(false)}
       >
         <div className={styles.dialogHeading}>
-          <h2>Your Cart</h2>
+          <h2 id={titleId}>Your Cart</h2>
           <button onClick={() => setOpen(false)}>Close</button>
         </div>
         {items.map((item) => (
@@ -213,6 +215,7 @@ export function WishlistButton({
   icon?: ReactNode;
   main?: string;
 }) {
+  const titleId = useId();
   const shopping = useShopping();
   const [open, setOpen] = useState(false),
     [items, setItems] = useState<Product[]>([]),
@@ -264,12 +267,13 @@ export function WishlistButton({
         <span>Wishlist</span>
       </button>
       <dialog
+        aria-labelledby={titleId}
         className={styles.dialog}
         ref={dialog}
         onCancel={() => setOpen(false)}
       >
         <div className={styles.dialogHeading}>
-          <h2>Your Wishlist</h2>
+          <h2 id={titleId}>Your Wishlist</h2>
           <button onClick={() => setOpen(false)}>Close</button>
         </div>
         {items.map((item) => (
@@ -314,6 +318,7 @@ export function QuotationAction({
   className?: string;
   label?: string;
 }) {
+  const titleId = useId();
   const shopping = useShopping(),
     dialog = useRef<HTMLDialogElement>(null);
   const [open, setOpen] = useState(false);
@@ -340,12 +345,13 @@ export function QuotationAction({
       </a>
       {enabled && (
         <dialog
+        aria-labelledby={titleId}
           ref={dialog}
           className={styles.dialog}
           onCancel={() => setOpen(false)}
         >
           <div className={styles.dialogHeading}>
-            <h2>Rate / availability enquiry</h2>
+            <h2 id={titleId}>Rate / availability enquiry</h2>
             <button onClick={() => setOpen(false)}>Close</button>
           </div>
           <p>{product.name}</p>

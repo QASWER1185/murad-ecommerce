@@ -216,13 +216,13 @@ export async function browserTests(f, s) {
         .first()
         .click();
       await page
-        .getByRole("button", { name: "Cart, 1 items", exact: true })
+        .getByRole("button", { name: /Cart.*1.*items/, exact: true })
         .click();
       await expect(page.getByRole("dialog")).toContainText("Local fixture 01");
       await page.getByRole("button", { name: "Close", exact: true }).click();
       await page.goto("/");
       await expect(
-        page.getByRole("button", { name: "Cart, 1 items", exact: true }),
+        page.getByRole("button", { name: /Cart.*1.*items/, exact: true }),
       ).toBeVisible();
       const stored = await page.evaluate(() =>
         localStorage.getItem("murad-sanitary-shopping-v1"),
@@ -245,7 +245,7 @@ export async function browserTests(f, s) {
       );
       await page.reload();
       await expect(
-        page.getByRole("button", { name: "Cart, 0 items", exact: true }),
+        page.getByRole("button", { name: /Cart.*0.*items/, exact: true }),
       ).toBeVisible();
       await capture(page, "home-desktop");
     });
@@ -475,13 +475,17 @@ export async function browserTests(f, s) {
         404,
       );
       await p.locator("input[name=price]").fill("1777");
-      await p
-        .getByRole("button", { name: "Save Draft changes", exact: true })
-        .click();
+      // Wait for the persisted Draft navigation, not the value we just typed.
+      // Otherwise a faster review click correctly fails its stale-version check.
+      await Promise.all([
+        p.waitForURL(`**/admin/products/${s.products[0].id}?notice=saved`),
+        p.getByRole("button", { name: "Save Draft changes", exact: true }).click(),
+      ]);
       await expect(p.locator("input[name=price]")).toHaveValue("1777");
-      await p
-        .getByRole("button", { name: "Submit for review", exact: true })
-        .click();
+      await Promise.all([
+        p.waitForURL(`**/admin/products/${s.products[0].id}?notice=submitted`),
+        p.getByRole("button", { name: "Submit for review", exact: true }).click(),
+      ]);
       await expect(
         p.getByRole("button", { name: "Record review", exact: true }),
       ).toBeVisible();
