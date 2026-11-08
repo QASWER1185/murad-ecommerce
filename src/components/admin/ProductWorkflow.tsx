@@ -1,9 +1,10 @@
+import { MediaPanel } from "./MediaPanel";
 import { CsrfField, Status } from "./shared";
 import { MutationForm } from "./MutationForm";
 import { isIndexable, type PublicRoute } from "@/lib/catalog/publication";
 import type { AdminProduct, GalleryImage } from "@/lib/admin/data";
 import Link from "next/link";
-import { ShieldCheck, Image as ImageIcon, ExternalLink } from "lucide-react";
+import { ShieldCheck, ExternalLink } from "lucide-react";
 function WorkflowForm({
   action,
   product,
@@ -26,7 +27,6 @@ export function ProductWorkflow({
   product,
   role,
   route,
-  gallery,
 }: {
   product: AdminProduct;
   role: string;
@@ -225,71 +225,7 @@ export function ProductWorkflow({
           </WorkflowForm>
         </section>
       ) : null}
-      <section className="admin-card admin-side-card">
-        <div className="admin-side-title">
-          <h2>Product gallery</h2>
-          <span className="admin-phase">PHASE 4</span>
-        </div>
-        {gallery.map((image) => (
-          <div className="admin-gallery-item" key={image.id}>
-            <div>
-              <ImageIcon size={22} />
-              <span>
-                {image.catalog_media.mime_type}
-                <small>
-                  {image.catalog_media.verified_at
-                    ? "Media attested"
-                    : "Unverified media"}
-                </small>
-              </span>
-            </div>
-            <WorkflowForm action="save-alt" product={product}>
-              <input name="image_id" type="hidden" value={image.id} />
-              <label>
-                Image alt text
-                <input
-                  name="alt_text"
-                  maxLength={500}
-                  defaultValue={
-                    image.alt_text_override ||
-                    image.catalog_media.alt_text ||
-                    ""
-                  }
-                  disabled={
-                    !admin ||
-                    product.publication_status !== "draft" ||
-                    !!product.archived_at
-                  }
-                />
-              </label>
-              {admin &&
-              product.publication_status === "draft" &&
-              !product.archived_at ? (
-                <button className="admin-button admin-button-secondary">
-                  Save alt text
-                </button>
-              ) : null}
-            </WorkflowForm>
-          </div>
-        ))}
-        {!gallery.length ? (
-          <div className="admin-media-empty">
-            <ImageIcon size={29} />
-            <p>No images added yet</p>
-            <small>Original manufacturer images can follow later.</small>
-          </div>
-        ) : null}
-        <button
-          disabled
-          className="admin-button admin-button-secondary admin-full"
-        >
-          Upload or replace images · Phase 4
-        </button>
-        <p className="admin-help">
-          Secure binary processing and gallery management are pending. No
-          placeholder images are treated as genuine.
-        </p>
-      </section>
+      <MediaPanel kind="product" id={product.id} role={role} />
     </aside>
   );
 }

@@ -285,6 +285,7 @@ export async function startFixture() {
       ),
     );
     const sessions = new Map();
+    const storedObjects = new Map();
     const refreshes = new Map();
     let refreshCount = 0;
     function issue(role, expired = false) {
@@ -336,12 +337,53 @@ export async function startFixture() {
         res.end(JSON.stringify(data));
       };
       try {
-        let raw = "";
+        const rawChunks = [];
+        let rawSize = 0;
         for await (const chunk of req) {
-          raw += chunk;
-          if (raw.length > 100000) throw new Error("Oversize test request");
+          rawChunks.push(chunk);
+          rawSize += chunk.length;
+          if (rawSize > 12 * 1024 * 1024)
+            throw new Error("Oversize test request");
         }
-        const body = raw ? JSON.parse(raw) : {};
+        const rawBytes = Buffer.concat(rawChunks);
+        if (url.pathname.startsWith("/storage/v1/object/")) {
+          const parts = decodeURIComponent(
+            url.pathname.slice("/storage/v1/object/".length),
+          ).split("/");
+          if (parts[0] === "authenticated") parts.shift();
+          const bucket = parts.shift();
+          const name = parts.join("/");
+          const key = `${bucket}/${name}`;
+          if (req.method === "POST") {
+            const inserted = sql(
+              as(
+                role,
+                `INSERT INTO storage.objects(bucket_id,name) VALUES(${literal(bucket)},${literal(name)}) RETURNING id;`,
+              ),
+            );
+            storedObjects.set(key, {
+              bytes: rawBytes,
+              type: req.headers["content-type"] || "application/octet-stream",
+            });
+            return send(200, { Id: inserted, Key: key });
+          }
+          if (req.method === "GET") {
+            const permitted = sql(
+              as(
+                role,
+                `SELECT count(*) FROM storage.objects WHERE bucket_id=${literal(bucket)} AND name=${literal(name)};`,
+              ),
+            );
+            const object = storedObjects.get(key);
+            if (permitted !== "1" || !object)
+              return send(404, { message: "Object not found" });
+            res.setHeader("Content-Type", object.type);
+            res.setHeader("Cache-Control", "no-store");
+            return res.end(object.bytes);
+          }
+          return send(403, { message: "Immutable test object" });
+        }
+        const body = rawBytes.length ? JSON.parse(rawBytes.toString()) : {};
         if (url.pathname === "/auth/v1/token") {
           if (url.searchParams.get("grant_type") === "refresh_token") {
             const r = refreshes.get(body.refresh_token);
@@ -376,7 +418,7 @@ export async function startFixture() {
         if (endpoint.startsWith("rpc/")) {
           const fn = endpoint.slice(4);
           if (
-            !/^(current_catalog_role|catalog_admin_preview|consume_admin_login_attempt|save_product_draft|save_product_image_alt|submit_catalog_review|review_catalog_entity|publish_catalog_entity|return_catalog_to_draft|archive_catalog_entity|rename_catalog_slug)$/.test(
+            !/^(current_catalog_role|catalog_admin_preview|consume_admin_login_attempt|save_product_draft|save_product_image_alt|submit_catalog_review|review_catalog_entity|publish_catalog_entity|return_catalog_to_draft|archive_catalog_entity|rename_catalog_slug|register_catalog_media|edit_catalog_gallery|catalog_public_media|verify_catalog_media|save_catalog_taxonomy|save_catalog_banner|set_catalog_banner_active|attach_catalog_asset|save_catalog_settings|save_catalog_asset_alt|begin_catalog_import|stage_catalog_import_source|configure_catalog_import|catalog_import_source_batch|stage_catalog_import_preview|start_catalog_import|process_catalog_import_batch|retry_catalog_import|catalog_import_workspace|restore_product_revision)$/.test(
               fn,
             )
           )
@@ -404,6 +446,10 @@ export async function startFixture() {
             "product_revisions",
             "catalog_routes_public",
             "import_jobs",
+            "import_rows",
+            "catalog_media",
+            "catalog_media_variants",
+            "homepage_banners",
             "site_settings",
           ].includes(endpoint) ||
           !["GET", "HEAD"].includes(req.method)
@@ -509,6 +555,7 @@ export async function startFixture() {
       literal,
       assertions,
       issue,
+      storedObjects,
       get refreshCount() {
         return refreshCount;
       },

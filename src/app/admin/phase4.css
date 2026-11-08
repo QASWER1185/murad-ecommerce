@@ -1,0 +1,196 @@
+.admin-media-manager {
+  min-width: 0;
+}
+.admin-media-item {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.admin-media-item > img {
+  width: 100%;
+  height: 175px;
+  object-fit: contain;
+  background: #f5f7fa;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+.admin-media-item > strong {
+  display: block;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+.admin-media-item > small {
+  display: block;
+  font-size: 9px;
+  color: var(--muted);
+  margin: 6px 0 13px;
+}
+.admin-media-item form {
+  margin: 13px 0;
+}
+.admin-media-item form button {
+  margin-top: 10px;
+}
+.admin-media-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 22px;
+}
+.admin-media-buttons .admin-button {
+  white-space: normal;
+  font-size: 10px !important;
+  min-height: 34px;
+  padding: 7px 10px;
+}
+.admin-media-upload {
+  padding-top: 18px;
+  margin-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.admin-media-upload > label {
+  margin-bottom: 16px;
+}
+.admin-app input[type="file"] {
+  font-size: 11px !important;
+  padding: 10px 8px !important;
+  overflow: hidden;
+  max-width: 100%;
+}
+.admin-media-history {
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+.admin-media-history button {
+  margin-top: 8px;
+  min-height: 32px;
+}
+.admin-media-manager .admin-advanced form button {
+  margin-top: 12px;
+}
+.admin-import-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 25px 0;
+}
+.admin-import-stats > span {
+  font-size: 11px;
+  color: var(--muted);
+  background: #f6f8fa;
+  border: 1px solid var(--line);
+  padding: 16px;
+  border-radius: 6px;
+}
+.admin-import-stats strong {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.admin-app progress {
+  width: 100%;
+  height: 9px;
+  border: 0;
+  border-radius: 6px;
+  background: #eef1f5;
+  accent-color: var(--navy);
+}
+.admin-app progress::-webkit-progress-bar {
+  background: #eef1f5;
+  border-radius: 6px;
+}
+.admin-app progress::-webkit-progress-value {
+  background: var(--navy);
+  border-radius: 6px;
+}
+.admin-mapping-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 25px 0;
+}
+.admin-mapping-grid label {
+  text-transform: capitalize;
+  min-width: 0;
+}
+.admin-import-payload {
+  font-size: 10px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-width: 350px;
+  max-height: 220px;
+  overflow: auto;
+  background: #f5f7fa;
+  padding: 12px;
+  border-radius: 5px;
+  margin: 12px 0;
+}
+.admin-import-errors {
+  padding-left: 14px;
+  margin: 0;
+  white-space: normal;
+  min-width: 180px;
+  max-width: 300px;
+  color: #a14c40;
+  font-size: 10px;
+}
+.admin-app .admin-table details {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 9px;
+}
+.admin-preview-media img {
+  width: 100%;
+  height: auto;
+  max-height: 450px;
+  object-fit: contain;
+}
+.admin-app .admin-form-card > form > label {
+  margin: 18px 0;
+}
+.admin-app .admin-form-card h2 + .admin-form-grid {
+  margin-top: 23px;
+}
+.admin-media-manager .admin-button {
+  white-space: normal;
+}
+@media (max-width: 900px) {
+  .admin-mapping-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .admin-import-stats {
+    gap: 12px;
+  }
+}
+@media (max-width: 680px) {
+  .admin-mapping-grid {
+    grid-template-columns: 1fr;
+  }
+  .admin-import-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .admin-app input:not([type="checkbox"]),
+  .admin-app select,
+  .admin-app textarea {
+    font-size: 16px;
+  }
+  .admin-media-item > img {
+    height: 210px;
+  }
+  .admin-import-payload {
+    max-width: 240px;
+  }
+  .admin-media-buttons {
+    gap: 8px;
+  }
+  .admin-media-buttons .admin-button {
+    min-height: 40px;
+  }
+  .admin-app input[type="file"] {
+    font-size: 13px !important;
+  }
+}

@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test:phase4:unit": "tsc -p tsconfig.phase4.json && node --test work/phase4-tests/tests/phase4/unit.test.js",
+    "test:phase4:e2e": "tsc -p tsconfig.phase4.json && node scripts/test-phase4.mjs",
     "test:phase3:unit": "tsc -p tsconfig.phase3.json && node --test work/phase3-tests/tests/phase3/policy.test.js",
     "test:phase3:e2e": "node scripts/test-phase3.mjs",
     "test:phase2:policy": "tsc -p tsconfig.phase2.json && node --test work/phase2-tests/tests/phase2/publication.test.js",
@@ -17,11 +19,21 @@
   "dependencies": {
     "@supabase/ssr": "^0.12.7",
     "@supabase/supabase-js": "^2.119.0",
+    "csv-parse": "^7.0.3",
+    "exceljs": "^4.4.0",
     "lucide-react": "^1.69.0",
     "next": "16.4.5",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+    "saxes": "^6.0.0",
+    "sharp": "^0.35.5",
+    "yauzl": "^3.4.0",
     "zod": "^4.6.7"
+  },
+  "overrides": {
+    "exceljs": {
+      "uuid": "11.1.1"
+    }
   },
   "devDependencies": {
     "@playwright/test": "^1.65.0",
@@ -29,6 +41,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/yauzl": "^3.4.0",
     "eslint": "^9",
     "eslint-config-next": "16.4.5",
     "tailwindcss": "^4",

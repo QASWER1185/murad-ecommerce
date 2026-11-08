@@ -46,7 +46,12 @@ export default async function EditProduct({
               <ul className="admin-revision-list">
                 {data.revisions.map((r) => (
                   <li key={r.id}>
-                    <strong>Version {r.revision_no}</strong>
+                    <Link
+                      className="admin-text-link"
+                      href={`/admin/products/${id}/revisions/${r.id}`}
+                    >
+                      Version {r.revision_no} · Review / recover →
+                    </Link>
                     <span>{r.workflow_state.replaceAll("_", " ")}</span>
                     <time>
                       {new Date(r.created_at).toLocaleString("en-GB", {

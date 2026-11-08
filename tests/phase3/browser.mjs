@@ -74,9 +74,9 @@ export async function runBrowserTests(fixture) {
         const r = await context.request.get(
           "/admin/products/00000000-0000-0000-0000-000000000001/preview",
         );
-        assert(!(await r.text()).includes("Product imagery not displayed"));
+        assert(!(await r.text()).includes("Private product preview"));
         await page.screenshot({
-          path: "docs/phase3/screenshots/login-desktop.png",
+          path: "work/phase3-review/login-desktop.png",
           fullPage: true,
         });
       },
@@ -117,7 +117,7 @@ export async function runBrowserTests(fixture) {
             session.expires - Date.now() / 1000 <= 8 * 60 * 60 + 60,
         );
         await page.screenshot({
-          path: "docs/phase3/screenshots/overview-desktop.png",
+          path: "work/phase3-review/overview-desktop.png",
           fullPage: true,
         });
       },
@@ -221,7 +221,7 @@ export async function runBrowserTests(fixture) {
           page.getByText("Excluded from indexing", { exact: true }),
         ).toBeVisible();
         await page.screenshot({
-          path: "docs/phase3/screenshots/editor-desktop.png",
+          path: "work/phase3-review/editor-desktop.png",
           fullPage: true,
         });
       },
@@ -391,7 +391,7 @@ export async function runBrowserTests(fixture) {
           ),
         );
         await p.screenshot({
-          path: "docs/phase3/screenshots/overview-mobile.png",
+          path: "work/phase3-review/overview-mobile.png",
           fullPage: true,
         });
         await p.goto("/admin/products");
@@ -401,7 +401,7 @@ export async function runBrowserTests(fixture) {
           ),
         );
         await p.screenshot({
-          path: "docs/phase3/screenshots/products-mobile.png",
+          path: "work/phase3-review/products-mobile.png",
           fullPage: true,
         });
         await p.goto(`/admin/products/${id}`);
@@ -411,21 +411,17 @@ export async function runBrowserTests(fixture) {
           ),
         );
         await p.screenshot({
-          path: "docs/phase3/screenshots/editor-mobile.png",
+          path: "work/phase3-review/editor-mobile.png",
           fullPage: true,
         });
         await p.goto("/admin/media");
         await expect(
-          p.getByRole("button", { name: "Upload & manage · Phase 4" }),
-        ).toHaveCount(3);
-        for (const b of await p
-          .getByRole("button", { name: "Upload & manage · Phase 4" })
-          .all())
-          await expect(b).toBeDisabled();
+          p.getByRole("button", { name: "Save inactive banner" }),
+        ).toBeEnabled();
         await p.goto("/admin/imports");
         await expect(
-          p.getByRole("button", { name: "Choose file · Phase 4" }),
-        ).toBeDisabled();
+          p.getByRole("button", { name: "Upload for mapping" }),
+        ).toBeEnabled();
         await p.goto("/admin/catalog");
         await expect(
           p.getByRole("heading", { name: "Brands & categories" }),

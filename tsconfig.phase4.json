@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmit": false,
+    "outDir": "./work/phase4-tests",
+    "incremental": false,
+    "isolatedModules": false
+  },
+  "include": [
+    "src/lib/media/**/*.ts",
+    "src/lib/imports/**/*.ts",
+    "tests/phase4/unit.test.ts"
+  ],
+  "exclude": ["node_modules"]
+}

@@ -14,6 +14,8 @@
 /coverage
 /work/phase2-tests/
 /work/phase3-tests/
+/work/phase4-tests/
+/work/phase3-review/
 
 # next.js
 /.next/

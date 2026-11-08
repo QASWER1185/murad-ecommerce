@@ -5,6 +5,24 @@ import { adminClient } from "./lib/admin/supabase-server";
 import { csrfCookie, privateHeaders, validOrigin } from "./lib/admin/security";
 
 export async function proxy(request: NextRequest) {
+  if (request.nextUrl.pathname === "/_next/image") {
+    try {
+      let source = request.nextUrl.searchParams.get("url") || "";
+      for (let i = 0; i < 2; i++) source = decodeURIComponent(source);
+      const path = new URL(source, "http://local").pathname;
+      if (
+        path.startsWith("/admin/media/") ||
+        path.startsWith("/media/catalog/")
+      )
+        return new NextResponse(
+          "Protected media must use direct responsive variants",
+          { status: 403, headers: privateHeaders },
+        );
+    } catch {
+      return new NextResponse(null, { status: 400, headers: privateHeaders });
+    }
+    return NextResponse.next();
+  }
   let config;
   try {
     config = readAdminConfig();
@@ -75,4 +93,4 @@ export async function proxy(request: NextRequest) {
     response.headers.set(key, value);
   return response;
 }
-export const config = { matcher: ["/admin/:path*"] };
+export const config = { matcher: ["/admin/:path*", "/_next/image"] };
