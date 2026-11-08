@@ -8,7 +8,8 @@
       "development/storefront-integration": false,
       "development/orders-analytics": false,
       "development/staging-readiness": false,
-      "development/phase8-preflight": false
+      "development/phase8-preflight": false,
+      "development/phase8-real-staging": false
     }
   }
 }

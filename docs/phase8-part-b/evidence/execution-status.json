@@ -1,0 +1,23 @@
+{
+  "reportTimezone": "Asia/Karachi",
+  "timestampUTC": "2026-11-08T14:49:58.441Z",
+  "sourcePartA": "264cc217ede7e6246dbe4554629089677b92d9d5",
+  "overallStatus": "BLOCKED",
+  "releaseCandidateAssessment": "NOT READY / NOT VALIDATED ON REAL STAGING",
+  "hostedRequestsAttempted": 0,
+  "realStagingTestsExecuted": 0,
+  "liveStagingIdentityVerified": false,
+  "stagingProjectRef": null,
+  "stagingHostname": null,
+  "productionIdentifiersSource": "Owner declared Production/Main, single tenant; not queried",
+  "provisionedAccountsOrKeys": false,
+  "hostedDeploymentPerformed": false,
+  "productionTouched": false,
+  "phase9Or10Started": false,
+  "statusCounts": {
+    "PASS": 3,
+    "FAIL": 0,
+    "BLOCKED": 79,
+    "NOT RUN": 4
+  }
+}

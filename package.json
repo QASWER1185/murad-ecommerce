@@ -27,7 +27,9 @@
     "test:phase8:unit": "tsc -p tsconfig.phase8.json && node --test work/phase8-tests/tests/phase8/unit.test.js",
     "test:phase8:db": "tsc -p tsconfig.phase8.json && node scripts/phase8/test-import-boundary.mjs",
     "verify:phase8-part-a": "node scripts/phase8/validate-local.mjs",
-    "test:phase8:compat": "node scripts/phase8/test-legacy-stack.mjs"
+    "test:phase8:compat": "node scripts/phase8/test-legacy-stack.mjs",
+    "check:phase8b": "node scripts/phase8b/preflight.mjs",
+    "test:phase8b:unit": "node --test tests/phase8b/scope.test.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",
