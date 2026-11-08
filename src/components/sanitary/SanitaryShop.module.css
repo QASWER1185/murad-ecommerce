@@ -170,7 +170,7 @@
 .promotion h2 { font-size:20px; line-height:21px; }
 .promotion .gold { margin:8px 12px 0 0; padding:5px 14px; border-radius:4px; font-size:10px; }
 .promotion div > span { font-size:9px; }
-.promotionArt { background:url('/sanitary/promotion-art.png') center/cover no-repeat; }
+.promotionArt { background:image-set(url('/sanitary/promotion-art.webp') type('image/webp'),url('/sanitary/promotion-art.png') type('image/png')) center/cover no-repeat; }
 .explore { margin:12px 0 20px; }
 .explore h2 { font-size:16px; }
 .explore > p { font-size:10px; margin:6px 0 10px; }

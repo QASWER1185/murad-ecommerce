@@ -1,0 +1,63 @@
+{
+  "scope": "offline repository only",
+  "sourceFiles": 127,
+  "staticAssetReferencesChecked": 90,
+  "missingAssets": [],
+  "ancestry": [
+    {
+      "base": "origin/main",
+      "head": "origin/development/seo-commerce",
+      "baseSha": "c73b01b93c4093edefe1c00e34299a9041ea5bef",
+      "headSha": "2308dd687443b11049ec2762dddcc819b01f2910",
+      "ancestor": true
+    },
+    {
+      "base": "origin/development/seo-commerce",
+      "head": "origin/development/admin-dashboard",
+      "baseSha": "2308dd687443b11049ec2762dddcc819b01f2910",
+      "headSha": "d9e27ec7bcece95a0e487195d506f700a4c409d7",
+      "ancestor": true
+    },
+    {
+      "base": "origin/development/admin-dashboard",
+      "head": "origin/development/product-import-media",
+      "baseSha": "d9e27ec7bcece95a0e487195d506f700a4c409d7",
+      "headSha": "bc50bfcd72cd7fbc26c410f6a47bf8e7ae58a2ef",
+      "ancestor": true
+    },
+    {
+      "base": "origin/development/product-import-media",
+      "head": "origin/development/storefront-integration",
+      "baseSha": "bc50bfcd72cd7fbc26c410f6a47bf8e7ae58a2ef",
+      "headSha": "7ae9d7985340ec3b6ac5e9b2dbd3e22dc7b72814",
+      "ancestor": true
+    },
+    {
+      "base": "origin/development/storefront-integration",
+      "head": "origin/development/orders-analytics",
+      "baseSha": "7ae9d7985340ec3b6ac5e9b2dbd3e22dc7b72814",
+      "headSha": "9df548718d4beac223b052290f70e91dc7c59039",
+      "ancestor": true
+    },
+    {
+      "base": "origin/development/orders-analytics",
+      "head": "origin/development/staging-readiness",
+      "baseSha": "9df548718d4beac223b052290f70e91dc7c59039",
+      "headSha": "c8f9f701c783a4a7f86b4587f641ba7d964414aa",
+      "ancestor": true
+    }
+  ],
+  "sanitaryPR2Simulation": {
+    "exitCode": 1,
+    "conflictPaths": [
+      "src/app/brand/[slug]/page.tsx",
+      "src/app/product/[slug]/page.tsx",
+      "src/components/home/ReferenceStorefront.tsx",
+      "src/components/sanitary/SanitaryShop.module.css",
+      "src/components/sanitary/catalog-options.ts",
+      "src/components/sanitary/shop-state.ts",
+      "vercel.json"
+    ],
+    "semanticReviewStillRequired": true
+  }
+}

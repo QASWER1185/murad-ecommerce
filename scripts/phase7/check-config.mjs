@@ -4,7 +4,7 @@ const failures=[],pending=[];
 const need=(ok,label)=>{if(!ok)failures.push(label);};
 const env=process.env,staticOnly=process.argv.includes('--static');
 const deployment=JSON.parse(readFileSync('vercel.json','utf8'));
-need(deployment.git?.deploymentEnabled?.['development/staging-readiness']===false,'Development branch deployment must be disabled');
+for(const branch of ['development/staging-readiness','development/phase8-preflight'])need(deployment.git?.deploymentEnabled?.[branch]===false,`${branch}: development Git deployment must be disabled`);
 need(/productionReleaseApproved = false/.test(readFileSync('src/lib/storefront/config.ts','utf8')),'Production public-media/indexing release gate must remain closed');
 if(!staticOnly){
   for(const prefix of ['ADMIN','CATALOG','CATALOG_WORKER']) need(env[`${prefix}_ENVIRONMENT`]==='staging',`${prefix} must explicitly select staging`);
@@ -12,7 +12,12 @@ if(!staticOnly){
   const sites=['ADMIN_SITE_ORIGIN','CATALOG_SITE_ORIGIN','CATALOG_WORKER_SITE_ORIGIN'];
   for(const key of [...services,...sites]){try{const u=new URL(env[key]);need(u.protocol==='https:'&&!u.username&&!u.password&&u.pathname==='/'&&!u.search&&!u.hash&&!/REPLACE|EXAMPLE/i.test(u.hostname),`${key}: explicit isolated HTTPS origin required`);}catch{need(false,`${key}: missing origin`);}}
   for(const key of services)try{need(new URL(env[key]).hostname===`${env.STAGING_PROJECT_REF}.supabase.co`,`${key}: must match the declared staging project reference`);}catch{}
-  need(!!env.PRODUCTION_SITE_ORIGIN && env.PRODUCTION_SITE_ORIGIN!==env.ADMIN_SITE_ORIGIN,'Declare the production site origin as a deny target; staging must differ');
+  // URL.origin normalizes case, a trailing slash and the default HTTPS port.
+  // Comparing raw strings could accept the production origin as 'staging'.
+  let productionOrigin=null;
+  try {const u=new URL(env.PRODUCTION_SITE_ORIGIN);need(u.protocol==='https:'&&!u.username&&!u.password&&u.pathname==='/'&&!u.search&&!u.hash,'Declare a clean HTTPS production origin as the deny target');productionOrigin=u.origin;}catch{need(false,'Declare a valid production origin as the deny target');}
+  for(const key of sites)try{need(new URL(env[key]).origin!==productionOrigin,`${key}: staging and production origins must differ`);}catch{}
+  for(const [flag,key] of [['CATALOG_WORKER_ENABLED','CATALOG_WORKER_KEY_ID'],['ORDER_REQUESTS_ENABLED','ORDER_GATEWAY_KEY_ID']])if(env[flag]==='true')need(/^[a-z0-9-]{1,40}$/.test(env[key]||''),`${key}: valid narrow signing-key identifier required`);
   need(new Set(services.map(k=>env[k])).size===1,'Use the same isolated Supabase instance for all subsystems');
   need(new Set(sites.map(k=>env[k])).size===1,'Use the same isolated application origin for all subsystems');
   need(env.STAGING_PROJECT_REF && env.STAGING_PROJECT_REF !== env.PRODUCTION_PROJECT_REF,'Explicit staging project identity must differ from production');

@@ -21,7 +21,7 @@ function Asset({ name, className = '', label }: { name: string; className?: stri
   const available = referenceAssets.includes(name);
   return <span role={label ? 'img' : undefined} aria-label={label} aria-hidden={label ? undefined : true}
     className={`${styles.asset} ${className}`} data-reference-asset={name} data-available={available}
-    style={available ? { backgroundImage: ['hero', 'hero-mobile'].includes(name) ? `image-set(url('/homepage/${name}.webp') type('image/webp'), url('/homepage/${name}.png') type('image/png'))` : `url('/homepage/${name}.png')` } : undefined} />;
+    style={available ? { backgroundImage: ['hero', 'hero-mobile', 'banner-pipes', 'banner-building', 'footer-decoration'].includes(name) ? `image-set(url('/homepage/${name}.webp') type('image/webp'), url('/homepage/${name}.png') type('image/png'))` : `url('/homepage/${name}.png')` } : undefined} />;
 }
 function Icon({ name, className = '' }: { name: string; className?: string }) {
   return <Asset name={`icon-${name}`} className={`${styles.icon} ${className}`} />;

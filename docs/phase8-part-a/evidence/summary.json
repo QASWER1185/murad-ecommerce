@@ -1,0 +1,19 @@
+{
+  "scope": "Phase 8 Part A only",
+  "nodeVersion": "v24.22.1",
+  "chromiumVersion": "Chromium 156.0.8078.79 built on Debian GNU/Linux 13 (trixie)",
+  "timestampUTC": "2026-11-08T13:11:47.756Z",
+  "reportTimezone": "Asia/Karachi",
+  "branch": "development/phase8-preflight",
+  "base": "c8f9f701c783a4a7f86b4587f641ba7d964414aa",
+  "localTasksPassed": 23,
+  "partAUnits": 7,
+  "partAImportDatabaseAssertions": 9,
+  "partALegacyCompatibilityAssertions": 7,
+  "phase7SecurityAssertions": 51,
+  "realSupabaseAccessed": false,
+  "hostingOrGoogleConfigured": false,
+  "partBStarted": false,
+  "merged": false,
+  "deployed": false
+}

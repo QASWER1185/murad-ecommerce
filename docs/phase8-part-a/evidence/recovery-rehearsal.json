@@ -1,0 +1,9 @@
+{
+  "scope": "local database and simulated binary archive only",
+  "restoredAnonymousRawProductsDenied": true,
+  "databaseChecksumsCompared": true,
+  "binaryObjects": 28,
+  "binaryBytes": 66978,
+  "elapsedMs": 591,
+  "realStorageServiceTested": false
+}

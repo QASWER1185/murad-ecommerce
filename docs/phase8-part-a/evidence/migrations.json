@@ -1,0 +1,86 @@
+[
+  {
+    "order": 1,
+    "file": "20261106055003_initial_ecommerce_schema.sql",
+    "sha256": "9581d8df063d9f62c90b6d93f5b3e83ade890ab9e197a91806a22cda6db67992",
+    "unchangedFromPhase7": true,
+    "explicitCutoverGuard": false
+  },
+  {
+    "order": 2,
+    "file": "20261106064811_seed_initial_products.sql",
+    "sha256": "244911b6d1c4b91d1a798dba96c8ed18ca93fd7985650bc08a67801afeb3f96e",
+    "unchangedFromPhase7": true,
+    "explicitCutoverGuard": false
+  },
+  {
+    "order": 3,
+    "file": "20261108000100_catalog_foundation.sql",
+    "sha256": "c3d187f01eeb253abfcdb67df16f454e81ebef774121c680cb5551023e10f99f",
+    "unchangedFromPhase7": true,
+    "explicitCutoverGuard": true
+  },
+  {
+    "order": 4,
+    "file": "20261108000200_catalog_workflow.sql",
+    "sha256": "3f4556688d8328992be904667e28ddaa5c3690342d44878dc7f1107d062571b5",
+    "unchangedFromPhase7": true,
+    "explicitCutoverGuard": true
+  },
+  {
+    "order": 5,
+    "file": "20261108000300_admin_operations.sql",
+    "sha256": "13ff8624fc15ca750d38c01d7698796b8238adf98035954472cefd949ef5cea9",
+    "unchangedFromPhase7": true,
+    "explicitCutoverGuard": true
+  },
+  {
+    "order": 6,
+    "file": "20261108000400_catalog_media.sql",
+    "sha256": "c9cba1282802e1ca153c9b6b8000abad311a9d1aee085c7b22cc88675b3fa6e7",
+    "unchangedFromPhase7": true,
+    "explicitCutoverGuard": true
+  },
+  {
+    "order": 7,
+    "file": "20261108000500_catalog_content.sql",
+    "sha256": "62c2bf799b52dbd918c9c4bf9e9bf2e5b6f9b3e6e4036599c6f62353259a7c58",
+    "unchangedFromPhase7": true,
+    "explicitCutoverGuard": true
+  },
+  {
+    "order": 8,
+    "file": "20261108000600_catalog_imports.sql",
+    "sha256": "87915c3812020c65099550ed1387f22fdee1d964dcdd4a971c230ad97372db98",
+    "unchangedFromPhase7": true,
+    "explicitCutoverGuard": true
+  },
+  {
+    "order": 9,
+    "file": "20261108000700_storefront_integration.sql",
+    "sha256": "3b6fc466af8f3b1386d4e13c8bd56619d273b5e34efae4bb57c60b8d2f899ac5",
+    "unchangedFromPhase7": true,
+    "explicitCutoverGuard": true
+  },
+  {
+    "order": 10,
+    "file": "20261108000800_order_requests.sql",
+    "sha256": "775dfa5ea501a2e2f216770666e74270fc001874756f3ce0343b0d1afa3791bb",
+    "unchangedFromPhase7": true,
+    "explicitCutoverGuard": true
+  },
+  {
+    "order": 11,
+    "file": "20261108000900_staging_hardening.sql",
+    "sha256": "de00f2c8fafc4cb9955610d68b53c2bc8de2141941b73690d657f05e668a8347",
+    "unchangedFromPhase7": true,
+    "explicitCutoverGuard": true
+  },
+  {
+    "order": 12,
+    "file": "20261108001000_catalog_query_plans.sql",
+    "sha256": "c545cfee1e373c389fc5af915bcce83c7fcda04604441ac5717ff42ceb0a6ecd",
+    "unchangedFromPhase7": true,
+    "explicitCutoverGuard": true
+  }
+]

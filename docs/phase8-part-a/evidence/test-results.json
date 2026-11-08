@@ -1,0 +1,117 @@
+[
+  {
+    "task": "build",
+    "exitCode": 0,
+    "elapsedMs": 6359
+  },
+  {
+    "task": "audit-all",
+    "exitCode": 0,
+    "elapsedMs": 524
+  },
+  {
+    "task": "audit-production",
+    "exitCode": 0,
+    "elapsedMs": 513
+  },
+  {
+    "task": "test:phase2",
+    "exitCode": 0,
+    "elapsedMs": 16956
+  },
+  {
+    "task": "test:phase3:unit",
+    "exitCode": 0,
+    "elapsedMs": 971
+  },
+  {
+    "task": "test:phase4:unit",
+    "exitCode": 0,
+    "elapsedMs": 1363
+  },
+  {
+    "task": "test:phase5:unit",
+    "exitCode": 0,
+    "elapsedMs": 788
+  },
+  {
+    "task": "test:phase6:unit",
+    "exitCode": 0,
+    "elapsedMs": 967
+  },
+  {
+    "task": "test:phase7:unit",
+    "exitCode": 0,
+    "elapsedMs": 841
+  },
+  {
+    "task": "test:phase8:unit",
+    "exitCode": 0,
+    "elapsedMs": 1327
+  },
+  {
+    "task": "test:phase8:db",
+    "exitCode": 0,
+    "elapsedMs": 6450
+  },
+  {
+    "task": "test:phase7:db",
+    "exitCode": 0,
+    "elapsedMs": 24318
+  },
+  {
+    "task": "test:phase3:e2e",
+    "exitCode": 0,
+    "elapsedMs": 36749
+  },
+  {
+    "task": "test:phase4:e2e",
+    "exitCode": 0,
+    "elapsedMs": 108027
+  },
+  {
+    "task": "test:phase5:e2e",
+    "exitCode": 0,
+    "elapsedMs": 122432
+  },
+  {
+    "task": "test:phase6:e2e",
+    "exitCode": 0,
+    "elapsedMs": 96477
+  },
+  {
+    "task": "test:phase7:e2e",
+    "exitCode": 0,
+    "elapsedMs": 114116
+  },
+  {
+    "task": "test:phase7:capacity",
+    "exitCode": 0,
+    "elapsedMs": 44671
+  },
+  {
+    "task": "capacity-memory",
+    "exitCode": 0,
+    "elapsedMs": 3576
+  },
+  {
+    "task": "configuration-static",
+    "exitCode": 0,
+    "elapsedMs": 99
+  },
+  {
+    "task": "typescript",
+    "exitCode": 0,
+    "elapsedMs": 1224
+  },
+  {
+    "task": "lint",
+    "exitCode": 0,
+    "elapsedMs": 4582
+  },
+  {
+    "task": "test:phase8:compat",
+    "exitCode": 0,
+    "elapsedMs": 4506
+  }
+]

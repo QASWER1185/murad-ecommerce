@@ -1,0 +1,38 @@
+[
+  {
+    "name": "home-desktop",
+    "width": 1200,
+    "height": 1312,
+    "exactDifferentPixels": 0,
+    "maximumChannelDifference": 0,
+    "visibleDifferentPixels": 0,
+    "visibleThresholdPerChannel": 20
+  },
+  {
+    "name": "home-mobile",
+    "width": 390,
+    "height": 2070,
+    "exactDifferentPixels": 0,
+    "maximumChannelDifference": 0,
+    "visibleDifferentPixels": 0,
+    "visibleThresholdPerChannel": 20
+  },
+  {
+    "name": "sanitary-desktop",
+    "width": 1200,
+    "height": 1824,
+    "exactDifferentPixels": 1,
+    "maximumChannelDifference": 1,
+    "visibleDifferentPixels": 0,
+    "visibleThresholdPerChannel": 20
+  },
+  {
+    "name": "sanitary-mobile",
+    "width": 390,
+    "height": 4370,
+    "exactDifferentPixels": 0,
+    "maximumChannelDifference": 0,
+    "visibleDifferentPixels": 0,
+    "visibleThresholdPerChannel": 20
+  }
+]

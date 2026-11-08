@@ -17,7 +17,7 @@ const literal = (v) =>
     : typeof v === "boolean" || typeof v === "number"
       ? String(v)
       : `'${String(typeof v === "object" ? JSON.stringify(v) : v).replaceAll("'", "''")}'`;
-export async function startFixture() {
+export async function startFixture({ legacyPr2Columns = false } = {}) {
   const container = `murad-phase3-${randomUUID().slice(0, 8)}`;
   const docker = ["--host=unix:///var/run/docker.sock"];
   const env = { ...process.env };
@@ -95,10 +95,14 @@ export async function startFixture() {
     sql(readFileSync("tests/phase2/bootstrap.sql", "utf8"));
     for (const file of readdirSync("supabase/migrations")
       .filter((f) => f.endsWith(".sql"))
-      .sort())
-      sql(
-        `SET app.catalog_cutover_approved='yes'; ${readFileSync(`supabase/migrations/${file}`, "utf8")}`,
-      );
+      .sort()) {
+      if (legacyPr2Columns && file === "20261108000100_catalog_foundation.sql") {
+        // Fixture only: rehearse the full latest stack over PR #2's additive
+        // legacy columns, retaining a copy of all six original rows/IDs.
+        sql("ALTER TABLE public.products ADD COLUMN model text, ADD COLUMN product_type text, ADD COLUMN finish text; CREATE TABLE public.phase8_legacy_snapshot AS SELECT id,to_jsonb(p) AS data FROM public.products p;");
+      }
+      sql(`SET app.catalog_cutover_approved='yes'; ${readFileSync(`supabase/migrations/${file}`, "utf8")}`);
+    }
     sql(
       `INSERT INTO app_private.user_roles(user_id,role) VALUES (${literal(fixtureUsers.admin)},'admin'),(${literal(fixtureUsers.editor)},'editor');`,
     );

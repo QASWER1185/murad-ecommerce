@@ -1,0 +1,8 @@
+{
+  "scope": "disposable local PostgreSQL only",
+  "migrations": 12,
+  "legacyProductsPreserved": 6,
+  "legacySamplesRemainUnverifiedDrafts": true,
+  "assertions": 7,
+  "foundationAssertions": 27
+}
