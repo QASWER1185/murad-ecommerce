@@ -1,0 +1,97 @@
+[
+  {
+    "path": "public/sanitary/brand-card-dell.png",
+    "exists": true,
+    "identical": true
+  },
+  {
+    "path": "public/sanitary/brand-card-faisal.png",
+    "exists": true,
+    "identical": true
+  },
+  {
+    "path": "public/sanitary/brand-card-imported.png",
+    "exists": true,
+    "identical": true
+  },
+  {
+    "path": "public/sanitary/brand-card-porta.png",
+    "exists": true,
+    "identical": true
+  },
+  {
+    "path": "public/sanitary/brand-dell.png",
+    "exists": true,
+    "identical": true
+  },
+  {
+    "path": "public/sanitary/brand-faisal.png",
+    "exists": true,
+    "identical": true
+  },
+  {
+    "path": "public/sanitary/brand-imported.png",
+    "exists": true,
+    "identical": true
+  },
+  {
+    "path": "public/sanitary/brand-porta.png",
+    "exists": true,
+    "identical": true
+  },
+  {
+    "path": "public/sanitary/cart-symbol.png",
+    "exists": true,
+    "identical": true
+  },
+  {
+    "path": "public/sanitary/footer-skyline.png",
+    "exists": true,
+    "identical": true
+  },
+  {
+    "path": "public/sanitary/genuine-symbol.png",
+    "exists": true,
+    "identical": true
+  },
+  {
+    "path": "public/sanitary/hero-art.png",
+    "exists": true,
+    "identical": true
+  },
+  {
+    "path": "public/sanitary/logo-footer.png",
+    "exists": true,
+    "identical": true
+  },
+  {
+    "path": "public/sanitary/logo-header.png",
+    "exists": true,
+    "identical": true
+  },
+  {
+    "path": "public/sanitary/promotion-art.png",
+    "exists": true,
+    "identical": true
+  },
+  {
+    "path": "public/sanitary/provenance.json",
+    "exists": true,
+    "identical": true
+  },
+  {
+    "path": "public/sanitary/shower-symbol.png",
+    "exists": true,
+    "identical": true
+  },
+  {
+    "path": "public/sanitary/whatsapp-symbol.png",
+    "exists": true,
+    "identical": true
+  },
+  {
+    "path": "public/sanitary/wishlist-symbol.png",
+    "exists": true,
+    "identical": true
+  }
+]

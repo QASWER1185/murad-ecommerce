@@ -1,0 +1,101 @@
+[
+  {
+    "number": 2,
+    "url": "https://github.com/QASWER1185/murad-ecommerce/pull/2",
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "base": "main",
+    "head": "shopping/sanitary-section",
+    "base_sha": "c73b01b93c4093edefe1c00e34299a9041ea5bef",
+    "head_sha": "3585cb5e7d155c6f60081a731c944dd7514e9ae8"
+  },
+  {
+    "number": 3,
+    "url": "https://github.com/QASWER1185/murad-ecommerce/pull/3",
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "base": "main",
+    "head": "development/seo-commerce",
+    "base_sha": "c73b01b93c4093edefe1c00e34299a9041ea5bef",
+    "head_sha": "2308dd687443b11049ec2762dddcc819b01f2910"
+  },
+  {
+    "number": 4,
+    "url": "https://github.com/QASWER1185/murad-ecommerce/pull/4",
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "base": "development/seo-commerce",
+    "head": "development/admin-dashboard",
+    "base_sha": "2308dd687443b11049ec2762dddcc819b01f2910",
+    "head_sha": "d9e27ec7bcece95a0e487195d506f700a4c409d7"
+  },
+  {
+    "number": 5,
+    "url": "https://github.com/QASWER1185/murad-ecommerce/pull/5",
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "base": "development/admin-dashboard",
+    "head": "development/product-import-media",
+    "base_sha": "d9e27ec7bcece95a0e487195d506f700a4c409d7",
+    "head_sha": "bc50bfcd72cd7fbc26c410f6a47bf8e7ae58a2ef"
+  },
+  {
+    "number": 6,
+    "url": "https://github.com/QASWER1185/murad-ecommerce/pull/6",
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "base": "development/product-import-media",
+    "head": "development/storefront-integration",
+    "base_sha": "bc50bfcd72cd7fbc26c410f6a47bf8e7ae58a2ef",
+    "head_sha": "7ae9d7985340ec3b6ac5e9b2dbd3e22dc7b72814"
+  },
+  {
+    "number": 7,
+    "url": "https://github.com/QASWER1185/murad-ecommerce/pull/7",
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "base": "development/storefront-integration",
+    "head": "development/orders-analytics",
+    "base_sha": "7ae9d7985340ec3b6ac5e9b2dbd3e22dc7b72814",
+    "head_sha": "9df548718d4beac223b052290f70e91dc7c59039"
+  },
+  {
+    "number": 8,
+    "url": "https://github.com/QASWER1185/murad-ecommerce/pull/8",
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "base": "development/orders-analytics",
+    "head": "development/staging-readiness",
+    "base_sha": "9df548718d4beac223b052290f70e91dc7c59039",
+    "head_sha": "c8f9f701c783a4a7f86b4587f641ba7d964414aa"
+  },
+  {
+    "number": 9,
+    "url": "https://github.com/QASWER1185/murad-ecommerce/pull/9",
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "base": "development/staging-readiness",
+    "head": "development/phase8-preflight",
+    "base_sha": "c8f9f701c783a4a7f86b4587f641ba7d964414aa",
+    "head_sha": "264cc217ede7e6246dbe4554629089677b92d9d5"
+  },
+  {
+    "number": 10,
+    "url": "https://github.com/QASWER1185/murad-ecommerce/pull/10",
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "base": "development/phase8-preflight",
+    "head": "development/phase8-real-staging",
+    "base_sha": "264cc217ede7e6246dbe4554629089677b92d9d5",
+    "head_sha": "e35633164bba10621093a4a5da375d83adf372d6"
+  }
+]

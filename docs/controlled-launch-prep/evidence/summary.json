@@ -1,0 +1,20 @@
+{
+  "timestampUTC": "2026-11-08T18:01:54.779Z",
+  "timezone": "Asia/Karachi",
+  "scope": "controlled local preparation only",
+  "branch": "development/controlled-launch-prep",
+  "source": "e35633164bba10621093a4a5da375d83adf372d6",
+  "mainReviewed": "c73b01b93c4093edefe1c00e34299a9041ea5bef",
+  "existingTasksPassed": 24,
+  "realLocalServiceGroupsPassed": 9,
+  "realStorageHttp": false,
+  "fullOfficialCliStack": "BLOCKED_DISK",
+  "realAuthAndPostgrest": true,
+  "realHostedSecurityCertified": false,
+  "productionReady": false,
+  "productionOrERPAccessed": false,
+  "deployed": false,
+  "merged": false,
+  "googleAccessed": false,
+  "sampleProductsAutoPublished": false
+}

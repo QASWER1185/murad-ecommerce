@@ -1,0 +1,25 @@
+{
+  "scope": "real disposable PostgreSQL dump/restore and simulated Storage binary round-trip; not hosted recovery",
+  "simulatedAuthAndStorage": true,
+  "realLocalPostgres": true,
+  "foundationAssertions": 27,
+  "hardeningAssertions": 51,
+  "recovery": {
+    "databaseCounts": {
+      "media": 8,
+      "roles": 2,
+      "drafts": 8,
+      "orders": 1,
+      "outbox": 272,
+      "products": 25,
+      "orders_digest": "19d65e5ee1ad4288dd8b8d9fe95b2636",
+      "products_digest": "9791a0b291f7043ee2d649fb30fcf393",
+      "storage_metadata": 28
+    },
+    "dumpBytes": 927345,
+    "binaryObjects": 28,
+    "binaryBytes": 66978,
+    "elapsedMs": 599,
+    "restoredAnonymousRawProductsDenied": true
+  }
+}

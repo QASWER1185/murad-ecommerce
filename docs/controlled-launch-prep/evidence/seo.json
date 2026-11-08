@@ -1,0 +1,74 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "titlePresent": true,
+    "canonicalPresent": true,
+    "canonicalHasQuery": false,
+    "h1Present": true,
+    "noindex": true,
+    "schemaTypes": [
+      "Store"
+    ]
+  },
+  {
+    "path": "/category/sanitary",
+    "status": 200,
+    "titlePresent": true,
+    "canonicalPresent": true,
+    "canonicalHasQuery": false,
+    "h1Present": true,
+    "noindex": true,
+    "schemaTypes": [
+      "BreadcrumbList"
+    ]
+  },
+  {
+    "path": "/brand/porta",
+    "status": 200,
+    "titlePresent": true,
+    "canonicalPresent": true,
+    "canonicalHasQuery": false,
+    "h1Present": true,
+    "noindex": true,
+    "schemaTypes": [
+      "BreadcrumbList"
+    ]
+  },
+  {
+    "path": "/product/[slug]",
+    "status": 200,
+    "titlePresent": true,
+    "canonicalPresent": true,
+    "canonicalHasQuery": false,
+    "h1Present": true,
+    "noindex": true,
+    "schemaTypes": [
+      "BreadcrumbList"
+    ]
+  },
+  {
+    "path": "/category/sanitary?sort=price-low",
+    "status": 200,
+    "titlePresent": true,
+    "canonicalPresent": true,
+    "canonicalHasQuery": false,
+    "h1Present": true,
+    "noindex": true,
+    "schemaTypes": [
+      "BreadcrumbList"
+    ]
+  },
+  {
+    "path": "/search?q=local",
+    "status": 200,
+    "titlePresent": true,
+    "canonicalPresent": false,
+    "canonicalHasQuery": false,
+    "h1Present": true,
+    "noindex": true,
+    "schemaTypes": [
+      "BreadcrumbList"
+    ]
+  }
+]

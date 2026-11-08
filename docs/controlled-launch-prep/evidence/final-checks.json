@@ -1,0 +1,54 @@
+{
+  "timestampUTC": "2026-11-08T18:01:03.367265+00:00",
+  "scope": "local only; no hosted acceptance",
+  "checks": [
+    {
+      "command": "npm run lint",
+      "status": "PASS",
+      "errors": 0,
+      "warnings": 8,
+      "warningsAreExistingLegacy": true
+    },
+    {
+      "command": "node --test tests/controlled-launch/isolation.test.mjs",
+      "status": "PASS",
+      "tests": 2,
+      "failed": 0
+    },
+    {
+      "command": "npm run verify:controlled-launch -- configuration-static",
+      "status": "PASS",
+      "reason": "Retested new runner branch guard and closed production static configuration"
+    },
+    {
+      "command": "node scripts/controlled-launch/audit-repository.mjs",
+      "status": "PASS",
+      "migrationHashesUnchanged": 12,
+      "assetsResolved": 90,
+      "publicChunksAudited": 22,
+      "privilegedCredentialFindings": 0
+    },
+    {
+      "command": "node scripts/controlled-launch/collect-evidence.mjs",
+      "status": "PASS",
+      "approvedVisualCapturesRawPixelEqual": 4,
+      "realLocalServiceGroups": 9,
+      "privateFixturesExcluded": true
+    },
+    {
+      "command": "local report links, git diff --check and app/SQL/asset/lock preservation",
+      "status": "PASS"
+    },
+    {
+      "command": "local Docker cleanup check",
+      "status": "PASS",
+      "controlledContainersRemaining": 0,
+      "controlledNetworksRemaining": 0
+    },
+    {
+      "command": "production/ERP access, merge, deployment, Google and new project provisioning",
+      "status": "NOT RUN",
+      "reason": "Not authorized; exact-target separate approval required"
+    }
+  ]
+}
