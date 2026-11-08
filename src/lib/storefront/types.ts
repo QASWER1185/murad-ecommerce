@@ -62,6 +62,7 @@ export type Catalog = {
   banners: Banner[];
   generation: string;
   mediaEnabled: boolean;
+  ordersEnabled?: boolean;
 };
 export type Query = {
   q: string;

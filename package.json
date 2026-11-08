@@ -16,7 +16,9 @@
     "test:phase2:compat": "node scripts/test-phase2.mjs --with-pr2-columns",
     "test:phase2": "npm run test:phase2:policy && npm run test:phase2:db && npm run test:phase2:compat",
     "test:phase5:unit": "tsc -p tsconfig.phase5.json && node --test work/phase5-tests/tests/phase5/unit.test.js",
-    "test:phase5:e2e": "node scripts/test-phase5.mjs"
+    "test:phase5:e2e": "node scripts/test-phase5.mjs",
+    "test:phase6:unit": "tsc -p tsconfig.phase6.json && node --test work/phase6-tests/tests/phase6/unit.test.js",
+    "test:phase6:e2e": "node scripts/test-phase6.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",

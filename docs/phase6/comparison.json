@@ -1,0 +1,74 @@
+{
+  "baseline": "Phase 5 reviewed synthetic-fixture screenshots",
+  "implementation": "Actual Next.js browser captures; existing artwork/styles unchanged.",
+  "screens": {
+    "home-desktop": {
+      "before_size": [
+        1200,
+        1312
+      ],
+      "after_size": [
+        1200,
+        1312
+      ],
+      "difference_bounds": null,
+      "changed_pixels_over_10_of_255": 0,
+      "changed_percent": 0.0
+    },
+    "home-mobile": {
+      "before_size": [
+        390,
+        2070
+      ],
+      "after_size": [
+        390,
+        2070
+      ],
+      "difference_bounds": [
+        62,
+        1213,
+        89,
+        1227
+      ],
+      "changed_pixels_over_10_of_255": 209,
+      "changed_percent": 0.02589
+    },
+    "sanitary-desktop": {
+      "before_size": [
+        1200,
+        1824
+      ],
+      "after_size": [
+        1200,
+        1824
+      ],
+      "difference_bounds": null,
+      "changed_pixels_over_10_of_255": 0,
+      "changed_percent": 0.0
+    },
+    "sanitary-mobile": {
+      "before_size": [
+        390,
+        4370
+      ],
+      "after_size": [
+        390,
+        4370
+      ],
+      "difference_bounds": [
+        59,
+        1884,
+        83,
+        1895
+      ],
+      "changed_pixels_over_10_of_255": 155,
+      "changed_percent": 0.00909
+    }
+  },
+  "notes": [
+    "Homepage desktop is pixel-identical to Phase 5.",
+    "Both mobile fixtures differ only in the first product price: Phase 5 captured the later synthetic 1,777 price-edit test, while Phase 6 begins from the fresh synthetic 100 price. Dimensions/layout/artwork are unchanged.",
+    "Sanitary desktop has only a single low-level subpixel difference; no pixels exceed the comparison threshold.",
+    "Request UI appears inside existing scrollable dialogs only when enabled. Two mobile frames show review and reachable submission controls."
+  ]
+}

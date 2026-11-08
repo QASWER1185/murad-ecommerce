@@ -155,5 +155,7 @@ export const config = {
     "/sitemap.xml",
     "/robots.txt",
     "/api/catalog/:path*",
+    "/api/order-requests/:path*",
+    "/privacy",
   ],
 };

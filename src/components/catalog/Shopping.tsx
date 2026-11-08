@@ -1,13 +1,17 @@
 "use client";
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { track } from "@/lib/analytics/events";
 import type { Product } from "@/lib/storefront/types";
 import { canOrder, enquiry, money } from "@/lib/storefront/query";
 import { useShopping } from "@/components/sanitary/shop-state";
+import { OrderRequestForm } from "@/components/orders/OrderRequestForm";
 import styles from "@/components/sanitary/SanitaryShop.module.css";
 export function ProductActions({
   product,
   main = "+923217165000",
+  requestsEnabled = false,
 }: {
+  requestsEnabled?: boolean;
   product: Product;
   main?: string;
 }) {
@@ -27,14 +31,15 @@ export function ProductActions({
             Add to Cart
           </button>
         ) : (
-          <a
+          <QuotationAction
+            product={product}
+            main={main}
+            enabled={requestsEnabled}
             className={styles.primary}
-            href={enquiry(product.name, main)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {product.sales_mode === "quotation" ? "Request Rate" : "Enquire"}
-          </a>
+            label={
+              product.sales_mode === "quotation" ? "Request Rate" : "Enquire"
+            }
+          />
         )}
         <button
           aria-label={`${shopping.wishlist.includes(product.id) ? "Remove" : "Save"} ${product.name} ${shopping.wishlist.includes(product.id) ? "from" : "to"} wishlist`}
@@ -116,6 +121,10 @@ export function CartButton({
         return;
       }
       const text = `Please confirm this selection:\n${current.map((p) => `${p.name} × ${shopping.cart[p.id]} — ${canOrder(p) ? money(p.price!, p.currency) : "Rate / availability confirmation required"}`).join("\n")}\nPlease confirm final availability, delivery and order acceptance.`;
+      track("whatsapp_click", {
+        contact:
+          main.replace(/\D/g, "") === "923217165000" ? "main" : "secondary",
+      });
       window.location.assign(
         enquiry(undefined, main) + `?text=${encodeURIComponent(text)}`,
       );
@@ -186,6 +195,9 @@ export function CartButton({
           <button className={styles.whatsappOrder} onClick={order}>
             Send selection on WhatsApp
           </button>
+        )}
+        {open && ids && (
+          <OrderRequestForm selection={shopping.cart} main={main} />
         )}
       </dialog>
     </>
@@ -285,6 +297,87 @@ export function WishlistButton({
         )}
         <p role="status">{message}</p>
       </dialog>
+    </>
+  );
+}
+
+export function QuotationAction({
+  product,
+  main = "+923217165000",
+  enabled = false,
+  className,
+  label = "Request Rate",
+}: {
+  product: Product;
+  main?: string;
+  enabled?: boolean;
+  className?: string;
+  label?: string;
+}) {
+  const shopping = useShopping(),
+    dialog = useRef<HTMLDialogElement>(null);
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    if (open) dialog.current?.showModal();
+    else dialog.current?.close();
+  }, [open]);
+  return (
+    <>
+      <a
+        className={className}
+        href={enquiry(product.name, main)}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={(event) => {
+          if (enabled) {
+            event.preventDefault();
+            shopping.quantity(product.id, shopping.cart[product.id] || 1);
+            setOpen(true);
+          }
+        }}
+      >
+        {label}
+      </a>
+      {enabled && (
+        <dialog
+          ref={dialog}
+          className={styles.dialog}
+          onCancel={() => setOpen(false)}
+        >
+          <div className={styles.dialogHeading}>
+            <h2>Rate / availability enquiry</h2>
+            <button onClick={() => setOpen(false)}>Close</button>
+          </div>
+          <p>{product.name}</p>
+          <label>
+            Requested quantity
+            <input
+              type="number"
+              min="1"
+              max="999"
+              value={shopping.cart[product.id] || 1}
+              onChange={(event) =>
+                shopping.quantity(product.id, Number(event.target.value) || 1)
+              }
+            />
+          </label>
+          <a
+            className={styles.whatsappOrder}
+            href={enquiry(product.name, main)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ask on WhatsApp
+          </a>
+          {open && (
+            <OrderRequestForm
+              selection={{ [product.id]: shopping.cart[product.id] || 1 }}
+              main={main}
+              defaultIntent="quotation"
+            />
+          )}
+        </dialog>
+      )}
     </>
   );
 }
