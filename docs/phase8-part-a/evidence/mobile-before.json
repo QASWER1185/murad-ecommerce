@@ -1,0 +1,130 @@
+{
+  "scope": "local lab only",
+  "cpuThrottle": 4,
+  "latencyMs": 150,
+  "downloadBytesPerSecond": 200000,
+  "viewport": "390x844",
+  "fieldINP": false,
+  "samples": [
+    {
+      "path": "/",
+      "run": 1,
+      "lcpMs": 3680,
+      "cls": 0.000006425568076776214,
+      "maxObservedInteractionMs": 24,
+      "jsTransferBytes": 156486,
+      "readyMs": 6384.4583180000045,
+      "ttfbMs": 10.600000001490116
+    },
+    {
+      "path": "/",
+      "run": 2,
+      "lcpMs": 3692,
+      "cls": 0.000006425568076776214,
+      "maxObservedInteractionMs": 72,
+      "jsTransferBytes": 156486,
+      "readyMs": 6336.828957000005,
+      "ttfbMs": 7.800000000745058
+    },
+    {
+      "path": "/",
+      "run": 3,
+      "lcpMs": 3700,
+      "cls": 0.000006425568076776214,
+      "maxObservedInteractionMs": 48,
+      "jsTransferBytes": 156486,
+      "readyMs": 6343.787828,
+      "ttfbMs": 12.599999997764826
+    },
+    {
+      "path": "/category/sanitary",
+      "run": 1,
+      "lcpMs": 3364,
+      "cls": 0.0000833693920155225,
+      "maxObservedInteractionMs": 16,
+      "jsTransferBytes": 147436,
+      "readyMs": 4194.296596999993,
+      "ttfbMs": 300.30000000074506
+    },
+    {
+      "path": "/category/sanitary",
+      "run": 2,
+      "lcpMs": 3396,
+      "cls": 0.0000833693920155225,
+      "maxObservedInteractionMs": 16,
+      "jsTransferBytes": 147436,
+      "readyMs": 4205.80588,
+      "ttfbMs": 305.1000000014901
+    },
+    {
+      "path": "/category/sanitary",
+      "run": 3,
+      "lcpMs": 3372,
+      "cls": 0.0000833693920155225,
+      "maxObservedInteractionMs": 16,
+      "jsTransferBytes": 147436,
+      "readyMs": 4197.8302660000045,
+      "ttfbMs": 291.0999999977648
+    },
+    {
+      "path": "/brand/porta",
+      "run": 1,
+      "lcpMs": 1536,
+      "cls": 0.0000833693920155225,
+      "maxObservedInteractionMs": 24,
+      "jsTransferBytes": 147436,
+      "readyMs": 2979.7040359999955,
+      "ttfbMs": 281
+    },
+    {
+      "path": "/brand/porta",
+      "run": 2,
+      "lcpMs": 1520,
+      "cls": 0.0000833693920155225,
+      "maxObservedInteractionMs": 16,
+      "jsTransferBytes": 147436,
+      "readyMs": 2999.057667999994,
+      "ttfbMs": 242.80000000074506
+    },
+    {
+      "path": "/brand/porta",
+      "run": 3,
+      "lcpMs": 1588,
+      "cls": 0.0000833693920155225,
+      "maxObservedInteractionMs": 16,
+      "jsTransferBytes": 147436,
+      "readyMs": 3061.868141999992,
+      "ttfbMs": 270.0999999977648
+    },
+    {
+      "path": "/product/[slug]",
+      "run": 1,
+      "lcpMs": 1156,
+      "cls": 0.00018437329740387566,
+      "maxObservedInteractionMs": 16,
+      "jsTransferBytes": 147436,
+      "readyMs": 3573.820836999992,
+      "ttfbMs": 330.1000000014901
+    },
+    {
+      "path": "/product/[slug]",
+      "run": 2,
+      "lcpMs": 1080,
+      "cls": 0.00018437329740387566,
+      "maxObservedInteractionMs": 24,
+      "jsTransferBytes": 147436,
+      "readyMs": 3523.993657999992,
+      "ttfbMs": 260.4000000022352
+    },
+    {
+      "path": "/product/[slug]",
+      "run": 3,
+      "lcpMs": 1112,
+      "cls": 0.00018437329740387566,
+      "maxObservedInteractionMs": 16,
+      "jsTransferBytes": 147436,
+      "readyMs": 3538.935866,
+      "ttfbMs": 290
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "config": {
+    "scope": "offline synthetic config only",
+    "sameProductionStagingOrigin": true,
+    "preflightAccepted": true
+  },
+  "import": {
+    "scope": "local synthetic only",
+    "extraColumnFormulaReported": false,
+    "headerColumns": 2,
+    "returnedColumns": 2
+  }
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "source": "public/homepage/banner-pipes.png",
+    "target": "public/homepage/banner-pipes.webp",
+    "originalBytes": 103253,
+    "optimizedBytes": 82368,
+    "pixelsIdentical": true,
+    "sourceSha256": "314077f040d2185fffce8f35312314f4ada7158037f9d414c9610b7cb26c45f1",
+    "outputSha256": "f7225546b2784859ff3e9376401f5d758e944331fe3020fe2d0a5561ee2c8048"
+  },
+  {
+    "source": "public/homepage/banner-building.png",
+    "target": "public/homepage/banner-building.webp",
+    "originalBytes": 124370,
+    "optimizedBytes": 92470,
+    "pixelsIdentical": true,
+    "sourceSha256": "101bfe2f9f6c779d9ad12a2825530384f32d83da405307763e4a3184713b8ead",
+    "outputSha256": "c75cd449125e8a6a6e0c24ade7ca58131291d28df42032903b98c671f5834193"
+  },
+  {
+    "source": "public/homepage/footer-decoration.png",
+    "target": "public/homepage/footer-decoration.webp",
+    "originalBytes": 89580,
+    "optimizedBytes": 62284,
+    "pixelsIdentical": true,
+    "sourceSha256": "64a057c04df7b93ef9c1d7004113bec1618aaf9d3ca678758d99c5aaa0930966",
+    "outputSha256": "d38bc5e7325c6f91a729f2284a25f7bf842eb9d11039526e70bd64d0a0c502e4"
+  },
+  {
+    "source": "public/sanitary/promotion-art.png",
+    "target": "public/sanitary/promotion-art.webp",
+    "originalBytes": 90964,
+    "optimizedBytes": 66450,
+    "pixelsIdentical": true,
+    "sourceSha256": "d7c92708f747a8a16815992fa6ca2f71941de3c6350883aa4174327e8a4b7391",
+    "outputSha256": "a44d00e0c096e140a83e4e296e54aef3b7bd1b7e2503e09af70c1012cd3b24a8"
+  }
+]

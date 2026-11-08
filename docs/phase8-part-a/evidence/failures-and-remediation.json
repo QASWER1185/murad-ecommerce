@@ -1,0 +1,9 @@
+[
+  {
+    "task": "test:phase5:e2e",
+    "initialOutcome": "failed",
+    "cause": "Test read public page before pending publication committed; ready-state button was not proof of completion",
+    "remediation": "Wait for reviewed/published success navigation, keeping authorization/version checks and timeouts unchanged",
+    "retestOutcome": "passed"
+  }
+]

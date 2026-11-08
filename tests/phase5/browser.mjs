@@ -492,9 +492,10 @@ export async function browserTests(f, s) {
       await p.getByLabel("I verified the genuine product identity.").check();
       await p.getByLabel(/I reviewed the description/).check();
       await p.getByLabel("I independently verified the entered price.").check();
-      await p
-        .getByRole("button", { name: "Record review", exact: true })
-        .click();
+      await Promise.all([
+        p.waitForURL(`**/admin/products/${s.products[0].id}?notice=reviewed`),
+        p.getByRole("button", { name: "Record review", exact: true }).click(),
+      ]);
       await expect(
         p.getByLabel(
           "I explicitly approve making this product publicly visible.",
@@ -505,9 +506,12 @@ export async function browserTests(f, s) {
           "I explicitly approve making this product publicly visible.",
         )
         .check();
-      await p
-        .getByRole("button", { name: "Publish approved product", exact: true })
-        .click();
+      // Return-to-Draft is also visible while ready for review; it cannot
+      // prove publication has committed before an independent public request.
+      await Promise.all([
+        p.waitForURL(`**/admin/products/${s.products[0].id}?notice=published`),
+        p.getByRole("button", { name: "Publish approved product", exact: true }).click(),
+      ]);
       await expect(
         p.getByRole("button", { name: "Return to Draft", exact: true }),
       ).toBeVisible();

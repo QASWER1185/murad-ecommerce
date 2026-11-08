@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {"module":"commonjs","moduleResolution":"node","noEmit":false,"outDir":"./work/phase8-tests","incremental":false,"isolatedModules":false},
+  "include":["src/lib/admin/session-policy.ts","src/lib/imports/**/*.ts","src/lib/media/**/*.ts","tests/phase8/unit.test.ts"],
+  "exclude":["node_modules"]
+}

@@ -229,13 +229,18 @@ async function decodeSpreadsheet(bytes: Buffer, name: string) {
     sheet.eachRow({ includeEmpty: true }, (row, n) => {
       const cells: string[] = [];
       const errors: string[] = [];
-      for (let c = 1; c <= cols; c++) {
+      for (let c = 1; c <= Math.max(cols, row.cellCount); c++) {
         const cell = row.getCell(c);
         if (cell.type === ExcelJS.ValueType.Formula)
           errors.push(`Formula in column ${c} is not permitted`);
         if (cell.type === ExcelJS.ValueType.Error)
           errors.push(`Spreadsheet error in column ${c}`);
-        cells.push(cell.type === ExcelJS.ValueType.Formula ? "" : cell.text);
+        if (c > cols) {
+          // Keep the mapped header width, but never silently truncate source
+          // values/formulas outside it. Empty formatting-only cells are safe.
+          if (cell.type !== ExcelJS.ValueType.Null)
+            errors.push(`Data in column ${c} has no column header`);
+        } else cells.push(cell.type === ExcelJS.ValueType.Formula ? "" : cell.text);
       }
       matrix.push(cells);
       if (errors.length) rowErrors.set(n, errors);

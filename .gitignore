@@ -53,3 +53,6 @@ next-env.d.ts
 
 # Phase 7 local-only rehearsal, profiles and artifacts
 /work/phase7-*
+
+# Phase 8 Part A isolated test output and synthetic inputs
+/work/phase8-*

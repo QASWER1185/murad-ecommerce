@@ -7,7 +7,8 @@
       "development/product-import-media": false,
       "development/storefront-integration": false,
       "development/orders-analytics": false,
-      "development/staging-readiness": false
+      "development/staging-readiness": false,
+      "development/phase8-preflight": false
     }
   }
 }
