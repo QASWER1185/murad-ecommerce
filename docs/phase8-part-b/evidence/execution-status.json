@@ -1,0 +1,30 @@
+{
+  "reportTimezone": "Asia/Karachi",
+  "timestampUTC": "2026-11-08T16:54:14.802Z",
+  "sourcePartA": "264cc217ede7e6246dbe4554629089677b92d9d5",
+  "overallStatus": "BLOCKED",
+  "releaseCandidateAssessment": "NOT READY / NOT VALIDATED ON REAL STAGING",
+  "hostedRequestsAttempted": 0,
+  "realStagingTestsExecuted": 0,
+  "liveStagingIdentityVerified": false,
+  "stagingProjectRef": null,
+  "stagingHostname": null,
+  "productionIdentifiersSource": "Owner declared Production/Main; organization/project identity metadata verified, no database/customer data read",
+  "providerManagementRequestsAttempted": 10,
+  "providerMetadataReads": 5,
+  "vercelMetadataAttempts": 3,
+  "vercelConsentLinkRequests": 1,
+  "stagingProvisioningAttempts": 1,
+  "stagingProvisioningFailures": 1,
+  "productionMetadataRead": true,
+  "provisionedAccountsOrKeys": false,
+  "hostedDeploymentPerformed": false,
+  "productionTouched": false,
+  "phase9Or10Started": false,
+  "statusCounts": {
+    "PASS": 6,
+    "FAIL": 2,
+    "BLOCKED": 81,
+    "NOT RUN": 4
+  }
+}

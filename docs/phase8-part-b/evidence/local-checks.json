@@ -1,0 +1,62 @@
+{
+  "scope": "local repository only; no hosted validation",
+  "timestampUTC": "2026-11-08T14:49:41.762Z",
+  "checks": [
+    {
+      "command": "npm run test:phase8b:unit",
+      "status": "PASS",
+      "exitCode": 0,
+      "tests": 10,
+      "passed": 10,
+      "failed": 0
+    },
+    {
+      "command": "npm run lint",
+      "status": "PASS",
+      "exitCode": 0,
+      "errors": 0,
+      "warnings": 8,
+      "note": "Existing legacy unused-variable warnings; no new warnings"
+    },
+    {
+      "command": "node --check (three new scripts and test) and git diff --check",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run check:phase8b",
+      "status": "BLOCKED",
+      "exitCode": 2,
+      "expectedExitCode": 2,
+      "note": "Required staging identity, access and numeric budgets absent; no network request"
+    },
+    {
+      "command": "build / TypeScript / existing Phase 2\u20138A full regressions",
+      "status": "NOT RUN",
+      "reason": "Already completed in Part A; no application, SQL, TypeScript or dependency changes"
+    },
+    {
+      "command": "node scripts/phase8b/report.mjs and local report/source consistency checks",
+      "status": "PASS",
+      "markdownReports": 14,
+      "migrationFilesMatchingPartA": 12,
+      "localLinksResolve": true,
+      "realStagingPassRows": 0,
+      "applicationAssetsMigrationsLockUnchanged": true
+    },
+    {
+      "command": "Quota-evidence update: report generator, node syntax, targeted eslint, diff/link/source consistency",
+      "status": "PASS",
+      "providerFailureRecorded": true,
+      "realStagingTestsExecuted": 0,
+      "unchangedAppSQLAssetsDependencies": true
+    },
+    {
+      "command": "Vercel team-consent evidence update: report generator, syntax/targeted lint, local links/source/privacy consistency",
+      "status": "PASS",
+      "hostedPassRows": 0,
+      "consentLinkExcludedFromGit": true,
+      "unchangedAppSQLAssetsDependencies": true
+    }
+  ]
+}

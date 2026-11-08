@@ -1,0 +1,653 @@
+[
+  {
+    "id": "LOCAL-01",
+    "scope": "local repository",
+    "status": "PASS",
+    "check": "Part A base/source and required reports reviewed",
+    "reason": "Source 264cc217ede7e6246dbe4554629089677b92d9d5; no hosted operation"
+  },
+  {
+    "id": "LOCAL-02",
+    "scope": "local repository",
+    "status": "PASS",
+    "check": "All twelve migration files match Part A",
+    "reason": "Repository SHA256 comparison only; no migrations executed"
+  },
+  {
+    "id": "LOCAL-03",
+    "scope": "local safety policy",
+    "status": "PASS",
+    "check": "Supplied Production/Main candidate is rejected",
+    "reason": "production_supabase_project, production_supabase_origin, production_application_origin, production_or_unknown_hosting_environment"
+  },
+  {
+    "id": "PROVIDER-01",
+    "scope": "provider management metadata",
+    "status": "PASS",
+    "check": "Supabase connected; existing owner organization and Free plan verified",
+    "reason": "M Murad Sons / wtvasruaawpaacyyywog; production project identity metadata only"
+  },
+  {
+    "id": "PROVIDER-02",
+    "scope": "provider management metadata",
+    "status": "PASS",
+    "check": "Live new-project cost quote obtained",
+    "reason": "$0/month; does not establish remaining free project quota"
+  },
+  {
+    "id": "PROVIDER-03",
+    "scope": "provider staging provisioning",
+    "status": "FAIL",
+    "check": "Create murad-ecommerce-staging once",
+    "reason": "Provider rejected: organization member QASWER1185 at 2 active free project limit; no staging project created"
+  },
+  {
+    "id": "PROVIDER-04",
+    "scope": "provider staging provisioning",
+    "status": "BLOCKED",
+    "check": "Retry project provisioning",
+    "reason": "Eligible free slot unavailable; no existing project pause/delete or paid upgrade authorized"
+  },
+  {
+    "id": "PROVIDER-05",
+    "scope": "provider management metadata",
+    "status": "PASS",
+    "check": "Vercel connected and existing project listed",
+    "reason": "murad-ecommerce / prj_OXReC9drbCnKpRDc1KdPrLyMvbFU; no settings or secret reads"
+  },
+  {
+    "id": "PROVIDER-06",
+    "scope": "provider management metadata",
+    "status": "FAIL",
+    "check": "Read owning Vercel team plan/identity",
+    "reason": "403 forbidden: connection lacks owning-team grant; provider consent link requested"
+  },
+  {
+    "id": "PROVIDER-07",
+    "scope": "provider authorization",
+    "status": "BLOCKED",
+    "check": "Approve Vercel team access",
+    "reason": "User must complete provider-returned single-use consent link; do not bypass or reconnect"
+  },
+  {
+    "id": "ISOLATION-01",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Verify a separate staging project and HTTPS target",
+    "reason": "Supabase connected, but creation rejected by active free-project quota; Vercel owning-team access awaiting provider consent; no isolated target to verify"
+  },
+  {
+    "id": "HOSTED-001",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Verified staging PostgreSQL version, extensions and migration history",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-002",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Existing schema/grants/policies inspected",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-003",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Verified staging backup before mutation",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-004",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Restore into a separate isolated target",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-005",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Safe legacy-seed decision for fresh versus populated database",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-006",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Guarded ordered migrations with session acknowledgement",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-007",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Structures/indexes/foreign keys validated",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-008",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Real anonymous/ordinary/Editor/Admin RLS tests",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-009",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Existing IDs/sample Draft and verification state retained",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-010",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Trusted operator provisions synthetic staging identities",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-011",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Admin login/logout and real JWT validation",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-012",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Session refresh, expiry and revocation",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-013",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Admin/Editor separation and ordinary/anonymous denial",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-014",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Login limits, CSRF and Origin rejection",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-015",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "TOTP enrollment and identity-checked recovery rehearsal",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-016",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "MFA enabled only after enrollment/recovery",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-017",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "AAL2 enforcement at app/RPC/RLS/private Storage boundaries",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-018",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "JPEG/PNG/WebP/AVIF actual content/size/dimension checks",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-019",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Private immutable originals and responsive variants",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-020",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Gallery order/primary/alt/replacement/history recovery",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-021",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Unauthorized/private/historical access denial",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-022",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Withdrawal through HTTP/Storage/CDN/browser caches",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-023",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "CSV/XLSX templates, upload, mapping and preview",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-024",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Duplicate/missing taxonomy/blank preservation and price approval",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-025",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Part A unheaded populated/formula cell regression",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-026",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Bounded batches/interruption/retry/version conflict/history",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-027",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Private import-source access",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-028",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Hosted workbook/image RSS, body limits and duration",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-029",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Product add/edit/Draft/review/publish/return-to-Draft/withdraw through real Admin",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-030",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "SKU/model/taxonomy/specification/SEO/price-stock verification and revision history",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-031",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Permanent slugs, redirects and anonymous Draft 404",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-032",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Homepage and approved Sanitary desktop/mobile layouts",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-033",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Imported products, kitchen sinks/faucets, hobs/ranges, hoods and geysers",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-034",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Pipes/fittings, tanks, electrical and quotation-only building materials",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-035",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Eight brand page templates and product details",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-036",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Search/sorting/pagination/related products",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-037",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Optional verified prices and unknown availability",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-038",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Cart and wishlist revalidation",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-039",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Draft product 404 and explicit review/publication separation",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-040",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Withdrawal from collections/related/cart/public media",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-041",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Synthetic guest submission and server-calculated snapshots",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-042",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Current availability/version revalidation",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-043",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Duplicate/concurrent intent prevention",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-044",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Reference generation and owner-bound receipt recovery",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-045",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Quotation-only and mixed requests without invented prices",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-046",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Admin-only status/history and customer privacy",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-047",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Rate limits and unauthorized request rejection",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-048",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Order-gateway signing and key rotation",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-049",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Dedicated narrow machine identity and private key custody",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-050",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "No human-cookie or browser service-role dependency",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-051",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Signature age, domain binding and nonce replay rejection",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-052",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Concurrent claims/ack leases and crash recovery",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-053",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Retry/backoff and invalidation acknowledgement",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-054",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Withdrawal remains effective when worker is delayed/offline",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-055",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Approved cadence/budget staging-only scheduler",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-056",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Missed-run/backlog/failed-run monitoring",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-057",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Homepage/Sanitary/brand/product mobile LCP and CLS",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-058",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "INP or clearly qualified measurable lab interactions",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-059",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Approved-layout mobile usability",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-060",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Real database latency and connection-pool capacity",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-061",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Approved 2000+ synthetic catalog and pagination",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-062",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Bounded concurrent searches and requests",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-063",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Actual image/XLSX memory and function duration",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-064",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Actual gateway body limits and hosting concurrency",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-065",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "SSR/H1/category/brand/product metadata and canonical",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-066",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "BreadcrumbList/Product/Offer/Store JSON-LD using actual eligible data",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-067",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Internal links and actual HTTP 404/308",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-068",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Pagination and search/filter noindex",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-069",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Private Draft exclusion and responsive image metadata",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-070",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Staging robots/noindex and sitemap eligibility",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-071",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Keyboard/modal focus/Escape and mobile layouts",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-072",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Approved contrast findings rechecked without unauthorized palette changes",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-073",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Staging DB backup and independently restored schema/data",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-074",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Separate private Storage original/derivative/import binary backup",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-075",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Product revision and order-history recovery",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-076",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "RLS/role/permission restoration",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-077",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Worker queue recovery and credential rotation",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "HOSTED-078",
+    "scope": "real staging",
+    "status": "BLOCKED",
+    "check": "Measured recovery duration and observed data-loss window",
+    "reason": "Supabase free-project quota prevents creation; Vercel owning-team access awaiting provider consent; no isolated test target"
+  },
+  {
+    "id": "EXCLUDED-89",
+    "scope": "excluded",
+    "status": "NOT RUN",
+    "check": "Production DB migration/deployment/main merge",
+    "reason": "Explicitly prohibited by Part B"
+  },
+  {
+    "id": "EXCLUDED-90",
+    "scope": "excluded",
+    "status": "NOT RUN",
+    "check": "Production indexing/Google sitemap submission",
+    "reason": "Explicitly prohibited"
+  },
+  {
+    "id": "EXCLUDED-91",
+    "scope": "excluded",
+    "status": "NOT RUN",
+    "check": "Actual external WhatsApp test messages",
+    "reason": "No separate recipient authorization"
+  },
+  {
+    "id": "EXCLUDED-92",
+    "scope": "excluded",
+    "status": "NOT RUN",
+    "check": "Phase 9 or Phase 10 execution",
+    "reason": "Planning only; later authorization required"
+  }
+]

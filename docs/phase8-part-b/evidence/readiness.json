@@ -1,0 +1,45 @@
+{
+  "scope": "offline declaration and presence checks only",
+  "status": "BLOCKED",
+  "missing": [
+    "staging_supabase_project_ref",
+    "staging_supabase_api_origin",
+    "distinct_staging_https_origin",
+    "staging_hosting_project_id",
+    "staging_hosting_environment"
+  ],
+  "rejected": [],
+  "missingAccessBindings": [
+    "STAGING_DATABASE_URL",
+    "STAGING_SUPABASE_OPERATOR_BINDING",
+    "STAGING_HOSTING_OPERATOR_BINDING"
+  ],
+  "missingBudgetFields": [
+    "STAGING_SPENDING_CAP",
+    "STAGING_BUDGET_CURRENCY",
+    "STAGING_MAX_REQUESTS",
+    "STAGING_MAX_CONCURRENCY",
+    "STAGING_MAX_DURATION_SECONDS",
+    "STAGING_MAX_SYNTHETIC_PRODUCTS"
+  ],
+  "invalidBudgetFields": [],
+  "requiresIndependentVerification": [
+    "project identity",
+    "hostname ownership and aliases",
+    "production separation",
+    "no real customer data",
+    "staging-only operator permissions",
+    "provider limits and explicit resource budget",
+    "backup and separate restore target"
+  ],
+  "hostedRequestsAttempted": 0,
+  "liveIsolationVerified": false,
+  "hostedExecutionReady": false,
+  "declaredStaging": {
+    "projectRef": null,
+    "apiOrigin": null,
+    "applicationOrigin": null,
+    "hostingProjectId": null,
+    "hostingEnvironment": null
+  }
+}

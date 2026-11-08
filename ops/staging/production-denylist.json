@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "source": "Owner-provided production identifiers, 2026-11-08 Asia/Karachi; not queried",
+  "supabaseProjectRefs": ["ddgjspvdgjpbysylntji"],
+  "supabaseOrigins": ["https://ddgjspvdgjpbysylntji.supabase.co"],
+  "applicationOrigins": ["https://murad-ecommerce.vercel.app"]
+}

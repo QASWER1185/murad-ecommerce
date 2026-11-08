@@ -1,0 +1,118 @@
+{
+  "timestampUTC": "2026-11-08T16:54:14.737496+00:00",
+  "reportTimezone": "Asia/Karachi",
+  "scope": "Supabase provisioning result retained; fresh Vercel connection/project-list/team-grant verification. No production credentials, customer data or service settings accessed.",
+  "authorization": {
+    "createIsolatedStaging": true,
+    "useExistingOwnerAccounts": true,
+    "requestedProjectName": "murad-ecommerce-staging",
+    "additionalChargesAuthorized": false,
+    "productionChangesAuthorized": false,
+    "provider2FABypassAuthorized": false,
+    "mainMergeAuthorized": false,
+    "googleIndexingAuthorized": false
+  },
+  "github": {
+    "status": "PASS",
+    "evidence": "Existing Draft PR #10 on development/phase8-real-staging; no PR merged",
+    "draft": true,
+    "merged": false
+  },
+  "supabase": {
+    "status": "BLOCKED",
+    "integrationFound": true,
+    "installed": true,
+    "connectionConfirmed": true,
+    "cliInstalled": false,
+    "accessTokenVariablePresent": false,
+    "standardLoginProfilePresent": false,
+    "stagingProjectCreated": false,
+    "projectRef": null,
+    "organization": {
+      "id": "wtvasruaawpaacyyywog",
+      "name": "M Murad Sons",
+      "plan": "free"
+    },
+    "costQuote": {
+      "amount": 0,
+      "recurrence": "monthly",
+      "type": "project"
+    },
+    "createAttempt": {
+      "status": "FAIL",
+      "name": "murad-ecommerce-staging",
+      "region": "ap-south-1",
+      "errorCode": "INVALID_ARGUMENT",
+      "providerErrorName": "BadRequestException",
+      "reason": "Organization member QASWER1185 has reached the 2 active free project limit across organizations where they are administrator/owner",
+      "attempts": 1
+    },
+    "postAttemptProjectList": {
+      "stagingProjectPresent": false,
+      "productionRef": "ddgjspvdgjpbysylntji",
+      "productionStatus": "ACTIVE_HEALTHY"
+    },
+    "quotaRemediation": "Owner must make an eligible free-project slot available or separately review/authorize a quoted paid alternative; no existing project was paused/deleted/upgraded"
+  },
+  "vercel": {
+    "status": "BLOCKED",
+    "integrationFound": true,
+    "installed": true,
+    "connectionConfirmed": true,
+    "cliInstalled": false,
+    "tokenVariablePresent": false,
+    "standardLoginProfilePresent": false,
+    "stagingProjectCreated": false,
+    "httpsStagingOrigin": null,
+    "productionProjectMetadata": {
+      "id": "prj_OXReC9drbCnKpRDc1KdPrLyMvbFU",
+      "name": "murad-ecommerce",
+      "accountId": "team_aLiRohDtAAZqq656cMy1Hwzz"
+    },
+    "teamRead": {
+      "status": "FAIL",
+      "httpStatus": 403,
+      "errorCode": "forbidden",
+      "reason": "Connection not authorized to owning team scope"
+    },
+    "consent": {
+      "status": "BLOCKED",
+      "flow": "authorize_team_access",
+      "singleUse": true,
+      "validForMinutes": 10,
+      "urlCommitted": false,
+      "userAction": "Open provider-returned consent link in conversation and approve team access, then retry original metadata request; no reconnect needed"
+    },
+    "teamPlanVerified": false,
+    "additionalCostVerified": false
+  },
+  "runtime": {
+    "observationsCurrent": true,
+    "networkPolicy": "enforced/unrestricted",
+    "configuredSecrets": 0,
+    "configuredRuntimeVariables": 0,
+    "outboundIdentities": 0,
+    "desktop": "enabled/state unknown; no browser-control tool offered"
+  },
+  "providerPlanQuotaAndOrganizationMetadata": {
+    "status": "PASS",
+    "reason": "Organization free plan and existing production project membership confirmed by live metadata; quoted cost $0/month; creation subsequently rejected by member-wide free quota"
+  },
+  "providerSecretsInspected": false,
+  "productionDataRead": false,
+  "providerRequestsAttempted": 10,
+  "realStagingTestsExecuted": 0,
+  "nextAction": "Approve Vercel owning-team access via provider consent flow (no reconnect); make an eligible Supabase free-project slot available through owner-reviewed process. No existing project pause/delete or paid upgrade.",
+  "providerRequestBreakdown": {
+    "supabaseManagementMetadataReads": 5,
+    "supabaseCreateProjectAttempts": 1,
+    "publicDocumentationSearchesSeparateFromManagement": 1,
+    "vercelRequests": 4,
+    "productionDatabaseAuthStorageRequests": 0,
+    "vercelMetadataAttempts": 3,
+    "vercelConsentLinkRequests": 1,
+    "vercelPublicDocumentationSearchesSeparateFromManagement": 1
+  },
+  "productionMetadataRead": true,
+  "stagingProvisioningStatus": "BLOCKED_FREE_PROJECT_QUOTA"
+}

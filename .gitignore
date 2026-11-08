@@ -56,3 +56,6 @@ next-env.d.ts
 
 # Phase 8 Part A isolated test output and synthetic inputs
 /work/phase8-*
+
+# Phase 8 Part B private runtime evidence, sessions and uploads
+/work/phase8b-*

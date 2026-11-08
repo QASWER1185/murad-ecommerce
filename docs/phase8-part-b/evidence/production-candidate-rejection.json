@@ -1,0 +1,11 @@
+{
+  "scope": "offline local check only",
+  "status": "REJECTED",
+  "rejected": [
+    "production_supabase_project",
+    "production_supabase_origin",
+    "production_application_origin",
+    "production_or_unknown_hosting_environment"
+  ],
+  "hostedRequestsAttempted": 0
+}
