@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import "./admin.css";
+import "./phase4.css";
 export const metadata: Metadata = {
   title: {
     default: "Admin | M Murad Sons",

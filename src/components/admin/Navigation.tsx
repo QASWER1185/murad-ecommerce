@@ -38,7 +38,7 @@ export function Navigation() {
             <Icon size={18} />
             <span>{label}</span>
             {href === "/admin/imports" ? (
-              <small>PHASE 4</small>
+              <small>CSV / XLSX</small>
             ) : (
               <ChevronRight className="admin-nav-chevron" size={14} />
             )}

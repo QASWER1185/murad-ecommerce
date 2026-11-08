@@ -2,13 +2,14 @@ import Link from "next/link";
 import { adminProduct } from "@/lib/admin/data";
 import { Status, PageHeading } from "@/components/admin/shared";
 import { Image as ImageIcon } from "lucide-react";
+import Image from "next/image";
 export default async function Preview({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const { product, categories, brands } = await adminProduct(id);
+  const { product, categories, brands, gallery } = await adminProduct(id);
   const quotation =
     product.sales_mode === "quotation" ||
     categories.find((c) => c.id === product.category_id)?.default_sales_mode ===
@@ -25,9 +26,25 @@ export default async function Preview({
       />
       <section className="admin-card admin-preview">
         <div className="admin-preview-media">
-          <ImageIcon size={54} />
-          <p>Product imagery not displayed</p>
-          <small>Private media delivery is prepared for Phase 4.</small>
+          {gallery.length ? (
+            <Image
+              unoptimized
+              src={`/admin/media/file/${gallery[0].media_id}/640`}
+              width={640}
+              height={480}
+              alt={
+                gallery[0].alt_text_override ||
+                gallery[0].catalog_media.alt_text ||
+                product.name
+              }
+            />
+          ) : (
+            <>
+              <ImageIcon size={54} />
+              <p>No product image added yet</p>
+              <small>Add an original image through product management.</small>
+            </>
+          )}
         </div>
         <div>
           <Status value={product.publication_status} />

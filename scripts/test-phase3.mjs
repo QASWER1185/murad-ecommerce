@@ -51,7 +51,7 @@ try {
   }
   if (!ready)
     throw new Error("Local admin application did not become ready: " + logs);
-  mkdirSync("docs/phase3/screenshots", { recursive: true });
+  mkdirSync("work/phase3-review", { recursive: true });
   const { runBrowserTests } = await import("../tests/phase3/browser.mjs");
   await runBrowserTests(fixture);
 } catch (e) {

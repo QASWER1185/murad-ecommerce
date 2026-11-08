@@ -1,11 +1,14 @@
+import { cookies } from "next/headers";
+import Link from "next/link";
 import { adminPageSession } from "@/lib/admin/data";
 import { PageHeading, EmptyState, Status } from "@/components/admin/shared";
-import { FileSpreadsheet } from "lucide-react";
+import { ImportUploader } from "@/components/admin/ImportUploader";
+import { csrfCookie } from "@/lib/admin/security";
 export default async function Imports() {
-  const { client } = await adminPageSession();
+  const { client, actor } = await adminPageSession();
   const result = await client
     .from("import_jobs")
-    .select("id,file_name,format,status,created_at")
+    .select("id,file_name,format,status,total_rows,processed_rows,created_at")
     .order("created_at", { ascending: false })
     .limit(50);
   if (result.error) throw new Error("Import history unavailable");
@@ -13,26 +16,11 @@ export default async function Imports() {
     <>
       <PageHeading
         title="Bulk product import"
-        description="Prepare thousands of products with careful validation and explicit review."
+        description="CSV and Excel catalogs, reviewed carefully and applied only to Draft products."
       />
-      <section className="admin-card admin-import-intro">
-        <FileSpreadsheet size={38} />
-        <div>
-          <span className="admin-phase">PHASE 4 · EXECUTION NOT ACTIVE</span>
-          <h2>From spreadsheet to reviewed catalog</h2>
-          <p>
-            CSV / XLSX → Column mapping → Validation preview → Duplicate checks
-            → Draft import
-          </p>
-          <p className="admin-help">
-            Imported Drafts will never publish or become indexable
-            automatically.
-          </p>
-        </div>
-        <button className="admin-button admin-button-secondary" disabled>
-          Choose file · Phase 4
-        </button>
-      </section>
+      {actor.role === "admin" ? (
+        <ImportUploader csrf={(await cookies()).get(csrfCookie)?.value || ""} />
+      ) : null}
       <section className="admin-card">
         <div className="admin-card-heading">
           <h2>Import history</h2>
@@ -46,16 +34,27 @@ export default async function Imports() {
                   <th>File</th>
                   <th>Format</th>
                   <th>Status</th>
+                  <th>Rows</th>
                   <th>Created</th>
                 </tr>
               </thead>
               <tbody>
                 {result.data.map((job) => (
                   <tr key={job.id}>
-                    <td>{job.file_name}</td>
+                    <td>
+                      <Link
+                        className="admin-text-link"
+                        href={`/admin/imports/${job.id}`}
+                      >
+                        {job.file_name} →
+                      </Link>
+                    </td>
                     <td>{job.format}</td>
                     <td>
                       <Status value={job.status} />
+                    </td>
+                    <td>
+                      {job.processed_rows} / {job.total_rows}
                     </td>
                     <td>
                       {new Date(job.created_at).toISOString().slice(0, 10)}
@@ -68,7 +67,7 @@ export default async function Imports() {
         ) : (
           <EmptyState
             title="No imports yet"
-            description="Import execution, template download, column mapping, row validation and price updates will be enabled in Phase 4."
+            description="Download a template, add your actual catalog information and upload it for review. Images and prices may remain empty."
           />
         )}
       </section>
