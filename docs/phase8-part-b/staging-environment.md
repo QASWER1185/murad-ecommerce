@@ -44,10 +44,21 @@ pause/delete; the member-wide limit can include projects outside this visible li
 The quoted $0 is not an assurance of spare quota. Do not create a new personal
 account/organization to evade the limit or alter production.
 
-**BLOCKED — Vercel access:** fresh discovery still reports not installed/connected.
+**PASS — Vercel connected:** project listing returns `murad-ecommerce`, ID
+`prj_OXReC9drbCnKpRDc1KdPrLyMvbFU`, owning account
+`team_aLiRohDtAAZqq656cMy1Hwzz`. Only identity metadata was retained; no production
+environment variables, deployment contents, private logs or settings were read.
+
+**FAIL — team metadata request:** `get_team` returned HTTP **403 forbidden**:
+connection lacks access to the owning-team scope. Consequently its plan/cost and
+staging creation permissions are unverified. **BLOCKED — provider consent:**
+`authorize_team_access` returned a single-use, 10-minute approval link, shown in
+conversation only. Owner must review/approve it; then retry the same request on
+this connection. Do not reconnect or bypass provider authorization. The link and
+its opaque authorization code are deliberately excluded from Git/reports.
 GitHub works. See [provider evidence](evidence/provider-access.json).
 
-After quota resolution and Vercel authorization, inspect only minimal account/project/quota metadata
+After quota resolution and Vercel team authorization, inspect only minimal account/project/quota metadata
 and confirm the existing owner organization/team and $0 incremental cost before
 creating either project. If a free-project slot/plan, private staging protection,
 backup/restore capacity or usage would require new charges, pause the affected

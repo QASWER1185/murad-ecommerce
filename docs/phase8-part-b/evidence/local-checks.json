@@ -50,6 +50,13 @@
       "providerFailureRecorded": true,
       "realStagingTestsExecuted": 0,
       "unchangedAppSQLAssetsDependencies": true
+    },
+    {
+      "command": "Vercel team-consent evidence update: report generator, syntax/targeted lint, local links/source/privacy consistency",
+      "status": "PASS",
+      "hostedPassRows": 0,
+      "consentLinkExcludedFromGit": true,
+      "unchangedAppSQLAssetsDependencies": true
     }
   ]
 }
