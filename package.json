@@ -29,7 +29,10 @@
     "verify:phase8-part-a": "node scripts/phase8/validate-local.mjs",
     "test:phase8:compat": "node scripts/phase8/test-legacy-stack.mjs",
     "check:phase8b": "node scripts/phase8b/preflight.mjs",
-    "test:phase8b:unit": "node --test tests/phase8b/scope.test.mjs"
+    "test:phase8b:unit": "node --test tests/phase8b/scope.test.mjs",
+    "verify:controlled-launch": "node scripts/controlled-launch/validate-local.mjs",
+    "test:controlled-launch:isolation": "node --test tests/controlled-launch/isolation.test.mjs",
+    "test:controlled-launch:services": "node scripts/controlled-launch/lean-local-supabase.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",

@@ -1,0 +1,106 @@
+{
+  "scope": "local lab; HTTP contracts simulated, real Next/Chromium/PostgreSQL",
+  "cpuThrottle": 4,
+  "latencyMs": 150,
+  "downloadBytesPerSecond": 200000,
+  "viewport": "390x844",
+  "fieldINP": false,
+  "samples": [
+    {
+      "path": "/",
+      "run": 1,
+      "lcpMs": 3616,
+      "cls": 0.000006425568076776214,
+      "maxObservedInteractionMs": 32,
+      "readyMs": 5935.70558899999
+    },
+    {
+      "path": "/",
+      "run": 2,
+      "lcpMs": 3728,
+      "cls": 0.000006425568076776214,
+      "maxObservedInteractionMs": 40,
+      "readyMs": 6057.999326999998
+    },
+    {
+      "path": "/",
+      "run": 3,
+      "lcpMs": 3764,
+      "cls": 0.000006425568076776214,
+      "maxObservedInteractionMs": 56,
+      "readyMs": 5953.426302000007
+    },
+    {
+      "path": "/category/sanitary",
+      "run": 1,
+      "lcpMs": 3532,
+      "cls": 0.0000833693920155225,
+      "maxObservedInteractionMs": 32,
+      "readyMs": 4335.19353199999
+    },
+    {
+      "path": "/category/sanitary",
+      "run": 2,
+      "lcpMs": 3364,
+      "cls": 0.0000833693920155225,
+      "maxObservedInteractionMs": 24,
+      "readyMs": 4182.210095999995
+    },
+    {
+      "path": "/category/sanitary",
+      "run": 3,
+      "lcpMs": 3452,
+      "cls": 0.0000833693920155225,
+      "maxObservedInteractionMs": 32,
+      "readyMs": 4918.628933999993
+    },
+    {
+      "path": "/brand/porta",
+      "run": 1,
+      "lcpMs": 1672,
+      "cls": 0.0000833693920155225,
+      "maxObservedInteractionMs": 16,
+      "readyMs": 3268.993325999996
+    },
+    {
+      "path": "/brand/porta",
+      "run": 2,
+      "lcpMs": 1524,
+      "cls": 0.0000833693920155225,
+      "maxObservedInteractionMs": 16,
+      "readyMs": 2994.005401000002
+    },
+    {
+      "path": "/brand/porta",
+      "run": 3,
+      "lcpMs": 1616,
+      "cls": 0.0000833693920155225,
+      "maxObservedInteractionMs": 16,
+      "readyMs": 3048.002263000002
+    },
+    {
+      "path": "/product/[slug]",
+      "run": 1,
+      "lcpMs": 1116,
+      "cls": 0.00018437329740387566,
+      "maxObservedInteractionMs": 24,
+      "readyMs": 3525.3667279999936
+    },
+    {
+      "path": "/product/[slug]",
+      "run": 2,
+      "lcpMs": 1132,
+      "cls": 0.00018437329740387566,
+      "maxObservedInteractionMs": 24,
+      "readyMs": 3631.4710040000064
+    },
+    {
+      "path": "/product/[slug]",
+      "run": 3,
+      "lcpMs": 1140,
+      "cls": 0.00018437329740387566,
+      "maxObservedInteractionMs": 24,
+      "readyMs": 3645.979229000004
+    }
+  ]
+}

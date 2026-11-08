@@ -1,0 +1,7 @@
+{
+  "scope": "local PostgreSQL/RLS with synthetic Auth/Storage contracts",
+  "assertions": 9,
+  "sourceErrorsPreserved": true,
+  "invalidSourceProductCreated": false,
+  "foundationAssertions": 27
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "issue": "Fresh GoTrue role defaulted to public search path",
+    "fix": "Set local auth role search_path to its own auth schema; no public CREATE grant"
+  },
+  {
+    "issue": "Pre-created uid helper belonged to wrong role for GoTrue initial migration",
+    "fix": "Allow GoTrue to own its migrations; install standard JWT-GUC compatibility helper after initialization"
+  },
+  {
+    "issue": "Inherited container proxy redirected local health requests",
+    "fix": "Loopback-only direct health probe and Docker stdin relay; external TLS/proxy policy unchanged"
+  },
+  {
+    "issue": "Official full image exceeded local disk",
+    "fix": "Stop only disposable startup; bound future CLI runs; disclose reduced real-service scope, preserve all validation rules"
+  }
+]

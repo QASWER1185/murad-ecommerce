@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {guardContainerCreate} from '../../scripts/controlled-launch/docker-loopback-proxy.mjs';
+test('Docker port bindings are rewritten before creation, including wildcard IPv6',()=>{const b=guardContainerCreate({HostConfig:{NetworkMode:'controlled-test',PortBindings:{'5432/tcp':[{HostIp:'0.0.0.0',HostPort:'55322'},{HostIp:'::',HostPort:'55322'}]}}},'supabase_db_murad-controlled-test','murad-controlled-test');assert(b.HostConfig.PortBindings['5432/tcp'].every(p=>p.HostIp==='127.0.0.1'));});
+test('unknown containers, host networking and privileged mode fail closed',()=>{assert.throws(()=>guardContainerCreate({},'some-business-project','murad-controlled-test'));for(const HostConfig of [{Privileged:true},{NetworkMode:'host'},{NetworkMode:'container:other'}])assert.throws(()=>guardContainerCreate({HostConfig},'supabase_db_murad-controlled-test','murad-controlled-test'));});

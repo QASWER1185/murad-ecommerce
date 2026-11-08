@@ -1,0 +1,274 @@
+[
+  {
+    "page": "home-desktop",
+    "passedRules": 27,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+        "nodes": [
+          {
+            "target": [
+              ".Y_QRka_productImage[href$=\"local-fixture-7\"] > .Y_QRka_productPhoto"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.86 (foreground color: #67788b, background color: #ededed, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".Y_QRka_productImage[href$=\"local-fixture-8\"] > .Y_QRka_productPhoto"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.86 (foreground color: #67788b, background color: #ededed, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".Y_QRka_productImage[href$=\"local-fixture-9\"] > .Y_QRka_productPhoto"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.86 (foreground color: #67788b, background color: #ededed, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".Y_QRka_productImage[href$=\"local-fixture-10\"] > .Y_QRka_productPhoto"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.86 (foreground color: #67788b, background color: #ededed, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".Y_QRka_productImage[href$=\"local-fixture-11\"] > .Y_QRka_productPhoto"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.86 (foreground color: #67788b, background color: #ededed, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".Y_QRka_productImage[href$=\"local-fixture-12\"] > .Y_QRka_productPhoto"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.86 (foreground color: #67788b, background color: #ededed, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": "sanitary-desktop",
+    "passedRules": 30,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+        "nodes": [
+          {
+            "target": [
+              "._3mv1bW_deals"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.35 (foreground color: #ffffff, background color: #e92b13, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "._3mv1bW_productImage[href$=\"local-fixture-7\"] > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.07 (foreground color: #67788b, background color: #f2f3f4, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "._3mv1bW_productImage[href$=\"local-fixture-8\"] > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.07 (foreground color: #67788b, background color: #f2f3f4, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "._3mv1bW_productImage[href$=\"local-fixture-9\"] > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.07 (foreground color: #67788b, background color: #f2f3f4, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "._3mv1bW_productImage[href$=\"local-fixture-10\"] > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.07 (foreground color: #67788b, background color: #f2f3f4, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "._3mv1bW_productImage[href$=\"local-fixture-11\"] > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.07 (foreground color: #67788b, background color: #f2f3f4, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "._3mv1bW_productImage[href$=\"local-fixture-12\"] > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.07 (foreground color: #67788b, background color: #f2f3f4, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": "brand-desktop",
+    "passedRules": 18,
+    "violations": []
+  },
+  {
+    "page": "product-desktop",
+    "passedRules": 27,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+        "nodes": [
+          {
+            "target": [
+              "._3mv1bW_deals"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.35 (foreground color: #ffffff, background color: #e92b13, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": "home-mobile",
+    "passedRules": 27,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+        "nodes": [
+          {
+            "target": [
+              ".Y_QRka_productImage[href$=\"local-fixture-7\"] > .Y_QRka_productPhoto"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.86 (foreground color: #67788b, background color: #ededed, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".Y_QRka_productImage[href$=\"local-fixture-8\"] > .Y_QRka_productPhoto"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.86 (foreground color: #67788b, background color: #ededed, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".Y_QRka_productImage[href$=\"local-fixture-9\"] > .Y_QRka_productPhoto"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.86 (foreground color: #67788b, background color: #ededed, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".Y_QRka_productImage[href$=\"local-fixture-10\"] > .Y_QRka_productPhoto"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.86 (foreground color: #67788b, background color: #ededed, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".Y_QRka_productImage[href$=\"local-fixture-11\"] > .Y_QRka_productPhoto"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.86 (foreground color: #67788b, background color: #ededed, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".Y_QRka_productImage[href$=\"local-fixture-12\"] > .Y_QRka_productPhoto"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.86 (foreground color: #67788b, background color: #ededed, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": "sanitary-mobile",
+    "passedRules": 31,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+        "nodes": [
+          {
+            "target": [
+              "._3mv1bW_deals"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.35 (foreground color: #ffffff, background color: #e92b13, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "._3mv1bW_productImage[href$=\"local-fixture-7\"] > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.07 (foreground color: #67788b, background color: #f2f3f4, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "._3mv1bW_productImage[href$=\"local-fixture-8\"] > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.07 (foreground color: #67788b, background color: #f2f3f4, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "._3mv1bW_productImage[href$=\"local-fixture-9\"] > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.07 (foreground color: #67788b, background color: #f2f3f4, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "._3mv1bW_productImage[href$=\"local-fixture-10\"] > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.07 (foreground color: #67788b, background color: #f2f3f4, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "._3mv1bW_productImage[href$=\"local-fixture-11\"] > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.07 (foreground color: #67788b, background color: #f2f3f4, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "._3mv1bW_productImage[href$=\"local-fixture-12\"] > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.07 (foreground color: #67788b, background color: #f2f3f4, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": "product-mobile",
+    "passedRules": 28,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+        "nodes": [
+          {
+            "target": [
+              "._3mv1bW_deals"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.35 (foreground color: #ffffff, background color: #e92b13, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": "admin-mfa-desktop",
+    "passedRules": 20,
+    "violations": []
+  },
+  {
+    "page": "admin-overview-desktop",
+    "passedRules": 22,
+    "violations": []
+  },
+  {
+    "page": "admin-overview-mobile",
+    "passedRules": 23,
+    "violations": []
+  }
+]

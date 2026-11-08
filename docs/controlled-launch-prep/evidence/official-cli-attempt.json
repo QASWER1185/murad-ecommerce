@@ -1,0 +1,18 @@
+{
+  "status": "BLOCKED",
+  "cliVersion": "3.0.0",
+  "startAttempted": true,
+  "projectLinked": false,
+  "realHostedTargetUsed": false,
+  "reason": "Supabase PostgreSQL 17.11.0.011 image failed layer registration: no space left on device; registry subsequently rate-limited retry",
+  "observedDisk": {
+    "filesystemGiB": 7.9,
+    "usedPercent": 92,
+    "freeMiB": 650
+  },
+  "startExitCode": 130,
+  "ownStartupInterrupted": true,
+  "ownContainersAndNetworkCleaned": true,
+  "subsequentHelperAddsDiskAndTimeBounds": true,
+  "alternative": "Official GoTrue v2.197.0 and PostgREST v16.5 on PostgreSQL 17 alpine; no Storage HTTP service; loopback-only gateway with private Docker stdin relay"
+}

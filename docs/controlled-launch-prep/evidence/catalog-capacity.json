@@ -1,0 +1,158 @@
+{
+  "synthetic": true,
+  "isolatedLocalPostgres": true,
+  "syntheticProducts": 2000,
+  "seedMs": 10545.009113,
+  "measurements": [
+    {
+      "name": "category-first",
+      "runs": [
+        {
+          "executionMs": 731.122,
+          "planningMs": 0.029,
+          "sharedHitBlocks": 267062,
+          "sharedReadBlocks": 0
+        },
+        {
+          "executionMs": 732.249,
+          "planningMs": 0.028,
+          "sharedHitBlocks": 266391,
+          "sharedReadBlocks": 0
+        },
+        {
+          "executionMs": 707.207,
+          "planningMs": 0.028,
+          "sharedHitBlocks": 266391,
+          "sharedReadBlocks": 0
+        }
+      ],
+      "returnedProducts": 12,
+      "total": 2015
+    },
+    {
+      "name": "category-page-100",
+      "runs": [
+        {
+          "executionMs": 521.277,
+          "planningMs": 0.03,
+          "sharedHitBlocks": 102693,
+          "sharedReadBlocks": 0
+        },
+        {
+          "executionMs": 515.651,
+          "planningMs": 0.029,
+          "sharedHitBlocks": 102693,
+          "sharedReadBlocks": 0
+        },
+        {
+          "executionMs": 534.219,
+          "planningMs": 0.028,
+          "sharedHitBlocks": 102693,
+          "sharedReadBlocks": 0
+        }
+      ],
+      "returnedProducts": 12,
+      "total": 2015
+    },
+    {
+      "name": "search",
+      "runs": [
+        {
+          "executionMs": 412.026,
+          "planningMs": 0.042,
+          "sharedHitBlocks": 51966,
+          "sharedReadBlocks": 0
+        },
+        {
+          "executionMs": 405.698,
+          "planningMs": 0.029,
+          "sharedHitBlocks": 51966,
+          "sharedReadBlocks": 0
+        },
+        {
+          "executionMs": 427.531,
+          "planningMs": 0.03,
+          "sharedHitBlocks": 51966,
+          "sharedReadBlocks": 0
+        }
+      ],
+      "returnedProducts": 1,
+      "total": 1
+    },
+    {
+      "name": "brand",
+      "runs": [
+        {
+          "executionMs": 608.299,
+          "planningMs": 0.029,
+          "sharedHitBlocks": 179772,
+          "sharedReadBlocks": 0
+        },
+        {
+          "executionMs": 605.006,
+          "planningMs": 0.029,
+          "sharedHitBlocks": 179772,
+          "sharedReadBlocks": 0
+        },
+        {
+          "executionMs": 620.21,
+          "planningMs": 0.029,
+          "sharedHitBlocks": 179772,
+          "sharedReadBlocks": 0
+        }
+      ],
+      "returnedProducts": 12,
+      "total": 2008
+    },
+    {
+      "name": "price-sort",
+      "runs": [
+        {
+          "executionMs": 698.016,
+          "planningMs": 0.027,
+          "sharedHitBlocks": 239112,
+          "sharedReadBlocks": 0
+        },
+        {
+          "executionMs": 690.721,
+          "planningMs": 0.029,
+          "sharedHitBlocks": 239112,
+          "sharedReadBlocks": 0
+        },
+        {
+          "executionMs": 691.087,
+          "planningMs": 0.028,
+          "sharedHitBlocks": 239112,
+          "sharedReadBlocks": 0
+        }
+      ],
+      "returnedProducts": 12,
+      "total": 2015
+    },
+    {
+      "name": "product-related",
+      "runs": [
+        {
+          "executionMs": 629.566,
+          "planningMs": 0.029,
+          "sharedHitBlocks": 202589,
+          "sharedReadBlocks": 0
+        },
+        {
+          "executionMs": 643.726,
+          "planningMs": 0.028,
+          "sharedHitBlocks": 202589,
+          "sharedReadBlocks": 0
+        },
+        {
+          "executionMs": 646.263,
+          "planningMs": 0.028,
+          "sharedHitBlocks": 202589,
+          "sharedReadBlocks": 0
+        }
+      ],
+      "returnedProducts": 4,
+      "total": 2013
+    }
+  ]
+}

@@ -59,3 +59,6 @@ next-env.d.ts
 
 # Phase 8 Part B private runtime evidence, sessions and uploads
 /work/phase8b-*
+
+# Controlled launch local services, profiles, test inputs and private sessions
+/work/controlled-*

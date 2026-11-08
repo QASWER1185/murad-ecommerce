@@ -1,0 +1,64 @@
+{
+  "scope": "real local GoTrue and PostgREST; PostgreSQL 17 alpine; Storage schema fixture only",
+  "serviceStatus": "PASS",
+  "storageHttpService": false,
+  "authSimulated": false,
+  "postgrestSimulated": false,
+  "productionAccessed": false,
+  "checks": [
+    {
+      "name": "Real Storage HTTP and binaries",
+      "status": "BLOCKED",
+      "reason": "Full official image setup exceeded executor disk; no Storage API image/service in alternate"
+    },
+    {
+      "name": "all twelve guarded migrations install with real local Auth schema and preserve six Draft sample IDs",
+      "status": "PASS",
+      "scope": "real official local services"
+    },
+    {
+      "name": "trusted local Auth API provisions synthetic Admin/Editor/ordinary users; no signup endpoint enabled",
+      "status": "PASS",
+      "scope": "real official local services"
+    },
+    {
+      "name": "real GoTrue getUser/refresh/invalid-token verification and PostgREST roles/RLS",
+      "status": "PASS",
+      "scope": "real official local services"
+    },
+    {
+      "name": "real services reject correctly signed expired JWTs; public signup remains disabled",
+      "status": "PASS",
+      "scope": "real official local services"
+    },
+    {
+      "name": "Draft creation through real PostgREST RPC",
+      "status": "PASS",
+      "scope": "real official local services"
+    },
+    {
+      "name": "actual Next.js Admin login with real local GoTrue SSR session and Draft product page",
+      "status": "PASS",
+      "scope": "real official local services"
+    },
+    {
+      "name": "real Admin desktop/mobile screenshots and unknown product 404/noindex",
+      "status": "PASS",
+      "scope": "real official local services"
+    },
+    {
+      "name": "actual local TOTP enrollment, challenge verification and AAL2 RLS policy",
+      "status": "PASS",
+      "scope": "real official local services"
+    },
+    {
+      "name": "real local Auth logout clears session",
+      "status": "PASS",
+      "scope": "real official local services"
+    }
+  ],
+  "localGateway": "loopback HTTP gateway via Docker stdin TCP relay; no published container ports; real GoTrue/PostgREST validate JWT/RLS",
+  "realMigrations": 12,
+  "localTotp": true,
+  "cleanedUp": true
+}

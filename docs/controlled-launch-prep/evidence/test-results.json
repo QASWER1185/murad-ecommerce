@@ -1,0 +1,122 @@
+[
+  {
+    "task": "build",
+    "exitCode": 0,
+    "elapsedMs": 5856
+  },
+  {
+    "task": "typescript",
+    "exitCode": 0,
+    "elapsedMs": 1191
+  },
+  {
+    "task": "lint",
+    "exitCode": 0,
+    "elapsedMs": 5211
+  },
+  {
+    "task": "audit-all",
+    "exitCode": 0,
+    "elapsedMs": 745
+  },
+  {
+    "task": "audit-production",
+    "exitCode": 0,
+    "elapsedMs": 514
+  },
+  {
+    "task": "test:phase2",
+    "exitCode": 0,
+    "elapsedMs": 17861
+  },
+  {
+    "task": "test:phase3:unit",
+    "exitCode": 0,
+    "elapsedMs": 992
+  },
+  {
+    "task": "test:phase4:unit",
+    "exitCode": 0,
+    "elapsedMs": 1304
+  },
+  {
+    "task": "test:phase5:unit",
+    "exitCode": 0,
+    "elapsedMs": 927
+  },
+  {
+    "task": "test:phase6:unit",
+    "exitCode": 0,
+    "elapsedMs": 973
+  },
+  {
+    "task": "test:phase7:unit",
+    "exitCode": 0,
+    "elapsedMs": 945
+  },
+  {
+    "task": "test:phase8:unit",
+    "exitCode": 0,
+    "elapsedMs": 1289
+  },
+  {
+    "task": "test:phase8:db",
+    "exitCode": 0,
+    "elapsedMs": 6500
+  },
+  {
+    "task": "test:phase8:compat",
+    "exitCode": 0,
+    "elapsedMs": 4430
+  },
+  {
+    "task": "test:phase7:db",
+    "exitCode": 0,
+    "elapsedMs": 24966
+  },
+  {
+    "task": "test:phase3:e2e",
+    "exitCode": 0,
+    "elapsedMs": 37249
+  },
+  {
+    "task": "test:phase4:e2e",
+    "exitCode": 0,
+    "elapsedMs": 111730
+  },
+  {
+    "task": "test:phase5:e2e",
+    "exitCode": 0,
+    "elapsedMs": 128257
+  },
+  {
+    "task": "test:phase6:e2e",
+    "exitCode": 0,
+    "elapsedMs": 101993
+  },
+  {
+    "task": "test:phase7:e2e",
+    "exitCode": 0,
+    "elapsedMs": 133502
+  },
+  {
+    "task": "test:phase7:capacity",
+    "exitCode": 0,
+    "elapsedMs": 48414
+  },
+  {
+    "task": "test:phase8b:unit",
+    "exitCode": 0,
+    "elapsedMs": 175
+  },
+  {
+    "task": "capacity-memory",
+    "exitCode": 0,
+    "elapsedMs": 3729
+  },
+  {
+    "task": "configuration-static",
+    "exitCode": 0,
+    "elapsedMs": 128
+  }
+]
