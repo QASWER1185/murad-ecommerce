@@ -4,7 +4,55 @@ import { readAdminConfig } from "./lib/admin/config";
 import { adminClient } from "./lib/admin/supabase-server";
 import { csrfCookie, privateHeaders, validOrigin } from "./lib/admin/security";
 
+import { admitCatalogPath } from "./lib/storefront/admission";
+import { publicHeaders, storefrontConfig } from "./lib/storefront/config";
 export async function proxy(request: NextRequest) {
+  if (
+    !request.nextUrl.pathname.startsWith("/admin") &&
+    request.nextUrl.pathname !== "/_next/image"
+  ) {
+    const headers: Record<string, string> = {
+      ...publicHeaders,
+      "X-Robots-Tag": "noindex, follow",
+    };
+    try {
+      if (storefrontConfig()?.indexingEnabled) delete headers["X-Robots-Tag"];
+      const decision = await admitCatalogPath(
+        request.nextUrl.pathname,
+        Object.fromEntries(
+          Array.from(request.nextUrl.searchParams.keys(), (key) => [
+            key,
+            request.nextUrl.searchParams.getAll(key),
+          ]),
+        ),
+      );
+      if (decision.status === 308 && decision.destination) {
+        const destination = request.nextUrl.clone();
+        destination.pathname = decision.destination;
+        destination.search = "";
+        const response = NextResponse.redirect(destination, 308);
+        for (const [key, value] of Object.entries(headers))
+          response.headers.set(key, value);
+        return response;
+      }
+      if (decision.status !== 200)
+        return new NextResponse(
+          decision.status === 404
+            ? '<!doctype html><html lang="en"><head><title>Page not found | M Murad Sons</title><meta name="robots" content="noindex"></head><body><main><h1>Page not found</h1><p>This collection or product is not available.</p><a href="/">Return to M Murad Sons</a></main></body></html>'
+            : "Published catalog temporarily unavailable",
+          {
+            status: decision.status,
+            headers: { ...headers, "Content-Type": "text/html; charset=utf-8" },
+          },
+        );
+      return NextResponse.next({ headers });
+    } catch {
+      return new NextResponse("Published catalog temporarily unavailable", {
+        status: 503,
+        headers,
+      });
+    }
+  }
   if (request.nextUrl.pathname === "/_next/image") {
     try {
       let source = request.nextUrl.searchParams.get("url") || "";
@@ -93,4 +141,19 @@ export async function proxy(request: NextRequest) {
     response.headers.set(key, value);
   return response;
 }
-export const config = { matcher: ["/admin/:path*", "/_next/image"] };
+export const config = {
+  matcher: [
+    "/admin/:path*",
+    "/_next/image",
+    "/",
+    "/category/:path*",
+    "/brand/:path*",
+    "/product/:path*",
+    "/search",
+    "/categories",
+    "/brands",
+    "/sitemap.xml",
+    "/robots.txt",
+    "/api/catalog/:path*",
+  ],
+};

@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmit": false,
+    "outDir": "./work/phase5-tests",
+    "incremental": false,
+    "isolatedModules": false
+  },
+  "include": [
+    "src/lib/storefront/config.ts",
+    "src/lib/storefront/query.ts",
+    "src/lib/catalog/publication.ts",
+    "src/lib/seo/catalog-policy.ts",
+    "tests/phase5/unit.test.ts"
+  ],
+  "exclude": ["node_modules"]
+}

@@ -45,6 +45,7 @@ export function ProductWorkflow({
   });
   return (
     <aside className="admin-editor-aside">
+      <section className="admin-card admin-side-card"><h2>Homepage selection</h2><p className="admin-help">Only explicitly published products can appear on the storefront.</p><MutationForm action="/admin/manage/featured"><CsrfField/><input type="hidden" name="id" value={product.id}/><input type="hidden" name="version" value={product.version}/><fieldset disabled={!admin || product.publication_status !== 'draft' || !!product.archived_at}><label className="admin-checkbox"><input type="checkbox" name="featured" defaultChecked={product.featured}/><span>Feature this product on the homepage</span></label><button className="admin-button admin-full">Save homepage selection</button></fieldset></MutationForm></section>
       <section className="admin-card admin-side-card">
         <div className="admin-side-title">
           <h2>Publication</h2>

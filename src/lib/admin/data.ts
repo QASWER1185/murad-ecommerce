@@ -23,6 +23,7 @@ export type AdminProduct = WorkflowRecord & {
   sales_mode: "online" | "quotation";
   stock_status: "unknown" | "in_stock" | "out_of_stock";
   stock_quantity: number | null;
+  featured: boolean;
   specifications: Record<string, string>;
   seo_title: string | null;
   seo_description: string | null;

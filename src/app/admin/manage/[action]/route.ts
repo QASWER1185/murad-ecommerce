@@ -53,7 +53,11 @@ export async function POST(
       ? versionSchema.parse(value("version"))
       : null;
     let location = "/admin/catalog";
-    if (action === "taxonomy") {
+    if (action === "featured") {
+      if (!id || !version) throw new AdminRequestError('A product and current version are required.');
+      checked(await client.rpc('set_catalog_product_featured', {p_id:id,p_version:version,p_featured:value('featured')==='on'}));
+      location = `/admin/products/${id}`;
+    } else if (action === "taxonomy") {
       if (!["brand", "category"].includes(kind))
         throw new AdminRequestError("Invalid taxonomy.");
       const parsed =

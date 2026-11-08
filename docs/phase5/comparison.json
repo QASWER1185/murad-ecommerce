@@ -1,0 +1,88 @@
+{
+  "homepage_before_size": [
+    1200,
+    1312
+  ],
+  "homepage_after_size": [
+    1200,
+    1312
+  ],
+  "mobile_before_size": [
+    390,
+    2070
+  ],
+  "mobile_after_size": [
+    390,
+    2070
+  ],
+  "comparison": "Same local Chromium, 1200/390px viewport, fonts and images loaded. Product rail excluded because commercial data has intentionally changed. Threshold suppresses subpixel color noise.",
+  "desktop_regions": {
+    "header": {
+      "rectangle": [
+        0,
+        0,
+        1200,
+        141
+      ],
+      "changed_pixels_over_10_of_255": 0,
+      "changed_percent": 0.0,
+      "difference_bounds": null
+    },
+    "hero": {
+      "rectangle": [
+        0,
+        141,
+        1200,
+        407
+      ],
+      "changed_pixels_over_10_of_255": 0,
+      "changed_percent": 0.0,
+      "difference_bounds": null
+    },
+    "category_tiles": {
+      "rectangle": [
+        0,
+        407,
+        1200,
+        550
+      ],
+      "changed_pixels_over_10_of_255": 0,
+      "changed_percent": 0.0,
+      "difference_bounds": null
+    },
+    "brand_artwork": {
+      "rectangle": [
+        0,
+        550,
+        1200,
+        655
+      ],
+      "changed_pixels_over_10_of_255": 0,
+      "changed_percent": 0.0,
+      "difference_bounds": null
+    },
+    "default_banners": {
+      "rectangle": [
+        0,
+        959,
+        1200,
+        1094
+      ],
+      "changed_pixels_over_10_of_255": 0,
+      "changed_percent": 0.0,
+      "difference_bounds": null
+    },
+    "footer": {
+      "rectangle": [
+        0,
+        1162,
+        1200,
+        1312
+      ],
+      "changed_pixels_over_10_of_255": 0,
+      "changed_percent": 0.0,
+      "difference_bounds": null
+    }
+  },
+  "sanitary": "Approved reference compared at 1024px; CSS and extracted artwork retained from PR #2. Current inventory/filters/pagination differ; no pixel-perfect claim for product content."
+}
