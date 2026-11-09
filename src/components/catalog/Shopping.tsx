@@ -3,6 +3,8 @@ import { useEffect, useRef, useState, useId, type ReactNode } from "react";
 import { track } from "@/lib/analytics/events";
 import type { Product } from "@/lib/storefront/types";
 import { canOrder, enquiry, money } from "@/lib/storefront/query";
+import { productInquiry, productLink } from "@/lib/storefront/whatsapp";
+import { WhatsAppInquiry } from "./WhatsApp";
 import { useShopping } from "@/components/sanitary/shop-state";
 import { OrderRequestForm } from "@/components/orders/OrderRequestForm";
 import styles from "@/components/sanitary/SanitaryShop.module.css";
@@ -10,16 +12,20 @@ export function ProductActions({
   product,
   main = "+923217165000",
   requestsEnabled = false,
+  origin,
+  shoppingEnabled = false,
 }: {
   requestsEnabled?: boolean;
   product: Product;
   main?: string;
+  origin?: string;
+  shoppingEnabled?: boolean;
 }) {
   const shopping = useShopping();
   const [message, setMessage] = useState("");
   return (
     <>
-      <div className={styles.actions}>
+      {shoppingEnabled && <div className={styles.actions}>
         {canOrder(product) ? (
           <button
             className={styles.primary}
@@ -35,6 +41,7 @@ export function ProductActions({
             product={product}
             main={main}
             enabled={requestsEnabled}
+            origin={origin}
             className={styles.primary}
             label={
               product.sales_mode === "quotation" ? "Request Rate" : "Enquire"
@@ -48,7 +55,8 @@ export function ProductActions({
         >
           <span className={styles.heart} aria-hidden="true" />
         </button>
-      </div>
+      </div>}
+      <WhatsAppInquiry product={product} number={main} origin={origin} />
       <span className="sr-only" role="status">
         {message}
       </span>
@@ -121,7 +129,7 @@ export function CartButton({
         setMessage("These products are no longer publicly available.");
         return;
       }
-      const text = `Please confirm this selection:\n${current.map((p) => `${p.name} × ${shopping.cart[p.id]} — ${canOrder(p) ? money(p.price!, p.currency) : "Rate / availability confirmation required"}`).join("\n")}\nPlease confirm final availability, delivery and order acceptance.`;
+      const text = `Please confirm this selection:\n${current.map((p) => `${p.name} × ${shopping.cart[p.id]}${p.sku ? ` (SKU: ${p.sku})` : ""} — ${canOrder(p) ? money(p.price!, p.currency) : "Today's rate / availability confirmation required"}\n${productLink(p.slug, window.location.origin)}`).join("\n")}\nPlease confirm final availability, delivery and order acceptance.`;
       track("whatsapp_click", {
         contact:
           main.replace(/\D/g, "") === "923217165000" ? "main" : "secondary",
@@ -291,9 +299,8 @@ export function WishlistButton({
             </button>
             {canOrder(item) ? (
               <button onClick={() => shopping.add(item.id)}>Add to Cart</button>
-            ) : (
-              <a href={enquiry(item.name, main)}>Enquire</a>
-            )}
+            ) : null}
+            <WhatsAppInquiry product={item} number={main} origin={typeof window !== "undefined" ? window.location.origin : undefined} />
           </div>
         ))}
         {!items.length && !message && (
@@ -311,12 +318,14 @@ export function QuotationAction({
   enabled = false,
   className,
   label = "Request Rate",
+  origin,
 }: {
   product: Product;
   main?: string;
   enabled?: boolean;
   className?: string;
   label?: string;
+  origin?: string;
 }) {
   const titleId = useId();
   const shopping = useShopping(),
@@ -330,7 +339,7 @@ export function QuotationAction({
     <>
       <a
         className={className}
-        href={enquiry(product.name, main)}
+        href={productInquiry(product, main, origin)}
         target="_blank"
         rel="noopener noreferrer"
         onClick={(event) => {
@@ -369,7 +378,7 @@ export function QuotationAction({
           </label>
           <a
             className={styles.whatsappOrder}
-            href={enquiry(product.name, main)}
+            href={productInquiry(product, main, origin)}
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -1,4 +1,5 @@
 "use client";
+import { WhatsAppContact } from "@/components/catalog/WhatsApp";
 export default function StoreError({ reset }: { reset: () => void }) {
   return (
     <main style={{ padding: 40, color: "#002747" }}>
@@ -8,6 +9,7 @@ export default function StoreError({ reset }: { reset: () => void }) {
       <p>
         <a href="https://wa.me/923217165000">WhatsApp 0321-7165000</a>
       </p>
+      <WhatsAppContact />
     </main>
   );
 }

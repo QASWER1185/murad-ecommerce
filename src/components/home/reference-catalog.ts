@@ -1,4 +1,4 @@
-export type Category = 'sanitary' | 'kitchen' | 'hobs' | 'hoods' | 'geysers' | 'pipes' | 'tanks' | 'electric' | 'building-material';
+export type Category = 'sanitary' | 'kitchen' | 'hobs' | 'hoods' | 'geysers' | 'pipes' | 'tanks' | 'electric' | 'building-material' | 'imported-products';
 export type Product = { id: string; name: string; brand: string; price: number; currency?: string; publishedAt?: string; category: Category; asset?: string; slug?: string; rating?: string; reviews?: number; bestseller?: boolean; imported?: boolean; deal?: boolean; inquiry?: boolean };
 
 export const categories: { id: Category; label: string; lines: [string, string]; asset: string }[] = [

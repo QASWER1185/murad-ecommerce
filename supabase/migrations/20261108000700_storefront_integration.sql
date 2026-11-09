@@ -20,9 +20,12 @@ SELECT id,name,slug,description,kind,seo_title,seo_description,canonical_path,up
 FROM public.brands WHERE app_private.visible(publication_status,archived_at,reviewed_at,approved_at)
  AND identity_verified AND content_verified AND reviewed_version=version AND reviewed_by IS NOT NULL AND approved_by IS NOT NULL;
 CREATE FUNCTION app_private.category_is_quotation(p_id uuid) RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
- WITH RECURSIVE ancestors AS (SELECT c.id,c.parent_id,c.default_sales_mode FROM public.catalog_categories_public c WHERE c.id=p_id
- UNION SELECT c.id,c.parent_id,c.default_sales_mode FROM public.catalog_categories_public c JOIN ancestors a ON c.id=a.parent_id)
- SELECT EXISTS(SELECT 1 FROM ancestors WHERE default_sales_mode='quotation')
+ -- The permanent building-material route is daily-rate only, including legacy
+ -- categories whose new default_sales_mode column initially defaults to online.
+ -- Apply this in the shared projection so cart, requests and SEO agree with UI.
+ WITH RECURSIVE ancestors AS (SELECT c.id,c.parent_id,c.slug,c.default_sales_mode FROM public.catalog_categories_public c WHERE c.id=p_id
+ UNION SELECT c.id,c.parent_id,c.slug,c.default_sales_mode FROM public.catalog_categories_public c JOIN ancestors a ON c.id=a.parent_id)
+ SELECT EXISTS(SELECT 1 FROM ancestors WHERE default_sales_mode='quotation' OR slug='building-material')
 $$;
 REVOKE ALL ON FUNCTION app_private.category_is_quotation(uuid) FROM PUBLIC;
 GRANT EXECUTE ON FUNCTION app_private.category_is_quotation(uuid) TO anon,authenticated;

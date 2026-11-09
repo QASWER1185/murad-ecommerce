@@ -1,0 +1,66 @@
+{
+  "releaseMode": "Owner-approved initially empty business website",
+  "reportTimezone": "Asia/Karachi",
+  "currentValidation": {
+    "timestamp": "2026-11-09T13:28:45.415Z",
+    "runtime": "v26.13.0",
+    "checks": 5,
+    "results": [
+      "Empty-mode guards override catalog/Admin/worker enable flags without touching a backend",
+      "All approved category and brand routes render graceful empty pages with accurate SEO",
+      "Homepage/navigation/directories publish Sanitary, Electrical, Building Materials in order and retain Imported",
+      "Both WhatsApp contacts and building-material today-rate enquiries work without sending messages",
+      "Desktop/mobile screenshots preserve approved hero art and avoid overflow; all products remain absent"
+    ],
+    "heroComparisons": 4,
+    "backendRequests": 0,
+    "outsideBrowserRequests": 0,
+    "productRecordsPublished": 0,
+    "productionOperations": 0,
+    "requiresDatabaseMigration": false,
+    "adminEnabled": false,
+    "cartCheckoutWishlistPaymentsEnabled": false
+  },
+  "currentChecks": [
+    {
+      "name": "build",
+      "exitCode": 0,
+      "runtime": "v26.13.0"
+    },
+    {
+      "name": "typescript",
+      "exitCode": 0,
+      "runtime": "v26.13.0"
+    },
+    {
+      "name": "lint",
+      "exitCode": 0,
+      "runtime": "v26.13.0"
+    },
+    {
+      "name": "empty-business",
+      "exitCode": 0,
+      "runtime": "v26.13.0"
+    }
+  ],
+  "initialProductionChanges": {
+    "databaseMigrations": 0,
+    "databaseRLSAuthStorageChanges": 0,
+    "dataExportsOrRestores": 0,
+    "verifiedProductsPublished": 0,
+    "newSupabaseCredentialsRequired": false
+  },
+  "approvedCategoryOrder": [
+    "sanitary",
+    "electric",
+    "building-material"
+  ],
+  "importedSection": "imported-products",
+  "admin": "Source retained; HTTP 503 until separately approved future activation",
+  "seo": "Titles/canonicals/OG/business schema/breadcrumbs retained; existing no-index safeguards unchanged",
+  "lint": {
+    "errors": 0,
+    "preExistingWarnings": 8
+  },
+  "productionExecutionApproved": false
+}

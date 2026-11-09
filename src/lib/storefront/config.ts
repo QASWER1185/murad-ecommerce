@@ -4,6 +4,7 @@ export const productionReleaseApproved = false;
 export function storefrontConfig(
   env: Record<string, string | undefined> = process.env,
 ) {
+  if (env.BUSINESS_SITE_MODE === "empty-catalog") return null;
   if (env.CATALOG_ENABLED !== "true") return null;
   const environment = env.CATALOG_ENVIRONMENT;
   if (!["local", "staging", "production"].includes(environment || ""))
@@ -48,6 +49,9 @@ export function storefrontConfig(
     origin: origin.origin,
     environment,
     production,
+    // The production release is Catalog + WhatsApp only. Local/staging shopping
+    // remains available for the already-built future commerce modules.
+    shoppingEnabled: !production && env.CATALOG_SHOPPING_ENABLED !== "false",
     mediaEnabled:
       env.CATALOG_MEDIA_ENABLED === "true" &&
       (!production || productionReleaseApproved),

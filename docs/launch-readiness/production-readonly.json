@@ -1,0 +1,78 @@
+{
+  "timestampUTC": "2026-11-09T12:17:07.701Z",
+  "authorization": "Read-only production checks; direct Catalog + WhatsApp-only preparation",
+  "productionProjectRef": "ddgjspvdgjpbysylntji",
+  "productionDeployment": {
+    "id": "dpl_JBtpFzJHEfCJud4eAH2UfFhijUWa",
+    "sha": "c73b01b93c4093edefe1c00e34299a9041ea5bef",
+    "state": "READY",
+    "target": "production",
+    "alias": "murad-ecommerce.vercel.app"
+  },
+  "productionEnvironment": [
+    {
+      "name": "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+      "targets": [
+        "production"
+      ]
+    },
+    {
+      "name": "NEXT_PUBLIC_SUPABASE_URL",
+      "targets": [
+        "production"
+      ]
+    }
+  ],
+  "databaseMetadata": {
+    "read_only": "on",
+    "product_count": 6,
+    "bucket_metadata": [],
+    "migration_history": [
+      {
+        "name": "initial_ecommerce_schema",
+        "version": "20261106055003"
+      },
+      {
+        "name": "seed_initial_products",
+        "version": "20261106064811"
+      }
+    ],
+    "database_size_bytes": 11155123,
+    "product_image_hosts": [],
+    "products_with_stored_price": 6,
+    "publication_columns_present": 0,
+    "products_with_image_reference": 0
+  },
+  "backupReadiness": {
+    "plan": "Free, from existing read-only organization evidence",
+    "actualBackupInventory": "UNVERIFIED: no metadata-only backup inventory tool available",
+    "actualIsolatedRestore": "NOT PERFORMED",
+    "backupOrDataExportPerformed": false,
+    "authPasswordsSessionsOrSecretValuesRead": false
+  },
+  "previouslyAuthorizedPreview": {
+    "id": "dpl_4YfkqqJ3in4qenSv9G9RAorUv1Co",
+    "url": "murad-ecommerce-ma7v157xg-kelidexpipes-5464s-projects.vercel.app",
+    "state": "READY",
+    "target": null,
+    "sha": "5e54bd8c387e6c0d6098536fa0f259bb2cfad63f",
+    "branch": "development/whatsapp-launch-readiness",
+    "projectId": "prj_OXReC9drbCnKpRDc1KdPrLyMvbFU",
+    "mode": "Database disconnected; previous 5e54bd8 candidate, not final inquiry-only release",
+    "httpHomeStatus": 200,
+    "authenticatedHTTPHomeVerified": true,
+    "productionAliasesChanged": false,
+    "previewOnlyFlagsCreated": 9,
+    "productionVariablesChanged": 0
+  },
+  "stagingRequirementRetiredByOwner": true,
+  "productionMigrationsRLSMergeDeploymentExecuted": false,
+  "ERPOrGoogleCloudAccessed": false,
+  "initialEmptyBusinessRelease": {
+    "usesDatabase": false,
+    "requiredMigrations": 0,
+    "backupExportRestoreRequired": false,
+    "legacyRLSUnchanged": true,
+    "privateUploadsBlocked": true
+  }
+}

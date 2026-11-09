@@ -7,7 +7,12 @@ import { csrfCookie, privateHeaders, validOrigin } from "./lib/admin/security";
 
 import { admitCatalogPath } from "./lib/storefront/admission";
 import { publicHeaders, storefrontConfig } from "./lib/storefront/config";
+import { emptyCatalogMode } from "./lib/storefront/business-site";
 export async function proxy(request: NextRequest) {
+  if (emptyCatalogMode() && request.nextUrl.pathname.startsWith("/admin"))
+    return new NextResponse("Admin dashboard is securely closed for the initial business-site release.", {
+      status: 503, headers: privateHeaders,
+    });
   if (
     !request.nextUrl.pathname.startsWith("/admin") &&
     request.nextUrl.pathname !== "/_next/image"

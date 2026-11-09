@@ -5,6 +5,7 @@ import { connection } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { storefrontConfig } from "./config";
 import type { Catalog, Query } from "./types";
+import { emptyCatalogMode, businessCatalog } from "./business-site";
 export function publicCatalogClient() {
   const config = storefrontConfig();
   if (!config) return null;
@@ -18,6 +19,7 @@ export function publicCatalogClient() {
 export const getCatalog = cache(
   async (kind: string, slug: string, serialized: string): Promise<Catalog> => {
     await connection();
+    if (emptyCatalogMode()) return businessCatalog(kind, slug);
     const client = publicCatalogClient();
     if (!client)
       return {
@@ -35,6 +37,7 @@ export const getCatalog = cache(
         banners: [],
         generation: "disabled",
         mediaEnabled: false,
+        shoppingEnabled: false,
       };
     const result = await client.rpc("catalog_storefront", {
       p_kind: kind,
@@ -49,6 +52,8 @@ export const getCatalog = cache(
     } catch {}
     return {
       ...result.data,
+      siteOrigin: storefrontConfig()!.origin,
+      shoppingEnabled: storefrontConfig()!.shoppingEnabled,
       mediaEnabled: storefrontConfig()!.mediaEnabled,
       ordersEnabled,
     };

@@ -4,6 +4,8 @@ import { enquiry } from "@/lib/storefront/query";
 import { contacts } from "@/components/sanitary/catalog-options";
 import { CartButton } from "./Shopping";
 import { Freshness } from "./Freshness";
+import { WhatsAppContact } from "./WhatsApp";
+import { importedCollection } from "@/lib/storefront/business-site";
 import styles from "@/components/sanitary/SanitaryShop.module.css";
 export function ContactButtons({ catalog }: { catalog: Catalog }) {
   return (
@@ -43,7 +45,7 @@ export function Header({
 }) {
   return (
     <>
-      <Freshness generation={catalog.generation} />
+      {!catalog.emptyCatalog && <Freshness generation={catalog.generation} />}
       <header className={styles.header}>
         <div className={styles.topline}>
           <span>
@@ -82,9 +84,9 @@ export function Header({
                 catalog.settings?.main_whatsapp,
               )}
             >
-              Account
+              Contact
             </a>
-            <CartButton main={catalog.settings?.main_whatsapp} />
+            {catalog.shoppingEnabled && <CartButton main={catalog.settings?.main_whatsapp} />}
           </div>
         </div>
         <nav className={styles.nav} aria-label="Shopping navigation">
@@ -95,14 +97,17 @@ export function Header({
           >
             All Categories
           </Link>
-          {[
+          {(catalog.emptyCatalog ? [
+            ["sanitary", "Sanitary & Bathroom"], ["electric", "Electrical"],
+            ["building-material", "Building Materials"], [importedCollection.slug, importedCollection.name],
+          ] : [
             ["sanitary", "Sanitary & Bathroom"],
             ["kitchen", "Kitchen Appliances"],
             ["electric", "Electrical"],
             ["pipes", "Pipes & Fittings"],
             ["tanks", "Water Tanks"],
             ["building-material", "Building Materials"],
-          ].map(([slug, name]) => (
+          ]).map(([slug, name]) => (
             <Link prefetch={false} key={slug} href={`/category/${slug}`}>
               {name}
             </Link>
@@ -127,6 +132,7 @@ export function Header({
 export function Footer({ catalog }: { catalog: Catalog }) {
   return (
     <>
+      <WhatsAppContact number={catalog.settings?.main_whatsapp} />
       <section className={styles.services} aria-label="Store services">
         {[
           ["delivery", "Nationwide Delivery", "Across Pakistan"],

@@ -10,7 +10,9 @@
       "development/staging-readiness": false,
       "development/phase8-preflight": false,
       "development/phase8-real-staging": false,
-      "development/controlled-launch-prep": false
+      "development/controlled-launch-prep": false,
+      "development/production-gate1-inspection": false,
+      "development/whatsapp-launch-readiness": false
     }
   }
 }

@@ -3,18 +3,20 @@ import { businessSchema, jsonLd } from "@/lib/storefront/seo";
 import ReferenceStorefront from "@/components/home/ReferenceStorefront";
 import { getCatalog } from "@/lib/storefront/server";
 import { storefrontConfig } from "@/lib/storefront/config";
+import { emptyCatalogMode, businessSiteOrigin } from "@/lib/storefront/business-site";
 export function generateMetadata() {
   const config = storefrontConfig();
+  const origin = emptyCatalogMode() ? businessSiteOrigin() : config?.origin;
   return {
     title: "M Murad Sons | Building Material Store in Lahore",
     description:
       "Explore sanitary, kitchen, electrical and building material collections at M Murad Sons, Adda Plot, Al Kabir Town, Raiwind Road, Lahore.",
     robots: { index: false, follow: true },
-    ...(config
+    ...(origin
       ? {
-          alternates: { canonical: config.origin },
+          alternates: { canonical: origin },
           openGraph: {
-            url: config.origin,
+            url: origin,
             title: "M Murad Sons Building Material Store",
             description: "Sanitary, kitchen and building materials at Adda Plot, Al Kabir Town, Raiwind Road, Lahore.",
             type: "website",

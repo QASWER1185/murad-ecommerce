@@ -9,6 +9,7 @@ export interface AdminConfig {
 export function readAdminConfig(
   env: Record<string, string | undefined> = process.env,
 ): AdminConfig | null {
+  if (env.BUSINESS_SITE_MODE === "empty-catalog") return null;
   if (env.ADMIN_ENABLED !== "true") return null;
   const url = new URL(env.ADMIN_SUPABASE_URL || "invalid");
   const origin = new URL(env.ADMIN_SITE_ORIGIN || "invalid");

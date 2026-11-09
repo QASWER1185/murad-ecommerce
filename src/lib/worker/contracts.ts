@@ -2,6 +2,7 @@ import { createHmac, randomUUID, timingSafeEqual } from "node:crypto";
 export type WorkerAction = "claim" | "ack" | "stats";
 export interface WorkerConfig { url: string; key: string; origin: string; keyId: string; secret: string }
 export function workerConfig(env: Record<string, string | undefined> = process.env): WorkerConfig | null {
+  if (env.BUSINESS_SITE_MODE === "empty-catalog") return null;
   if (env.CATALOG_WORKER_ENABLED !== "true") return null;
   // Production scheduling is a separately reviewed release change.
   if (!["local", "staging"].includes(env.CATALOG_WORKER_ENVIRONMENT || "")) throw Error("Worker environment disabled");
