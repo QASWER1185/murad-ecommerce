@@ -67,5 +67,12 @@
   },
   "stagingRequirementRetiredByOwner": true,
   "productionMigrationsRLSMergeDeploymentExecuted": false,
-  "ERPOrGoogleCloudAccessed": false
+  "ERPOrGoogleCloudAccessed": false,
+  "initialEmptyBusinessRelease": {
+    "usesDatabase": false,
+    "requiredMigrations": 0,
+    "backupExportRestoreRequired": false,
+    "legacyRLSUnchanged": true,
+    "privateUploadsBlocked": true
+  }
 }

@@ -14,6 +14,8 @@ import { Breadcrumbs } from "./Breadcrumbs";
 import { productSchema, jsonLd } from "@/lib/storefront/seo";
 import styles from "@/components/sanitary/SanitaryShop.module.css";
 import "./catalog.css";
+import { EmptyCatalog } from "./EmptyCatalog";
+import { approvedBusinessAsset } from "@/lib/storefront/business-site";
 export function Price({ product }: { product: Product }) {
   return (
     <strong className={styles.price}>
@@ -290,6 +292,7 @@ export function CatalogPage({
     kind === "category" ? catalog.categories : catalog.brands
   ).find((item) => item.id === entity?.id)?.asset;
   const items = [{ name: title, path }];
+  const businessAsset = catalog.emptyCatalog && entity ? approvedBusinessAsset(kind, entity.slug) : null;
   return (
     <div className={styles.shop}>
       {kind === "search" && (
@@ -337,14 +340,16 @@ export function CatalogPage({
           <div
             className={styles.heroPhoto}
             style={
-              !sanitary
+              !sanitary && businessAsset
+                ? { backgroundImage: `url('${businessAsset}')`, backgroundColor: "#fff", backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center" }
+                : !sanitary
                 ? { backgroundImage: "none", backgroundColor: "#e9edf1" }
                 : undefined
             }
           >
             {catalog.mediaEnabled && heroAsset ? (
               <Media image={heroAsset} enabled={true} sizes="55vw" />
-            ) : !sanitary ? (
+            ) : !sanitary && !catalog.emptyCatalog ? (
               <span
                 style={{
                   display: "grid",
@@ -358,7 +363,7 @@ export function CatalogPage({
               </span>
             ) : (
               <span className="sr-only">
-                Bathroom collection from the approved sanitary reference
+                {catalog.emptyCatalog ? title : "Bathroom collection from the approved sanitary reference"}
               </span>
             )}
           </div>
@@ -382,22 +387,22 @@ export function CatalogPage({
               ))}
           </nav>
         )}
-        <section id="catalog" className={styles.catalog}>
-          <Filters
+        <section id="catalog" className={`${styles.catalog} ${catalog.emptyCatalog ? "business-empty-catalog" : ""}`}>
+          {!catalog.emptyCatalog && <Filters
             catalog={catalog}
             query={query}
             path={path}
             sanitary={sanitary}
             kind={kind}
-          />
+          />}
           <div className={styles.results}>
-            <div className={styles.toolbar}>
+            {!catalog.emptyCatalog && <div className={styles.toolbar}>
               <div>
                 <h2>Showing {catalog.total} Products</h2>
                 {query.q && <p>Matching “{query.q}”</p>}
               </div>
               <Sort query={query} path={path} />
-            </div>
+            </div>}
             {catalog.products.length ? (
               <div className={styles.grid}>
                 {catalog.products.map((product) => (
@@ -408,6 +413,8 @@ export function CatalogPage({
                   />
                 ))}
               </div>
+            ) : catalog.emptyCatalog ? (
+              <EmptyCatalog title={title} quotation={entity?.slug === "building-material"} main={catalog.settings?.main_whatsapp} secondary={catalog.settings?.secondary_whatsapp} />
             ) : (
               <div className={styles.empty}>
                 <h3>No matching products</h3>
@@ -482,13 +489,13 @@ export function CatalogPage({
                         backgroundImage: `url('/sanitary/${brand.asset}.png')`,
                       }}
                     />
-                    <span
+                    {!catalog.emptyCatalog && <span
                       className={styles.explorePhoto}
                       style={{
                         backgroundImage: `url('/sanitary/${brand.card}.png')`,
                       }}
-                    />
-                    <strong>View Brand Products →</strong>
+                    />}
+                    <strong>{catalog.emptyCatalog ? "Explore Brand →" : "View Brand Products →"}</strong>
                   </Link>
                 ))}
               </div>

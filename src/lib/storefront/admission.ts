@@ -1,12 +1,18 @@
 import { parseQuery, type SearchValues } from "./query";
 import { createClient } from "@supabase/supabase-js";
 import { storefrontConfig } from "./config";
+import { emptyCatalogMode, businessCatalog } from "./business-site";
 export async function admitCatalogPath(
   path: string,
   values: SearchValues = {},
 ) {
   const match = path.match(/^\/(product|category|brand)\/([^/]+)$/);
   if (!match) return { status: 200 };
+  if (emptyCatalogMode()) {
+    const rawPage = Array.isArray(values.page) ? values.page[0] : values.page;
+    return { status: match[1] !== "product" && (!rawPage || rawPage === "1") &&
+      !!businessCatalog(match[1], match[2]).entity ? 200 : 404 };
+  }
   const config = storefrontConfig();
   if (
     !config ||

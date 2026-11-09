@@ -3,6 +3,7 @@ import { storefrontConfig } from "./config";
 import { catalogMetadata } from "@/lib/seo/catalog-policy";
 import { productStructuredData } from "../seo/structured";
 import type { Catalog, Product } from "./types";
+import { businessSiteOrigin } from "./business-site";
 export function context(searchOrFilter = false) {
   const config = storefrontConfig();
   return {
@@ -12,6 +13,8 @@ export function context(searchOrFilter = false) {
   };
 }
 export function metadata(catalog: Catalog, filtered = false): Metadata {
+  if (catalog.emptyCatalog && catalog.route)
+    return catalogMetadata(catalog.route, businessSiteOrigin());
   const config = storefrontConfig();
   if (!catalog.route || !config)
     return {
@@ -32,12 +35,12 @@ export function productSchema(product: Product, catalog: Catalog, filtered = fal
 export function businessSchema(catalog: Catalog) {
   const config = storefrontConfig(),
     settings = catalog.settings;
-  if (!config || !settings) return null;
+  if ((!config && !catalog.emptyCatalog) || !settings) return null;
   return {
     "@context": "https://schema.org",
     "@type": "Store",
     name: settings.business_name,
-    url: config.origin,
+    url: catalog.emptyCatalog ? businessSiteOrigin() : config!.origin,
     telephone: settings.main_whatsapp,
     address: {
       "@type": "PostalAddress",

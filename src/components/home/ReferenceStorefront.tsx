@@ -15,6 +15,8 @@ import { useShopping } from '@/components/sanitary/shop-state';
 import { canOrder } from '@/lib/storefront/query';
 import { whatsappLink } from '@/lib/storefront/whatsapp';
 import { WhatsAppInquiry, WhatsAppContact } from '@/components/catalog/WhatsApp';
+import { EmptyCatalog } from '@/components/catalog/EmptyCatalog';
+import { primaryCategorySlugs } from '@/lib/storefront/business-site';
 
 type Panel = 'cart' | 'wishlist' | 'account' | null;
 const tabs = ['Featured', 'New Arrivals', 'Imported', 'Deals'] as const;
@@ -104,7 +106,16 @@ export default function ReferenceStorefront({ catalog }: { catalog: Catalog }) {
     shopping.toggle(product.id);
     setAnnouncement(`${product.name} ${saved ? 'removed from' : 'added to'} wishlist`);
   };
-  const nav: { label: string; category: Category; dropdown?: boolean }[] = [
+  const homeCategories = catalog.emptyCatalog ? [
+    ...primaryCategorySlugs.map(slug => categories.find(c => c.id === slug)!),
+    ...categories.filter(c => !primaryCategorySlugs.some(slug => slug === c.id)),
+  ] : categories;
+  const nav: { label: string; category: Category; dropdown?: boolean }[] = catalog.emptyCatalog ? [
+    { label: 'Sanitary & Bathroom', category: 'sanitary' },
+    { label: 'Electrical', category: 'electric' },
+    { label: 'Building Materials', category: 'building-material' },
+    { label: 'Imported Kitchen & Bath', category: 'imported-products' },
+  ] : [
     { label: 'Sanitary & Bathroom', category: 'sanitary', dropdown: true },
     { label: 'Kitchen & Appliances', category: 'kitchen', dropdown: true },
     { label: 'Pipes & Fittings', category: 'pipes', dropdown: true },
@@ -114,7 +125,7 @@ export default function ReferenceStorefront({ catalog }: { catalog: Catalog }) {
     { label: 'Building Material', category: 'building-material' },
   ];
 
-  return <div className={`${styles.storefront} ${!catalog.shoppingEnabled ? styles.inquiryStore : ''}`}><Freshness generation={catalog.generation} />
+  return <div className={`${styles.storefront} ${!catalog.shoppingEnabled ? styles.inquiryStore : ''}`}>{!catalog.emptyCatalog && <Freshness generation={catalog.generation} />}
     <a className={styles.skipLink} href="#featured-products">Skip to products</a>
     <header>
       <div className={styles.topbar}><div className={styles.topbarInner}>
@@ -144,7 +155,7 @@ export default function ReferenceStorefront({ catalog }: { catalog: Catalog }) {
       <nav className={styles.navbar} aria-label="Product categories"><div className={styles.navInner}>
         <div className={styles.categoryMenu} ref={menuRef}>
           <button type="button" className={styles.allCategories} aria-expanded={menu} aria-controls="category-menu" onClick={() => setMenu(!menu)}><Icon name="list" />All Categories<Icon name="menu-chevron" /></button>
-          {menu && <div id="category-menu" className={styles.dropdown}><Link prefetch={false} href="/categories">All Categories</Link>{categories.map(item => <Link prefetch={false} key={item.id} href={`/category/${item.id}`}>{item.label}</Link>)}</div>}
+          {menu && <div id="category-menu" className={styles.dropdown}><Link prefetch={false} href="/categories">All Categories</Link>{homeCategories.map(item => <Link prefetch={false} key={item.id} href={`/category/${item.id}`}>{item.label}</Link>)}{catalog.emptyCatalog && <Link prefetch={false} href="/category/imported-products">Imported Kitchen &amp; Bath</Link>}</div>}
         </div>
         <div className={styles.navLinks}>{nav.map(item => <Link prefetch={false} href={`/category/${item.category}`} key={item.label}>{item.label}{item.dropdown && <Icon name="chevron-white" />}</Link>)}</div>
       </div></nav>
@@ -160,7 +171,7 @@ export default function ReferenceStorefront({ catalog }: { catalog: Catalog }) {
         {referenceAssets.includes('hero') && <button type="button" className={styles.heroImageLink} aria-label="Shop Sanitary Products" onClick={() => { router.push("/category/sanitary"); }} />}
       </section>
       <div className={styles.content}>
-        <section className={styles.categories} aria-label="Shop by category">{categories.map(item => <Link prefetch={false} href={`/category/${item.id}`} key={item.id} className={styles.categoryCard}>
+        <section className={styles.categories} aria-label="Shop by category">{homeCategories.map(item => <Link prefetch={false} href={`/category/${item.id}`} key={item.id} className={styles.categoryCard}>
           <Asset name={item.asset} className={styles.categoryImage} /><span>{item.lines[0]}<br />{item.lines[1]}</span>
         </Link>)}</section>
         <section id="brands" className={styles.brands} aria-labelledby="brand-title">
@@ -168,9 +179,10 @@ export default function ReferenceStorefront({ catalog }: { catalog: Catalog }) {
           <div className={styles.brandGrid}>{brands.map(item => <Link prefetch={false} href={`/brand/${item.slug}`} key={item.asset} aria-label={`Shop ${item.label}`}>{catalog.mediaEnabled && catalog.brands.find(brand=>brand.slug===item.slug)?.asset ? <span className={styles.brandImage}><Media image={catalog.brands.find(brand=>brand.slug===item.slug)?.asset} enabled={true}/></span> : <Asset name={item.asset} className={styles.brandImage} />}{!referenceAssets.includes(item.asset) && <span>{item.label}</span>}</Link>)}</div>
         </section>
         <section id="featured-products" className={styles.featured} aria-labelledby="products-title">
-          <div className={styles.sectionHeading}><h2 id="products-title">Featured Products</h2><span className={styles.goldRule} /><div className={styles.tabs} aria-label="Product collection">{tabs.map(item => <button type="button" key={item} aria-pressed={item === tab} className={item === tab ? styles.activeTab : ''} onClick={() => { setTab(item); productRail.current?.scrollTo({ left: 0 }); }}>{item}</button>)}</div></div>
-          {(query || category || brand) && <div className={styles.filterSummary}><span>{visible.length} products{category ? ` · ${categories.find(item => item.id === category)?.label}` : brand ? ` · ${brand}` : ` matching “${query}”`}</span><button type="button" onClick={() => { setQuery(''); setCategory(null); setBrand(null); }}>Clear filters</button></div>}
+          <div className={styles.sectionHeading}><h2 id="products-title">{catalog.emptyCatalog ? 'Our Product Catalogue' : 'Featured Products'}</h2><span className={styles.goldRule} />{catalog.emptyCatalog ? <Link prefetch={false} href="/category/imported-products">Imported Kitchen &amp; Bath</Link> : <div className={styles.tabs} aria-label="Product collection">{tabs.map(item => <button type="button" key={item} aria-pressed={item === tab} className={item === tab ? styles.activeTab : ''} onClick={() => { setTab(item); productRail.current?.scrollTo({ left: 0 }); }}>{item}</button>)}</div>}</div>
+          {!catalog.emptyCatalog && (query || category || brand) && <div className={styles.filterSummary}><span>{visible.length} products{category ? ` · ${categories.find(item => item.id === category)?.label}` : brand ? ` · ${brand}` : ` matching “${query}”`}</span><button type="button" onClick={() => { setQuery(''); setCategory(null); setBrand(null); }}>Clear filters</button></div>}
           <div className={styles.productsWrapper}>
+            {catalog.emptyCatalog ? <EmptyCatalog title="sanitary, electrical, building materials or imported kitchen and bath products" main={catalog.settings?.main_whatsapp} secondary={catalog.settings?.secondary_whatsapp} /> : <>
             <button type="button" className={`${styles.railArrow} ${styles.previous}`} aria-label="Previous products" onClick={() => productRail.current?.scrollBy({ left: -productRail.current.clientWidth, behavior: 'smooth' })}><Icon name="previous" /></button>
             <div className={styles.productRail} ref={productRail}>
               {visible.map(product => <article key={product.id} className={styles.productCard}>
@@ -185,6 +197,7 @@ export default function ReferenceStorefront({ catalog }: { catalog: Catalog }) {
             </div>
             {visible.length === 0 && <p className={styles.emptyResults}>No matching products. <button type="button" onClick={() => { selectCategory(null); setTab('Featured'); }}>Browse all products</button></p>}
             <button type="button" className={`${styles.railArrow} ${styles.next}`} aria-label="Next products" onClick={() => productRail.current?.scrollBy({ left: productRail.current.clientWidth, behavior: 'smooth' })}><Icon name="next" /></button>
+            </>}
           </div>
         </section>
       </div>
@@ -202,14 +215,14 @@ export default function ReferenceStorefront({ catalog }: { catalog: Catalog }) {
         <Logo footer />
         <div><h2>Quick Links</h2><a href="#footer-contact">About Us</a><a href="#brands">Shop by Brand</a><Link prefetch={false} href="/categories">All Categories</Link><a href={whatsapp()} target="_blank" rel="noopener noreferrer">Contact Us</a></div>
         <div><h2>Categories</h2>{nav.filter(item => item.category !== 'tanks').map(item => <Link prefetch={false} key={item.category} href={`/category/${item.category}`}>{item.label === 'Electrical' ? 'Electrical Products' : item.label}</Link>)}</div>
-        <div className={styles.location}><h2>Our Location</h2><a href="https://www.google.com/maps/search/?api=1&query=Adda+Plot+Al+Kabir+Town+Raiwind+Road+Lahore" target="_blank" rel="noopener noreferrer"><Icon name="pin-footer" /><span>Adda Plot, Al Kabir Town,<br />Raiwind Road, Lahore</span></a><a href={whatsapp()} target="_blank" rel="noopener noreferrer"><Icon name="whatsapp-footer" /><span><strong>0308-6235608</strong><br />(WhatsApp for Rates &amp; Orders)</span></a></div>
+        <div className={styles.location}><h2>Our Location</h2><a href="https://www.google.com/maps/search/?api=1&query=Adda+Plot+Al+Kabir+Town+Raiwind+Road+Lahore" target="_blank" rel="noopener noreferrer"><Icon name="pin-footer" /><span>Adda Plot, Al Kabir Town,<br />Raiwind Road, Lahore</span></a>{catalog.emptyCatalog ? <div className={styles.footerContact}><Icon name="whatsapp-footer" /><span><a href={whatsapp(undefined, true)} target="_blank" rel="noopener noreferrer">0321-7165000</a><a href={whatsapp()} target="_blank" rel="noopener noreferrer">0308-6235608</a></span></div> : <a href={whatsapp()} target="_blank" rel="noopener noreferrer"><Icon name="whatsapp-footer" /><span><strong>0308-6235608</strong><br />(WhatsApp for Rates &amp; Orders)</span></a>}</div>
         <div className={styles.social}><h2>Follow Us</h2><Asset name="social-icons" className={styles.socialIcons} label="Facebook, Instagram, YouTube, TikTok" /></div>
       </div>
     </footer>
     <WhatsAppContact number={catalog.settings?.main_whatsapp} />
     <div role="status" aria-live="polite" className="sr-only">{announcement}</div>
-    {panel && <Modal title={panel === 'cart' ? 'Your Selected Order' : panel === 'wishlist' ? 'Your Wishlist' : 'Account & Order Assistance'} onClose={() => setPanel(null)}>
-      {panel === 'account' ? <div className={styles.panelContent}><p>Contact M. Murad Sons for help with your account, orders, and quotations.</p><a className={styles.checkout} href={whatsapp('I need assistance with my account or order.')} target="_blank" rel="noopener noreferrer">WhatsApp 0308-6235608</a></div>
+    {panel && <Modal title={panel === 'cart' ? 'Your Selected Order' : panel === 'wishlist' ? 'Your Wishlist' : catalog.emptyCatalog ? 'Contact M Murad Sons' : 'Account & Order Assistance'} onClose={() => setPanel(null)}>
+      {panel === 'account' ? <div className={styles.panelContent}><p>{catalog.emptyCatalog ? 'Ask our Lahore team about products, current rates and delivery.' : 'Contact M. Murad Sons for help with your account, orders, and quotations.'}</p><a className={styles.checkout} href={whatsapp(catalog.emptyCatalog ? 'Please help me with product information, current rates and delivery.' : 'I need assistance with my account or order.')} target="_blank" rel="noopener noreferrer">WhatsApp 0308-6235608</a></div>
         : panel === 'wishlist' ? <div className={styles.panelContent}>{wishlist.length === 0 ? <p>Your wishlist is empty.</p> : products.filter(product => wishlist.includes(product.id)).map(product => <div className={styles.cartRow} key={product.id}><div><strong>{product.name}</strong><p>{product.inquiry?"Request current rate":`${product.currency||"PKR"} ${money(product.price)}`}</p><button type="button" onClick={() => toggleWishlist(product)}>Remove</button></div><button type="button" disabled={product.inquiry} className={styles.addToCart} onClick={() => add(product)}>{product.inquiry?"Enquire":"Add to Cart"}</button></div>)}</div>
         : null}
     </Modal>}

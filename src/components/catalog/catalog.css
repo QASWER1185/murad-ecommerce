@@ -62,6 +62,8 @@
 .catalog-directory h2 {
   font-size: 18px;
 }
+.business-brand-logo { display:block; height:65px; margin-bottom:16px; background-position:center; background-size:contain; background-repeat:no-repeat; }
+.business-empty-catalog { grid-template-columns:minmax(0,1fr) !important; }
 .catalog-directory p {
   margin-top: 10px;
   line-height: 1.6;

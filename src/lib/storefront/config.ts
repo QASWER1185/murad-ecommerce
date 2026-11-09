@@ -4,6 +4,7 @@ export const productionReleaseApproved = false;
 export function storefrontConfig(
   env: Record<string, string | undefined> = process.env,
 ) {
+  if (env.BUSINESS_SITE_MODE === "empty-catalog") return null;
   if (env.CATALOG_ENABLED !== "true") return null;
   const environment = env.CATALOG_ENVIRONMENT;
   if (!["local", "staging", "production"].includes(environment || ""))

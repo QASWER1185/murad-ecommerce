@@ -1,21 +1,25 @@
 {
-  "releaseMode": "Catalog + WhatsApp-only; production shopping always false",
+  "releaseMode": "Owner-approved initially empty business website",
+  "reportTimezone": "Asia/Karachi",
   "currentValidation": {
-    "timestamp": "2026-11-09T12:15:20.753Z",
+    "timestamp": "2026-11-09T13:28:45.415Z",
     "runtime": "v26.13.0",
-    "scope": "Changed Catalog + WhatsApp-only release profile; isolated local data, no completed full-commerce suites rerun",
     "checks": 5,
     "results": [
-      "Production always disables shopping, including an attempted environment opt-in",
-      "Catalog, search and product pages offer WhatsApp without cart, wishlist or checkout controls",
-      "Cart and order intake fail closed even if an order-enabled variable is supplied",
-      "Mobile and desktop retain both contact links without document overflow",
-      "Inquiry release captures retain approved hero pixels; only action controls change"
+      "Empty-mode guards override catalog/Admin/worker enable flags without touching a backend",
+      "All approved category and brand routes render graceful empty pages with accurate SEO",
+      "Homepage/navigation/directories publish Sanitary, Electrical, Building Materials in order and retain Imported",
+      "Both WhatsApp contacts and building-material today-rate enquiries work without sending messages",
+      "Desktop/mobile screenshots preserve approved hero art and avoid overflow; all products remain absent"
     ],
-    "heroPixelComparisons": 4,
-    "cartCheckoutPaymentsEnabled": false,
-    "orderOptInOverrideDenied": true,
-    "productionOperations": 0
+    "heroComparisons": 4,
+    "backendRequests": 0,
+    "outsideBrowserRequests": 0,
+    "productRecordsPublished": 0,
+    "productionOperations": 0,
+    "requiresDatabaseMigration": false,
+    "adminEnabled": false,
+    "cartCheckoutWishlistPaymentsEnabled": false
   },
   "currentChecks": [
     {
@@ -34,30 +38,29 @@
       "runtime": "v26.13.0"
     },
     {
-      "name": "inquiry-profile",
+      "name": "empty-business",
       "exitCode": 0,
       "runtime": "v26.13.0"
     }
   ],
-  "previousCommerceValidation": {
-    "candidate": "5e54bd8c387e6c0d6098536fa0f259bb2cfad63f",
-    "completedPreviouslyNotRerun": true,
-    "policyTests": 8,
-    "storefrontBrowserGroups": 17,
-    "catalogDatabaseAssertions": 49,
-    "legacySamplesPreserved": 6
+  "initialProductionChanges": {
+    "databaseMigrations": 0,
+    "databaseRLSAuthStorageChanges": 0,
+    "dataExportsOrRestores": 0,
+    "verifiedProductsPublished": 0,
+    "newSupabaseCredentialsRequired": false
   },
-  "hostedValidation": {
-    "previousPreviewCandidate": "5e54bd8c387e6c0d6098536fa0f259bb2cfad63f",
-    "previewHTTPHome": 200,
-    "databaseDisconnected": true,
-    "finalInquiryCandidateDeployed": false
-  },
-  "productionChanged": false,
-  "stagingDatabaseRequired": false,
-  "inventoryVerifiedByThisWork": false,
+  "approvedCategoryOrder": [
+    "sanitary",
+    "electric",
+    "building-material"
+  ],
+  "importedSection": "imported-products",
+  "admin": "Source retained; HTTP 503 until separately approved future activation",
+  "seo": "Titles/canonicals/OG/business schema/breadcrumbs retained; existing no-index safeguards unchanged",
   "lint": {
     "errors": 0,
     "preExistingWarnings": 8
-  }
+  },
+  "productionExecutionApproved": false
 }

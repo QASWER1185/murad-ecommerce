@@ -1,5 +1,5 @@
 {
-  "scope": "Prepared only; not applied to production",
+  "scope": "DEFERRED: product catalog/Admin activation only. Do not apply for initial empty business website.",
   "base": "f4deb663ac4b3d372d22be6d39f5f034334a7005",
   "preserveExistingMigrationHistory": true,
   "neverReplayInitialSeed": true,
@@ -64,5 +64,6 @@
       "changedFromReviewedCandidate": false,
       "requiresPerConnectionCutoverApproval": true
     }
-  ]
+  ],
+  "initialEmptyBusinessSiteRequiredMigrations": 0
 }
