@@ -8,6 +8,7 @@ import { csrfCookie, privateHeaders, validOrigin } from "./lib/admin/security";
 import { admitCatalogPath } from "./lib/storefront/admission";
 import { publicHeaders, storefrontConfig } from "./lib/storefront/config";
 import { emptyCatalogMode } from "./lib/storefront/business-site";
+import { businessPageIndexable } from "./lib/storefront/business-seo";
 export async function proxy(request: NextRequest) {
   if (emptyCatalogMode() && request.nextUrl.pathname.startsWith("/admin"))
     return new NextResponse("Admin dashboard is securely closed for the initial business-site release.", {
@@ -22,7 +23,8 @@ export async function proxy(request: NextRequest) {
       "X-Robots-Tag": "noindex, follow",
     };
     try {
-      if (storefrontConfig()?.indexingEnabled) delete headers["X-Robots-Tag"];
+      if (emptyCatalogMode() ? businessPageIndexable(request.nextUrl.pathname, !!request.nextUrl.search) : storefrontConfig()?.indexingEnabled)
+        delete headers["X-Robots-Tag"];
       const decision = await admitCatalogPath(
         request.nextUrl.pathname,
         Object.fromEntries(
@@ -176,5 +178,7 @@ export const config = {
     "/api/catalog/:path*",
     "/api/order-requests/:path*",
     "/privacy",
+    "/about",
+    "/contact",
   ],
 };

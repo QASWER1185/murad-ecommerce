@@ -101,3 +101,17 @@ form:has(> label > select[name="sort"]) {
   border: 1px solid #d8dfe5;
   border-radius: 4px;
 }
+
+.business-information { padding-bottom:40px; }
+.business-introduction,.business-search-results { max-width:900px; margin:20px auto 32px; padding:32px; border:1px solid #dce2e8; border-top:2px solid #c8a452; border-radius:8px; background:white; line-height:1.8; }
+.business-introduction h1,.business-search-results h1 { font-size:clamp(26px,4vw,36px); font-weight:700; line-height:1.2; margin:12px 0 24px; }
+.business-introduction h2 { margin:28px 0 10px; }
+.business-introduction p { margin:12px 0; }
+.business-introduction address { font-style:normal; }
+.business-introduction .business-eyebrow { color:#72571e; font-size:12px; letter-spacing:1px; font-weight:700; }
+.business-collection-links { display:flex; flex-wrap:wrap; gap:10px; margin:20px 0; }
+.business-collection-links a { display:flex; align-items:center; min-height:44px; padding:10px 14px; border:1px solid #cbd4dc; background:#f7f9fb; border-radius:5px; color:#002747; font-weight:600; }
+.business-text-link { display:inline-flex; align-items:center; min-height:44px; text-decoration:underline!important; font-weight:600; }
+.business-introduction .contacts { max-width:450px; }
+.business-brand-logo { background-size:auto 60px; }
+@media(max-width:650px) { .business-introduction,.business-search-results { padding:22px 18px; } }

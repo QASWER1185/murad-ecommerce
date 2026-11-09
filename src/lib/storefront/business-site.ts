@@ -34,12 +34,24 @@ const collectionRecords = [
 ];
 const brandRecords = [...new Map(brands.map(b => [b.slug, taxonomy("brand", b.slug, b.id)])).values()];
 
+export function searchBusinessCollections(term: string) {
+  const words = term.normalize("NFKC").toLocaleLowerCase("en").trim().split(/\s+/).filter(Boolean);
+  return [...collectionRecords, ...brandRecords].filter(record =>
+    !words.length || words.every(word => record.name.toLocaleLowerCase("en").includes(word)),
+  );
+}
+
 export function approvedBusinessAsset(kind: string, slug: string): string | undefined {
   if (kind === "brand") {
     const brand = brands.find(b => b.slug === slug);
     return brand ? `/homepage/${brand.asset}.png` : undefined;
   }
   if (slug === "building-material") return "/homepage/banner-building.png";
+  const category = categories.find(c => c.id === (slug === importedCollection.slug ? "kitchen" : slug));
+  return category ? `/homepage/${category.asset}.png` : undefined;
+}
+
+export function approvedCategorySymbol(slug: string) {
   const category = categories.find(c => c.id === (slug === importedCollection.slug ? "kitchen" : slug));
   return category ? `/homepage/${category.asset}.png` : undefined;
 }
