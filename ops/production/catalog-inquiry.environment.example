@@ -1,0 +1,13 @@
+# Exact proposed initial business-site settings: apply only after owner execution approval.
+# No Supabase variable, credential, Auth, Storage or database change is required.
+# Preserve existing NEXT_PUBLIC_SUPABASE_* values and all other production settings.
+BUSINESS_SITE_MODE=empty-catalog
+BUSINESS_SITE_ORIGIN=https://murad-ecommerce.vercel.app
+CATALOG_ENABLED=false
+CATALOG_SHOPPING_ENABLED=false
+CATALOG_MEDIA_ENABLED=false
+CATALOG_INDEXING_ENABLED=false
+ADMIN_ENABLED=false
+ORDER_REQUESTS_ENABLED=false
+CATALOG_WORKER_ENABLED=false
+ANALYTICS_ENABLED=false

@@ -1,0 +1,103 @@
+.catalog-filter-form {
+  min-width: 0;
+}
+.catalog-filter-form aside {
+  height: 100%;
+}
+.catalog-filter-form select {
+  max-width: 100%;
+}
+.catalog-pagination,
+.catalog-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+  margin: 20px 0;
+  font-size: 12px;
+}
+.catalog-pagination a,
+.catalog-links a {
+  text-decoration: underline;
+}
+.catalog-gallery {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0;
+  overflow: auto;
+}
+.catalog-gallery a,
+.catalog-gallery button {
+  display: block;
+  flex: 0 0 90px;
+  height: 80px;
+  border: 1px solid #dce2e8;
+  border-radius: 5px;
+}
+.catalog-specifications > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid #e3e8ed;
+  padding: 12px 0;
+  gap: 15px;
+}
+.catalog-specifications dt {
+  font-weight: 700;
+}
+.catalog-specifications dd {
+  margin: 0;
+}
+.catalog-directory {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  margin: 30px 0;
+}
+.catalog-directory a {
+  padding: 20px;
+  border: 1px solid #dce2e8;
+  border-radius: 6px;
+  background: white;
+}
+.catalog-directory h2 {
+  font-size: 18px;
+}
+.business-brand-logo { display:block; height:65px; margin-bottom:16px; background-position:center; background-size:contain; background-repeat:no-repeat; }
+.business-empty-catalog { grid-template-columns:minmax(0,1fr) !important; }
+.catalog-directory p {
+  margin-top: 10px;
+  line-height: 1.6;
+}
+form:has(> label > select[name="sort"]) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.catalog-gallery button[aria-pressed="true"] {
+  outline: 2px solid #c59b38;
+  outline-offset: 2px;
+}
+
+.catalog-sort {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 10px;
+}
+.catalog-sort label {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.catalog-sort select {
+  font-size: 10px;
+  max-width: 150px;
+}
+.catalog-sort button {
+  font-size: 10px;
+  padding: 5px 8px;
+  border: 1px solid #d8dfe5;
+  border-radius: 4px;
+}
