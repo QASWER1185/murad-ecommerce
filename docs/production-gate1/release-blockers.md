@@ -12,10 +12,10 @@
 | Critical for affected feature — NOT VERIFIED | Hosted Auth/Storage/orders/worker/privacy | Provider-level acceptance before opening each path; no synthetic local PASS promoted |
 | High — NOT VERIFIED | Hosting capacity/backup inventory | Function body/time/RSS/pool headroom and actual backup capability; max_connections=60 is not load certification |
 | High — prior local target unmet | LCP/XLSX/contrast | PR #11 local performance/contrast findings remain historical constraints; no new hosted measurement |
-| Publication — BLOCKED | Documentation-only branch may auto-deploy on push | New branch lacks deployment exclusion; Vercel auto-deployment configuration unverified. Approve branch-only repository guard or supply authorized disabled-deployment evidence |
+| Publication — PASS repository safeguard | Limited branch exclusion approved and verified | Exact branch false; nine prior exclusions preserved; no true/wildcard override or tracked CI deployment workflow; see deployment-safety evidence |
 
 Gate 1 is an inspection, not authorization to repair these conditions. All nine
-reports and non-sensitive evidence are locally reviewable. No existing PR was
+reports and non-sensitive evidence are prepared for the authorized Draft PR. No existing PR was
 merged or closed. No production application/SQL/hosting configuration changed.
 
 ## Later gate sequence — none authorized now

@@ -49,31 +49,41 @@ sufficient evidence. Historical local tests in PR #11 are not production accepta
 
 ## Git scope and publication safeguard
 
-Local branch `development/production-gate1-inspection` starts at reviewed PR #11
-commit `f4deb663ac4b3d372d22be6d39f5f034334a7005`. Only this documentation directory
-changes. App source, artwork, SQL, lockfile and Vercel configuration are untouched.
-No build/regression rerun is needed for metadata reports; documentation/data-shape,
-local-link, source-preservation and secret-exclusion checks are recorded separately.
+Branch `development/production-gate1-inspection` starts at reviewed PR #11
+commit `f4deb663ac4b3d372d22be6d39f5f034334a7005` and targets
+`development/controlled-launch-prep`. Changes are Gate 1 reports/evidence plus the
+single branch-specific `vercel.json` exclusion approved on **9 November 2026
+(Asia/Karachi)**. App source, artwork, SQL, dependencies and every other existing
+configuration value remain unchanged. Original production observations retain
+their inspection timestamps; this exception does not refresh production metadata.
 
-**Draft PR publication is held pending a no-deployment safeguard.** The requested
-new branch is absent from `vercel.json`'s explicit deployment exclusions. Vercel's
-[current configuration rule](https://vercel.com/docs/project-configuration/git-configuration)
-and schema say unspecified branches default to true. Team access is denied, so
-actual Git linkage/ignored-build settings cannot be verified. A push might trigger
-a forbidden automatic Preview. No reliable native commit-message skip was verified.
+**PASS — Git deployment prevention verified before the first branch push.**
+The added rule is exactly:
 
-The minimal proposed exception to the documentation-only scope is exactly:
-
-```text
-vercel.json → git.deploymentEnabled
+```json
 "development/production-gate1-inspection": false
 ```
 
-This has **not** been applied. Owner can separately approve that branch-only
-repository safeguard, or provide authorized evidence that automatic deployments
-for this exact branch are already disabled. Do not change production Vercel
-settings as an alternative under Gate 1. Then publish the Draft targeting
-`development/controlled-launch-prep`; do not merge it. The audit reports are
-complete/reviewable locally while this final publication decision is pending.
+Vercel's [official matching rule](https://vercel.com/docs/project-configuration/git-configuration)
+says exact false entries disable branch Git deployments, unspecified branches
+otherwise default true, and a matching true rule can override false. Validation
+confirms the exact branch matches false, all nine previous exclusions/configuration
+are preserved, and there are **zero true rules or wildcard patterns**. No tracked
+CI deployment workflow or active custom commit/push hook exists. The first push
+includes the guarded final head, not the earlier unguarded documentation commit
+alone. No manual deployment command or Vercel settings change is authorized/run.
 
-**Stop after Gate 1.** No later gate or live operation starts from this report.
+[Pre-push safety evidence](evidence/deployment-safety.json) records the exact config
+SHA256 and checks; [changed-file inventory](evidence/file-inventory.json) lists the
+complete scope. Draft publication is authorized by the limited exception. The
+historical Vercel owning-team 403 still blocks hosting metadata inspection; it
+is separate from the documented repository Git exclusion. No live deployment
+inventory or provider security acceptance is claimed.
+
+Build/application tests were not rerun for reports plus a boolean Git-trigger
+exclusion. JSON validity, exact config preservation, branch matching, docs links,
+credential exclusion, source preservation and whitespace were checked.
+
+**Stop after Gate 1. Gate 2 remains NOT APPROVED.** No merge, migration, RLS change,
+backup, production/ERP modification or live feature activation follows from this
+publication exception.

@@ -1,0 +1,38 @@
+{
+  "timestampUTC": "2026-11-09T09:25:08.414165+00:00",
+  "authorizationDateAsiaKarachi": "2026-11-09",
+  "scope": "Owner-approved Gate 1 branch-only Git auto-deployment exclusion; no provider configuration operation",
+  "status": "PASS",
+  "verifiedBeforePush": true,
+  "branch": "development/production-gate1-inspection",
+  "targetBase": "development/controlled-launch-prep",
+  "baseCommit": "f4deb663ac4b3d372d22be6d39f5f034334a7005",
+  "officialRuleSource": "https://vercel.com/docs/project-configuration/git-configuration",
+  "officialRules": [
+    "An exact false branch entry disables Git-triggered Vercel deployment",
+    "Unspecified branches default true",
+    "A matching true rule can override false; this configuration contains none"
+  ],
+  "matchingRule": {
+    "development/production-gate1-inspection": false
+  },
+  "rulesAreExactBranchNames": true,
+  "trueRulesAnywhere": 0,
+  "priorExclusionsPreserved": 9,
+  "allOtherConfigurationPreserved": true,
+  "configurationSha256": "add5c01785238e74e9f252bf9e0ed201acd5f605394fa973b2004750640a96d3",
+  "trackedDeploymentWorkflows": [],
+  "activeCustomPushOrCommitHooks": false,
+  "remoteBranchAbsentBeforeFirstPush": true,
+  "firstPushIncludesGuardedHeadOnly": true,
+  "applicationSQLAssetsDependenciesUnchanged": true,
+  "productionOrERPAccessedThisException": false,
+  "supabaseOperationsThisException": 0,
+  "vercelProjectMutations": 0,
+  "manualDeploymentInvoked": false,
+  "gate2Approved": false,
+  "limitations": [
+    "Verification covers Git-trigger prevention by committed Vercel configuration; manual deployments are separate unrequested operations",
+    "Historical Vercel owning-team 403 remains unresolved; no new project/deployment/API inspection was performed"
+  ]
+}

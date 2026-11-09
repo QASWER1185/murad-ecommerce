@@ -6,6 +6,7 @@
     "docs/production-gate1/erp-isolation.md",
     "docs/production-gate1/evidence/database-inventory.json",
     "docs/production-gate1/evidence/database-structure-and-access.json",
+    "docs/production-gate1/evidence/deployment-safety.json",
     "docs/production-gate1/evidence/file-inventory.json",
     "docs/production-gate1/evidence/identity.json",
     "docs/production-gate1/evidence/inspection-log.json",
@@ -21,6 +22,7 @@
     "docs/production-gate1/release-blockers.md",
     "docs/production-gate1/security-gaps.md",
     "docs/production-gate1/supabase-inventory.md",
-    "docs/production-gate1/vercel-inventory.md"
+    "docs/production-gate1/vercel-inventory.md",
+    "vercel.json"
   ]
 }

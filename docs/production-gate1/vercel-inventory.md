@@ -45,14 +45,20 @@ read-only inspection. Do not reconnect blindly, switch to another team, share a
 token or change deployment settings. Then retry only the same scoped identity
 read, verify exact project/name/team, and resume permitted metadata inspection.
 
-## Documentation publication blocker
+## Documentation publication safeguard — resolved by limited exception
 
-The new inspection branch is not in the repository's explicit Git deployment
-exclusions. Vercel's [documented rule](https://vercel.com/docs/project-configuration/git-configuration)
-is that unspecified branches default to true. Actual Git/ignore configuration is
-unavailable behind the 403. Therefore a branch push is held to avoid triggering
-an unauthorized Preview. No skip-commit convention was assumed. The exact minimal
-repository guard proposed for separate approval is shown in README; it would
-require an exception to the documentation-only scope. No configuration was changed.
+The owner approved one branch-only repository exclusion on 9 November 2026
+(Asia/Karachi). `git.deploymentEnabled` now maps exactly
+`development/production-gate1-inspection` to false. All nine prior exclusions and
+all other config values are preserved; no true or wildcard rule can override it.
+No tracked independent CI deployment or active custom push/commit hook was found.
+
+The [official rule](https://vercel.com/docs/project-configuration/git-configuration)
+and local exact-match/config-preservation checks verify native Git-trigger
+prevention before first push. [Safety evidence](evidence/deployment-safety.json)
+binds that check to the config SHA256. This is not a provider-settings mutation,
+manual-deployment authorization or proof that the historical 403 is resolved.
+No production environment variable, domain, project setting or deployment was
+accessed or changed by the exception. Gate 2 remains unapproved.
 
 [Non-secret access failure](evidence/vercel-access.json).

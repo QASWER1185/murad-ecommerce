@@ -39,6 +39,7 @@ the exact owning team, verify project identity and collect only safe deployment/
 framework/build/domain/limit and variable-name/scope metadata. No secret values.
 Gate 2 backup does not imply permission for Gates 3–6.
 
-Separately, review the exact **Git publication safeguard** in README if a Draft PR
-is desired now. It is not a production-change approval and does not resolve Gate 2.
+The **Git publication safeguard** was separately approved and verified for this
+branch only. Publishing its Draft PR is not production-change approval and does
+not resolve Gate 2.
 Stop after this Gate 1 report until specific next actions are authorized.

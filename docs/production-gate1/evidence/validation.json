@@ -1,6 +1,6 @@
 {
   "timestampUTC": "2026-11-08T18:37:19.598810+00:00",
-  "scope": "local documentation validation only",
+  "scope": "Gate 1 reports plus the single owner-approved branch-specific Git exclusion",
   "status": "PASS",
   "reports": 9,
   "metadataTransactionsReadOnly": 3,
@@ -9,8 +9,9 @@
   "localLinksResolve": true,
   "jsonValid": true,
   "rawCredentialsOrConsentLinksExcluded": true,
-  "onlyDocumentationChanged": true,
-  "applicationBuildAndTests": "NOT RUN: documentation-only, no application/migration/logic changes",
-  "githubPublication": "BLOCKED: branch deployment exclusion absent; documentation-only scope disallows silently adding config; Vercel inspection 403",
-  "productionOrERPModifications": false
+  "applicationBuildAndTests": "NOT RUN: reports and boolean Git trigger exclusion; no runtime/migration/dependency change",
+  "githubPublication": "Authorized after exact branch exclusion and pre-push validation; no deployment or later gate authorized",
+  "productionOrERPModifications": false,
+  "onlyDocumentationAndApprovedConfigChanged": true,
+  "deploymentSafetyEvidence": "deployment-safety.json"
 }
