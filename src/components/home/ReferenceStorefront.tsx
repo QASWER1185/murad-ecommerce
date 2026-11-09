@@ -12,6 +12,9 @@ import { Media } from '@/components/catalog/Media';
 import { Freshness } from '@/components/catalog/Freshness';
 import { CartButton,WishlistButton,QuotationAction } from '@/components/catalog/Shopping';
 import { useShopping } from '@/components/sanitary/shop-state';
+import { canOrder } from '@/lib/storefront/query';
+import { whatsappLink } from '@/lib/storefront/whatsapp';
+import { WhatsAppInquiry, WhatsAppContact } from '@/components/catalog/WhatsApp';
 
 type Panel = 'cart' | 'wishlist' | 'account' | null;
 const tabs = ['Featured', 'New Arrivals', 'Imported', 'Deals'] as const;
@@ -50,9 +53,9 @@ export default function ReferenceStorefront({ catalog }: { catalog: Catalog }) {
   // Keep the approved geometry while routing contacts through verified settings.
   const whatsapp = (text?: string, main = false) => {
     const number = main ? (catalog.settings?.main_whatsapp || '+923217165000') : (catalog.settings?.secondary_whatsapp || '+923086235608');
-    return `https://wa.me/${number.replace(/\D/g, '')}${text ? `?text=${encodeURIComponent(text)}` : ''}`;
+    return whatsappLink(text, number);
   };
-  const products: Product[] = catalog.products.map(product => ({ id:product.id,slug:product.slug,name:product.name,brand:product.brand?.name||'',category:(product.category?.slug||'sanitary') as Category,price:product.price??0,currency:product.currency,publishedAt:product.published_at,inquiry:product.sales_mode==='quotation'||product.price===null||product.availability==='out_of_stock',imported:product.brand?.slug==='imported-china' }));
+  const products: Product[] = catalog.products.map(product => ({ id:product.id,slug:product.slug,name:product.name,brand:product.brand?.name||'',category:(product.category?.slug||'sanitary') as Category,price:product.price??0,currency:product.currency,publishedAt:product.published_at,inquiry:!canOrder(product),imported:product.brand?.slug==='imported-china' }));
   const shopping=useShopping();
   const router=useRouter();
   const [query, setQuery] = useState('');
@@ -168,8 +171,8 @@ export default function ReferenceStorefront({ catalog }: { catalog: Catalog }) {
               {visible.map(product => <article key={product.id} className={styles.productCard}>
                 <Link prefetch={false} href={`/product/${product.slug}`} data-product-id={product.id} className={styles.productImage}><Media image={catalog.products.find(item=>item.id===product.id)?.gallery[0]} enabled={catalog.mediaEnabled} className={styles.productPhoto}/></Link>
                 <div className={styles.productInfo}><h3><Link prefetch={false} href={`/product/${product.slug}`} data-product-id={product.id}>{product.name}</Link></h3><p>{product.brand}</p><strong className={styles.price}>{product.inquiry ? 'Request current rate' : <>{product.currency||"PKR"} <b>{money(product.price)}</b></>}</strong>
-                  <div className={styles.rating} aria-hidden="true" />
-                  <div className={styles.productActions}>{product.inquiry ? <QuotationAction product={catalog.products.find(item=>item.id===product.id)!} enabled={catalog.ordersEnabled} className={styles.addToCart} main={catalog.settings?.main_whatsapp} /> : <button type="button" className={styles.addToCart} onClick={() => add(product)}><Icon name="cart-button" />Add to Cart</button>}
+                  <WhatsAppInquiry product={catalog.products.find(item=>item.id===product.id)!} number={catalog.settings?.main_whatsapp} origin={catalog.siteOrigin} className={styles.productInquiry} />
+                  <div className={styles.productActions}>{product.inquiry ? <QuotationAction product={catalog.products.find(item=>item.id===product.id)!} enabled={catalog.ordersEnabled} className={styles.addToCart} main={catalog.settings?.main_whatsapp} origin={catalog.siteOrigin} /> : <button type="button" className={styles.addToCart} onClick={() => add(product)}><Icon name="cart-button" />Add to Cart</button>}
                     <button type="button" className={`${styles.wishlistButton} ${wishlist.includes(product.id) ? styles.saved : ''}`} aria-label={`${wishlist.includes(product.id) ? 'Remove' : 'Save'} ${product.name} ${wishlist.includes(product.id) ? 'from' : 'to'} wishlist`} aria-pressed={wishlist.includes(product.id)} onClick={() => toggleWishlist(product)}><Icon name="heart-product" /></button>
                   </div>
                 </div>
@@ -198,6 +201,7 @@ export default function ReferenceStorefront({ catalog }: { catalog: Catalog }) {
         <div className={styles.social}><h2>Follow Us</h2><Asset name="social-icons" className={styles.socialIcons} label="Facebook, Instagram, YouTube, TikTok" /></div>
       </div>
     </footer>
+    <WhatsAppContact number={catalog.settings?.main_whatsapp} />
     <div role="status" aria-live="polite" className="sr-only">{announcement}</div>
     {panel && <Modal title={panel === 'cart' ? 'Your Selected Order' : panel === 'wishlist' ? 'Your Wishlist' : 'Account & Order Assistance'} onClose={() => setPanel(null)}>
       {panel === 'account' ? <div className={styles.panelContent}><p>Contact M. Murad Sons for help with your account, orders, and quotations.</p><a className={styles.checkout} href={whatsapp('I need assistance with my account or order.')} target="_blank" rel="noopener noreferrer">WhatsApp 0308-6235608</a></div>

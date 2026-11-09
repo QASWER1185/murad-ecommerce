@@ -49,6 +49,7 @@ export const getCatalog = cache(
     } catch {}
     return {
       ...result.data,
+      siteOrigin: storefrontConfig()!.origin,
       mediaEnabled: storefrontConfig()!.mediaEnabled,
       ordersEnabled,
     };

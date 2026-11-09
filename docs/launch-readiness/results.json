@@ -1,0 +1,105 @@
+{
+  "timestampUTC": "2026-11-09T11:45:08.682894+00:00",
+  "branch": "development/whatsapp-launch-readiness",
+  "runtime": "v26.13.0",
+  "checks": [
+    {
+      "name": "typescript",
+      "exitCode": 0,
+      "runtime": "v26.13.0",
+      "elapsedMs": 1175
+    },
+    {
+      "name": "policy-compile",
+      "exitCode": 0,
+      "runtime": "v26.13.0",
+      "elapsedMs": 637
+    },
+    {
+      "name": "policy",
+      "exitCode": 0,
+      "runtime": "v26.13.0",
+      "elapsedMs": 65
+    },
+    {
+      "name": "build",
+      "exitCode": 0,
+      "runtime": "v26.13.0",
+      "elapsedMs": 6283
+    },
+    {
+      "name": "lint",
+      "exitCode": 0,
+      "runtime": "v26.13.0",
+      "elapsedMs": 4748
+    },
+    {
+      "name": "legacy-migrations",
+      "exitCode": 0,
+      "runtime": "v26.13.0",
+      "elapsedMs": 5186
+    },
+    {
+      "name": "whatsapp-browser",
+      "exitCode": 0,
+      "runtime": "v26.13.0",
+      "elapsedMs": 19985,
+      "evidence": "Focused test rerun passed after enforcing the fixture review workflow and equal cart state"
+    }
+  ],
+  "focusedBrowser": {
+    "timestamp": "2026-11-09T11:43:57.859Z",
+    "runtime": "v26.13.0",
+    "scope": "Networkless local PostgreSQL and loopback browser; synthetic inventory only",
+    "checks": 8,
+    "results": [
+      "Anonymous raw tables and role self-assignment denied; published views only",
+      "All four daily-rate materials stay quotation-only even with legacy online category defaults",
+      "Every home/category/brand/search product card has an encoded WhatsApp inquiry",
+      "Daily-rate server requests cannot acquire a fixed price through an online intent",
+      "Priced sanitary/electrical/imported details retain cart plus inquiry",
+      "Missing-price product stays enquiry-only; unavailable routes fail closed",
+      "Desktop/mobile general contact and WhatsApp popup work without sending a message",
+      "Desktop/mobile captures avoid overflow and match available header/hero baselines"
+    ],
+    "foundationAssertions": 27,
+    "productionOrHostedServicesAccessed": false,
+    "whatsAppRequestsIntercepted": true,
+    "protectedHeaderHeroComparisons": 8,
+    "baselineComparisonComplete": true,
+    "hostedStagingTested": false
+  },
+  "storefrontRegression": {
+    "browserGroups": 17,
+    "databaseAssertions": 49,
+    "foundationAssertions": 27,
+    "scope": "Isolated local PostgreSQL with HTTP Auth/Storage fixtures; not real hosted service certification"
+  },
+  "legacyMigrationCompatibility": {
+    "originalProductsPreserved": 6,
+    "samplesRemainUnverifiedDrafts": true,
+    "assertions": 7
+  },
+  "lint": {
+    "errors": 0,
+    "preExistingWarnings": 8
+  },
+  "design": {
+    "unchangedHeaderHeroPixelComparisons": 8,
+    "mobileHomeCardAddedHeightPx": 20,
+    "artworkUnchanged": true,
+    "screenshots": "screenshots/",
+    "inventory": "Synthetic local fixtures only, not commercial product images/prices"
+  },
+  "deploymentSafety": {
+    "branchGitDeploymentEnabled": false,
+    "allPriorExclusionsPreserved": true,
+    "trueOrWildcardOverrides": 0,
+    "trackedDeploymentWorkflows": 0,
+    "vercelConfigSha256": "71b7fe49cca3f8ed42615c521fb4244cbaa7ec44221be78eb0736f02383b7db7"
+  },
+  "productionOperations": 0,
+  "hostedStagingValidated": false,
+  "ERPOrGoogleCloudInvestigation": false,
+  "productionMergeMigrationDeploymentApproved": false
+}

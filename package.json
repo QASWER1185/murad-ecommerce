@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test:launch:whatsapp": "node scripts/test-launch-whatsapp.mjs",
     "test:phase4:unit": "tsc -p tsconfig.phase4.json && node --test work/phase4-tests/tests/phase4/unit.test.js",
     "test:phase4:e2e": "tsc -p tsconfig.phase4.json && node scripts/test-phase4.mjs",
     "test:phase3:unit": "tsc -p tsconfig.phase3.json && node --test work/phase3-tests/tests/phase3/policy.test.js",

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Suspense } from "react";
+import { WhatsAppContact } from "@/components/catalog/WhatsApp";
 import { connection } from "next/server";
 import { AnalyticsConsent } from "@/components/analytics/Analytics";
 import { analyticsConfig } from "@/lib/analytics/config";
@@ -49,6 +50,7 @@ async function Content() {
         purchase.
       </p>
       <a href="https://wa.me/923217165000">Contact the store about privacy</a>
+      <WhatsAppContact />
     </main>
   );
 }

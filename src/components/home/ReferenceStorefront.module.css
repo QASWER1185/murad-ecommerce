@@ -104,6 +104,7 @@
 .price b { font-weight: 700; font-size: 14px; }
 .rating { display: flex; gap: 3px; align-items: center; height: 19px; margin: 2px 0 7px; font-size: 11px; color: #73572a; }
 .rating .icon { width: 12px; height: 13px; }
+.productInfo .productInquiry { min-height: 24px; height: 24px; margin: 2px 0; padding: 3px 4px; font-size: 10px; line-height: 16px; }
 .productActions { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .addToCart { background: #002747; color: white !important; border: 0; border-radius: 4px; height: 28px; padding: 0 14px; display: inline-flex; align-items: center; justify-content: center; gap: 5px; font-size: 11px; font-weight: 500; white-space: nowrap; }
 .addToCart .icon { width: 16px; height: 16px; }
@@ -278,7 +279,8 @@
   .tabs { flex-basis: 100%; margin: 3px 0 0; justify-content: space-between; }
   .tabs button { flex: 1; min-width: 0; height: 28px; font-size: 10px; }
   .productRail { grid-auto-columns: calc((100% - 13px) / 2); padding: 0 6px; gap: 13px; scroll-padding-inline: 6px; }
-  .productCard { height: 236px; }
+  .productCard { height: 256px; }
+  .productInfo .productInquiry { min-height: 44px; height: 44px; font-size: 10px; }
   .productImage { height: 108px; }
   .productInfo { padding: 7px 3px 0; }
   .productInfo h3 { font-size: 10px; }

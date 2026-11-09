@@ -1,4 +1,5 @@
 import type { Query } from "./types";
+import { whatsappLink } from "./whatsapp";
 export type SearchValues = Record<string, string | string[] | undefined>;
 const one = (v: string | string[] | undefined) =>
   (Array.isArray(v) ? v[0] : v) || "";
@@ -59,7 +60,7 @@ export const filteredQuery = (values: SearchValues) =>
 export const money = (value: number, currency = "PKR") =>
   `${currency} ${value.toLocaleString("en-PK", { maximumFractionDigits: 2 })}`;
 export const enquiry = (name?: string, number = "+923217165000") =>
-  `https://wa.me/${number.replace(/\D/g, "")}${name ? `?text=${encodeURIComponent(`Please confirm the current rate and availability for ${name}.`)}` : ""}`;
+  whatsappLink(name ? `Please confirm the current rate and availability for ${name}.` : undefined, number);
 export const canOrder = (product: {
   price: number | null;
   sales_mode: string;
@@ -67,5 +68,6 @@ export const canOrder = (product: {
 }) =>
   product.sales_mode === "online" &&
   product.price !== null &&
+  Number.isFinite(product.price) &&
   product.price > 0 &&
   product.availability !== "out_of_stock";

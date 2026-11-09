@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { whatsappNumber, productInquiry, productLink } from "../../src/lib/storefront/whatsapp";
 import {
   storefrontConfig,
   productionReleaseApproved,
@@ -100,6 +101,7 @@ test("bounded query parsing and reversible encoded pagination preserve filter va
   assert.equal(round.type[0], "Wash Basins");
 });
 test("price optional, unknown availability and quotation commerce decisions are explicit", () => {
+  assert.equal(canOrder({ price: Number.NaN, sales_mode: "online", availability: "unknown" }), false);
   assert.equal(
     canOrder({ price: null, sales_mode: "online", availability: "unknown" }),
     false,
@@ -120,6 +122,28 @@ test("price optional, unknown availability and quotation commerce decisions are 
     canOrder({ price: 100, sales_mode: "online", availability: "unknown" }),
     true,
   );
+});
+test("WhatsApp numbers accept configured Pakistani and international formats without inventing contacts", () => {
+  assert.equal(whatsappNumber("0321-7165000"), "923217165000");
+  assert.equal(whatsappNumber("0308-6235608"), "923086235608");
+  assert.equal(whatsappNumber("+92 (321) 7165000"), "923217165000");
+  assert.equal(whatsappNumber("javascript:bad"), "923217165000");
+});
+test("product WhatsApp inquiry includes an encoded name, optional SKU and permanent unfiltered URL", () => {
+  const product = { name: "Fixture basin & mixer / سفید", slug: "fixture-basin", sku: "SKU & 1", sales_mode: "online" };
+  const link = new URL(productInquiry(product, "0308-6235608", "https://shop.example.test"));
+  assert.equal(link.hostname, "wa.me");
+  assert.equal(link.pathname, "/923086235608");
+  const text = link.searchParams.get("text")!;
+  assert(text.includes(product.name));
+  assert(text.includes("SKU: SKU & 1"));
+  assert(text.includes("https://shop.example.test/product/fixture-basin"));
+  assert(!text.includes("today's rate"));
+  const quote = new URL(productInquiry({ ...product, sku: null, sales_mode: "quotation" })).searchParams.get("text")!;
+  assert(quote.includes("today's rate"));
+  assert(!quote.includes("SKU:"));
+  assert(!quote.includes("PKR"));
+  assert.equal(productLink("fixture-basin", "javascript:bad"), "https://murad-ecommerce.vercel.app/product/fixture-basin");
 });
 test("metadata and sitemap share eligibility, canonical and environment restrictions", () => {
   const route: PublicRoute = {

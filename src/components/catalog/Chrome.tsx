@@ -4,6 +4,7 @@ import { enquiry } from "@/lib/storefront/query";
 import { contacts } from "@/components/sanitary/catalog-options";
 import { CartButton } from "./Shopping";
 import { Freshness } from "./Freshness";
+import { WhatsAppContact } from "./WhatsApp";
 import styles from "@/components/sanitary/SanitaryShop.module.css";
 export function ContactButtons({ catalog }: { catalog: Catalog }) {
   return (
@@ -127,6 +128,7 @@ export function Header({
 export function Footer({ catalog }: { catalog: Catalog }) {
   return (
     <>
+      <WhatsAppContact number={catalog.settings?.main_whatsapp} />
       <section className={styles.services} aria-label="Store services">
         {[
           ["delivery", "Nationwide Delivery", "Across Pakistan"],
