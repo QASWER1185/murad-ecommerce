@@ -1,0 +1,73 @@
+{
+  "timestampUTC": "2026-11-09T10:32:06.317291+00:00",
+  "productionCommit": "c73b01b93c4093edefe1c00e34299a9041ea5bef",
+  "productionBranch": "main",
+  "developmentBranch": "development/controlled-launch-prep",
+  "developmentCommit": "f4deb663ac4b3d372d22be6d39f5f034334a7005",
+  "productionIsAncestor": true,
+  "ahead": 12,
+  "behind": 0,
+  "compareUrl": "https://github.com/QASWER1185/murad-ecommerce/compare/c73b01b93c4093edefe1c00e34299a9041ea5bef...f4deb663ac4b3d372d22be6d39f5f034334a7005",
+  "commits": [
+    {
+      "sha": "2308dd687443b11049ec2762dddcc819b01f2910",
+      "subject": "Add guarded catalog publication and SEO database foundation",
+      "url": "https://github.com/QASWER1185/murad-ecommerce/commit/2308dd687443b11049ec2762dddcc819b01f2910"
+    },
+    {
+      "sha": "d9e27ec7bcece95a0e487195d506f700a4c409d7",
+      "subject": "Build secure request-scoped admin dashboard and product workflow",
+      "url": "https://github.com/QASWER1185/murad-ecommerce/commit/d9e27ec7bcece95a0e487195d506f700a4c409d7"
+    },
+    {
+      "sha": "bc50bfcd72cd7fbc26c410f6a47bf8e7ae58a2ef",
+      "subject": "Add private media management and resumable catalog imports",
+      "url": "https://github.com/QASWER1185/murad-ecommerce/commit/bc50bfcd72cd7fbc26c410f6a47bf8e7ae58a2ef"
+    },
+    {
+      "sha": "7ae9d7985340ec3b6ac5e9b2dbd3e22dc7b72814",
+      "subject": "Integrate published central catalog with storefront and secure media",
+      "url": "https://github.com/QASWER1185/murad-ecommerce/commit/7ae9d7985340ec3b6ac5e9b2dbd3e22dc7b72814"
+    },
+    {
+      "sha": "9df548718d4beac223b052290f70e91dc7c59039",
+      "subject": "Persist secure guest requests and prepare private conversion analytics",
+      "url": "https://github.com/QASWER1185/murad-ecommerce/commit/9df548718d4beac223b052290f70e91dc7c59039"
+    },
+    {
+      "sha": "c8f9f701c783a4a7f86b4587f641ba7d964414aa",
+      "subject": "Harden staging readiness with MFA, narrow worker and measured storefront QA",
+      "url": "https://github.com/QASWER1185/murad-ecommerce/commit/c8f9f701c783a4a7f86b4587f641ba7d964414aa"
+    },
+    {
+      "sha": "264cc217ede7e6246dbe4554629089677b92d9d5",
+      "subject": "Audit Phase 8 Part A and harden import and staging preflight boundaries",
+      "url": "https://github.com/QASWER1185/murad-ecommerce/commit/264cc217ede7e6246dbe4554629089677b92d9d5"
+    },
+    {
+      "sha": "ff7f1df1ea204ebdc89c44a581b64a4d03d66b67",
+      "subject": "Prepare Phase 8B isolation checks and report blocked real staging validation",
+      "url": "https://github.com/QASWER1185/murad-ecommerce/commit/ff7f1df1ea204ebdc89c44a581b64a4d03d66b67"
+    },
+    {
+      "sha": "707fff4a623f2a84a281c54f1a997f2bea3dfd92",
+      "subject": "Record autonomous staging approval and current provider access blockers",
+      "url": "https://github.com/QASWER1185/murad-ecommerce/commit/707fff4a623f2a84a281c54f1a997f2bea3dfd92"
+    },
+    {
+      "sha": "029b9655db6941e0f54140006c47271703c1aa4f",
+      "subject": "Record connected Supabase and rejected free-quota staging provisioning",
+      "url": "https://github.com/QASWER1185/murad-ecommerce/commit/029b9655db6941e0f54140006c47271703c1aa4f"
+    },
+    {
+      "sha": "e35633164bba10621093a4a5da375d83adf372d6",
+      "subject": "Record connected Vercel and required owning-team consent",
+      "url": "https://github.com/QASWER1185/murad-ecommerce/commit/e35633164bba10621093a4a5da375d83adf372d6"
+    },
+    {
+      "sha": "f4deb663ac4b3d372d22be6d39f5f034334a7005",
+      "subject": "Validate controlled local release candidate and document gated production cutover",
+      "url": "https://github.com/QASWER1185/murad-ecommerce/commit/f4deb663ac4b3d372d22be6d39f5f034334a7005"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "wtvasruaawpaacyyywog",
+  "name": "M Murad Sons",
+  "plan": "free",
+  "tier": "tier_free",
+  "opt_in_tags": [],
+  "allowed_release_channels": [
+    "ga",
+    "preview"
+  ]
+}

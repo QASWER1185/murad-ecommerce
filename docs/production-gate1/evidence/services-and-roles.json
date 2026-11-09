@@ -1,0 +1,154 @@
+{
+  "roles": [
+    {
+      "rolname": "anon",
+      "rolsuper": false,
+      "rolinherit": true,
+      "rolcanlogin": false,
+      "rolcreatedb": false,
+      "rolbypassrls": false,
+      "rolcreaterole": false
+    },
+    {
+      "rolname": "authenticated",
+      "rolsuper": false,
+      "rolinherit": true,
+      "rolcanlogin": false,
+      "rolcreatedb": false,
+      "rolbypassrls": false,
+      "rolcreaterole": false
+    },
+    {
+      "rolname": "authenticator",
+      "rolsuper": false,
+      "rolinherit": false,
+      "rolcanlogin": true,
+      "rolcreatedb": false,
+      "rolbypassrls": false,
+      "rolcreaterole": false
+    },
+    {
+      "rolname": "postgres",
+      "rolsuper": false,
+      "rolinherit": true,
+      "rolcanlogin": true,
+      "rolcreatedb": true,
+      "rolbypassrls": true,
+      "rolcreaterole": true
+    },
+    {
+      "rolname": "service_role",
+      "rolsuper": false,
+      "rolinherit": true,
+      "rolcanlogin": false,
+      "rolcreatedb": false,
+      "rolbypassrls": true,
+      "rolcreaterole": false
+    },
+    {
+      "rolname": "supabase_auth_admin",
+      "rolsuper": false,
+      "rolinherit": false,
+      "rolcanlogin": true,
+      "rolcreatedb": false,
+      "rolbypassrls": false,
+      "rolcreaterole": true
+    },
+    {
+      "rolname": "supabase_storage_admin",
+      "rolsuper": false,
+      "rolinherit": false,
+      "rolcanlogin": true,
+      "rolcreatedb": false,
+      "rolbypassrls": false,
+      "rolcreaterole": true
+    }
+  ],
+  "settings": [
+    {
+      "name": "max_connections",
+      "unit": null,
+      "setting": "60"
+    },
+    {
+      "name": "server_version",
+      "unit": null,
+      "setting": "17.11"
+    },
+    {
+      "name": "statement_timeout",
+      "unit": "ms",
+      "setting": "5000"
+    }
+  ],
+  "read_only": "on",
+  "storage_rls": [
+    {
+      "name": "buckets",
+      "forced": false,
+      "enabled": true
+    },
+    {
+      "name": "objects",
+      "forced": false,
+      "enabled": true
+    }
+  ],
+  "column_grants": [],
+  "schema_access": [
+    {
+      "role": "anon",
+      "usage": true,
+      "schema": "auth",
+      "create_privilege": false
+    },
+    {
+      "role": "anon",
+      "usage": true,
+      "schema": "public",
+      "create_privilege": false
+    },
+    {
+      "role": "anon",
+      "usage": true,
+      "schema": "storage",
+      "create_privilege": false
+    },
+    {
+      "role": "authenticated",
+      "usage": true,
+      "schema": "auth",
+      "create_privilege": false
+    },
+    {
+      "role": "authenticated",
+      "usage": true,
+      "schema": "public",
+      "create_privilege": false
+    },
+    {
+      "role": "authenticated",
+      "usage": true,
+      "schema": "storage",
+      "create_privilege": false
+    }
+  ],
+  "bucket_metadata": [],
+  "role_memberships": [
+    {
+      "member": "authenticator",
+      "admin_option": false,
+      "granted_role": "anon"
+    },
+    {
+      "member": "authenticator",
+      "admin_option": false,
+      "granted_role": "authenticated"
+    },
+    {
+      "member": "authenticator",
+      "admin_option": false,
+      "granted_role": "service_role"
+    }
+  ]
+}
