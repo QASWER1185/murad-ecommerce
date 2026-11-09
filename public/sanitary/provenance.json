@@ -1,0 +1,119 @@
+{
+  "source": "sanitary-category-approved-reference.png",
+  "sha256": "e55106d1b1435afab1556a2678fb8881016e06224c632b4807e478ad4429ed8c",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "crops": {
+    "logo-header": [
+      18,
+      34,
+      254,
+      80
+    ],
+    "hero-art": [
+      475,
+      151,
+      1005,
+      345
+    ],
+    "shower-symbol": [
+      58,
+      170,
+      117,
+      234
+    ],
+    "whatsapp-symbol": [
+      615,
+      48,
+      641,
+      75
+    ],
+    "wishlist-symbol": [
+      361,
+      603,
+      380,
+      623
+    ],
+    "cart-symbol": [
+      246,
+      607,
+      263,
+      622
+    ],
+    "genuine-symbol": [
+      624,
+      4,
+      640,
+      23
+    ],
+    "brand-porta": [
+      231,
+      365,
+      322,
+      400
+    ],
+    "brand-faisal": [
+      414,
+      363,
+      512,
+      401
+    ],
+    "brand-dell": [
+      612,
+      362,
+      682,
+      400
+    ],
+    "brand-imported": [
+      777,
+      363,
+      900,
+      401
+    ],
+    "promotion-art": [
+      460,
+      1137,
+      1003,
+      1248
+    ],
+    "brand-card-porta": [
+      155,
+      1288,
+      251,
+      1361
+    ],
+    "brand-card-faisal": [
+      397,
+      1288,
+      499,
+      1361
+    ],
+    "brand-card-dell": [
+      652,
+      1288,
+      752,
+      1361
+    ],
+    "brand-card-imported": [
+      902,
+      1288,
+      1002,
+      1361
+    ],
+    "logo-footer": [
+      35,
+      1425,
+      165,
+      1494
+    ],
+    "footer-skyline": [
+      905,
+      1414,
+      1024,
+      1513
+    ]
+  },
+  "product_images": "Use database image_url only. Reference model/SKU identity is unverified."
+}

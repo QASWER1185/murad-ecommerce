@@ -1,0 +1,66 @@
+.order-request-panel {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid #dce2e8;
+}
+.order-request-panel h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+.order-request-panel p,
+.order-request-panel li {
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+.order-request-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  margin: 14px 0;
+}
+.order-request-form input,
+.order-request-form textarea,
+.order-request-form select {
+  border: 1px solid #cbd5df;
+  border-radius: 5px;
+  padding: 9px;
+  width: 100%;
+  max-width: 100%;
+  background: white;
+  color: #102234;
+}
+.order-request-form .order-contact-consent {
+  flex-direction: row;
+  align-items: flex-start;
+}
+.order-contact-consent input {
+  width: 16px;
+  margin-top: 3px;
+  flex: none;
+}
+.order-request-form .order-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.order-request-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.order-request-controls button {
+  border: 1px solid #cbd5df;
+  padding: 9px;
+  border-radius: 5px;
+}
+.order-request-panel a {
+  text-decoration: underline;
+}
+.order-request-panel button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

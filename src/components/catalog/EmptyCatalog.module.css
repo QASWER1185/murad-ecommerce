@@ -1,0 +1,22 @@
+.empty {
+  min-height: 232px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  padding: 26px 20px;
+  border: 1px solid #e1e6eb;
+  border-top: 2px solid #d5b25b;
+  border-radius: 7px;
+  background: #fff;
+  color: #002747;
+  text-align: center;
+}
+.empty h2 { font-size: 21px; line-height: 1.3; font-weight: 700; }
+.empty p { max-width: 620px; font-size: 14px; line-height: 1.7; color: #425466; }
+.contacts { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.contacts a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 15px; border-radius: 5px; background: #006239; color: white; font-size: 13px; font-weight: 700; }
+.contacts a:hover { background: #004f2e; }
+.contacts a:focus-visible,.imported:focus-visible { outline: 3px solid #d5b25b; outline-offset: 3px; }
+.imported { font-size: 12px; text-decoration: underline; }

@@ -12,6 +12,10 @@
 
 # testing
 /coverage
+/work/phase2-tests/
+/work/phase3-tests/
+/work/phase4-tests/
+/work/phase3-review/
 
 # next.js
 /.next/
@@ -40,3 +44,21 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/work/phase5-*
+
+/work/phase4-review/
+
+/work/phase6-*
+
+# Phase 7 local-only rehearsal, profiles and artifacts
+/work/phase7-*
+
+# Phase 8 Part A isolated test output and synthetic inputs
+/work/phase8-*
+
+# Phase 8 Part B private runtime evidence, sessions and uploads
+/work/phase8b-*
+
+# Controlled launch local services, profiles, test inputs and private sessions
+/work/controlled-*

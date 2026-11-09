@@ -12,6 +12,13 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "work/phase2-tests/**",
+    "work/phase3-tests/**",
+    "work/phase4-tests/**",
+    "work/phase5-tests/**",
+    "work/phase6-tests/**",
+    "work/phase7-tests/**",
+    "work/phase8-tests/**",
   ]),
 ]);
 
