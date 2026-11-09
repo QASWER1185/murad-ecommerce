@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { publicCatalogClient } from "@/lib/storefront/server";
-import { publicHeaders } from "@/lib/storefront/config";
+import { publicHeaders, storefrontConfig } from "@/lib/storefront/config";
 export async function GET(request: NextRequest) {
+  if (!storefrontConfig()?.shoppingEnabled)
+    return NextResponse.json({ error: "Shopping is disabled. Please enquire on WhatsApp." }, { status: 404, headers: publicHeaders });
   const ids = (request.nextUrl.searchParams.get("ids") || "")
     .split(",")
     .filter(Boolean);

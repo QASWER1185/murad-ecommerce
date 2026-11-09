@@ -13,17 +13,19 @@ export function ProductActions({
   main = "+923217165000",
   requestsEnabled = false,
   origin,
+  shoppingEnabled = false,
 }: {
   requestsEnabled?: boolean;
   product: Product;
   main?: string;
   origin?: string;
+  shoppingEnabled?: boolean;
 }) {
   const shopping = useShopping();
   const [message, setMessage] = useState("");
   return (
     <>
-      <div className={styles.actions}>
+      {shoppingEnabled && <div className={styles.actions}>
         {canOrder(product) ? (
           <button
             className={styles.primary}
@@ -53,7 +55,7 @@ export function ProductActions({
         >
           <span className={styles.heart} aria-hidden="true" />
         </button>
-      </div>
+      </div>}
       <WhatsAppInquiry product={product} number={main} origin={origin} />
       <span className="sr-only" role="status">
         {message}

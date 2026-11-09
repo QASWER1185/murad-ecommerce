@@ -1,93 +1,104 @@
-# WhatsApp storefront launch checklist
+# Direct release: Catalog + WhatsApp only
 
-Development branch: `development/whatsapp-launch-readiness`, based on
-`development/controlled-launch-prep` (`f4deb663`). No production changes approved.
+Owner decision: existing Supabase `ddgjspvdgjpbysylntji`; no staging database.
+**GO for release review; NO-GO for production execution before final approval and
+verified recovery/content gates.** No production changes have been executed.
 
-## Completed
+## Ready
 
-- Product-specific WhatsApp links on homepage, category/brand/search cards,
-  product details and wishlist; name, available SKU and absolute product URL.
-- Published business contacts are used, with the existing verified main/secondary
-  fallbacks. Pakistani local-format numbers normalize to working `wa.me` links.
-- General floating WhatsApp contact across storefront pages and error/privacy pages.
-- Priced online products retain cart/shopping. Missing prices stay enquiry-only.
-- Building Materials and descendants are quotation-only, even when a legacy
-  category's new sales-mode field defaults to online. Public prices, cart/order
-  snapshots and structured data use the same database projection.
-- Approved navy/white/gold assets, header and hero preserved. Desktop inquiry fits
-  the existing homepage card space; mobile cards grow 20px for the 44px inquiry.
-- Ten pending migrations reviewed/prepared in [exact order and hashes](migrations.json).
-  Migration `20261108000700` is revised for the legacy quotation safeguard and
-  needs review with these new hashes. No additional migration or seed is introduced.
-- Source RLS fixes revoke anonymous raw-table/TRUNCATE access, protect Drafts and
-  private media, and prevent role self-assignment. Local tests verify these rules;
-  production RLS remains unchanged pending explicit approval.
+- Product-specific WhatsApp enquiries, optional verified prices and general contact.
+- Production cart/wishlist, checkout, payments and order intake are disabled. An
+  environment opt-in cannot enable production shopping. Cart API returns 404;
+  order APIs stay unavailable. There is no payment integration.
+- Approved artwork, navy/white/gold branding, hero and original card geometry remain.
+  Shopping action positions become WhatsApp contacts; inquiry-only mobile cards
+  retain the original 236px height.
+- Node 26.13.0 build, TypeScript, lint and five NEW profile groups pass; four hero
+  comparisons are pixel-identical. Completed commerce suites were not repeated.
+  [Results](results.json); screenshots contain synthetic local records only.
+- [Production read-only evidence](production-readonly.json): READY at `c73b01b`;
+  six legacy products with stored prices, zero image references, no verification
+  columns, zero Storage buckets. Stored prices are not verified prices.
+- A previously authorized, database-disconnected Vercel preview at `5e54bd8`
+  reached READY/HTTP 200. It is not the final inquiry-only release. No further
+  preview or production deployment is authorized under the latest owner decision.
 
-Validation results and limits: [results.json](results.json).
-Screenshots use clearly synthetic local records, never commercial inventory.
+## Inventory approval
 
-| Desktop | Mobile |
+Use [inventory-approval.csv](inventory-approval.csv) as a review ledger, not an import.
+
+| Classification | Publication rule |
 | --- | --- |
-| [Homepage](screenshots/home-desktop.png) | [Homepage](screenshots/home-mobile.png), [Sanitary](screenshots/sanitary-mobile.png) |
-| | [Product](screenshots/product-mobile.png), [Building Materials](screenshots/materials-mobile.png) |
+| VERIFIED_FOR_LAUNCH | Owner names approved genuine SKUs/identity/description/category/brand; available model/specifications and image rights have evidence. Display price/stock only with dated verification. Explicitly approve missing imagery with indexing off if needed. |
+| NEEDS_VERIFICATION | Keep Draft. None of the six legacy products/prices is certified as genuine inventory by this work. |
+| SYNTHETIC_DEMO | Local test fixtures/screenshots only; never publish as commercial inventory. |
 
-Node 26.13.0: build, TypeScript, eight policy tests, eight focused launch groups,
-17 storefront browser groups, 49 catalog SQL assertions and legacy sample
-preservation pass. Lint: zero errors, eight pre-existing unused-variable warnings.
-Eight desktop/mobile header/hero comparisons are pixel-identical to the pre-change
-build. WhatsApp popup requests were intercepted; no real message was sent.
-Re-run the focused local test with `npm run test:launch:whatsapp` after `npm run build`.
-It requires the existing local Docker PostgreSQL image and Chromium. Optional
-`--baseline` captures the currently built app before a change; without prior captures,
-the report explicitly marks pixel comparison unavailable rather than certifying it.
+Name approved SKUs, or explicitly approve an initial enquiry shell with no published
+products. No sample is automatically marked verified/published.
 
-## Critical blockers / owner actions
+## Minimum compatible migration/RLS bundle
 
-- **Inventory:** provide/review original photographs, models, descriptions, prices
-  and stock verification in Admin. Existing sample records remain unverified Drafts.
-  No manufacturer authenticity or commercial prices were verified by local tests.
-- **Hosted acceptance:** provide a separate authorized non-production target for
-  real Supabase Auth/Storage/CDN acceptance. The passing tests use networkless
-  PostgreSQL and local HTTP fixtures, not a hosted staging deployment.
-- **Recovery:** separately authorize a narrowly scoped e-commerce backup and an
-  encrypted private isolated restore rehearsal. Neither is performed/approved here.
-- **Production activation:** review the exact release commit, migration hashes,
-  e-commerce maintenance window, runtime/configuration and required feature gates.
-  Admin/order intake, media and indexing gates retain their existing restrictions;
-  environment variables alone must not bypass them. Analytics/indexing can stay off.
-- **Separate approvals:** production migrations/RLS changes, main merge and Vercel
-  deployment each require explicit owner approval. No ERP/Google Cloud work is part
-  of this launch change. New-branch Git deployments are disabled in `vercel.json`.
+Exactly ten pending files, after installed `20261106055003` / `20261106064811`.
+[Full filenames, order and hashes](migrations.json):
 
-## Exact go-live sequence — proposed, not executed
+| Order | Version | Purpose |
+| --- | --- | --- |
+| 1 | 20261108000100 | Foundation: Draft defaults, private roles/Storage, replace unrestricted raw reads and revoke excessive grants including TRUNCATE |
+| 2 | 20261108000200 | Explicit review/publication, versions/revisions |
+| 3 | 20261108000300 | Validated Admin operations/throttling |
+| 4 | 20261108000400 | Immutable media/galleries |
+| 5 | 20261108000500 | Category/brand/content/settings |
+| 6 | 20261108000600 | Private import contracts |
+| 7 | 20261108000700 | Public catalog projections/RPCs, legacy daily-rate safeguard |
+| 8 | 20261108000800 | Private request contracts; no gateway keys/intake activated |
+| 9 | 20261108000900 | MFA/authorization and narrow-worker hardening |
+| 10 | 20261108001000 | Scoped catalog query configuration |
 
-1. Review the complete stacked candidate plus this change; accept verified inventory
-   and hosted acceptance evidence. Approve the production feature-gate changes
-   necessary for the chosen public catalog/media launch; keep other features closed.
-2. After separate recovery approval, obtain and verify the approved e-commerce-only
-   DB/configuration backup and any Storage file archive on an isolated target.
-3. Approve an e-commerce maintenance window and stop writes/request intake. Preserve
-   existing IDs/data; install no private Drafts under the old public SELECT policies.
-4. With explicit migration/RLS approval, reconcile the two installed migrations and
-   apply the ten files in `migrations.json` order. Each applying connection must set
-   `app.catalog_cutover_approved='yes'`. Never replay the initial schema/seed. Stop on
-   a failed transaction or unexpected drift; do not weaken permissions.
-5. With separate merge/deployment approval, release the compatible reviewed app and
-   approved production configuration. Do not run the legacy raw-table storefront
-   against the restricted schema. Keep maintenance until smoke tests pass.
-6. Check published/draft/404 boundaries, verified media withdrawal, Admin denial,
-   real prices/cart, quotation-only materials and both WhatsApp contacts on mobile
-   and desktop. Opening WhatsApp is not a confirmed order/payment. Then reopen.
+This is the smallest already-integrated reviewed bundle for this branch: hardened
+public projections have dependencies across it. Removing files creates a new
+unreviewed migration/security path. Unused Admin/import/order/worker features stay
+closed. No eleventh file or legacy seed replay. Each applying connection requires
+`app.catalog_cutover_approved='yes'`. Migration 00700 has the reviewed quotation fix.
 
-## Abort / rollback
+## Minimum backup / restore gate: NOT performed
 
-Keep e-commerce maintenance enabled on failed privacy, schema, media or shopping
-checks. Before migration starts, abort without changing the DB. After schema
-changes, use the approved compatible app and verified DB/Storage recovery procedure;
-a Git-only rollback to the legacy storefront is unsafe. Production restoration
-requires its own explicit approval. Preserve evidence and reconcile writes after
-the backup cut point; no unmeasured recovery-time/data-loss promise is made.
+Back up only the named e-commerce project's three existing catalog tables with
+schema/data/IDs, indexes/constraints/grants/RLS, required role/extension metadata,
+migration ledger and affected Storage bucket/policy metadata. Current bucket
+inventory is empty; if changed, stop and review binary-archive scope. Exclude Auth
+users/passwords/sessions, Vault secrets, provider keys and unrelated projects.
 
-The existing [detailed cutover procedure](../controlled-launch-prep/production-cutover-runbook.md)
-remains supporting material. Its historical unknowns are not a request to restart
-ERP investigations. Focus next on inventory, hosted acceptance and owner approvals.
+Owner names a trusted operator, encrypted private destination and isolated recovery
+host/volume; keys remain separate. No public artifacts. Restore and compare counts,
+IDs, schema, permissions and checksums; record snapshot time/duration/acceptance.
+This verifies scoped catalog recovery, not whole-project Auth recovery. Actual
+backup inventory and isolated restore remain UNVERIFIED; Free plan does not prove
+a usable downloadable daily backup. No export or restoration is authorized yet.
+
+## Exact production execution plan: awaits one explicit owner approval
+
+1. Approve the final commit/tree, migration hashes, SKU ledger (or explicitly empty
+   catalog), encrypted recovery destination/operator, transition window and abort owner.
+2. After explicit export/restore approval, obtain and verify that recovery set.
+   STOP on failed recovery or unexpected source/schema/history drift.
+3. Apply the [proposed configuration](../../ops/production/catalog-inquiry.environment.example)
+   with `CATALOG_ENABLED=false`; preserve legacy public variables. Securely bind an
+   anonymous/publishable catalog key, never service_role. No values belong in chat.
+4. With explicit merge/deployment approval, deploy the compatible enquiry shell
+   FIRST. Disabled catalog makes no DB reads during transition. Verify exact live
+   code, contact links and absence of cart/order/payment intake.
+5. With explicit DB/RLS approval, apply the ten hashes in order; never replay the
+   installed schema/seed. Stop on failure. Verify anonymous raw denial and retained
+   unverified Drafts; approve only owner-selected genuine records through workflow.
+6. Set `CATALOG_ENABLED=true`, redeploy the SAME reviewed code, and smoke published/
+   hidden/404 boundaries, prices, daily-rate enquiries, both contacts and mobile.
+   Keep Admin, media, orders, workers, analytics and indexing off. Reopen after PASS.
+
+Abort to the compatible enquiry shell with catalog disabled. A Git-only rollback
+to the old raw-table app after RLS changes is unsafe. Any necessary DB restore
+uses only the explicitly approved procedure; preserve/reconcile post-snapshot
+writes. No destructive down migration or unmeasured recovery-time promise.
+
+[Desktop](screenshots/home-desktop.png) · [Mobile](screenshots/home-mobile.png) ·
+[Product](screenshots/product-mobile.png) · [Materials](screenshots/materials-mobile.png).
+Final inquiry-only code is not deployed; no ERP/Google Cloud work was performed.

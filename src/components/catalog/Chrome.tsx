@@ -83,9 +83,9 @@ export function Header({
                 catalog.settings?.main_whatsapp,
               )}
             >
-              Account
+              Contact
             </a>
-            <CartButton main={catalog.settings?.main_whatsapp} />
+            {catalog.shoppingEnabled && <CartButton main={catalog.settings?.main_whatsapp} />}
           </div>
         </div>
         <nav className={styles.nav} aria-label="Shopping navigation">

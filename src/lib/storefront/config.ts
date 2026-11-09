@@ -48,6 +48,9 @@ export function storefrontConfig(
     origin: origin.origin,
     environment,
     production,
+    // The production release is Catalog + WhatsApp only. Local/staging shopping
+    // remains available for the already-built future commerce modules.
+    shoppingEnabled: !production && env.CATALOG_SHOPPING_ENABLED !== "false",
     mediaEnabled:
       env.CATALOG_MEDIA_ENABLED === "true" &&
       (!production || productionReleaseApproved),

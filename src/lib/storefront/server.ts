@@ -35,6 +35,7 @@ export const getCatalog = cache(
         banners: [],
         generation: "disabled",
         mediaEnabled: false,
+        shoppingEnabled: false,
       };
     const result = await client.rpc("catalog_storefront", {
       p_kind: kind,
@@ -50,6 +51,7 @@ export const getCatalog = cache(
     return {
       ...result.data,
       siteOrigin: storefrontConfig()!.origin,
+      shoppingEnabled: storefrontConfig()!.shoppingEnabled,
       mediaEnabled: storefrontConfig()!.mediaEnabled,
       ordersEnabled,
     };

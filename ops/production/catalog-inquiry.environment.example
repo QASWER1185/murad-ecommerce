@@ -1,0 +1,17 @@
+# Proposed only. Apply solely after exact production configuration approval.
+# Preserve existing NEXT_PUBLIC_SUPABASE_* variables; do not reveal their values.
+# First approved deployment: false (compatible enquiry shell, no database reads).
+# Change to true only after recovery verification, migrations and content approval.
+CATALOG_ENABLED=false
+CATALOG_ENVIRONMENT=production
+CATALOG_SITE_ORIGIN=https://murad-ecommerce.vercel.app
+CATALOG_SUPABASE_URL=https://ddgjspvdgjpbysylntji.supabase.co
+# Configure the existing anonymous/publishable credential securely, never service_role.
+CATALOG_SUPABASE_PUBLISHABLE_KEY=CONFIGURE_SECURELY_DO_NOT_COMMIT_A_VALUE
+CATALOG_SHOPPING_ENABLED=false
+CATALOG_MEDIA_ENABLED=false
+CATALOG_INDEXING_ENABLED=false
+ADMIN_ENABLED=false
+ORDER_REQUESTS_ENABLED=false
+CATALOG_WORKER_ENABLED=false
+ANALYTICS_ENABLED=false

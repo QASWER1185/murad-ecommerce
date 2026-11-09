@@ -48,6 +48,7 @@ export type Banner = {
   asset: Media;
 };
 export type Catalog = {
+  shoppingEnabled?: boolean;
   siteOrigin?: string;
   entity: Taxonomy | Product | null;
   route: PublicRoute | null;

@@ -12,7 +12,7 @@ export function orderConfig(
   env: Record<string, string | undefined> = process.env,
 ) {
   const catalog = storefrontConfig(env);
-  if (env.ORDER_REQUESTS_ENABLED !== "true" || !catalog || catalog.production)
+  if (env.ORDER_REQUESTS_ENABLED !== "true" || !catalog || catalog.production || !catalog.shoppingEnabled)
     return null;
   const secret = env.ORDER_GATEWAY_SECRET || "",
     keyId = env.ORDER_GATEWAY_KEY_ID || "";

@@ -114,7 +114,7 @@ export default function ReferenceStorefront({ catalog }: { catalog: Catalog }) {
     { label: 'Building Material', category: 'building-material' },
   ];
 
-  return <div className={styles.storefront}><Freshness generation={catalog.generation} />
+  return <div className={`${styles.storefront} ${!catalog.shoppingEnabled ? styles.inquiryStore : ''}`}><Freshness generation={catalog.generation} />
     <a className={styles.skipLink} href="#featured-products">Skip to products</a>
     <header>
       <div className={styles.topbar}><div className={styles.topbarInner}>
@@ -131,9 +131,14 @@ export default function ReferenceStorefront({ catalog }: { catalog: Catalog }) {
           <button type="submit" aria-label="Search"><Icon name="search" /></button>
         </form>
         <div className={styles.headerActions}>
-          <button type="button" className={styles.account} aria-label="Sign Account" onClick={() => setPanel('account')}><Icon name="account" /><span>Sign<br />Account <Icon name="chevron-down" /></span></button>
-          <WishlistButton className={styles.headerWishlist} icon={<Icon name="heart-header" />} main={catalog.settings?.main_whatsapp} />
-          <CartButton compact className={styles.cartAction} icon={<Icon name="cart-header" />} main={catalog.settings?.main_whatsapp} />
+          <button type="button" className={styles.account} aria-label={catalog.shoppingEnabled ? "Sign Account" : "Contact the store"} onClick={() => setPanel('account')}><Icon name="account" /><span>{catalog.shoppingEnabled ? <>Sign<br />Account</> : <>Contact<br />Store</>} <Icon name="chevron-down" /></span></button>
+          {catalog.shoppingEnabled ? <>
+            <WishlistButton className={styles.headerWishlist} icon={<Icon name="heart-header" />} main={catalog.settings?.main_whatsapp} />
+            <CartButton compact className={styles.cartAction} icon={<Icon name="cart-header" />} main={catalog.settings?.main_whatsapp} />
+          </> : <>
+            <a className={styles.headerWishlist} href={whatsapp()} target="_blank" rel="noopener noreferrer" aria-label="Secondary WhatsApp contact"><Icon name="whatsapp-top" /><span>WhatsApp<br />Secondary</span></a>
+            <a className={styles.cartAction} href={whatsapp(undefined, true)} target="_blank" rel="noopener noreferrer" aria-label="Main WhatsApp contact"><Icon name="whatsapp-top" /><span>WhatsApp<br />Main</span></a>
+          </>}
         </div>
       </div>
       <nav className={styles.navbar} aria-label="Product categories"><div className={styles.navInner}>
@@ -171,10 +176,10 @@ export default function ReferenceStorefront({ catalog }: { catalog: Catalog }) {
               {visible.map(product => <article key={product.id} className={styles.productCard}>
                 <Link prefetch={false} href={`/product/${product.slug}`} data-product-id={product.id} className={styles.productImage}><Media image={catalog.products.find(item=>item.id===product.id)?.gallery[0]} enabled={catalog.mediaEnabled} className={styles.productPhoto}/></Link>
                 <div className={styles.productInfo}><h3><Link prefetch={false} href={`/product/${product.slug}`} data-product-id={product.id}>{product.name}</Link></h3><p>{product.brand}</p><strong className={styles.price}>{product.inquiry ? 'Request current rate' : <>{product.currency||"PKR"} <b>{money(product.price)}</b></>}</strong>
-                  <WhatsAppInquiry product={catalog.products.find(item=>item.id===product.id)!} number={catalog.settings?.main_whatsapp} origin={catalog.siteOrigin} className={styles.productInquiry} />
-                  <div className={styles.productActions}>{product.inquiry ? <QuotationAction product={catalog.products.find(item=>item.id===product.id)!} enabled={catalog.ordersEnabled} className={styles.addToCart} main={catalog.settings?.main_whatsapp} origin={catalog.siteOrigin} /> : <button type="button" className={styles.addToCart} onClick={() => add(product)}><Icon name="cart-button" />Add to Cart</button>}
+                  <WhatsAppInquiry product={catalog.products.find(item=>item.id===product.id)!} number={catalog.settings?.main_whatsapp} origin={catalog.siteOrigin} className={`${styles.productInquiry} ${!catalog.shoppingEnabled ? styles.inquiryOnly : ''}`} />
+                  {catalog.shoppingEnabled && <div className={styles.productActions}>{product.inquiry ? <QuotationAction product={catalog.products.find(item=>item.id===product.id)!} enabled={catalog.ordersEnabled} className={styles.addToCart} main={catalog.settings?.main_whatsapp} origin={catalog.siteOrigin} /> : <button type="button" className={styles.addToCart} onClick={() => add(product)}><Icon name="cart-button" />Add to Cart</button>}
                     <button type="button" className={`${styles.wishlistButton} ${wishlist.includes(product.id) ? styles.saved : ''}`} aria-label={`${wishlist.includes(product.id) ? 'Remove' : 'Save'} ${product.name} ${wishlist.includes(product.id) ? 'from' : 'to'} wishlist`} aria-pressed={wishlist.includes(product.id)} onClick={() => toggleWishlist(product)}><Icon name="heart-product" /></button>
-                  </div>
+                  </div>}
                 </div>
               </article>)}
             </div>

@@ -10,6 +10,7 @@ import { seedCatalog } from '../tests/phase5/fixture.mjs';
 import { orderFixture } from '../tests/phase6/fixture.mjs';
 
 const baseline = process.argv.includes('--baseline');
+const inquiryOnly = process.argv.includes('--inquiry-only');
 const dir = 'work/phase5-launch';
 mkdirSync(dir, { recursive: true });
 const f = await startFixture();
@@ -38,6 +39,7 @@ try {
   const env = { ...process.env };
   for (const key of Object.keys(env)) if (/^(ADMIN_|CATALOG_|ORDER_|ANALYTICS_|GA4_|SUPABASE_|VERCEL_|NEXT_PUBLIC_SUPABASE_)/.test(key)) delete env[key];
   Object.assign(env, { NEXT_TELEMETRY_DISABLED: '1', ADMIN_ENABLED: 'false', CATALOG_ENABLED: 'true', CATALOG_ENVIRONMENT: 'local', CATALOG_SUPABASE_URL: f.url, CATALOG_SUPABASE_PUBLISHABLE_KEY: 'local-test-publishable-key', CATALOG_SITE_ORIGIN: base, CATALOG_MEDIA_ENABLED: 'true', CATALOG_INDEXING_ENABLED: 'false', ORDER_REQUESTS_ENABLED: 'false', ANALYTICS_ENABLED: 'false', NEXT_PUBLIC_SUPABASE_URL: f.url, NEXT_PUBLIC_SUPABASE_ANON_KEY: 'local-test-publishable-key' });
+  if (inquiryOnly) Object.assign(env, { CATALOG_SHOPPING_ENABLED: 'false', ORDER_REQUESTS_ENABLED: 'true', ORDER_GATEWAY_KEY_ID: 'local-inquiry-denied', ORDER_GATEWAY_SECRET: 'a'.repeat(64) });
   app = spawn(process.execPath, ['node_modules/next/dist/bin/next', 'start', '--hostname', '127.0.0.1', '--port', '3100'], { env, stdio: ['ignore', 'pipe', 'pipe'] });
   for (const stream of [app.stdout, app.stderr]) stream.on('data', data => { log = (log + data).slice(-20000); });
   let ready = false;
@@ -77,6 +79,57 @@ try {
       await capture(path, `${name}-mobile`, 390);
     }
     console.log('Captured existing build before the WhatsApp update.');
+  } else if (inquiryOnly) {
+    await check('Production always disables shopping, including an attempted environment opt-in', async () => {
+      const { storefrontConfig } = await import('../src/lib/storefront/config.ts');
+      const config = storefrontConfig({ CATALOG_ENABLED: 'true', CATALOG_ENVIRONMENT: 'production', CATALOG_SUPABASE_URL: 'https://example.supabase.co', CATALOG_SITE_ORIGIN: 'https://shop.example.test', CATALOG_SUPABASE_PUBLISHABLE_KEY: 'local-test-publishable-key', CATALOG_SHOPPING_ENABLED: 'true' });
+      assert.equal(config.shoppingEnabled, false);
+    });
+    await check('Catalog, search and product pages offer WhatsApp without cart, wishlist or checkout controls', async () => {
+      for (const path of ['/', '/category/sanitary', '/brand/porta', '/search?q=Local', '/product/local-fixture-1', '/product/local-fixture-16']) {
+        await page.goto(path); await settle();
+        await expect(page.getByRole('button', { name: /Cart|Checkout|Wishlist/i })).toHaveCount(0);
+        assert(await page.getByRole('link', { name: /^WhatsApp inquiry for / }).count() > 0, path);
+      }
+      await page.goto('/product/local-fixture-1');
+      const detail = page.locator('section[class*="detail"]').first();
+      await expect(detail).toContainText('PKR 100');
+      const link = detail.getByRole('link', { name: 'WhatsApp inquiry for Local fixture 01', exact: true });
+      const text = new URL(await link.getAttribute('href')).searchParams.get('text');
+      assert(text.includes('SKU: LOCAL-P5-1') && text.includes(`${base}/product/local-fixture-1`));
+      await page.goto('/product/local-fixture-16');
+      await expect(page.locator('section[class*="detail"]').first()).toContainText('WhatsApp Today’s Rate');
+    });
+    await check('Cart and order intake fail closed even if an order-enabled variable is supplied', async () => {
+      assert.equal((await context.request.get('/api/catalog/cart')).status(), 404);
+      assert.equal((await context.request.get('/api/order-requests/session')).status(), 200);
+      assert.equal((await (await context.request.get('/api/order-requests/session')).json()).enabled, false);
+      for (const path of ['/api/order-requests', '/api/order-requests/preview']) assert.equal((await context.request.post(path, { data: {} })).status(), 503);
+      for (const path of ['/checkout', '/api/payments', '/product/private-draft-sentinel']) assert.equal((await context.request.get(path)).status(), 404);
+    });
+    await check('Mobile and desktop retain both contact links without document overflow', async () => {
+      for (const width of [320, 390, 1200]) {
+        await page.setViewportSize({ width, height: 844 }); await page.goto('/'); await settle();
+        await expect(page.getByRole('link', { name: 'Main WhatsApp contact', exact: true }).last()).toBeVisible();
+        await expect(page.getByRole('link', { name: 'Secondary WhatsApp contact', exact: true })).toBeVisible();
+        assert(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1));
+      }
+    });
+    await check('Inquiry release captures retain approved hero pixels; only action controls change', async () => {
+      for (const [path, name] of [['/', 'home'], ['/category/sanitary', 'sanitary']]) {
+        for (const [width, label] of [[1200, 'desktop'], [390, 'mobile']]) {
+          await capture(path, `${name}-${label}`, width);
+          const before = `${dir}/before-${name}-${label}-hero.png`, after = `${dir}/after-${name}-${label}-hero.png`;
+          if (!existsSync(before)) continue;
+          const a = await sharp(before).raw().toBuffer({ resolveWithObject: true }), b = await sharp(after).raw().toBuffer({ resolveWithObject: true });
+          assert.deepEqual(b.info, a.info); assert(a.data.equals(b.data)); visualComparisons++;
+        }
+      }
+      await capture('/product/local-fixture-1', 'product-mobile', 390);
+      await capture('/category/building-material', 'materials-mobile', 390);
+    });
+    assert.deepEqual(errors, []);
+    writeFileSync(`${dir}/inquiry-results.json`, JSON.stringify({ timestamp: new Date().toISOString(), runtime: process.version, scope: 'Changed Catalog + WhatsApp-only release profile; isolated local data, no completed full-commerce suites rerun', checks, results, heroPixelComparisons: visualComparisons, cartCheckoutPaymentsEnabled: false, orderOptInOverrideDenied: true, productionOperations: 0 }, null, 2) + '\n');
   } else {
     await check('Anonymous raw tables and role self-assignment denied; published views only', async () => {
       assert.throws(() => f.sql(f.as(null, 'SELECT * FROM public.products;')), /permission denied/);

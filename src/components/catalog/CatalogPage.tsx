@@ -70,6 +70,7 @@ export function ProductCard({
           product={product}
           main={catalog.settings?.main_whatsapp}
           origin={catalog.siteOrigin}
+          shoppingEnabled={catalog.shoppingEnabled}
         />
       </div>
     </article>
@@ -540,6 +541,7 @@ export function ProductPage({ catalog, filtered = false }: { catalog: Catalog; f
               product={product}
               main={catalog.settings?.main_whatsapp}
               origin={catalog.siteOrigin}
+              shoppingEnabled={catalog.shoppingEnabled}
             />
             {product.category && (
               <Link
