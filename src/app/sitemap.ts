@@ -5,8 +5,12 @@ import { storefrontConfig } from "@/lib/storefront/config";
 import { catalogSitemap } from "@/lib/seo/catalog-policy";
 import type { PublicRoute } from "@/lib/catalog/publication";
 import { context } from "@/lib/storefront/seo";
+import { businessIndexingEnabled, businessPages } from "@/lib/storefront/business-seo";
+import { businessSiteOrigin, emptyCatalogMode } from "@/lib/storefront/business-site";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   await connection();
+  if (emptyCatalogMode()) return businessIndexingEnabled()
+    ? Object.keys(businessPages).map(path => ({ url: new URL(path, businessSiteOrigin()).href })) : [];
   const config = storefrontConfig();
   if (!config?.indexingEnabled) return [];
   const client = publicCatalogClient()!;

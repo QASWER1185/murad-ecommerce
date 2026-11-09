@@ -1,0 +1,7 @@
+# Proposed Production-only setting for the reviewed post-launch PR.
+# Apply only with the separate merge/deployment approval. Do not edit VERCEL_ENV;
+# Vercel supplies it. Previews and development remain noindex even with this flag.
+BUSINESS_INDEXING_ENABLED=true
+# Keep BUSINESS_SITE_MODE=empty-catalog and the existing ten release settings.
+# This flag permits only /, /about and /contact. It enables no database/catalog,
+# media, Auth, Admin, cart, checkout, payments or analytics integration.

@@ -53,9 +53,9 @@ export function Header({
             Pakistan
           </span>
           <span className={styles.assurances}>
-            <span>100% Genuine Products</span>
-            <span>Trusted Brands</span>
-            <span>Expert Guidance</span>
+            <span>Lahore Store</span>
+            <span>Brand Enquiries</span>
+            <span>WhatsApp Contact</span>
           </span>
         </div>
         <div className={styles.headerRow}>
@@ -64,7 +64,7 @@ export function Header({
           </Link>
           <form className={styles.headerSearch} role="search" action="/search">
             <label className="sr-only" htmlFor="catalog-search">
-              Search for products, brands, models
+              {catalog.emptyCatalog ? "Search brands and categories" : "Search for products, brands, models"}
             </label>
             <input
               id="catalog-search"
@@ -72,7 +72,7 @@ export function Header({
               defaultValue={query}
               type="search"
               maxLength={120}
-              placeholder="Search for products, brands, models…"
+              placeholder={catalog.emptyCatalog ? "Search brands and categories…" : "Search for products, brands, models…"}
             />
             <button aria-label="Search products">Search</button>
           </form>
@@ -80,7 +80,7 @@ export function Header({
           <div className={styles.account}>
             <a
               href={enquiry(
-                "account and order assistance",
+                "product information and current rates",
                 catalog.settings?.main_whatsapp,
               )}
             >
@@ -118,11 +118,11 @@ export function Header({
           <a
             className={styles.deals}
             href={enquiry(
-              "available deals and offers",
+              "product information and current rates",
               catalog.settings?.main_whatsapp,
             )}
           >
-            Deals &amp; Offers
+            WhatsApp Inquiry
           </a>
         </nav>
       </header>
@@ -135,10 +135,10 @@ export function Footer({ catalog }: { catalog: Catalog }) {
       <WhatsAppContact number={catalog.settings?.main_whatsapp} />
       <section className={styles.services} aria-label="Store services">
         {[
-          ["delivery", "Nationwide Delivery", "Across Pakistan"],
-          ["shield", "Genuine Products", "100% Original Brands"],
-          ["payment", "Secure Shopping", "Safe & Reliable"],
-          ["returns", "Easy Returns", "Hassle-Free Process"],
+          ["delivery", "Delivery Enquiries", "Ask about your location"],
+          ["shield", "Brand Enquiries", "Discuss your requirements"],
+          ["payment", "WhatsApp Enquiries", "Speak with our team"],
+          ["returns", "Purchase Assistance", "Ask before ordering"],
           ["support", "Customer Support", "0308-6235608 (WhatsApp)"],
         ].map(([icon, title, text]) => (
           <div key={icon}>
@@ -166,9 +166,9 @@ export function Footer({ catalog }: { catalog: Catalog }) {
           <Link prefetch={false} href="/brands">
             Shop by Brand
           </Link>
-          <a href={enquiry(undefined, catalog.settings?.main_whatsapp)}>
-            Contact Us
-          </a>
+          <Link prefetch={false} href="/about">About Us</Link>
+          <Link prefetch={false} href="/contact">Contact Us</Link>
+          <Link prefetch={false} href="/privacy">Privacy</Link>
         </div>
         <div>
           <h2>Categories</h2>
@@ -198,15 +198,7 @@ export function Footer({ catalog }: { catalog: Catalog }) {
           </p>
         </div>
         <div>
-          <h2>Follow Us</h2>
-          <span
-            className={styles.socialIcons}
-            role="img"
-            aria-label="Facebook, Instagram, YouTube and TikTok"
-          />
-        </div>
-        <div>
-          <h2>Contact &amp; Orders</h2>
+          <h2>WhatsApp Contacts</h2>
           <ContactButtons catalog={catalog} />
         </div>
       </footer>

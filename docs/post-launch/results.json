@@ -1,0 +1,26 @@
+{
+  "timestampUTC": "2026-11-09T16:42:32.828Z",
+  "runtime": "v26.13.0",
+  "checks": 8,
+  "results": [
+    "Business indexing is an exact three-page allowlist with matching headers, metadata, canonicals and sitemap",
+    "Verified About/Contact and release-specific Privacy information, consistent branding and no inactive social controls",
+    "Porta and category search returns existing collection links, handles no matches and escapes input",
+    "Approved category order, all homepage links, single hero enquiry and category-specific symbols",
+    "Both WhatsApp buttons open the correct numbers and building-material rate messages without sending",
+    "Mobile navigation, readable WhatsApp targets, desktop/mobile screenshots and accessibility",
+    "Conflicting backend flags cannot activate Admin, private products, media, carts or payments",
+    "Preview and explicit flag-off profiles fail closed for indexing and never expose product URLs"
+  ],
+  "backendRequests": 0,
+  "outsideRequests": 0,
+  "browserErrors": 0,
+  "productsPublished": 0,
+  "productionChanges": 0,
+  "indexablePaths": [
+    "/",
+    "/about",
+    "/contact"
+  ],
+  "previewAndFlagOffNoindex": true
+}

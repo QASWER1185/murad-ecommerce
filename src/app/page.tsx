@@ -4,7 +4,11 @@ import ReferenceStorefront from "@/components/home/ReferenceStorefront";
 import { getCatalog } from "@/lib/storefront/server";
 import { storefrontConfig } from "@/lib/storefront/config";
 import { emptyCatalogMode, businessSiteOrigin } from "@/lib/storefront/business-site";
-export function generateMetadata() {
+import { businessMetadata } from "@/lib/storefront/business-seo";
+import { connection } from "next/server";
+export async function generateMetadata({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
+  await connection();
+  if (emptyCatalogMode()) return businessMetadata("/", Object.keys(await searchParams).length > 0);
   const config = storefrontConfig();
   const origin = emptyCatalogMode() ? businessSiteOrigin() : config?.origin;
   return {

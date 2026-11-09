@@ -13,7 +13,8 @@
       "development/controlled-launch-prep": false,
       "development/production-gate1-inspection": false,
       "development/whatsapp-launch-readiness": false,
-      "development/empty-business-site": false
+      "development/empty-business-site": false,
+      "development/post-launch-polish": false
     }
   }
 }

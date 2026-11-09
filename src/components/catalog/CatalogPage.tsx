@@ -2,7 +2,7 @@ import { ProductView, SearchEvent } from "@/components/analytics/Analytics";
 import { Gallery } from "./Gallery";
 import Link from "next/link";
 import type { Catalog, Product, Query, Taxonomy } from "@/lib/storefront/types";
-import { money, queryString } from "@/lib/storefront/query";
+import { money, queryString, enquiry } from "@/lib/storefront/query";
 import {
   shopBrands,
   productTypes,
@@ -15,7 +15,7 @@ import { productSchema, jsonLd } from "@/lib/storefront/seo";
 import styles from "@/components/sanitary/SanitaryShop.module.css";
 import "./catalog.css";
 import { EmptyCatalog } from "./EmptyCatalog";
-import { approvedBusinessAsset } from "@/lib/storefront/business-site";
+import { approvedBusinessAsset, approvedCategorySymbol, searchBusinessCollections } from "@/lib/storefront/business-site";
 export function Price({ product }: { product: Product }) {
   return (
     <strong className={styles.price}>
@@ -287,12 +287,13 @@ export function CatalogPage({
   const sanitary = kind === "category" && entity?.slug === "sanitary";
   const path = kind === "search" ? "/search" : `/${kind}/${entity?.slug}`;
   const title =
-    kind === "search" ? "Search products" : entity?.name || "Catalog";
+    kind === "search" ? "Search brands and categories" : entity?.name || "Catalog";
   const heroAsset = (
     kind === "category" ? catalog.categories : catalog.brands
   ).find((item) => item.id === entity?.id)?.asset;
   const items = [{ name: title, path }];
   const businessAsset = catalog.emptyCatalog && entity ? approvedBusinessAsset(kind, entity.slug) : null;
+  const businessMatches = kind === "search" && catalog.emptyCatalog ? searchBusinessCollections(query.q) : [];
   return (
     <div className={styles.shop}>
       {kind === "search" && (
@@ -301,10 +302,18 @@ export function CatalogPage({
       <Header catalog={catalog} query={query.q} />
       <main className={styles.main}>
         <Breadcrumbs items={items} />
-        <section className={styles.hero}>
+        {kind === "search" && catalog.emptyCatalog ? <section className="business-search-results" aria-label="Brand and category search results">
+          <h1>{title}</h1>
+          <p>{query.q ? <>Results for “{query.q}”</> : "Explore our existing brands and categories."}</p>
+          <div className="business-collection-links">
+            {businessMatches.map(record => <Link key={record.id} href={record.canonical_path!}>{record.name}</Link>)}
+          </div>
+          {!businessMatches.length && <p>No matching brands or categories. Ask the store about “{query.q}” on WhatsApp below.</p>}
+          <p>Our verified online product listings are still being prepared.</p>
+        </section> : <section className={styles.hero}>
           <div>
-            <span className={styles.showerSymbol} />
-            <p>Premium Category</p>
+            {(sanitary || kind === "category") && <span aria-hidden="true" data-category-icon={entity?.slug} className={styles.showerSymbol} style={!sanitary && entity ? { backgroundImage: `url('${approvedCategorySymbol(entity.slug)}')` } : undefined} />}
+            <p>{kind === "brand" ? "Brand Enquiries" : "Explore Our Collections"}</p>
             <h1>
               {sanitary ? (
                 <>
@@ -329,19 +338,19 @@ export function CatalogPage({
               )}
             </p>
             <ul className={styles.heroBadges}>
-              <li>Top Brands</li>
-              <li>Modern Designs</li>
-              <li>Durable Quality</li>
+              <li>Lahore Store</li>
+              <li>WhatsApp Enquiries</li>
+              <li>Contact Our Team</li>
             </ul>
-            <a className={styles.gold} href="#catalog">
-              Shop Now
+            <a className={styles.gold} href={enquiry(entity?.slug === "building-material" ? "today’s rates for cement, sand, gravel and bricks" : title, catalog.settings?.main_whatsapp)} target="_blank" rel="noopener noreferrer">
+              {entity?.slug === "building-material" ? "Ask Today’s Rate" : "WhatsApp Inquiry"}
             </a>
           </div>
           <div
             className={styles.heroPhoto}
             style={
               !sanitary && businessAsset
-                ? { backgroundImage: `url('${businessAsset}')`, backgroundColor: "#fff", backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center" }
+                ? { backgroundImage: `url('${businessAsset}')`, backgroundColor: "#fff", backgroundSize: kind === "brand" ? "auto 60px" : entity?.slug === "building-material" ? "contain" : "120px auto", backgroundRepeat: "no-repeat", backgroundPosition: "center" }
                 : !sanitary
                 ? { backgroundImage: "none", backgroundColor: "#e9edf1" }
                 : undefined
@@ -367,7 +376,7 @@ export function CatalogPage({
               </span>
             )}
           </div>
-        </section>
+        </section>}
         {sanitary ? (
           <Brands catalog={catalog} />
         ) : (
@@ -414,7 +423,7 @@ export function CatalogPage({
                 ))}
               </div>
             ) : catalog.emptyCatalog ? (
-              <EmptyCatalog title={title} quotation={entity?.slug === "building-material"} main={catalog.settings?.main_whatsapp} secondary={catalog.settings?.secondary_whatsapp} />
+              <EmptyCatalog title={kind === "search" && query.q ? query.q : title} quotation={entity?.slug === "building-material"} main={catalog.settings?.main_whatsapp} secondary={catalog.settings?.secondary_whatsapp} />
             ) : (
               <div className={styles.empty}>
                 <h3>No matching products</h3>
@@ -465,8 +474,8 @@ export function CatalogPage({
                   <br />
                   from Genuine Brands
                 </h2>
-                <a className={styles.gold} href="#catalog">
-                  Shop Now
+                <a className={styles.gold} href={enquiry("sanitary and bathroom requirements", catalog.settings?.main_whatsapp)} target="_blank" rel="noopener noreferrer">
+                  WhatsApp Inquiry
                 </a>
                 <span>Basins · Mixers · Showers · Vanities · Accessories</span>
               </div>
@@ -474,14 +483,14 @@ export function CatalogPage({
             </section>
             <section className={styles.explore}>
               <h2>Explore Separate Brand Pages</h2>
-              <p>Browse the product range from each brand</p>
+              <p>Contact the store about each brand</p>
               <div>
                 {shopBrands.map((brand) => (
                   <Link
                     prefetch={false}
                     href={`/brand/${brand.slug}`}
                     key={brand.slug}
-                    aria-label={`View Brand Products → — ${brand.name}`}
+                    aria-label={`Explore ${brand.name}`}
                   >
                     <span
                       className={styles.exploreLogo}
