@@ -1,7 +1,11 @@
 # Production release Gate 1 — read-only inspection
 
-**Supabase inspection: PASS within metadata-only scope. Vercel inspection: BLOCKED
-(403). Gate 2 execution: NOT APPROVED / not safe to begin yet.**
+**Supabase inspection: PASS within its recorded metadata scope. Vercel access and
+production deployment metadata: PASS after team approval. Production release
+remains BLOCKED; Gate 2 is NOT APPROVED / not safe to begin yet.**
+
+Read the [final readiness assessment](final-readiness-assessment.md), including
+the exact deployment, twelve-commit comparison, Node 26 review and Gate 2 proposal.
 
 **ERP ISOLATION NOT VERIFIED — PRODUCTION CHANGES BLOCKED.**
 
@@ -20,7 +24,7 @@ Reports use Asia/Karachi; evidence timestamps are UTC.
 | Privilege hygiene | FAIL for target least privilege | anon/authenticated hold broad table grants including TRUNCATE; row RLS is not a substitute for revoking excessive capabilities |
 | Storage metadata | PASS observed / acceptance NOT VERIFIED | No bucket rows returned; buckets/objects RLS enabled, no policies returned. No object/file query performed |
 | Auth settings / actual backups | NOT VERIFIED | Service tables exist; no configuration/backup inventory capability exposed by current metadata tools; no users/tokens read |
-| Vercel team/project | BLOCKED | Exact scoped project listing denied 403; actual deployment SHA/runtime/env names/domains/limits unverified |
+| Vercel team/project | PASS for current read-only scope | Access restored; canonical production READY at c73b01b, current project Node 26.x. Full candidate runtime/hosting acceptance remains unverified |
 | ERP isolation | NOT VERIFIED, critical | E-commerce metadata alone cannot prove separate Auth/credentials/integrations or absence of external ERP use |
 | Later gates | BLOCKED | No backup, restore, migration, feature activation, merge or deployment authorized |
 
@@ -32,6 +36,7 @@ timeouts are inspection bounds, not persistent database configuration changes.
 
 ## Reports
 
+- [Final readiness assessment](final-readiness-assessment.md)
 - [Supabase inventory](supabase-inventory.md)
 - [Actual migration drift](migration-drift.md)
 - [Vercel access/configuration limits](vercel-inventory.md)
@@ -54,8 +59,9 @@ commit `f4deb663ac4b3d372d22be6d39f5f034334a7005` and targets
 `development/controlled-launch-prep`. Changes are Gate 1 reports/evidence plus the
 single branch-specific `vercel.json` exclusion approved on **9 November 2026
 (Asia/Karachi)**. App source, artwork, SQL, dependencies and every other existing
-configuration value remain unchanged. Original production observations retain
-their inspection timestamps; this exception does not refresh production metadata.
+configuration value remain unchanged. Supabase observations retain the 8 November inspection timestamp. The later
+read-only Vercel refresh is separately timestamped; the Git exclusion itself
+does not inspect or alter production.
 
 **PASS — Git deployment prevention verified before the first branch push.**
 The added rule is exactly:
@@ -76,9 +82,9 @@ alone. No manual deployment command or Vercel settings change is authorized/run.
 [Pre-push safety evidence](evidence/deployment-safety.json) records the exact config
 SHA256 and checks; [changed-file inventory](evidence/file-inventory.json) lists the
 complete scope. Draft publication is authorized by the limited exception. The
-historical Vercel owning-team 403 still blocks hosting metadata inspection; it
-is separate from the documented repository Git exclusion. No live deployment
-inventory or provider security acceptance is claimed.
+prior Vercel owning-team 403 is resolved for the subsequent read-only metadata
+checks. Fresh sanitized evidence and its limits are in the final assessment. No
+provider security/application acceptance is claimed.
 
 Build/application tests were not rerun for reports plus a boolean Git-trigger
 exclusion. JSON validity, exact config preservation, branch matching, docs links,

@@ -6,15 +6,15 @@
 | Critical — BLOCKED | Gate 2 authority/recovery target | Exact source/destination/operator/data scope, encrypted retention, capacity, DB + binary archive/restore verification approved separately |
 | Critical — FAIL release parity | Ten migrations absent | Gate 3 review of current legacy schema, live data impact and compatible staged installation; never replay original seed |
 | Critical — FAIL target privacy | Unrestricted legacy raw SELECT / broad grants | Reviewed least-privilege/public-view transition coordinated with app; no fixes applied in Gate 1 |
-| Critical — BLOCKED | Vercel identity/deployment/config inspection | Owning-team 403 resolved through provider grant; exact project verified before further reads |
-| Critical — NOT VERIFIED | Actual running app/DB compatibility | Verify live deployed SHA, runtime/build/env-name scopes, aliases and maintenance admission without reading secret values |
+| Access resolved — PASS basic metadata | Vercel team/project/deployment | Owner consent succeeded; exact production READY/SHA and current Node setting verified. Historical 403 is closed for these reads |
+| Critical — BLOCKED for cutover | App/DB and full runtime acceptance | Live main c73b01b verified. Ten migrations absent in last snapshot; Node 26 candidate tests, effective env/hosting limits and maintenance admission still need acceptance |
 | Critical — BLOCKED | Production feature activation | Candidate hard gates closed; separately reviewed production-mode code and per-feature acceptance; no environment-only workaround |
 | Critical for affected feature — NOT VERIFIED | Hosted Auth/Storage/orders/worker/privacy | Provider-level acceptance before opening each path; no synthetic local PASS promoted |
 | High — NOT VERIFIED | Hosting capacity/backup inventory | Function body/time/RSS/pool headroom and actual backup capability; max_connections=60 is not load certification |
 | High — prior local target unmet | LCP/XLSX/contrast | PR #11 local performance/contrast findings remain historical constraints; no new hosted measurement |
 | Publication — PASS repository safeguard | Limited branch exclusion approved and verified | Exact branch false; nine prior exclusions preserved; no true/wildcard override or tracked CI deployment workflow; see deployment-safety evidence |
 
-Gate 1 is an inspection, not authorization to repair these conditions. All nine
+Gate 1 is an inspection, not authorization to repair these conditions. All ten
 reports and non-sensitive evidence are prepared for the authorized Draft PR. No existing PR was
 merged or closed. No production application/SQL/hosting configuration changed.
 
@@ -33,3 +33,7 @@ merged or closed. No production application/SQL/hosting configuration changed.
 The full future procedure is [PR #11's cutover plan](../controlled-launch-prep/production-cutover-runbook.md).
 Actual production evidence here updates its unknown-schema gate; remaining
 provider/ERP/recovery unknowns are not waived.
+
+See [final assessment](final-readiness-assessment.md) for the twelve commits,
+Node support evidence and prioritized Gate 2 proposal. Restored metadata access
+does not approve Gate 2 or erase ERP/recovery/security blockers.

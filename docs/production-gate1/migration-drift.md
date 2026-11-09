@@ -47,10 +47,11 @@ current live app commit were not validated by this inspection.
 ## Compatibility consequence
 
 Repository main has legacy raw-table catalog queries. The candidate uses new
-public projections/RPCs and guarded authorization. Actual Vercel deployed SHA/
-branch is BLOCKED by 403, so repository main must not be asserted as the observed
-live deployment. If a legacy app is running, restrictive foundation migrations
-will break its direct reads. Deploying the candidate against only the old schema
+public projections/RPCs and guarded authorization. Subsequent read-only Vercel metadata verified production main at
+`c73b01b93c4093edefe1c00e34299a9041ea5bef`, whose source uses legacy raw-table
+reads. See [fresh deployment evidence](evidence/vercel-current-inspection.json).
+Restrictive foundation migrations beneath that application would break its direct
+reads. Deploying the candidate against only the old schema
 also leaves required views/functions absent.
 
 Gate 3 must review this ten-migration gap, real schema/dependency impacts and a

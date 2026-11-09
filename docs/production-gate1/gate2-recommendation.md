@@ -34,9 +34,11 @@ A concrete next approval should identify:
    production restore, DDL/DML, Auth mutation, credential rotation, migration,
    deployment, merge, schedule, notification, publication or indexing activation.
 
-Before Vercel-dependent planning completes, authorize the current integration for
-the exact owning team, verify project identity and collect only safe deployment/
-framework/build/domain/limit and variable-name/scope metadata. No secret values.
+Vercel team access and exact project/production deployment identity are now
+verified. Current Node setting and project-level variable-name/scope metadata are
+available without values; full runtime/build/hosting-limit and effective-env
+acceptance remain incomplete. No further team-consent step is currently required
+for the successful metadata reads. See the final assessment for exact evidence.
 Gate 2 backup does not imply permission for Gates 3–6.
 
 The **Git publication safeguard** was separately approved and verified for this

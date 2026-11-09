@@ -1,0 +1,22 @@
+{
+  "timestampUTC": "2026-11-09T10:32:06.320210+00:00",
+  "configuredVercelNodeMajor": "26.x",
+  "productionDeclaredNext": "16.4.5",
+  "candidateDeclaredNext": "16.4.5",
+  "versionedNextNodeRequirement": ">=20.9.0",
+  "node26MeetsDeclaredEngine": true,
+  "vercelDocumentsNode26Available": true,
+  "productionEnginePin": null,
+  "candidateEnginePin": null,
+  "recordedLocalRuntime": "v24.22.1",
+  "localRuntimeEvidence": "../../phase8-part-a/evidence/summary.json",
+  "candidateNode26RegressionExecuted": false,
+  "perDeploymentHistoricalNodeVersionVerified": false,
+  "assessment": "Supported platform version and declared engine range; full candidate runtime acceptance on Node 26 remains NOT VERIFIED",
+  "sources": [
+    "https://registry.npmjs.org/next/16.4.5",
+    "https://vercel.com/docs/functions/runtimes/node-js/node-js-versions",
+    "https://github.com/QASWER1185/murad-ecommerce/blob/c73b01b93c4093edefe1c00e34299a9041ea5bef/package.json",
+    "https://github.com/QASWER1185/murad-ecommerce/blob/f4deb663ac4b3d372d22be6d39f5f034334a7005/package.json"
+  ]
+}

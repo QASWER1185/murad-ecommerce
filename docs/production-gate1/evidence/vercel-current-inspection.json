@@ -1,0 +1,71 @@
+{
+  "timestampUTC": "2026-11-09T10:32:04.486Z",
+  "reportTimezone": "Asia/Karachi",
+  "scope": "Read-only verified e-commerce Vercel metadata; no production settings or other resources changed",
+  "project": {
+    "id": "prj_OXReC9drbCnKpRDc1KdPrLyMvbFU",
+    "name": "murad-ecommerce",
+    "accountId": "team_aLiRohDtAAZqq656cMy1Hwzz",
+    "framework": "nextjs",
+    "nodeVersion": "26.x",
+    "teamId": "team_aLiRohDtAAZqq656cMy1Hwzz"
+  },
+  "canonicalProduction": {
+    "id": "dpl_JBtpFzJHEfCJud4eAH2UfFhijUWa",
+    "name": "murad-ecommerce",
+    "target": "production",
+    "status": "READY",
+    "url": "murad-ecommerce-koyqagyue-kelidexpipes-5464s-projects.vercel.app",
+    "alias": [
+      "murad-ecommerce.vercel.app",
+      "murad-ecommerce-kelidexpipes-5464s-projects.vercel.app",
+      "murad-ecommerce-git-main-kelidexpipes-5464s-projects.vercel.app"
+    ],
+    "commit": "c73b01b93c4093edefe1c00e34299a9041ea5bef",
+    "branch": "main",
+    "repo": "murad-ecommerce",
+    "owner": "QASWER1185",
+    "createdAt": 1794069186934,
+    "buildingAt": 1794069187904,
+    "ready": 1794069199773,
+    "buildError": null,
+    "aliasVerified": "murad-ecommerce.vercel.app",
+    "buildResult": "READY; no errorCode reported",
+    "buildLogsRead": false,
+    "applicationAcceptanceTestsRun": false,
+    "reportedBuildingToReadyMs": 11869
+  },
+  "sources": {
+    "deploymentApi": "https://api.vercel.com/v13/deployments/dpl_JBtpFzJHEfCJud4eAH2UfFhijUWa",
+    "projectApi": "https://api.vercel.com/v9/projects/prj_OXReC9drbCnKpRDc1KdPrLyMvbFU",
+    "productionCommit": "https://github.com/QASWER1185/murad-ecommerce/commit/c73b01b93c4093edefe1c00e34299a9041ea5bef"
+  },
+  "access403Resolved": true,
+  "perDeploymentNodeVersionVerified": false,
+  "projectLevelEnvironmentMetadataFromPrecedingAccessCheck": {
+    "scope": "names/targets only, no values persisted",
+    "variables": [
+      {
+        "name": "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+        "targets": [
+          "production"
+        ],
+        "gitBranch": null,
+        "customEnvironmentIds": []
+      },
+      {
+        "name": "NEXT_PUBLIC_SUPABASE_URL",
+        "targets": [
+          "production"
+        ],
+        "gitBranch": null,
+        "customEnvironmentIds": []
+      }
+    ],
+    "inheritedAndSystemVariablesAudited": false
+  },
+  "supabaseQueriedForThisAssessment": false,
+  "erpAccessed": false,
+  "gate2Executed": false,
+  "providerMutations": 0
+}

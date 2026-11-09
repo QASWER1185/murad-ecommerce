@@ -14,9 +14,11 @@ No explicit ERP-named schema/bucket/link was observed in this narrow metadata.
 These are limited observations, not proof that no ERP client uses this project's
 Auth/API/credentials, quotas, integrations or storage resources.
 
-Vercel owning-team metadata is unavailable. Environment names/values, Git link,
-aliases/integration connections and external dependencies were not inspected.
-No conclusion about shared hosting or keys can be drawn. Different display names
+Vercel access was subsequently restored; e-commerce project/team, production Git
+commit and aliases were verified. Project-level environment names/scopes only were
+inspected in the preceding access check; no values or ERP resources were read.
+Shared credentials, integration connections and external dependencies remain
+unverified. No conclusion that ERP is isolated can be drawn. Different display names
 or a dedicated Supabase project reference alone are insufficient.
 
 Before Gate 2 or any production action, obtain owner-supplied non-secret isolation
